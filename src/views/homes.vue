@@ -184,7 +184,7 @@
                     <b-col>
             <div>
               <b-card
-                title="์Nankang Tyres"
+                title="Nankang Tyres"
                 img-src="https://picsum.photos/600/300/?image=25"
                 img-alt="Image"
                 img-top
@@ -230,7 +230,7 @@
                     <b-col>
             <div>
               <b-card
-                title="์Dunlop Tyres"
+                title="Dunlop Tyres"
                 img-src="https://picsum.photos/600/300/?image=25"
                 img-alt="Image"
                 img-top
@@ -276,7 +276,7 @@
                     <b-col>
             <div>
               <b-card
-                title="์Yokohama Tyres"
+                title="Yokohama Tyres"
                 img-src="https://picsum.photos/600/300/?image=25"
                 img-alt="Image"
                 img-top
@@ -303,9 +303,30 @@
         <div>
           <h4>บริการลูกค้า</h4>
           <p>กรุณาติดต่อฝ่ายบริการลูกค้าของเราหากมีคำถามใด ๆ เกี่ยวกับการเลือกยาง</p>
-          <h4>+66 091-889-5127
-เวลาทำการคอลเซนเตอร์</h4>
-<p>วันจันทร์ – ศุกร์ 08.30 น. – 17.00 น.</p>
+          <h4>+66 091-889-5127</h4>
+          <h4>เวลาทำการคอลเซนเตอร์</h4>
+          <p>วันจันทร์ – ศุกร์ 08.30 น. – 17.00 น.</p>
+        </div>
+      </div>
+      <div style="border-style: solid;border: 3px #A0A0A0;background-color: #282828;height: 200px;">
+        <br>
+        <br>
+        <div>
+          <b-row>
+            <b-col>
+              <h4 style="color: whitesmoke">สมัครสมาชิกตอนนี้และรับข้อเสนอพิเศษ</h4>
+            </b-col>
+            <b-col>
+              <b-row>
+              <b-col>
+                <b-input style="width: 100%;" placeholder="โปรดใส่อีเมลล์ของคุณ"></b-input>
+              </b-col>
+              <b-col>
+                <b-button>ส่ง</b-button>
+              </b-col>
+              </b-row>
+            </b-col>
+          </b-row>
         </div>
       </div>
     </div>
