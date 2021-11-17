@@ -24,20 +24,20 @@
           </b-carousel-slide>
         </b-carousel>
       </div>
-      <div>
-        <div style="height: 300px; background-color: #f7b00d;width: 100%;">
+      <div id="size">
+        <div style="height: 300px; background-color: #f7b00d;">
           <br />
           <p style="font-size: 25px; font-weight: bold">ค้นหาตามขนาดยาง</p>
           <div>
-            <b-form-select v-model="selected1" :options="options" name="" id="">
+            <b-form-select style="width: 50%;font-size: 20px;margin: 5px;" v-model="selected1" :options="options" name="" id="">
             </b-form-select>
           </div>
           <div>
-            <b-form-select v-model="selected2" :options="options2" name="" id="">
+            <b-form-select style="width: 50%;font-size: 20px;margin: 5px;" v-model="selected2" :options="options2" name="" id="">
             </b-form-select>
           </div>
           <div>
-            <b-form-select v-model="selected3" :options="options3" name="" id="">
+            <b-form-select style="width: 50%;font-size: 20px;margin: 5px;" v-model="selected3" :options="options3" name="" id="">
             </b-form-select>
           </div>
           <br>
@@ -46,6 +46,266 @@
           </div>
           <br>
           <a href="">ไม่แน่ใจวิธีอ่านขนาดยางของคุณ ? คลิกที่นี่</a>
+        </div>
+      </div>
+      <div style="margin: 10px;">
+        <b-row>
+          <b-col cols="2"></b-col>
+          <b-col>
+            <div>
+              <b-card
+                title="ผ่อน 0%"
+                img-src="https://picsum.photos/600/300/?image=25"
+                img-alt="Image"
+                img-top
+                tag="article"
+                style="max-width: 20rem;"
+                class="mb-2"
+              >
+                <b-card-text>
+                  <p>นาน 10 เดือน</p>
+เลือกผ่อน 0% นาน 10 เดือน หรือรับส่วนลดเพิ่ม 5% เมื่อชำระเต็มจำนวน
+                </b-card-text>
+
+                <b-button href="#" variant="primary">เรียนรู้เพิ่มเติม</b-button>
+              </b-card>
+            </div>
+          </b-col>
+                    <b-col>
+            <div>
+              <b-card
+                title="ชำระเงินออนไลน์"
+                img-src="https://picsum.photos/600/300/?image=25"
+                img-alt="Image"
+                img-top
+                tag="article"
+                style="max-width: 20rem;"
+                class="mb-2"
+              >
+                <b-card-text>
+                  <p>ด้วยบัตรเครดิตหรือการโอนเงิน</p>
+                  ชำระเงินตามที่คุณต้องการด้วยระบบการชำระเงินที่ปลอดภัย
+                  <br>
+                </b-card-text>
+
+                <b-button href="#" variant="primary">เรียนรู้เพิ่มเติม</b-button>
+              </b-card>
+            </div>
+          </b-col>
+                    <b-col>
+            <div>
+              <b-card
+                title="ติดตั้งสะดวกที่ร้่านบริการใกล้บ้านคุณ"
+                img-src="https://picsum.photos/600/300/?image=25"
+                img-alt="Image"
+                img-top
+                tag="article"
+                style="max-width: 20rem;"
+                class="mb-2"
+              >
+                <b-card-text>
+                  ค้นหาศูนย์บริการที่มกล้คุณ พร้อมบริการติดตั้งฟรี จากร้านที่เข้าร่วมรายการ
+                  <br>
+                  <br>
+                </b-card-text>
+
+                <b-button href="#" variant="primary">เรียนรู้เพิ่มเติม</b-button>
+              </b-card>
+            </div>
+          </b-col>
+                    <b-col>
+            <div>
+              <b-card
+                title="แบรนด์ชั้นนำ"
+                img-src="https://picsum.photos/600/300/?image=25"
+                img-alt="Image"
+                img-top
+                tag="article"
+                style="max-width: 20rem;"
+                class="mb-2"
+              >
+                <b-card-text>
+                  เพียงกดค้นหาขนาดยางที่คุณต้องการ
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+                </b-card-text>
+
+                <b-button href="#" variant="primary">เรียนรู้เพิ่มเติม</b-button>
+              </b-card>
+            </div>
+          </b-col>
+          <b-col cols="2"></b-col>
+        </b-row>
+      </div>
+      <div style="background-color: #eaeaea;">
+        <div>
+          <p>แบรนด์ยอดนิยม</p>
+          <p>ตั้งแต่ปี 2008 เรามีความตั้งใจ</p>
+          <p>ทำให้การซื้อยางออนไลน์เป็นเรื่องง่ายที่สุด</p>
+          <p>ในขณะเดียวกันก็ให้มีสินค้าที่หลากหลาย</p>
+          <p>ไว้เป็นตัวเลือก และคุ้มค่ามากที่สุด</p>
+          <p>ไม่ว่าจะเป็นยางรถยนต์ราคาประหยัด</p>
+          <p>ระดับกลาง หรือระดับพรีเมียม</p>
+          <p>คุณจะพบว่าที่ TYREPAC มีสินค้าที่หลากหลาย</p>
+          <p>– จากผู้ผลิตยางรถยนต์ที่มีชื่อเสียงที่สุดในโลก –</p>
+        </div>
+        <b-row>
+          <b-col cols="2"></b-col>
+          <b-col>
+            <div>
+              <b-card
+                title="Toyo Tyres"
+                img-src="https://picsum.photos/600/300/?image=25"
+                img-alt="Image"
+                img-top
+                tag="article"
+                style="max-width: 20rem;"
+                class="mb-2"
+              >
+              </b-card>
+            </div>
+          </b-col>
+                    <b-col>
+            <div>
+              <b-card
+                title="Nitto Tyres"
+                img-src="https://picsum.photos/600/300/?image=25"
+                img-alt="Image"
+                img-top
+                tag="article"
+                style="max-width: 20rem;"
+                class="mb-2"
+              >
+              </b-card>
+            </div>
+          </b-col>
+                    <b-col>
+            <div>
+              <b-card
+                title="์Nankang Tyres"
+                img-src="https://picsum.photos/600/300/?image=25"
+                img-alt="Image"
+                img-top
+                tag="article"
+                style="max-width: 20rem;"
+                class="mb-2"
+              >
+              </b-card>
+            </div>
+          </b-col>
+          <b-col cols="2"></b-col>
+        </b-row>
+                <b-row>
+          <b-col cols="2"></b-col>
+          <b-col>
+            <div>
+              <b-card
+                title="Bridgestone Tyres"
+                img-src="https://picsum.photos/600/300/?image=25"
+                img-alt="Image"
+                img-top
+                tag="article"
+                style="max-width: 20rem;"
+                class="mb-2"
+              >
+              </b-card>
+            </div>
+          </b-col>
+                    <b-col>
+            <div>
+              <b-card
+                title="Continental Tyres"
+                img-src="https://picsum.photos/600/300/?image=25"
+                img-alt="Image"
+                img-top
+                tag="article"
+                style="max-width: 20rem;"
+                class="mb-2"
+              >
+              </b-card>
+            </div>
+          </b-col>
+                    <b-col>
+            <div>
+              <b-card
+                title="์Dunlop Tyres"
+                img-src="https://picsum.photos/600/300/?image=25"
+                img-alt="Image"
+                img-top
+                tag="article"
+                style="max-width: 20rem;"
+                class="mb-2"
+              >
+              </b-card>
+            </div>
+          </b-col>
+          <b-col cols="2"></b-col>
+        </b-row>
+                <b-row>
+          <b-col cols="2"></b-col>
+          <b-col>
+            <div>
+              <b-card
+                title="Goodyear Tyres"
+                img-src="https://picsum.photos/600/300/?image=25"
+                img-alt="Image"
+                img-top
+                tag="article"
+                style="max-width: 20rem;"
+                class="mb-2"
+              >
+              </b-card>
+            </div>
+          </b-col>
+                    <b-col>
+            <div>
+              <b-card
+                title="Mechelin Tyres"
+                img-src="https://picsum.photos/600/300/?image=25"
+                img-alt="Image"
+                img-top
+                tag="article"
+                style="max-width: 20rem;"
+                class="mb-2"
+              >
+              </b-card>
+            </div>
+          </b-col>
+                    <b-col>
+            <div>
+              <b-card
+                title="์Yokohama Tyres"
+                img-src="https://picsum.photos/600/300/?image=25"
+                img-alt="Image"
+                img-top
+                tag="article"
+                style="max-width: 20rem;"
+                class="mb-2"
+              >
+              </b-card>
+            </div>
+          </b-col>
+          <b-col cols="2"></b-col>
+        </b-row>
+      </div>
+      <div>
+        <div>
+          <br>
+          <h3>ดูสิ่งที่ผู้คนพูดเกี่ยวกับเราบน Facebook</h3>
+          <b-button>ดูรีวิว</b-button>
+          <br>
+          <img src="https://www.tyrepac.co.th/wp-content/uploads/2020/02/fbReviews-1200x368.jpg" alt="">
+        </div>
+      </div>
+      <div>
+        <div>
+          <h4>บริการลูกค้า</h4>
+          <p>กรุณาติดต่อฝ่ายบริการลูกค้าของเราหากมีคำถามใด ๆ เกี่ยวกับการเลือกยาง</p>
+          <h4>+66 091-889-5127
+เวลาทำการคอลเซนเตอร์</h4>
+<p>วันจันทร์ – ศุกร์ 08.30 น. – 17.00 น.</p>
         </div>
       </div>
     </div>
@@ -59,25 +319,27 @@ export default {
       selected2: null,
       selected3: null,
       options: [
-        { value: null, text: 'Please select an option' },
-        { value: 'a', text: 'This is First option' },
-        { value: 'b', text: 'Selected Option' },
-        { value: { C: '3PO' }, text: 'This is an option with object value' },
-        { value: 'd', text: 'This one is disabled', disabled: true }
+        { value: null, text: '--ความกว้าง--' },
+        { value: 'a', text: '155' },
+        { value: 'b', text: '165' },
+        { value: { C: '3PO' }, text: '175' },
+        { value: { C: '3PO' }, text: '185' },
+        { value: { C: '3PO' }, text: '195' },
+        { value: { C: '3PO' }, text: '205' }
       ],
       options2: [
-        { value: null, text: 'Please select an option' },
-        { value: 'a', text: 'This is First option' },
-        { value: 'b', text: 'Selected Option' },
-        { value: { C: '3PO' }, text: 'This is an option with object value' },
-        { value: 'd', text: 'This one is disabled', disabled: true }
+        { value: null, text: '--ซีรี่ย์ยาง--' },
+        { value: 'a', text: '0' },
+        { value: 'b', text: '25' },
+        { value: { C: '3PO' }, text: '30' },
+        { value: 'd', text: '35' }
       ],
       options3: [
-        { value: null, text: 'Please select an option' },
-        { value: 'a', text: 'This is First option' },
-        { value: 'b', text: 'Selected Option' },
-        { value: { C: '3PO' }, text: 'This is an option with object value' },
-        { value: 'd', text: 'This one is disabled', disabled: true }
+        { value: null, text: '--ขนาดวงล้อ--' },
+        { value: 'a', text: '13' },
+        { value: 'b', text: '14' },
+        { value: { C: '3PO' }, text: '15' },
+        { value: 'd', text: '16' }
       ]
     }
   }
