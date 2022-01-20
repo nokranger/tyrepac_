@@ -168,8 +168,9 @@
         </b-row>
       </div>
       <div style="background-color: #eaeaea">
-        <div>
-          <p>แบรนด์ยอดนิยม</p>
+        <div style="margin-top: 10px;">
+          <br>
+          <h1>แบรนด์ยอดนิยม</h1>
           <p>ตั้งแต่ปี 2008 เรามีความตั้งใจ</p>
           <p>ทำให้การซื้อยางออนไลน์เป็นเรื่องง่ายที่สุด</p>
           <p>ในขณะเดียวกันก็ให้มีสินค้าที่หลากหลาย</p>
@@ -178,6 +179,7 @@
           <p>ระดับกลาง หรือระดับพรีเมียม</p>
           <p>คุณจะพบว่าที่ TYREPAC มีสินค้าที่หลากหลาย</p>
           <p>– จากผู้ผลิตยางรถยนต์ที่มีชื่อเสียงที่สุดในโลก –</p>
+          <br>
         </div>
         <b-row>
           <b-col cols="2"></b-col>
@@ -318,11 +320,22 @@
           <b-col cols="2"></b-col>
         </b-row>
       </div>
+      <div style="background-color: #333333">
+        <div>
+          <br>
+          <h1 style="color: white">ข้อมูลแก้มยาง</h1>
+          <br>
+          <img src="https://i.imgur.com/rYKBx3L.png" width="500" height="500" alt="">
+          <br>
+          <br>
+          <br>
+        </div>
+      </div>
       <div>
         <div>
           <br />
           <h3>ดูสิ่งที่ผู้คนพูดเกี่ยวกับเราบน Facebook</h3>
-          <b-button>ดูรีวิว</b-button>
+          <b-button variant="primary">ดูรีวิว</b-button>
           <br />
           <img
             src="https://www.tyrepac.co.th/wp-content/uploads/2020/02/fbReviews-1200x368.jpg"
@@ -330,16 +343,20 @@
           />
         </div>
       </div>
-      <div>
-        <div>
-          <h4>บริการลูกค้า</h4>
+      <div style="background-image: url('https://i.imgur.com/am2boDx.jpg');height: 700px;">
+      <br>
+      <br>
+      <br>
+        <div style="background-color: whitesmoke;opacity: 0.5;width: 500px;color: black;">
+          <h1>บริการลูกค้า</h1>
           <p>
             กรุณาติดต่อฝ่ายบริการลูกค้าของเราหากมีคำถามใด ๆ เกี่ยวกับการเลือกยาง
           </p>
-          <h4>+66 091-889-5127</h4>
-          <h4>เวลาทำการคอลเซนเตอร์</h4>
+          <h1>+66 091-889-5127</h1>
+          <h1>เวลาทำการคอลเซนเตอร์</h1>
           <p>วันจันทร์ – ศุกร์ 08.30 น. – 17.00 น.</p>
         </div>
+        <br>
       </div>
       <div
         style="
@@ -411,3 +428,8 @@ export default {
   }
 }
 </script>
+<style scoped>
+p {
+  font-size: 15px;
+}
+</style>
