@@ -18,35 +18,24 @@
             <b-nav-item :href="'/' + langs + '/home'"><b style="font-size: 16px;font-weight: normal;">ยางรถยนต์</b></b-nav-item>
             <b-nav-item :href="'/' + langs + '/about'"><b style="font-size: 16px;font-weight: normal;">โปรโมชั่น</b></b-nav-item>
             <b-nav-item :href="'/' + langs + '/category'"><b style="font-size: 16px;font-weight: normal;">ประเภทยาง</b></b-nav-item>
+            <!-- <div class="dropdown">
+              <button class="dropbtn">Dropdown</button>
+              <div class="dropdown-content">
+                <a href="#">Link 2</a>
+                <a href="#">Link 3</a>
+                <a href="#">Link 3</a>
+                <a href="#">Link 3</a>
+                <a href="#">Link 3</a>
+                <a href="#">Link 3</a>
+              </div>
+            </div> -->
             <b-nav-item :href="'/' + langs + '/joint-venture-company'"><b style="font-size: 16px;font-weight: normal;">ประเภทยาง</b></b-nav-item>
             <b-nav-item :href="'/' + langs + '/news'"><b style="font-size: 16px;font-weight: normal;">ศูนย์บริการติดตั้ง</b></b-nav-item>
             <b-nav-item :href="'/' + langs + '/contact'"><b style="font-size: 16px;font-weight: normal;">คำถามที่พบบ่อย</b></b-nav-item>
             <b-nav-item :href="'/' + langs + '/contact'"><b style="font-size: 16px;font-weight: normal;">สมัครร้านติดตั้ง</b></b-nav-item>
             <b-nav-item :href="'/' + langs + '/contact'"><b style="font-size: 16px;font-weight: normal;">ติดต่อเรา</b></b-nav-item>
             <b-nav-item :href="'/' + langs + '/contact'"><b style="font-size: 16px;font-weight: normal;">สั่งซื้อเลย</b></b-nav-item>
-            <!-- <div class="dropdown" style="text-transform: uppercase;">
-              <button class="dropbtn" style="height: 20px;width: 30px;"><div style="text-transform: uppercase;">{{langs}}</div></button>
-              <div class="dropdown-content" style="position: relative;">
-                <a v-on:click="setLangTh()">th</a>
-                <a v-on:click="setLangEn()">en</a>
-              </div>
-            </div> -->
           </b-navbar-nav>
-          <!-- <b-navbar-nav v-else-if="routess === 'en'" class="ml-auto align-left">
-            <b-nav-item :href="'/' + langs + '/home'"><b style="font-size: 16px;font-weight: normal;">Home</b></b-nav-item>
-            <b-nav-item :href="'/' + langs + '/about'"><b style="font-size: 16px;font-weight: normal;">About Us</b></b-nav-item>
-            <b-nav-item :href="'/' + langs + '/category'"><b style="font-size: 16px;font-weight: normal;">Product</b></b-nav-item>
-            <b-nav-item :href="'/' + langs + '/joint-venture-company'"><b style="font-size: 16px;font-weight: normal;">Join Venture Company</b></b-nav-item>
-            <b-nav-item :href="'/' + langs + '/news'"><b style="font-size: 16px;font-weight: normal;">News and Events</b></b-nav-item>
-            <b-nav-item :href="'/' + langs + '/contact'"><b style="font-size: 16px;font-weight: normal;">Contact us</b></b-nav-item>
-            <div class="dropdown" style="text-transform: uppercase;">
-              <button class="dropbtn" style="height: 20px;width: 30px;"><div style="text-transform: uppercase;">{{langs}}</div></button>
-              <div class="dropdown-content" style="position: relative;">
-                <a v-on:click="setLangTh()">th</a>
-                <a v-on:click="setLangEn()">en</a>
-              </div>
-            </div>
-          </b-navbar-nav> -->
         </b-collapse>
       </b-navbar>
     </div>

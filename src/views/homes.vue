@@ -34,32 +34,6 @@ export default {
   },
   data () {
     return {
-      selected1: null,
-      selected2: null,
-      selected3: null,
-      options: [
-        { value: null, text: '--ความกว้าง--' },
-        { value: 'a', text: '155' },
-        { value: 'b', text: '165' },
-        { value: { C: '3PO' }, text: '175' },
-        { value: { C: '3PO' }, text: '185' },
-        { value: { C: '3PO' }, text: '195' },
-        { value: { C: '3PO' }, text: '205' }
-      ],
-      options2: [
-        { value: null, text: '--ซีรี่ย์ยาง--' },
-        { value: 'a', text: '0' },
-        { value: 'b', text: '25' },
-        { value: { C: '3PO' }, text: '30' },
-        { value: 'd', text: '35' }
-      ],
-      options3: [
-        { value: null, text: '--ขนาดวงล้อ--' },
-        { value: 'a', text: '13' },
-        { value: 'b', text: '14' },
-        { value: { C: '3PO' }, text: '15' },
-        { value: 'd', text: '16' }
-      ]
     }
   }
 }
