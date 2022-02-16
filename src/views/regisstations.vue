@@ -1,0 +1,56 @@
+<template>
+  <div style="margin-top: 90px">
+    <div>
+      <b-container>
+        <b-row>
+          <b-col>
+            <div>
+              <img
+                style="width: 569px; height: 750px"
+                src="https://www.tyrepac.co.th/wp-content/uploads/2020/06/handbill.jpg"
+                alt=""
+              />
+            </div>
+          </b-col>
+          <b-col>
+            <b-col>
+              <div>กรุณากรอกข้อมูลเพื่อติดต่อกลับ</div>
+              <br />
+              <div>
+                <br>
+                <div>ชิ้อร้านติดตั้ง*</div>
+                <b-input></b-input>
+              </div>
+              <div>
+                <br>
+                <div>ชื่อผู้ติดต่อ*</div>
+                <b-input></b-input>
+              </div>
+              <div>
+                <br>
+                <div>เบอร์โทรศัพท์*</div>
+                <b-input></b-input>
+              </div>
+              <div>
+                <br>
+                <b-button>ส่ง</b-button>
+              </div>
+            </b-col>
+            <b-col>
+              <br>
+              <br>
+              <br>
+              <div>
+                <div>รายละเอียดเพิ่มเติม</div>
+                <br>
+                <div>
+                  <b-button>Download</b-button>
+                </div>
+              </div>
+            </b-col>
+          </b-col>
+        </b-row>
+      </b-container>
+    </div>
+  </div>
+</template>

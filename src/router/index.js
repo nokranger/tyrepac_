@@ -2,6 +2,8 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/homes.vue'
 import QandA from '../views/qa.vue'
+import regis from '../views/regisstations.vue'
+import contact from '../views/contact.vue'
 
 Vue.use(VueRouter)
 
@@ -23,6 +25,16 @@ const routes = [
     path: '/qa',
     name: 'qa',
     component: QandA
+  },
+  {
+    path: '/register',
+    name: 'regis',
+    component: regis
+  },
+  {
+    path: '/contact',
+    name: 'contact',
+    component: contact
   }
 ]
 
