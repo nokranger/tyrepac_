@@ -312,6 +312,54 @@
             </div>
           </b-row>
         </b-container>
+        <div style="background-color: #333333;color: white;">
+          <div>
+            <img src="https://tyrepac.co.th/wp-content/uploads/2019/12/small-icon-white.png" alt="">
+          </div>
+          <div>
+            การสั่ง
+          </div>
+          <div>
+            ก. การสั่งซื้อสินค้าของฉัน
+          </div>
+          <b-container>
+            <b-row>
+              <b-col>
+                <b-col>
+                  <div style="background-color: white;color: black;margin: 10px;margin-bottom: 20px;">
+                    <div>
+                      ขั้นตอนการสั่งซื้อสินค้ามีอะไรบ้าง?
+                      </div>
+                      <p>ค้นหาและเลือกยางที่ต้องการ
+                      เลือกสถานที่ติดตั้ง วัน และเวลา
+                      การชำระเงินด้วยเงินสดหรือบัตรเครดิต
+                      ติดตั้งยางตามกำหนด</p>
+                  </div>
+                  <div style="background-color: white;color: black;margin: 10px;">
+                    <div>
+                      สามารถสั่งซื้อสินค้าผ่านทางโทรศัพท์ได้หรือไม่?
+                    </div>
+                      <p>ทางเราไม่รับการสั่งซื้อทางโทรศัพท์ กรุณาสั่งซื้อออนไลน์</p>
+                  </div>
+                </b-col>
+              </b-col>
+              <b-col>
+                  <div style="background-color: white;color: black;margin: 10px;">
+                    <div>
+                      หากยางที่ฉันต้องการไม่มีในสต๊อก ฉันยังสามารถสั่งซื้อรุ่นนั้นได้หรือไม่?
+                    </div>
+                      <p>ติดต่อสายด่วนของเรา และเราให้คำแนะนำในการประมาณความพร้อมในการให้บริการยาง คุณสามารถส่งอีเมลถึงเราที่ info@tyrepac.co.th และเราจะติดต่อกลับคุณ</p>
+                  </div>
+                  <div style="background-color: white;color: black;margin: 10px;">
+                    <div>
+                      สามารถขับรถไปยังสถานที่ติดตั้งโดยตรงดังที่แสดงไว้ได้หรือไม่?
+                      </div>
+                      <p>ไม่ ยางจะถูกส่งเมื่อได้รับการสั่งซื้อและการชำระเงินออนไลน์</p>
+                  </div>
+              </b-col>
+            </b-row>
+          </b-container>
+        </div>
       </div>
     </div>
   </div>
