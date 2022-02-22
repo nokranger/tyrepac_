@@ -4,6 +4,8 @@ import Home from '../views/homes.vue'
 import QandA from '../views/qa.vue'
 import regis from '../views/regisstations.vue'
 import contact from '../views/contact.vue'
+import promotion from '../views/promotion.vue'
+import brand from '../views/tyrebrand.vue'
 
 Vue.use(VueRouter)
 
@@ -35,6 +37,16 @@ const routes = [
     path: '/contact',
     name: 'contact',
     component: contact
+  },
+  {
+    path: '/promotions',
+    name: 'promotions',
+    component: promotion
+  },
+  {
+    path: '/brand',
+    name: 'brand',
+    component: brand
   }
 ]
 
