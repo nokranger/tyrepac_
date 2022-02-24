@@ -168,11 +168,10 @@ a,h4 {
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content {
   display: none;
-  position: relative;
+  position: absolute;
   background-color: #f9f9f9;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  top: 10;
-  z-index: 100;
+  z-index: 1;
 }
 
 /* Links inside the dropdown */
@@ -195,4 +194,3 @@ a,h4 {
 .dropdown:hover .dropbtn {
   background-color: #f9f9f9;
 }
-

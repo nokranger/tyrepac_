@@ -5,7 +5,9 @@ import QandA from '../views/qa.vue'
 import regis from '../views/regisstations.vue'
 import contact from '../views/contact.vue'
 import promotion from '../views/promotion.vue'
-import brand from '../views/tyrebrand.vue'
+import brand from '../views/brand.vue'
+import installer from '../views/installer.vue'
+import tyrebrands from '../views/tyrebrands.vue'
 
 Vue.use(VueRouter)
 
@@ -47,6 +49,16 @@ const routes = [
     path: '/brand',
     name: 'brand',
     component: brand
+  },
+  {
+    path: '/installer',
+    name: 'installer',
+    component: installer
+  },
+  {
+    path: '/tyrebrand/:name',
+    name: 'tyrebrands',
+    component: tyrebrands
   }
 ]
 

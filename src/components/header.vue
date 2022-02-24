@@ -1,6 +1,6 @@
 <template>
   <div>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" crossorigin="anonymous">
     <div>
       <b-navbar toggleable="lg" type="dark" class="header">
         <b-navbar-brand href="/">
@@ -15,25 +15,13 @@
           <b-navbar-nav>
           </b-navbar-nav>
           <b-navbar-nav class="ml-auto align-left">
-            <b-nav-item :href="'/' + langs + '/home'"><b style="font-size: 16px;font-weight: normal;">ยางรถยนต์</b></b-nav-item>
-            <b-nav-item :href="'/' + langs + '/about'"><b style="font-size: 16px;font-weight: normal;">โปรโมชั่น</b></b-nav-item>
-            <b-nav-item :href="'/' + langs + '/category'"><b style="font-size: 16px;font-weight: normal;">ประเภทยาง</b></b-nav-item>
-            <!-- <div class="dropdown">
-              <button class="dropbtn">Dropdown</button>
-              <div class="dropdown-content">
-                <a href="#">Link 2</a>
-                <a href="#">Link 3</a>
-                <a href="#">Link 3</a>
-                <a href="#">Link 3</a>
-                <a href="#">Link 3</a>
-                <a href="#">Link 3</a>
-              </div>
-            </div> -->
+            <b-nav-item href="/brand"><b style="font-size: 16px;font-weight: normal;">ยางรถยนต์</b></b-nav-item>
+            <b-nav-item href="promotions"><b style="font-size: 16px;font-weight: normal;">โปรโมชั่น</b></b-nav-item>
             <b-nav-item :href="'/' + langs + '/joint-venture-company'"><b style="font-size: 16px;font-weight: normal;">ประเภทยาง</b></b-nav-item>
-            <b-nav-item :href="'/' + langs + '/news'"><b style="font-size: 16px;font-weight: normal;">ศูนย์บริการติดตั้ง</b></b-nav-item>
-            <b-nav-item :href="'/' + langs + '/contact'"><b style="font-size: 16px;font-weight: normal;">คำถามที่พบบ่อย</b></b-nav-item>
-            <b-nav-item :href="'/' + langs + '/contact'"><b style="font-size: 16px;font-weight: normal;">สมัครร้านติดตั้ง</b></b-nav-item>
-            <b-nav-item :href="'/' + langs + '/contact'"><b style="font-size: 16px;font-weight: normal;">ติดต่อเรา</b></b-nav-item>
+            <b-nav-item href="installer"><b style="font-size: 16px;font-weight: normal;">ศูนย์บริการติดตั้ง</b></b-nav-item>
+            <b-nav-item href="/qa"><b style="font-size: 16px;font-weight: normal;">คำถามที่พบบ่อย</b></b-nav-item>
+            <b-nav-item href="/register"><b style="font-size: 16px;font-weight: normal;">สมัครร้านติดตั้ง</b></b-nav-item>
+            <b-nav-item href="/contact"><b style="font-size: 16px;font-weight: normal;">ติดต่อเรา</b></b-nav-item>
             <b-nav-item :href="'/' + langs + '/contact'"><b style="font-size: 16px;font-weight: normal;">สั่งซื้อเลย</b></b-nav-item>
           </b-navbar-nav>
         </b-collapse>
@@ -49,85 +37,6 @@ export default {
       qoute2: 'For project achievements in thailand please contact us',
       langs: '',
       routess: ''
-    }
-  },
-  created () {
-    this.routess = localStorage.getItem('selectlang')
-    if (this.routess === '' || this.routess === null || this.routess === 'null' || this.routess === undefined) {
-      var path = window.location.pathname
-      var split = path.split('/')
-      console.log('selectset', split[1])
-      this.$route.params.lang = split[1]
-      this.routess = split[1]
-      this.langs = this.$route.params.lang
-      this.$route.params.lang = localStorage.getItem('selectlang')
-      console.log('THs')
-    } else if (this.routess === 'th') {
-      path = window.location.pathname
-      split = path.split('/')
-      split[1] = 'en'
-      console.log('selectset', split[1])
-      this.$route.params.lang = split[1]
-      console.log('THss')
-      this.routess = localStorage.getItem('selectlang')
-      this.langs = localStorage.getItem('selectlang')
-      this.$route.params.lang = localStorage.getItem('selectlang')
-    } else if (this.routess === 'en') {
-      path = window.location.pathname
-      split = path.split('/')
-      split[1] = 'en'
-      console.log('selectset', split[1])
-      this.$route.params.lang = split[1]
-      console.log('ENss')
-      this.routess = localStorage.getItem('selectlang')
-      this.langs = localStorage.getItem('selectlang')
-      this.$route.params.lang = localStorage.getItem('selectlang')
-    }
-  },
-  mounted () {
-  },
-  methods: {
-    setLangTh () {
-      var url = ''
-      console.log('langTH', this.langs = 'th')
-      // this.lang = 'TH'
-      var path = window.location.pathname
-      var split = path.split('/')
-      split[1] = 'th'
-      console.log('selectset', split[1])
-      this.$route.params.lang = split[1]
-      this.langs = split[1]
-      this.routess = split[1]
-      localStorage.setItem('selectlang', split[1])
-      for (var i = 0; i < split.length; i++) {
-        if (i + 1 < split.length) {
-          url += '/' + split[i + 1]
-        }
-      }
-      console.log('urlReplace', url)
-      // location.reload()
-      location.replace(url)
-    },
-    setLangEn () {
-      var url = ''
-      console.log('langTH', this.langs = 'en')
-      // this.lang = 'TH'
-      var path = window.location.pathname
-      var split = path.split('/')
-      split[1] = 'en'
-      console.log('selectset', split[1])
-      this.$route.params.lang = split[1]
-      this.langs = split[1]
-      this.routess = split[1]
-      localStorage.setItem('selectlang', split[1])
-      for (var i = 0; i < split.length; i++) {
-        if (i + 1 < split.length) {
-          url += '/' + split[i + 1]
-        }
-      }
-      console.log('urlReplace', url)
-      // location.reload()
-      location.replace(url)
     }
   }
 }
