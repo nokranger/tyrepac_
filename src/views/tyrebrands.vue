@@ -96,7 +96,9 @@
                     <b-col>
                       <div style="border-radius: 5px;border: thin solid #E0E0E0;margin: 5px;">
                         <div>
-                          <img src="https://www.tyrepac.co.th/wp-content/uploads/2020/02/tyre-toyo-proxes-sport-suv.jpg" style="width: 150px;height: 150px;margin: 5px;" alt="">
+                          <a href="/tyrebrand/toyo/detail">
+                            <img src="https://www.tyrepac.co.th/wp-content/uploads/2020/02/tyre-toyo-proxes-sport-suv.jpg" style="width: 150px;height: 150px;margin: 5px;" alt="">
+                          </a>
                         </div>
                         <div>TOYO PROXES SPORT SUV – 255/55R18</div>
                         <div>฿7,700.00 ต่อเส้น</div>
