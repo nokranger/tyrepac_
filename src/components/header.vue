@@ -16,9 +16,9 @@
           </b-navbar-nav>
           <b-navbar-nav class="ml-auto align-left">
             <b-nav-item href="/brand"><b style="font-size: 16px;font-weight: normal;">ยางรถยนต์</b></b-nav-item>
-            <b-nav-item href="promotions"><b style="font-size: 16px;font-weight: normal;">โปรโมชั่น</b></b-nav-item>
+            <b-nav-item href="/promotions"><b style="font-size: 16px;font-weight: normal;">โปรโมชั่น</b></b-nav-item>
             <b-nav-item :href="'/' + langs + '/joint-venture-company'"><b style="font-size: 16px;font-weight: normal;">ประเภทยาง</b></b-nav-item>
-            <b-nav-item href="installer"><b style="font-size: 16px;font-weight: normal;">ศูนย์บริการติดตั้ง</b></b-nav-item>
+            <b-nav-item href="/installer"><b style="font-size: 16px;font-weight: normal;">ศูนย์บริการติดตั้ง</b></b-nav-item>
             <b-nav-item href="/qa"><b style="font-size: 16px;font-weight: normal;">คำถามที่พบบ่อย</b></b-nav-item>
             <b-nav-item href="/register"><b style="font-size: 16px;font-weight: normal;">สมัครร้านติดตั้ง</b></b-nav-item>
             <b-nav-item href="/contact"><b style="font-size: 16px;font-weight: normal;">ติดต่อเรา</b></b-nav-item>
