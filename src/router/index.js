@@ -9,6 +9,7 @@ import brand from '../views/brand.vue'
 import installer from '../views/installer.vue'
 import tyrebrands from '../views/tyrebrands.vue'
 import tyredetail from '../views/tyredetail.vue'
+import checkout from '../views/buy.vue'
 
 Vue.use(VueRouter)
 
@@ -65,6 +66,11 @@ const routes = [
     path: '/tyrebrand/:name/:name',
     name: 'tyredetail',
     component: tyredetail
+  },
+  {
+    path: '/checkout',
+    name: 'checkout',
+    component: checkout
   }
 ]
 
