@@ -27,8 +27,12 @@ export default {
 </script>
 
 <style>
+@font-face {
+  font-family: 'Kanit', sans-serif;
+  src: url();
+}
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: Kanit, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;

@@ -15,12 +15,20 @@
       <b-container>
         <b-row>
           <b-col>
-            <div style="color: white">
+            <div style="color: white;text-align: left;">
+              <div>
+                <img src="https://www.tyrepac.co.th/wp-content/uploads/2019/10/tyrepac-logoX2.png" style="width: 150px;" alt="">
+                <br>
+                <br>
+              </div>
               <div>สายด่วน : 091-889-5127</div>
+              <br>
               <div>
                 ที่อยู่ : บริษัท ออโต้ พาร์ท ออนไลน์ (ประเทศไทย) จำกัด 594
                 ถนนหลวง แขวงป้อมปราบ เขตป้อมปราบศัตรูพ่าย กรุงเทพฯ 10100
               </div>
+              <br>
+              <br>
               <div>
                 <a
                   href="https://www.trustmarkthai.com/callbackData/popup.php?data=1b-24-5-a431ccba7d0c0410c90b1c659209e7c265517d97152&markID=firstmar"

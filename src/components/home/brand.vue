@@ -12,6 +12,8 @@
       <p>คุณจะพบว่าที่ TYREPAC มีสินค้าที่หลากหลาย</p>
       <p>– จากผู้ผลิตยางรถยนต์ที่มีชื่อเสียงที่สุดในโลก –</p>
       <br />
+      <br>
+      <br>
     </div>
     <b-container>
       <b-row>
@@ -155,6 +157,12 @@
         <b-col cols="2"></b-col>
       </b-row>
       <br>
+      <br>
     </b-container>
   </div>
 </template>
+<style scoped>
+p {
+  font-size: 15px;
+}
+</style>

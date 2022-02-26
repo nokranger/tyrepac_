@@ -1,44 +1,51 @@
 <template>
   <div id="size">
-    <div style="height: 300px; background-color: #f7b00d">
-      <br />
-      <p style="font-size: 25px; font-weight: bold">ค้นหาตามขนาดยาง</p>
-      <div>
-        <b-form-select
-          style="width: 50%; font-size: 20px; margin: 5px"
-          v-model="selected1"
-          :options="options"
-          name=""
-          id=""
-        >
-        </b-form-select>
-      </div>
-      <div>
-        <b-form-select
-          style="width: 50%; font-size: 20px; margin: 5px"
-          v-model="selected2"
-          :options="options2"
-          name=""
-          id=""
-        >
-        </b-form-select>
-      </div>
-      <div>
-        <b-form-select
-          style="width: 50%; font-size: 20px; margin: 5px"
-          v-model="selected3"
-          :options="options3"
-          name=""
-          id=""
-        >
-        </b-form-select>
-      </div>
-      <br />
-      <div>
-        <b-button>ค้นหา</b-button>
-      </div>
-      <br />
-      <a href="">ไม่แน่ใจวิธีอ่านขนาดยางของคุณ ? คลิกที่นี่</a>
+    <div style="background-color: #f7b00d">
+      <b-container>
+        <br />
+        <br>
+        <p style="font-size: 25px; font-weight: bold;color: black;">ค้นหาตามขนาดยาง</p>
+        <div>
+          <b-form-select
+            style="width: 100%; font-size: 20px; margin: 5px;color: gray;height: 35px;"
+            v-model="selected1"
+            :options="options"
+            name=""
+            id=""
+          >
+          </b-form-select>
+        </div>
+        <div>
+          <b-form-select
+            style="width: 100%; font-size: 20px; margin: 5px;color: gray;height: 35px;"
+            v-model="selected2"
+            :options="options2"
+            name=""
+            id=""
+          >
+          </b-form-select>
+        </div>
+        <div>
+          <b-form-select
+            style="width: 100%; font-size: 20px; margin: 5px;color: gray;height: 35px;"
+            v-model="selected3"
+            :options="options3"
+            name=""
+            id=""
+          >
+          </b-form-select>
+        </div>
+        <br />
+        <div style="text-align: left;margin-left: 20px;">
+          <b-button variant="light" style="border-radius: 1px;border: thin solid black;">ค้นหา</b-button>
+        </div>
+        <br />
+        <b><a href="" style="color: black;text-decoration: none;">ไม่แน่ใจวิธีอ่านขนาดยางของคุณ ? คลิกที่นี่</a></b>
+        <br>
+        <br>
+        <br>
+        <br>
+      </b-container>
     </div>
   </div>
 </template>
