@@ -4,6 +4,7 @@
       <app-toppic></app-toppic>
       <app-searchtyre></app-searchtyre>
       <app-detail></app-detail>
+      <app-type></app-type>
       <app-brand></app-brand>
       <!-- <app-detailtyre></app-detailtyre> -->
       <app-review></app-review>
@@ -21,6 +22,7 @@ import brand from '../components/home/brand.vue'
 import review from '../components/home/review.vue'
 import service from '../components/home/service.vue'
 import regis from '../components/home/regis.vue'
+import typetyre from '../components/home/typetyre.vue'
 export default {
   components: {
     'app-toppic': toppic,
@@ -30,7 +32,8 @@ export default {
     // 'app-detailtyre': detailtyre,
     'app-review': review,
     'app-service': service,
-    'app-regis': regis
+    'app-regis': regis,
+    'app-type': typetyre
   },
   data () {
     return {

@@ -7,6 +7,7 @@
         <b-modal id="my-modal">Hello From My Modal!</b-modal>
       <br />
       <img
+      style="width: 100%;"
         src="https://www.tyrepac.co.th/wp-content/uploads/2020/02/fbReviews-1200x368.jpg"
         alt=""
       />

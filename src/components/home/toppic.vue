@@ -2,7 +2,7 @@
   <div id="pic">
     <b-carousel
       id="carousel-fade"
-      style="text-shadow: 0px 0px 4px #000; font-size: 27px"
+      style="text-shadow: 0px 0px 4px #000; font-size: 27px;width: 100%;"
       fade
       indicators
     >

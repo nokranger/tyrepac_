@@ -1,5 +1,5 @@
 <template>
-  <div style="">
+  <div style="text-align: left;">
     <b-container>
       <br>
       <br>
@@ -10,7 +10,7 @@
               img-alt="Image"
               img-top
               tag="article"
-              style="max-width: 20rem"
+              style="max-width: 20rem;height: 400px;"
               class="mb-2"
             >
               <b-card-text>
@@ -31,7 +31,7 @@
               img-alt="Image"
               img-top
               tag="article"
-              style="max-width: 20rem"
+              style="max-width: 20rem;height: 400px;"
               class="mb-2"
             >
               <b-card-text>
@@ -52,7 +52,7 @@
               img-alt="Image"
               img-top
               tag="article"
-              style="max-width: 20rem"
+              style="max-width: 20rem;height: 400px;"
               class="mb-2"
             >
               <b-card-text>
@@ -71,7 +71,7 @@
               img-alt="Image"
               img-top
               tag="article"
-              style="max-width: 20rem"
+              style="max-width: 20rem;height: 400px;"
               class="mb-2"
             >
               <b-card-text>
