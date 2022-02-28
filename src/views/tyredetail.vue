@@ -62,8 +62,8 @@
                       <br>
                       <b-button variant="primary" href="/checkout">สั่งซื้อเลย</b-button>
                     </div>
-                    <div>
-                      <b-button style="background-color: #00c300;border: none;">แชท + ซื้อผ่าน LINE</b-button>
+                    <div style="margin-left: 5px;">
+                      <b-button style="background-color: #00c300;border: none;" href="https://line.me/R/ti/p/%40tyrepac_th" target="_blank">แชท + ซื้อผ่าน LINE</b-button>
                     </div>
                     <div style="border-radius: 5px;border: thin solid #E0E0E0;margin: 5px;font-size: 14px;">
                       <div style="margin: 5px;">SKU: TH_VTYBB255NJ94YA</div>

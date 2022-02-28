@@ -61,7 +61,7 @@
                 <div>รายละเอียดเพิ่มเติม</div>
                 <br />
                 <div>
-                  <b-button variant="primary">Download</b-button>
+                  <b-button variant="primary" href="https://www.tyrepac.co.th/wp-content/uploads/2020/06/shop_installer_registration_form.pdf" target="_blank">Download</b-button>
                 </div>
               </div>
             </div>
