@@ -3,7 +3,7 @@
     <div>
       <b-container>
         <b-row>
-          <b-col cols="2">
+          <b-col cols="3">
             <div style="border-radius: 5px;border: thin solid #E0E0E0;">
               <div>
                 ยางรถยนต์
@@ -49,7 +49,7 @@
                   </b-col>
                   <b-col>
                     <br>
-                    <div style="color: #005099;font-weight: bold;">
+                    <div style="color: #005099;font-weight: bold;font-size: 25px;">
                       TOYO PROXES SPORT – 255/35ZR18
                     </div>
                     <div style="color: #005099;font-weight: bold;">
@@ -107,10 +107,13 @@
   </div>
 </template>
 <script>
+import toyo from '../assets/json/tyre/toyo.json'
 export default {
   data () {
     return {
+      toyo: toyo,
       value: 4,
+      code: '',
       items: [
         { names: 'Tyre Brand', detail: 'Toyo' },
         { names: 'รุ่นยาง', detail: 'ยางประสิทธิภาพสูง' },
@@ -123,9 +126,29 @@ export default {
       fields: ['ชื่อ', 'รายละเอียด']
     }
   },
-  mounted () {
+  async mounted () {
+    console.log('code', this.$route.params.name)
+    this.code = this.$route.params.name
+    // this.aa = this.$route.params.name
+    // var found = this.getcode(this.code)
+    await console.log('fcode', this.getObjectByValue(this.toyo, 'Name', this.code))
   },
   methods: {
+    getcode (code) {
+      // console.log('toyo', this.toyo)
+      // console.log('codefilter', code)
+      return this.toyo.filter(
+        (toyo) => {
+          // console.log('toyofilter', toyo.Name)
+          return code === toyo.Name
+        }
+      )
+    },
+    getObjectByValue (array, key, value) {
+      return array.filter(function (object) {
+        return object[key] === value
+      })
+    }
   }
 }
 </script>
