@@ -52,7 +52,7 @@
                           <b-form-spinbutton id="demo-sb" v-model="value2" min="4" max="100"></b-form-spinbutton>
                         </div>
                         <div style="margin: 5px;">
-                          <b-button variant="primary">สั่งซื้อเลย</b-button>
+                          <b-button variant="primary" href="/checkout">สั่งซื้อเลย</b-button>
                         </div>
                       </div>
                     </b-col>
