@@ -19,7 +19,7 @@
           </b-col>
           <b-col>
             <div style="display: inline-block;margin-right: 10px;">
-              <b-input style="width: auto" autofocus placeholder="โปรดใส่อีเมลล์ของคุณ"></b-input>
+              <b-input style="width: auto" placeholder="โปรดใส่อีเมลล์ของคุณ"></b-input>
             </div>
             <div style="display: inline-block;">
               <b-button variant="primary">ส่ง</b-button>

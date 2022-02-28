@@ -38,33 +38,37 @@
             </div>
           </b-col>
           <b-col>
-            <div style="border-radius: 5px;border: thin solid #E0E0E0;margin: 5px;">
+            <div style="border-radius: 5px;border: thin solid #E0E0E0;margin: 5px;text-align: left;">
               <b-container>
                 <b-row>
                   <b-col>
+                    <br>
                     <div>
                       <img src="https://www.tyrepac.co.th/wp-content/uploads/2020/02/tyre-toyo-proxes-sport-suv.jpg" style="width: 300px;" alt="">
                     </div>
                   </b-col>
                   <b-col>
-                    <div>
+                    <br>
+                    <div style="color: #005099;font-weight: bold;">
                       TOYO PROXES SPORT – 255/35ZR18
                     </div>
-                    <div>
+                    <div style="color: #005099;font-weight: bold;">
                       ฿8,550.00 ต่อเส้น
                     </div>
+                    <br>
+                    <br>
                     <div style="margin: 5px;">
-                      <label for="demo-sb">จำนวนที่สั่งซื้อ</label>
-                      <b-form-spinbutton id="demo-sb" v-model="value" min="4" max="100"></b-form-spinbutton>
-                      <b-button>สั่งซื้อเลย</b-button>
+                      <b-form-spinbutton style="width: 30%;" id="demo-sb" v-model="value" min="4" max="100"></b-form-spinbutton>
+                      <br>
+                      <b-button variant="primary" href="/checkout">สั่งซื้อเลย</b-button>
                     </div>
                     <div>
-                      <b-button variant="success">แชท + ซื้อผ่าน LINE</b-button>
+                      <b-button style="background-color: #00c300;border: none;">แชท + ซื้อผ่าน LINE</b-button>
                     </div>
-                    <div style="border-radius: 5px;border: thin solid #E0E0E0;margin: 5px;">
-                      <div>SKU: TH_VTYBB255NJ94YA</div>
-                      <div>Categories: Toyo, PROXES SPORT, ยางประสิทธิภาพสูง</div>
-                      <div>Tags: PROXES SPORT, Toyo, 255/35ZR18</div>
+                    <div style="border-radius: 5px;border: thin solid #E0E0E0;margin: 5px;font-size: 14px;">
+                      <div style="margin: 5px;">SKU: TH_VTYBB255NJ94YA</div>
+                      <div style="margin: 5px;">Categories: Toyo, PROXES SPORT, ยางประสิทธิภาพสูง</div>
+                      <div style="margin: 5px;">Tags: PROXES SPORT, Toyo, 255/35ZR18</div>
                     </div>
                   </b-col>
                 </b-row>
@@ -72,18 +76,28 @@
             </div>
             <br>
             <div>
-              <div>ข้อมูลเพิ่มเติม</div>
-              <div>Tyre Brand / Toyo</div>
-              <div>รุ่นยาง / ยางประสิทธิภาพสูง</div>
-              <div>ความกว้าง / 255</div>
-              <div>ขนาดวงล้อ / 18</div>
-              <div>ซีรี่ย์ยาง / 35</div>
-              <div>Load Index / 94</div>
-              <div>Speed Index / Y</div>
+              <b-container>
+                <b-row>
+                  <b-col>
+                    <div style="text-align: left;font-weight: bold;color: #005099;">
+                      <div style="color: black;">ข้อมูลเพิ่มเติม</div>
+                      <br>
+                      <b-table :items="items" :fields="fields" thead-class="d-none">
+                      <template v-slot:cell(ชื่อ)="data">
+                        <div style="color: #005099;">{{data.item.names}}</div>
+                      </template>
+                      <template v-slot:cell(รายละเอียด)="data">
+                        <div style="color: #005099;font-weight: none;">{{data.item.detail}}</div>
+                      </template>
+                      </b-table>
+                    </div>
+                  </b-col>
+                </b-row>
+              </b-container>
             </div>
             <br>
             <br>
-            <div>
+            <div style="text-align: left;font-weight: bold;color: black;">
               <div>Related products</div>
             </div>
           </b-col>
@@ -96,8 +110,24 @@
 export default {
   data () {
     return {
-      value: 4
+      value: 4,
+      items: [
+        { names: 'Tyre Brand', detail: 'Toyo' },
+        { names: 'รุ่นยาง', detail: 'ยางประสิทธิภาพสูง' },
+        { names: 'ความกว้าง', detail: '255' },
+        { names: 'ขนาดวงล้อ', detail: '18' },
+        { names: 'ซีรี่ย์ยาง', detail: '35' },
+        { names: 'Load Index', detail: '94' },
+        { names: 'Speed Index', detail: 'Y' }
+      ],
+      fields: ['ชื่อ', 'รายละเอียด']
     }
+  },
+  mounted () {
+  },
+  methods: {
   }
 }
 </script>
+<style scoped>
+</style>

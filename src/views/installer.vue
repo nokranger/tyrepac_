@@ -9,21 +9,10 @@
         <b-container>
           <br>
           <b-row>
-            <!-- <b-col>
-              <div>REGION</div>
-              <div>
-                <b-input list="region" type="search" v-model="filter" placeholder="REGION"></b-input>
-              </div>
-              <div>
-                <datalist id="region" >
-                  <option value="ประเทศไทย"></option>
-                </datalist>
-              </div>
-            </b-col> -->
             <b-col>
-              <div>AREA</div>
+              <div>พื้นที่</div>
               <div>
-                <b-input list="area" type="search" v-model="filter" placeholder="AREA"></b-input>
+                <b-input list="area" type="search" v-model="filter" placeholder="พื้นที่"></b-input>
               </div>
               <div>
                 <datalist id="area" >
@@ -32,9 +21,9 @@
               </div>
             </b-col>
             <b-col>
-              <div>Postal Code</div>
+              <div>รหัสไปรษณีย์</div>
               <div>
-                <b-input list="postal" type="search" v-model="filter" placeholder="Postal Code"></b-input>
+                <b-input list="postal" type="search" v-model="filter" placeholder="รหัสไปรษณีย์"></b-input>
               </div>
               <div>
                 <datalist id="postal" >
@@ -43,9 +32,9 @@
               </div>
             </b-col>
             <b-col>
-              <div>INSTALLER TYPE</div>
+              <div>ประเภทร้านติดตั้ง</div>
               <div>
-                <b-input list="type" type="search" v-model="filter" placeholder="INSTALLER TYPE"></b-input>
+                <b-input list="type" type="search" v-model="filter" placeholder="ประเภทร้านติดตั้ง"></b-input>
               </div>
               <div>
                 <datalist id="type" >
@@ -63,19 +52,19 @@
           <b-container>
               <div style="text-align: left;">
                 <b-table ref="table" striped hover :items="items" :fields="fields" :filter="filter" :filter-included-fields="filterOn" :per-page="perpage" :current-page="currentPage">
-                  <template v-slot:cell(Name)="data">
+                  <template v-slot:cell(ชื่อร้าน)="data">
                     <div>{{data.item.name}}</div>
                   </template>
-                  <template v-slot:cell(Address)="data">
+                  <template v-slot:cell(ที่อยู่)="data">
                     <div>{{data.item.address}}</div>
                   </template>
-                  <template v-slot:cell(Hour)="data">
-                    <div>{{data.item.hour}}</div>
+                  <template v-slot:cell(เวลาทำการ)="data">
+                    <div>{{data.item.hours}}</div>
                   </template>
-                  <template v-slot:cell(Phone)="data">
+                  <template v-slot:cell(โทรศัพท์)="data">
                     <div>{{data.item.phone}}</div>
                   </template>
-                  <template v-slot:cell(Category)="data">
+                  <template v-slot:cell(ประเภท)="data">
                     <div>{{data.item.category}}</div>
                   </template>
                 </b-table>
@@ -100,7 +89,7 @@ export default {
   data () {
     return {
       items: installer,
-      fields: ['name', 'address', 'hours', 'phone', 'category'],
+      fields: ['ชื่อร้าน', 'ที่อยู่', 'เวลาทำการ', 'โทรศัพท์', 'ประเภท'],
       filter: null,
       filterOn: [],
       perpage: 10,
