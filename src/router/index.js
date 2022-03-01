@@ -11,6 +11,8 @@ import tyrebrands from '../views/tyrebrands.vue'
 import tyredetail from '../views/tyredetail.vue'
 import checkout from '../views/buy.vue'
 import cart from '../views/cart.vue'
+import credit from '../views/checkoutcredit.vue'
+import bank from '../views/checkoutbank.vue'
 
 Vue.use(VueRouter)
 
@@ -77,6 +79,16 @@ const routes = [
     path: '/cart',
     name: 'cart',
     component: cart
+  },
+  {
+    path: '/credit',
+    name: 'credit',
+    component: credit
+  },
+  {
+    path: '/bank',
+    name: 'bank',
+    component: bank
   }
 ]
 

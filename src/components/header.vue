@@ -57,7 +57,7 @@
                 >ติดต่อเรา</b
               ></b-nav-item
             >
-            <b-nav-item :href="'/' + langs + '/contact'"
+            <b-nav-item href="/shop"
               ><b style="font-size: 16px; font-weight: normal"
                 >สั่งซื้อเลย</b
               ></b-nav-item

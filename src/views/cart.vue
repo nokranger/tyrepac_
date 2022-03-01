@@ -7,7 +7,7 @@
           <div style="margin-left: 15px;font-weight: bold;">You Have 8 Items In Your Cart</div>
           <br>
               <div style="margin: 5px;">
-                <b-table ref="table" striped hover :items="items" :fields="fields" :filter="filter" :filter-included-fields="filterOn" :per-page="perpage" :current-page="currentPage">
+                <b-table ref="table" striped hover :items="items" :fields="fields">
                   <template v-slot:cell(สินค้า)="data">
                     <img style="width: 150px;" :src="data.item.INSTALLER_INFO" alt="">
                   </template>
@@ -128,7 +128,7 @@
                   <br>
                 </div>
                 <div style="text-align: right;">
-                  <b-button variant="primary">สั่งซื้อและชำระเงิน</b-button>
+                  <b-button variant="primary" href="/checkout">สั่งซื้อและชำระเงิน</b-button>
                 </div>
               </div>
             </div>

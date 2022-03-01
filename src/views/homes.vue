@@ -14,6 +14,7 @@
   </div>
 </template>
 <script>
+import axios from 'axios'
 import toppic from '../components/home/toppic.vue'
 import searchtyre from '../components/home/searchtyre.vue'
 import detail from '../components/home/detail.vue'
@@ -38,6 +39,22 @@ export default {
   data () {
     return {
     }
+  },
+  mounted () {
+    // axios({
+    //   method: 'get',
+    //   // headers: { 'Access-Control-Allow-Origin': '*' },
+    //   url: 'http://119.63.90.135:2083/productByFilter',
+    //   data: {
+    //     type: 'suv'
+    //   }
+    // }).then(function (response) {
+    //   console.log(response.data.data)
+    // })
+    axios.get('http://119.63.90.135:2083/product').then(response => {
+      console.log('res')
+      console.log(response)
+    })
   }
 }
 </script>

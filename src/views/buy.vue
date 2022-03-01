@@ -4,15 +4,15 @@
       <b-container>
         <b-row>
           <br>
-          <div style="margin-left: 15px;">
+          <div style="margin: 15px;">
             <div style="font-weight: bold;font-size: 30px;">รูปแบบการจัดส่งสินค้า</div>
           </div>
           <b-col>
             <div style="border-radius: 5px;border: thin solid #E0E0E0;margin: 5px;">
               <br>
-              <div style="margin-left: 15px;">ซื้อยาง 4 เส้น ติดตั้งฟรีกับร้านที่ร่วมรายการ</div>
+              <div style="margin: 15px;">ซื้อยาง 4 เส้น ติดตั้งฟรีกับร้านที่ร่วมรายการ</div>
               <br>
-              <div style="margin-left: 15px;">
+              <div style="margin: 15px;">
                 <b-button variant="primary">เลือกร้านติดตั้ง</b-button>
                 <br>
                 <br>
@@ -22,9 +22,9 @@
           <b-col>
             <div style="border-radius: 5px;border: thin solid #E0E0E0;margin: 5px;">
               <br>
-              <div style="margin-left: 15px;">การเลือกตัวเลือกนี้จะส่งไปยังที่อยู่สำหรับการเรียกเก็บเงินและการจัดส่งของคุณด้านล่าง</div>
+              <div style="margin: 15px;">การเลือกตัวเลือกนี้จะส่งไปยังที่อยู่สำหรับการเรียกเก็บเงินและการจัดส่งของคุณด้านล่าง</div>
               <br>
-              <div style="margin-left: 15px;">
+              <div style="margin: 15px;">
                 <b-button variant="primary">กำหนดสถานที่ส่ง</b-button>
                 <br>
                 <br>
@@ -37,7 +37,7 @@
         <b-row>
           <b-col>
             <div style="border-radius: 5px;border: thin solid #E0E0E0;margin: 5px;">
-              <div style="margin-left: 15px;">
+              <div style="margin: 15px;">
                 <br>
                 <div style="font-weight: bold;font-size: 30px;">ข้อมูลรถยนต์ในการขอรับประกันยาง</div>
                 <br>
@@ -172,7 +172,7 @@
           </b-col>
           <b-col>
             <div style="border-radius: 5px;border: thin solid #E0E0E0;margin: 5px;">
-              <div style="margin-left: 15px;">
+              <div style="margin: 15px;">
                 <br>
                 <div style="font-weight: bold;font-size: 30px;">
                   ข้อมูลเพิ่มเติม
@@ -270,23 +270,27 @@
               </div>
               <div style="border-radius: 5px;border-top: thin solid #E0E0E0;">
                 <br>
-                <div style="margin-left: 15px;">
+                <div style="margin: 15px;">
                   <div>
                     <b-form-radio v-model="selected" name="some-radios" value="A">โอนเงินผ่านธนาคาร</b-form-radio>
                     <br>
-                    <div style="margin-left: 15px;">
+                    <div style="margin: 15px;">
                       ชำระเงินของคุณโดยตรงไปยังบัญชีธนาคารของเรา โปรดใช้รหัสคำสั่งซื้อของคุณเป็นข้อมูลอ้างอิงการชำระเงิน คำสั่งซื้อของคุณจะไม่ถูกส่งจนกว่าเงินจะเคลียร์ในบัญชีของเรา
                     </div>
                     <br>
                     <br>
                     <br>
                     <b-form-radio v-model="selected" name="some-radios" value="B">บัตรเครดิต วีซ่า / มาสเตอร์การ์ด</b-form-radio>
+                    <!-- {{selected}} -->
                     <br>
                     <div style="margin-left: 5px;">
                       ข้อมูลของคุณจะถูกใช้ในกระบวนการสั่งซื้อ เพื่อสร้างประสบการณ์ของคุณผ่านเว็บไซต์ ศึกษานโยบายส่วนตัว นโยบายความเป็นส่วนตัว.
                     </div>
-                    <div style="text-align: right;">
-                      <b-button variant="primary">สั่งซื้อ</b-button>
+                    <div v-if="selected == 'A'" style="text-align: right;">
+                      <b-button variant="primary" href="/credit">สั่งซื้อ</b-button>
+                    </div>
+                    <div v-if="selected == 'B'" style="text-align: right;">
+                      <b-button variant="primary" href="/bank">สั่งซื้อ</b-button>
                     </div>
                     <br>
                   </div>
@@ -309,7 +313,12 @@ export default {
       items: [
         { INSTALLER_INFO: 'https://www.tyrepac.co.th/wp-content/uploads/2020/02/tyre-toyo-proxes-sport-suv.jpg', test: 'TOYO PROXES SPORT SUV - 255/55R18', OPENING_HOURS: 'Monday - Sunday 8:00 AM - 8:00 PM', INSTALLATION_COST: 'Macdonald', price: '฿92,400.00' }
       ],
-      fields: ['สินค้า', ' ', ' ', ' ', 'มูลค่าสินค้า']
+      fields: ['สินค้า', ' ', ' ', ' ', 'มูลค่าสินค้า'],
+      pay: ''
+    }
+  },
+  medthods: {
+    pay () {
     }
   }
 }
