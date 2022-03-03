@@ -13,6 +13,7 @@ import checkout from '../views/buy.vue'
 import cart from '../views/cart.vue'
 import credit from '../views/checkoutcredit.vue'
 import bank from '../views/checkoutbank.vue'
+import shop from '../views/shop.vue'
 
 Vue.use(VueRouter)
 
@@ -89,6 +90,11 @@ const routes = [
     path: '/bank',
     name: 'bank',
     component: bank
+  },
+  {
+    path: '/shop',
+    name: 'shop',
+    component: shop
   }
 ]
 

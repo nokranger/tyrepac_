@@ -35,7 +35,8 @@
           </a>
         </b-col>
         <b-col>
-          <div>
+          <a href="/tyrebrand/nitto">
+            <div>
             <b-card
               title="Nitto Tyres"
               img-src="https://i.imgur.com/9JpV8e2.png"
@@ -47,9 +48,11 @@
             >
             </b-card>
           </div>
+          </a>
         </b-col>
         <b-col>
-          <div>
+          <a href="/tyrebrand/nankang">
+            <div>
             <b-card
               title="Nankang Tyres"
               img-src="https://i.imgur.com/yDA4cCy.png"
@@ -61,13 +64,15 @@
             >
             </b-card>
           </div>
+          </a>
         </b-col>
         <b-col cols="2"></b-col>
       </b-row>
       <b-row>
         <b-col cols="2"></b-col>
         <b-col>
-          <div>
+          <a href="/tyrebrand/bridestone">
+            <div>
             <b-card
               title="Bridgestone Tyres"
               img-src="https://i.imgur.com/39bMB69.png"
@@ -79,9 +84,11 @@
             >
             </b-card>
           </div>
+          </a>
         </b-col>
         <b-col>
-          <div>
+          <a href="/tyrebrand/continental">
+            <div>
             <b-card
               title="Continental Tyres"
               img-src="https://i.imgur.com/iBpm6uT.png"
@@ -93,9 +100,11 @@
             >
             </b-card>
           </div>
+          </a>
         </b-col>
         <b-col>
-          <div>
+          <a href="/tyrebrand/dunlop">
+            <div>
             <b-card
               title="Dunlop Tyres"
               img-src="https://i.imgur.com/yvhHUsj.png"
@@ -107,13 +116,15 @@
             >
             </b-card>
           </div>
+          </a>
         </b-col>
         <b-col cols="2"></b-col>
       </b-row>
       <b-row>
         <b-col cols="2"></b-col>
         <b-col>
-          <div>
+          <a href="/tyrebrand/goodyear">
+            <div>
             <b-card
               title="Goodyear Tyres"
               img-src="https://i.imgur.com/TgbxVn2.png"
@@ -125,11 +136,13 @@
             >
             </b-card>
           </div>
+          </a>
         </b-col>
         <b-col>
-          <div>
+          <a href="/tyrebrand/michelin">
+            <div>
             <b-card
-              title="Mechelin Tyres"
+              title="Michelin Tyres"
               img-src="https://i.imgur.com/EByvNfm.png"
               img-alt="Image"
               img-top
@@ -139,9 +152,11 @@
             >
             </b-card>
           </div>
+          </a>
         </b-col>
         <b-col>
-          <div>
+          <a href="/tyrebrand/yokohama">
+            <div>
             <b-card
               title="Yokohama Tyres"
               img-src="https://i.imgur.com/iiTZGZR.png"
@@ -153,6 +168,7 @@
             >
             </b-card>
           </div>
+          </a>
         </b-col>
         <b-col cols="2"></b-col>
       </b-row>

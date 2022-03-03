@@ -5,30 +5,30 @@
       <br>
       <br>
       <div class="pic">
-        <img class="imgs" src="https://www.grandprix.co.th/wp-content/uploads/2020/06/TOYOTA-B-SUV-7-660x400.jpg" alt="">
+        <img class="imgs" src="https://www.tyrepac.co.th/wp-content/uploads/2020/02/profile-High-performance-SUV-tyres.jpg" alt="">
         <div style="position: relative;margin-top: -100px;">
           <div style="margin-left: 15px;color: white;font-weight: bold;">ยาง SUV ประสิทธิภาพสูง</div>
           <b-button variant="light">ดูยางทั้งหมด</b-button>
         </div>
       </div>
       <div class="pic">
-        <img class="imgs" src="https://www.grandprix.co.th/wp-content/uploads/2020/06/TOYOTA-B-SUV-7-660x400.jpg" alt="">
+        <img class="imgs" src="https://www.tyrepac.co.th/wp-content/uploads/2020/02/profile-General-driving-tyres.jpg" alt="">
         <div style="position: relative;margin-top: -100px;">
-          <div style="margin-left: 15px;color: white;font-weight: bold;">ยาง SUV ประสิทธิภาพสูง</div>
+          <div style="margin-left: 15px;color: white;font-weight: bold;">ยางขับขี่ทั่วไป</div>
           <b-button variant="light">ดูยางทั้งหมด</b-button>
         </div>
       </div>
       <div class="pic">
-        <img class="imgs" src="https://www.grandprix.co.th/wp-content/uploads/2020/06/TOYOTA-B-SUV-7-660x400.jpg" alt="">
+        <img class="imgs" src="https://www.tyrepac.co.th/wp-content/uploads/2020/02/profile-Soft-quiet-driving-tyres.jpg" alt="">
         <div style="position: relative;margin-top: -100px;">
-          <div style="margin-left: 15px;color: white;font-weight: bold;">ยาง SUV ประสิทธิภาพสูง</div>
+          <div style="margin-left: 15px;color: white;font-weight: bold;">ยางยางขับขี่นุ่ม เงียบ</div>
           <b-button variant="light">ดูยางทั้งหมด</b-button>
         </div>
       </div>
       <div class="pic">
-        <img class="imgs" src="https://www.grandprix.co.th/wp-content/uploads/2020/06/TOYOTA-B-SUV-7-660x400.jpg" alt="">
+        <img class="imgs" src="https://www.tyrepac.co.th/wp-content/uploads/2020/02/profile-High-performance-tyres.jpg" alt="">
         <div style="position: relative;margin-top: -100px;">
-          <div style="margin-left: 15px;color: white;font-weight: bold;">ยาง SUV ประสิทธิภาพสูง</div>
+          <div style="margin-left: 15px;color: white;font-weight: bold;">ยางประสิทธิภาพสูง</div>
           <b-button variant="light">ดูยางทั้งหมด</b-button>
         </div>
       </div>
@@ -37,30 +37,30 @@
     <br>
     <div>
       <div class="pic">
-        <img class="imgs" src="https://www.grandprix.co.th/wp-content/uploads/2020/06/TOYOTA-B-SUV-7-660x400.jpg" alt="">
+        <img class="imgs" src="https://www.tyrepac.co.th/wp-content/uploads/2020/02/profile-Fuel-saving-tyres.jpg" alt="">
         <div style="position: relative;margin-top: -100px;">
-          <div style="margin-left: 15px;color: white;font-weight: bold;">ยาง SUV ประสิทธิภาพสูง</div>
+          <div style="margin-left: 15px;color: white;font-weight: bold;">ยางประหยัดเชื้อเพลิง</div>
           <b-button variant="light">ดูยางทั้งหมด</b-button>
         </div>
       </div>
       <div class="pic">
-        <img class="imgs" src="https://www.grandprix.co.th/wp-content/uploads/2020/06/TOYOTA-B-SUV-7-660x400.jpg" alt="">
+        <img class="imgs" src="https://www.tyrepac.co.th/wp-content/uploads/2020/02/profile-Pickup-truck-tyres.jpg'" alt="">
         <div style="position: relative;margin-top: -100px;">
-          <div style="margin-left: 15px;color: white;font-weight: bold;">ยาง SUV ประสิทธิภาพสูง</div>
+          <div style="margin-left: 15px;color: white;font-weight: bold;">ยางรถกระบะ</div>
           <b-button variant="light">ดูยางทั้งหมด</b-button>
         </div>
       </div>
       <div class="pic">
-        <img class="imgs" src="https://www.grandprix.co.th/wp-content/uploads/2020/06/TOYOTA-B-SUV-7-660x400.jpg" alt="">
+        <img class="imgs" src="https://www.tyrepac.co.th/wp-content/uploads/2020/02/profile-All-purpose-SUV-tyres.jpg" alt="">
         <div style="position: relative;margin-top: -100px;">
-          <div style="margin-left: 15px;color: white;font-weight: bold;">ยาง SUV ประสิทธิภาพสูง</div>
+          <div style="margin-left: 15px;color: white;font-weight: bold;">ยางเอนกประสงค์ / SUV</div>
           <b-button variant="light">ดูยางทั้งหมด</b-button>
         </div>
       </div>
       <div class="pic">
-        <img class="imgs" src="https://www.grandprix.co.th/wp-content/uploads/2020/06/TOYOTA-B-SUV-7-660x400.jpg" alt="">
+        <img class="imgs" src="https://www.tyrepac.co.th/wp-content/uploads/2020/02/profile-Off-road-tyres.jpg" alt="">
         <div style="position: relative;margin-top: -100px;">
-          <div style="margin-left: 15px;color: white;font-weight: bold;">ยาง SUV ประสิทธิภาพสูง</div>
+          <div style="margin-left: 15px;color: white;font-weight: bold;">ยางออฟโรด</div>
           <b-button variant="light">ดูยางทั้งหมด</b-button>
         </div>
       </div>
@@ -75,7 +75,8 @@
   display: inline-block;
 }
 .imgs {
-  width: 300px;
+  width: 450px;
+  height: 400px;
   transition: transform .5s;
 }
 .imgs:hover {

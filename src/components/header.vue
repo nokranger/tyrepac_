@@ -32,7 +32,7 @@
                 >โปรโมชั่น</b
               ></b-nav-item
             >
-            <b-nav-item :href="'/' + langs + '/joint-venture-company'"
+            <b-nav-item href="/shop"
               ><b style="font-size: 16px; font-weight: normal"
                 >ประเภทยาง</b
               ></b-nav-item

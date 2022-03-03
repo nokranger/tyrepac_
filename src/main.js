@@ -6,6 +6,8 @@ import BootstrapVue from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import { library } from '@fortawesome/fontawesome-svg-core'
+import vuePhotoZoomPro from 'vue-photo-zoom-pro'
+import 'vue-photo-zoom-pro/dist/style/vue-photo-zoom-pro.css'
 
 import { faHatWizard } from '@fortawesome/free-solid-svg-icons'
 
@@ -16,6 +18,8 @@ Vue.use(BootstrapVue)
 
 library.add(faHatWizard)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
+
+Vue.use(vuePhotoZoomPro)
 
 new Vue({
   router,
