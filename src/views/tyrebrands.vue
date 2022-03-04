@@ -56,57 +56,6 @@
                         </div>
                       </div>
                     </b-col>
-                    <!-- <b-col>
-                      <div style="border-radius: 5px;border: thin solid #E0E0E0;margin: 5px;text-align: left;">
-                        <div>
-                          <a href="/tyrebrand/toyo/detail">
-                            <img src="https://www.tyrepac.co.th/wp-content/uploads/2020/02/tyre-toyo-proxes-sport-suv.jpg" style="width: 150px;height: 150px;margin: 5px;" alt="">
-                          </a>
-                        </div>
-                        <div style="margin-left: 5px;color: #005099;font-weight: bold;">TOYO PROXES SPORT SUV – 255/55R18</div>
-                        <div style="margin-left: 5px;color: #005099;">฿7,700.00 ต่อเส้น</div>
-                        <div style="margin: 5px;">
-                          <b-form-spinbutton id="demo-sb" v-model="value2" min="4" max="100"></b-form-spinbutton>
-                        </div>
-                        <div style="margin: 5px;">
-                          <b-button variant="primary">สั่งซื้อเลย</b-button>
-                        </div>
-                      </div>
-                    </b-col>
-                    <b-col>
-                      <div style="border-radius: 5px;border: thin solid #E0E0E0;margin: 5px;text-align: left;">
-                        <div>
-                          <a href="/tyrebrand/toyo/detail">
-                            <img src="https://www.tyrepac.co.th/wp-content/uploads/2020/02/tyre-toyo-proxes-sport-suv.jpg" style="width: 150px;height: 150px;margin: 5px;" alt="">
-                          </a>
-                        </div>
-                        <div style="margin-left: 5px;color: #005099;font-weight: bold;">TOYO PROXES SPORT SUV – 255/55R18</div>
-                        <div style="margin-left: 5px;color: #005099;">฿7,700.00 ต่อเส้น</div>
-                        <div style="margin: 5px;">
-                          <b-form-spinbutton id="demo-sb" v-model="value2" min="4" max="100"></b-form-spinbutton>
-                        </div>
-                        <div style="margin: 5px;">
-                          <b-button variant="primary">สั่งซื้อเลย</b-button>
-                        </div>
-                      </div>
-                    </b-col>
-                    <b-col>
-                      <div style="border-radius: 5px;border: thin solid #E0E0E0;margin: 5px;text-align: left;">
-                        <div>
-                          <a href="/tyrebrand/toyo/detail">
-                            <img src="https://www.tyrepac.co.th/wp-content/uploads/2020/02/tyre-toyo-proxes-sport-suv.jpg" style="width: 150px;height: 150px;margin: 5px;" alt="">
-                          </a>
-                        </div>
-                        <div style="margin-left: 5px;color: #005099;font-weight: bold;">TOYO PROXES SPORT SUV – 255/55R18</div>
-                        <div style="margin-left: 5px;color: #005099;">฿7,700.00 ต่อเส้น</div>
-                        <div style="margin: 5px;">
-                          <b-form-spinbutton id="demo-sb" v-model="value2" min="4" max="100"></b-form-spinbutton>
-                        </div>
-                        <div style="margin: 5px;">
-                          <b-button variant="primary">สั่งซื้อเลย</b-button>
-                        </div>
-                      </div>
-                    </b-col> -->
                   </b-row>
                 </b-container>
               </div>

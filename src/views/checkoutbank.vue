@@ -71,8 +71,11 @@
                 <template v-slot:cell()="data">
                   <div>{{ data.item.name }}</div>
                 </template>
-                <template v-slot:cell(รวมทั้งหมด)="data">
-                  <div>{{ data.item.sum }}</div>
+                <template v-slot:cell(จำนวน)="data">
+                  <div>{{ data.item.value }}</div>
+                </template>
+                <template v-slot:cell(มูลค่าสินค้า)="data">
+                  <div>{{ data.item.price * data.item.value }}</div>
                 </template>
               </b-table>
             </div>
@@ -86,7 +89,7 @@
                         รวม
                       </div>
                     </b-col>
-                    <b-col>฿61,600.00</b-col>
+                    <b-col>{{ cart.price * cart.value }}</b-col>
                   </b-row>
                   <br>
                   <b-row>
@@ -121,7 +124,7 @@
                     </b-col>
                     <b-col>
                       <div style="color: #005099;font-weight: bold;">
-                        ฿61,600.00
+                        ฿{{cart.price * cart.value}}
                       </div>
                     </b-col>
                   </b-row>
@@ -156,13 +159,17 @@ export default ({
     return {
       imgs: '',
       previewImage: null,
-      items: [{
-        img: 'https://www.tyrepac.co.th/wp-content/uploads/2020/02/tyre-toyo-proxes-sport-suv.jpg',
-        name: 'TOYO PROXES SPORT – 255/35ZR18',
-        sum: '61600'
-      }],
-      fields: ['สินค้า', ' ', 'รวมทั้งหมด']
+      items: [],
+      fields: ['สินค้า', ' ', 'จำนวน', 'มูลค่าสินค้า'],
+      cart: []
     }
+  },
+  mounted () {
+    console.log(JSON.parse(localStorage.getItem('cart')))
+    this.cart = JSON.parse(localStorage.getItem('cart'))
+    this.items = [
+      { img: this.cart.img, name: this.cart.name, value: this.cart.value, price: this.cart.price }
+    ]
   },
   methods: {
     test () {

@@ -208,19 +208,15 @@
                 </div>
               </b-modal>
               <div style="margin: 5px;">
-                <b-table ref="table" striped hover :items="items" :fields="fields" :filter="filter" :filter-included-fields="filterOn" :per-page="perpage" :current-page="currentPage">
+                <b-table ref="table" striped hover :items="items" :fields="fields">
                   <template v-slot:cell(สินค้า)="data">
-                    <img style="width: 150px;" :src="data.item.INSTALLER_INFO" alt="">
+                    <img style="width: 150px;" :src="data.item.img" alt="">
                   </template>
                   <template v-slot:cell()="data">
-                    <div style="color: #005099;font-weight: bold;">{{data.item.test}}</div>
-                  </template>
-                  <template v-slot:cell(ราคา)="data">
-                    <img :src="data.item.OPENING_HOURS" alt="">
-                    <div>{{data.item.OPENING_HOURS}}</div>
+                    <div style="color: #005099;font-weight: bold;">{{data.item.name}}</div>
                   </template>
                   <template v-slot:cell(จำนวน)="data">
-                    <a :href="data.item.INSTALLATION_COST">{{data.item.INSTALLATION_COST}}</a>
+                    <div>{{data.item.value}}</div>
                   </template>
                   <template v-slot:cell(มูลค่าสินค้า)="data">
                     <div>{{data.item.price}}</div>
@@ -237,7 +233,7 @@
                         มูลค่าสินค้า
                       </div>
                     </b-col>
-                    <b-col>฿92,400.00</b-col>
+                    <b-col>฿{{cart.price}}</b-col>
                   </b-row>
                   <br>
                   <b-row>
@@ -261,7 +257,7 @@
                     </b-col>
                     <b-col>
                       <div style="color: #005099;font-weight: bold;">
-                        ฿92,400.00
+                        ฿{{cart.price}}
                       </div>
                     </b-col>
                   </b-row>
@@ -287,10 +283,10 @@
                       ข้อมูลของคุณจะถูกใช้ในกระบวนการสั่งซื้อ เพื่อสร้างประสบการณ์ของคุณผ่านเว็บไซต์ ศึกษานโยบายส่วนตัว นโยบายความเป็นส่วนตัว.
                     </div>
                     <div v-if="selected == 'A'" style="text-align: right;">
-                      <b-button variant="primary" href="/credit">สั่งซื้อ</b-button>
+                      <b-button variant="primary" href="/bank">สั่งซื้อ</b-button>
                     </div>
                     <div v-if="selected == 'B'" style="text-align: right;">
-                      <b-button variant="primary" href="/bank">สั่งซื้อ</b-button>
+                      <b-button variant="primary" href="/credit">สั่งซื้อ</b-button>
                     </div>
                     <br>
                   </div>
@@ -310,12 +306,18 @@ export default {
     return {
       selected: '',
       statuss: 'not_accepted',
-      items: [
-        { INSTALLER_INFO: 'https://www.tyrepac.co.th/wp-content/uploads/2020/02/tyre-toyo-proxes-sport-suv.jpg', test: 'TOYO PROXES SPORT SUV - 255/55R18', OPENING_HOURS: 'Monday - Sunday 8:00 AM - 8:00 PM', INSTALLATION_COST: 'Macdonald', price: '฿92,400.00' }
-      ],
-      fields: ['สินค้า', ' ', ' ', ' ', 'มูลค่าสินค้า'],
-      pay: ''
+      items: [],
+      fields: ['สินค้า', ' ', 'จำนวน', 'มูลค่าสินค้า'],
+      pay: '',
+      cart: []
     }
+  },
+  mounted () {
+    console.log(JSON.parse(localStorage.getItem('cart')))
+    this.cart = JSON.parse(localStorage.getItem('cart'))
+    this.items = [
+      { img: this.cart.img, name: this.cart.name, value: this.cart.value, price: this.cart.price }
+    ]
   },
   medthods: {
     pay () {

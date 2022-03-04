@@ -76,7 +76,7 @@
                       margin-top: -5px;
                     "
                   >
-                    <div style="margin: 5px">10</div>
+                    <div style="margin: 5px">{{cart.value}}</div>
                   </div></i
                 ></b
               ></b-nav-item
@@ -94,8 +94,12 @@ export default {
       qoute: 'Main Customers in Thailand',
       qoute2: 'For project achievements in thailand please contact us',
       langs: '',
-      routess: ''
+      routess: '',
+      cart: []
     }
+  },
+  mounted () {
+    this.cart = JSON.parse(localStorage.getItem('cart'))
   }
 }
 </script>

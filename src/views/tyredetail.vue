@@ -50,25 +50,26 @@
                   <b-col>
                     <br>
                     <div style="color: #005099;font-weight: bold;font-size: 25px;">
-                      TOYO PROXES SPORT – 255/35ZR18
+                      {{cart.name}}
                     </div>
                     <div style="color: #005099;font-weight: bold;">
-                      ฿8,550.00 ต่อเส้น
+                      {{cart.price}} ต่อเส้น
                     </div>
                     <br>
                     <br>
+                    <!-- {{brand.sku}} -->
                     <div style="margin: 5px;">
-                      <b-form-spinbutton style="width: 30%;" id="demo-sb" v-model="value" min="4" max="100"></b-form-spinbutton>
+                      <b-form-spinbutton style="width: 30%;" id="demo-sb" v-model="cart.value" min="4" max="100"></b-form-spinbutton>
                       <br>
-                      <b-button variant="primary" href="/checkout">สั่งซื้อเลย</b-button>
+                      <b-button variant="primary" v-on:click="buy (cart.value)">สั่งซื้อเลย</b-button>
                     </div>
                     <div style="margin-left: 5px;">
                       <b-button style="background-color: #00c300;border: none;" href="https://line.me/R/ti/p/%40tyrepac_th" target="_blank">แชท + ซื้อผ่าน LINE</b-button>
                     </div>
                     <div style="border-radius: 5px;border: thin solid #E0E0E0;margin: 5px;font-size: 14px;">
-                      <div style="margin: 5px;">SKU: TH_VTYBB255NJ94YA</div>
-                      <div style="margin: 5px;">Categories: Toyo, PROXES SPORT, ยางประสิทธิภาพสูง</div>
-                      <div style="margin: 5px;">Tags: PROXES SPORT, Toyo, 255/35ZR18</div>
+                      <div style="margin: 5px;">SKU: {{cart.sku}}</div>
+                      <div style="margin: 5px;">Categories: {{cart.type}}</div>
+                      <div style="margin: 5px;">Tags: {{cart.name}}, {{cart.type}}</div>
                     </div>
                   </b-col>
                 </b-row>
@@ -114,26 +115,45 @@ export default {
       toyo: toyo,
       value: 4,
       code: '',
-      items: [
-        { names: 'Tyre Brand', detail: 'Toyo' },
-        { names: 'รุ่นยาง', detail: 'ยางประสิทธิภาพสูง' },
-        { names: 'ความกว้าง', detail: '255' },
-        { names: 'ขนาดวงล้อ', detail: '18' },
-        { names: 'ซีรี่ย์ยาง', detail: '35' },
-        { names: 'Load Index', detail: '94' },
-        { names: 'Speed Index', detail: 'Y' }
-      ],
-      fields: ['ชื่อ', 'รายละเอียด']
+      items: [],
+      fields: ['ชื่อ', 'รายละเอียด'],
+      cart: [],
+      brand: []
     }
   },
-  async mounted () {
+  mounted () {
     console.log('code', this.$route.params.name)
-    this.code = this.$route.params.name
-    // this.aa = this.$route.params.name
-    // var found = this.getcode(this.code)
-    await console.log('fcode', this.getObjectByValue(this.toyo, 'Name', this.code))
+    console.log(JSON.parse(localStorage.getItem('cart')))
+    this.cart = JSON.parse(localStorage.getItem('cartdetail'))
+    this.brand = this.cart.brand
+    this.items = [
+      { names: 'Tyre Brand', detail: this.brand.brandId },
+      { names: 'รุ่นยาง', detail: this.brand.type },
+      { names: 'ความกว้าง', detail: this.brand.width },
+      { names: 'ขนาดวงล้อ', detail: this.brand.height },
+      { names: 'ซีรี่ย์ยาง', detail: this.brand.diameter },
+      { names: 'Load Index', detail: this.brand.loadIndex },
+      { names: 'Speed Index', detail: this.brand.speedIndex }
+    ]
   },
   methods: {
+    buy (value) {
+      console.log(value)
+      // console.log('buy', url + '-' + img + '-' + name + '-' + price + '-' + this.$refs[value][0].localValue)
+      const cart = {
+        url: this.cart.url,
+        img: this.cart.img,
+        name: this.cart.name,
+        price: this.cart.price,
+        value: value,
+        type: this.cart.type,
+        sku: this.cart.sku,
+        brand: this.cart.brand
+      }
+      console.log(cart)
+      localStorage.setItem('cart', JSON.stringify(cart))
+      location.replace('/checkout')
+    },
     getcode (code) {
       // console.log('toyo', this.toyo)
       // console.log('codefilter', code)
