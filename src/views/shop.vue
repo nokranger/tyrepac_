@@ -10,7 +10,12 @@
                   <div style="text-align: left; font-weight: bold;margin: 5px;">
                     <div style="margin-left: 5px;">กรองตามความกว้าง</div>
                     <div>
-                      <b-input placeholder="ทุกๆ ความกว้าง"></b-input>
+                      <b-input list="width" placeholder="ทุกๆ ความกว้าง" v-model="width" v-on:change="filterwidth (width)"></b-input>
+                        <datalist id="width" >
+                          <option value="155"></option>
+                          <option value="165"></option>
+                          <option value="175"></option>
+                        </datalist>
                       <br />
                     </div>
                     <div style="margin-left: 5px;">กรองตามซีรี่ย์ยาง</div>
@@ -182,14 +187,34 @@ export default {
         { value: 'b', text: '48' }
       ],
       tyre: '',
-      filterss: ''
+      filterss: '',
+      width: ''
     }
   },
   mounted () {
     this.filterss = localStorage.getItem('filter')
     this.filterss = JSON.parse(this.filterss)
-    console.log('filter', this.filterss)
-    console.log('check', this.filterss.diameter)
+    // fetch('http://119.63.90.135:2083/product', {
+    //   method: 'get',
+    //   mode: 'no-cors',
+    //   headers: {}
+    // }).then((res) => {
+    //   console.log(res)
+    // })
+    var config = {
+      headers: { 'Access-Control-Allow-Origin': '*' },
+      method: 'get',
+      mode: 'cors',
+      url: 'http://119.63.90.135:2083/product'
+    }
+    // console.log('all null')
+    axios(config).then(res => {
+      // console.log(res.data.data)
+      this.brand = res
+      console.log(this.brand)
+    })
+    // console.log('filter', this.filterss)
+    // console.log('check', this.filterss.diameter)
     // if (this.filterss.width !== null) {
     //   axios.get(apiURL + '/productByFilter', { width: this.filterss.width }).then((res) => {
     //     console.log('width')
@@ -209,23 +234,18 @@ export default {
     //   })
     // } else
     if (this.filterss.diameter === null) {
-      console.log('all null')
-      axios.get(apiURL + '/product').then(res => {
-        console.log(res.data.data)
-        this.brand = res.data.data.products
-      })
+      // console.log('all null')
+      // axios.get(apiURL + '/product').then(res => {
+      //   // console.log(res.data.data)
+      //   this.brand = res.data.data.products
+      // })
     } else if (this.filterss.height === null) {
-      console.log('all null')
-      axios.get(apiURL + '/product').then(res => {
-        console.log(res.data.data)
-        this.brand = res.data.data.products
-      })
+      // console.log('all null')
+      // axios.get(apiURL + '/product').then(res => {
+      //   // console.log(res.data.data)
+      //   this.brand = res.data.data.products
+      // })
     } else if (this.filterss === null) {
-      console.log('all null')
-      axios.get(apiURL + '/product').then(res => {
-        console.log(res.data.data)
-        this.brand = res.data.data.products
-      })
     }
     // console.log('fasfsaf', toyo)
     // await axios.get(apiURL + '/product').then(res => {
@@ -243,7 +263,7 @@ export default {
         this.newArray.push(newObj)
         // console.log(this.newArray)
       }
-      console.log('sortsssss', this.newArray)
+      // console.log('sortsssss', this.newArray)
       this.sortaa = this.brand
       if (value.toString() === 'regularPrice') {
         this.sortaa.sort((a, b) => {
@@ -261,16 +281,57 @@ export default {
     },
     filtertyre (value) {
       console.log('valuefilters', value)
+      // var data = JSON.stringify({
+      //   // eslint-disable-next-line quote-props
+      //   'type': 'suv'
+      // })
+      var config = {
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        method: 'post',
+        url: apiURL + '/productByFilter',
+        // headers: {
+        //   'Content-Type': 'application/json, text/plain, */*',
+        //   'Access-Control-Allow-Origin': '*'
+        // },
+        data: {
+          type: value
+        }
+        // data: data
+      }
+      // var config = {
+      //   method: 'get',
+      //   url: apiURL + '/productByFilter',
+      //   // headers: {
+      //   //   'Content-Type': 'application/json'
+      //   // },
+      //   params: {
+      //     type: value
+      //   }
+      // }
+      console.log('valuefilters')
+      axios(config).then((res) => {
+        console.log(res)
+        this.brand = res.data.data.products
+      })
+      // axios.post(apiURL + '/productByFilter', { type: value }).then(res => {
+      //   // console.log(res.data.data)
+      //   this.brand = res.data.data.products
+      // })
+    },
+    filterwidth (value) {
+      console.log('valuefilterswidth', value)
       var data = JSON.stringify({
         // eslint-disable-next-line quote-props
-        'type': 'suv'
+        'width': value
       })
       var config = {
         method: 'get',
         url: apiURL + '/productByFilter',
-        // headers: {
-        //   'Content-Type': 'application/json'
-        // },
+        headers: {
+          'Content-Type': 'application/json'
+        },
         data: data
       }
       // var config = {

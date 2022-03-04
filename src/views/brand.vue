@@ -8,7 +8,7 @@
       <b-row>
         <b-col cols="2"></b-col>
         <b-col>
-          <a href="/tyrebrand/toyo">
+          <a href="/shop">
             <div>
               <b-card
                 title="Toyo Tyres"
@@ -24,7 +24,7 @@
           </a>
         </b-col>
         <b-col>
-          <a href="/tyrebrand/nitto">
+          <a href="/shop">
             <div>
             <b-card
               title="Nitto Tyres"
@@ -40,7 +40,7 @@
           </a>
         </b-col>
         <b-col>
-          <a href="/tyrebrand/nankang">
+          <a href="/shop">
             <div>
             <b-card
               title="Nankang Tyres"
@@ -60,7 +60,7 @@
       <b-row>
         <b-col cols="2"></b-col>
         <b-col>
-          <a href="/tyrebrand/bridestone">
+          <a href="/shop">
             <div>
             <b-card
               title="Bridgestone Tyres"
@@ -76,7 +76,7 @@
           </a>
         </b-col>
         <b-col>
-          <a href="/tyrebrand/continental">
+          <a href="/shop">
             <div>
             <b-card
               title="Continental Tyres"
@@ -92,7 +92,7 @@
           </a>
         </b-col>
         <b-col>
-          <a href="/tyrebrand/dunlop">
+          <a href="/shop">
             <div>
             <b-card
               title="Dunlop Tyres"
@@ -112,7 +112,7 @@
       <b-row>
         <b-col cols="2"></b-col>
         <b-col>
-          <a href="/tyrebrand/goodyear">
+          <a href="/shop">
             <div>
             <b-card
               title="Goodyear Tyres"
@@ -128,7 +128,7 @@
           </a>
         </b-col>
         <b-col>
-          <a href="/tyrebrand/michelin">
+          <a href="/shop">
             <div>
             <b-card
               title="Michelin Tyres"
@@ -144,7 +144,7 @@
           </a>
         </b-col>
         <b-col>
-          <a href="/tyrebrand/yokohama">
+          <a href="/shop">
             <div>
             <b-card
               title="Yokohama Tyres"
