@@ -37,7 +37,7 @@
         </div>
         <br />
         <div style="text-align: left;margin-left: 20px;">
-          <b-button variant="light" style="border-radius: 1px;border: thin solid black;">ค้นหา</b-button>
+          <b-button variant="light" style="border-radius: 1px;border: thin solid black;" v-on:click="search (selected1, selected2, selected3)">ค้นหา</b-button>
         </div>
         <br />
         <b><a href="#" style="color: black;text-decoration: none;" v-b-modal.modal-tyre>ไม่แน่ใจวิธีอ่านขนาดยางของคุณ ? คลิกที่นี่</a></b>
@@ -62,57 +62,79 @@ export default {
       selected3: null,
       options: [
         { value: null, text: '--ความกว้าง--' },
-        { value: 'a', text: '155' },
-        { value: 'b', text: '165' },
-        { value: { C: '3PO' }, text: '175' },
-        { value: { C: '3PO' }, text: '185' },
-        { value: { C: '3PO' }, text: '195' },
-        { value: { C: '3PO' }, text: '205' },
-        { value: 'b', text: '206' },
-        { value: 'b', text: '215' },
-        { value: 'b', text: '225' },
-        { value: 'b', text: '235' },
-        { value: 'b', text: '245' },
-        { value: 'b', text: '255' },
-        { value: 'b', text: '265' },
-        { value: 'b', text: '275' },
-        { value: 'b', text: '285' },
-        { value: 'b', text: '295' },
-        { value: 'b', text: '305' },
-        { value: 'b', text: '315' },
-        { value: 'b', text: '325' }
+        { value: '155', text: '155' },
+        { value: '165', text: '165' },
+        { value: '175', text: '175' },
+        { value: '185', text: '185' },
+        { value: '195', text: '195' },
+        { value: '205', text: '205' },
+        { value: '206', text: '206' },
+        { value: '215', text: '215' },
+        { value: '225', text: '225' },
+        { value: '235', text: '235' },
+        { value: '245', text: '245' },
+        { value: '255', text: '255' },
+        { value: '265', text: '265' },
+        { value: '275', text: '275' },
+        { value: '285', text: '285' },
+        { value: '295', text: '295' },
+        { value: '305', text: '305' },
+        { value: '315', text: '315' },
+        { value: '325', text: '325' }
       ],
       options2: [
         { value: null, text: '--ซีรี่ย์ยาง--' },
-        { value: 'a', text: '0' },
-        { value: 'b', text: '25' },
-        { value: { C: '3PO' }, text: '30' },
-        { value: 'd', text: '35' },
-        { value: 'd', text: '40' },
-        { value: 'd', text: '45' },
-        { value: 'd', text: '35' },
-        { value: 'd', text: '50' },
-        { value: 'd', text: '55' },
-        { value: 'd', text: '60' },
-        { value: 'd', text: '65' },
-        { value: 'd', text: '70' },
-        { value: 'd', text: '75' },
-        { value: 'd', text: '85' }
+        { value: '0', text: '0' },
+        { value: '25', text: '25' },
+        { value: '30', text: '30' },
+        { value: '35', text: '35' },
+        { value: '40', text: '40' },
+        { value: '45', text: '45' },
+        { value: '50', text: '50' },
+        { value: '55', text: '55' },
+        { value: '60', text: '60' },
+        { value: '65', text: '65' },
+        { value: '70', text: '70' },
+        { value: '75', text: '75' },
+        { value: '85', text: '85' }
       ],
       options3: [
         { value: null, text: '--ขนาดวงล้อ--' },
-        { value: 'a', text: '13' },
-        { value: 'b', text: '14' },
-        { value: { C: '3PO' }, text: '15' },
-        { value: 'd', text: '16' },
-        { value: 'd', text: '17' },
-        { value: 'd', text: '18' },
-        { value: 'd', text: '19' },
-        { value: 'd', text: '20' },
-        { value: 'd', text: '21' },
-        { value: 'd', text: '22' },
-        { value: 'd', text: '24' }
+        { value: '13', text: '13' },
+        { value: '14', text: '14' },
+        { value: '15', text: '15' },
+        { value: '16', text: '16' },
+        { value: '17', text: '17' },
+        { value: '18', text: '18' },
+        { value: '19', text: '19' },
+        { value: '20', text: '20' },
+        { value: '21', text: '21' },
+        { value: '22', text: '22' },
+        { value: '24', text: '24' }
       ]
+    }
+  },
+  methods: {
+    search (width, height, diameter) {
+      console.log('aaaa', width + height + diameter)
+      const search = {
+        width: width,
+        height: height,
+        diameter: diameter
+      }
+      console.log(search)
+      localStorage.setItem('filter', JSON.stringify(search))
+      // location.replace('/shop')
+      if (width !== null) {
+        console.log('width', width)
+        location.replace('/shop?width=' + width)
+      } else if (height !== null) {
+        console.log('height', height)
+        location.replace('/shop?height=' + height)
+      } else if (diameter !== null) {
+        console.log('diameter', diameter)
+        location.replace('/shop?diameter=' + diameter)
+      }
     }
   }
 }

@@ -181,15 +181,57 @@ export default {
         { value: 'a', text: '32' },
         { value: 'b', text: '48' }
       ],
-      tyre: ''
+      tyre: '',
+      filterss: ''
     }
   },
-  async mounted () {
+  mounted () {
+    this.filterss = localStorage.getItem('filter')
+    this.filterss = JSON.parse(this.filterss)
+    console.log('filter', this.filterss)
+    console.log('check', this.filterss.diameter)
+    // if (this.filterss.width !== null) {
+    //   axios.get(apiURL + '/productByFilter', { width: this.filterss.width }).then((res) => {
+    //     console.log('width')
+    //     this.brand = res.data.data.products
+    //   })
+    // } else if (this.filterss.height !== null) {
+    //   axios.get(apiURL + '/productByFilter', { height: this.filterss.height }).then((res) => {
+    //     console.log('height')
+    //     console.log(res.data.data.products)
+    //     this.brand = res.data.data.products
+    //   })
+    // } else if (this.filterss.diameter !== null) {
+    //   axios.get(apiURL + '/productByFilter', { diameter: this.filterss.diameter }).then((res) => {
+    //     console.log('diameter')
+    //     console.log(res.data.data.products)
+    //     this.brand = res.data.data.products
+    //   })
+    // } else
+    if (this.filterss.diameter === null) {
+      console.log('all null')
+      axios.get(apiURL + '/product').then(res => {
+        console.log(res.data.data)
+        this.brand = res.data.data.products
+      })
+    } else if (this.filterss.height === null) {
+      console.log('all null')
+      axios.get(apiURL + '/product').then(res => {
+        console.log(res.data.data)
+        this.brand = res.data.data.products
+      })
+    } else if (this.filterss === null) {
+      console.log('all null')
+      axios.get(apiURL + '/product').then(res => {
+        console.log(res.data.data)
+        this.brand = res.data.data.products
+      })
+    }
     // console.log('fasfsaf', toyo)
-    await axios.get(apiURL + '/product').then(res => {
-      console.log(res.data.data)
-      this.brand = res.data.data.products
-    })
+    // await axios.get(apiURL + '/product').then(res => {
+    //   console.log(res.data.data)
+    //   this.brand = res.data.data.products
+    // })
   },
   methods: {
     sortprice (value) {
