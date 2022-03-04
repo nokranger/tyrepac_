@@ -103,7 +103,7 @@
                   </b-row>
                   <br>
                   <b-row>
-                    {{brand}}
+                    <!-- {{brand}} -->
                     <b-col cols="3" v-for="(brandd, index) in brand" :key="index" style="margin-bottom: 5px;">
                       <div style="border-radius: 5px;border: thin solid #E0E0E0;text-align: left;">
                         <div>
@@ -190,22 +190,6 @@ export default {
       console.log(res.data.data)
       this.brand = res.data.data.products
     })
-    // this.brands = window.location.pathname
-    // await this.sortaa()
-    // await this.sortprice()
-    // for (const k in this.brand) {
-    //   const newObj = this.brand[k]
-    //   // console.log(newObj)
-    //   this.newArray.push(newObj)
-    //   // console.log(this.newArray)
-    // }
-    // console.log('sortsssss', this.newArray)
-    // this.sortaa = this.newArray
-    // this.sortaa.sort((a, b) => {
-    //   return b.regularPrice - a.regularPrice
-    // })
-    // this.brand = this.sortaa
-    // console.log('sortafasfasf', this.sortaa)
   },
   methods: {
     sortprice (value) {
@@ -276,7 +260,7 @@ export default {
         brand: brand
       }
       localStorage.setItem('cart', JSON.stringify(cart))
-      location.replace(url)
+      location.replace('/cart')
     },
     buydetail (url, img, name, price, value, type, sku, brand) {
       console.log('buy', url + '-' + img + '-' + name + '-' + price + '-' + this.$refs[value][0].localValue)

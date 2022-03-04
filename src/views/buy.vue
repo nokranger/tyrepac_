@@ -283,10 +283,10 @@
                       ข้อมูลของคุณจะถูกใช้ในกระบวนการสั่งซื้อ เพื่อสร้างประสบการณ์ของคุณผ่านเว็บไซต์ ศึกษานโยบายส่วนตัว นโยบายความเป็นส่วนตัว.
                     </div>
                     <div v-if="selected == 'A'" style="text-align: right;">
-                      <b-button variant="primary" href="/bank">สั่งซื้อ</b-button>
+                      <b-button variant="primary" v-on:click="paybank">สั่งซื้อ</b-button>
                     </div>
                     <div v-if="selected == 'B'" style="text-align: right;">
-                      <b-button variant="primary" href="/credit">สั่งซื้อ</b-button>
+                      <b-button variant="primary" v-on:click="paycredit ()">สั่งซื้อ</b-button>
                     </div>
                     <br>
                   </div>
@@ -309,7 +309,8 @@ export default {
       items: [],
       fields: ['สินค้า', ' ', 'จำนวน', 'มูลค่าสินค้า'],
       pay: '',
-      cart: []
+      cart: [],
+      check: []
     }
   },
   mounted () {
@@ -319,8 +320,18 @@ export default {
       { img: this.cart.img, name: this.cart.name, value: this.cart.value, price: this.cart.price }
     ]
   },
-  medthods: {
-    pay () {
+  methods: {
+    paybank () {
+      localStorage.setItem('checkout', localStorage.getItem('cart'))
+      localStorage.removeItem('cart')
+      localStorage.removeItem('cartdetail')
+      location.replace('/bank')
+    },
+    paycredit () {
+      localStorage.setItem('checkout', JSON.parse(localStorage.getItem('cart')))
+      localStorage.removeItem('cart')
+      localStorage.removeItem('cartdetail')
+      location.replace('/credit')
     }
   }
 }

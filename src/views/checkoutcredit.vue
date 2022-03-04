@@ -149,7 +149,7 @@ export default ({
   },
   mounted () {
     console.log(JSON.parse(localStorage.getItem('cart')))
-    this.cart = JSON.parse(localStorage.getItem('cart'))
+    this.cart = JSON.parse(localStorage.getItem('checkout'))
     this.items = [
       { img: this.cart.img, name: this.cart.name, value: this.cart.value, price: this.cart.price }
     ]
