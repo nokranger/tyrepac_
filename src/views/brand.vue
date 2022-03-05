@@ -8,7 +8,7 @@
       <b-row>
         <b-col cols="2"></b-col>
         <b-col>
-          <a href="/shop">
+          <a href="/shop?brand=008">
             <div>
               <b-card
                 title="Toyo Tyres"
@@ -60,7 +60,7 @@
       <b-row>
         <b-col cols="2"></b-col>
         <b-col>
-          <a href="/shop">
+          <a href="/shop?brand=001">
             <div>
             <b-card
               title="Bridgestone Tyres"
@@ -92,7 +92,7 @@
           </a>
         </b-col>
         <b-col>
-          <a href="/shop">
+          <a href="/shop?brand=003">
             <div>
             <b-card
               title="Dunlop Tyres"

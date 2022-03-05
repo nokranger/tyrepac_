@@ -188,11 +188,20 @@ export default {
       ],
       tyre: '',
       filterss: '',
-      width: ''
+      width: '',
+      promotions: []
     }
   },
   async mounted () {
     await this.product()
+    axios.get(apiURL + '/product').then(res => {
+      this.promotions = res.data.data.products
+      const promotion = this.promotions.filter((post, index) => {
+        return post.status === 1
+      })
+      this.promotions = promotion
+      console.log('promotions', this.promotions)
+    })
     // const uri = 'ยางประสิทธิภาพสูง'
     // const encoded = encodeURIComponent(uri)
     // const decoded = decodeURIComponent(encoded)
@@ -243,6 +252,25 @@ export default {
           configsearch.data = {
             type: decodeURIComponent(split[1])
           }
+        } else if (split[0] === 'brand') {
+          console.log('brands')
+          var configbrands = {
+            method: 'get',
+            url: 'http://119.63.90.135:2083/product'
+          }
+          axios(configbrands).then(res => {
+            this.brand = res.data.data.products
+            const brands = this.brand.find((post, index) => {
+              if (post.brandId === split[1]) {
+                return true
+              }
+            })
+            console.log('detailb', brands)
+            console.log('detailr', res.data.data.products)
+            this.brand = [
+              brands
+            ]
+          })
         }
         console.log('valuefilters', configsearch)
         axios(configsearch).then((res) => {
