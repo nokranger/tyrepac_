@@ -191,7 +191,7 @@ export default {
       width: ''
     }
   },
-  mounted () {
+  async mounted () {
     this.filterss = localStorage.getItem('filter')
     this.filterss = JSON.parse(this.filterss)
     // fetch('http://119.63.90.135:2083/product', {
@@ -208,31 +208,18 @@ export default {
       url: 'http://119.63.90.135:2083/product'
     }
     // console.log('all null')
-    axios(config).then(res => {
+    await axios(config).then(res => {
       // console.log(res.data.data)
-      this.brand = res
-      console.log(this.brand)
+      this.brand = res.data.data.products
+      console.log('brands', res.data.data.products)
     })
-    // console.log('filter', this.filterss)
-    // console.log('check', this.filterss.diameter)
-    // if (this.filterss.width !== null) {
-    //   axios.get(apiURL + '/productByFilter', { width: this.filterss.width }).then((res) => {
-    //     console.log('width')
-    //     this.brand = res.data.data.products
-    //   })
-    // } else if (this.filterss.height !== null) {
-    //   axios.get(apiURL + '/productByFilter', { height: this.filterss.height }).then((res) => {
-    //     console.log('height')
-    //     console.log(res.data.data.products)
-    //     this.brand = res.data.data.products
-    //   })
-    // } else if (this.filterss.diameter !== null) {
-    //   axios.get(apiURL + '/productByFilter', { diameter: this.filterss.diameter }).then((res) => {
-    //     console.log('diameter')
-    //     console.log(res.data.data.products)
-    //     this.brand = res.data.data.products
-    //   })
-    // } else
+    const vvv = this.brand.find((post, index) => {
+      if (post.prodId === 'TY001') {
+        return true
+      }
+    })
+    console.log('asfaf', vvv)
+
     if (this.filterss.diameter === null) {
       // console.log('all null')
       // axios.get(apiURL + '/product').then(res => {
@@ -327,7 +314,7 @@ export default {
         'width': value
       })
       var config = {
-        method: 'get',
+        method: 'post',
         url: apiURL + '/productByFilter',
         headers: {
           'Content-Type': 'application/json'
