@@ -260,16 +260,12 @@ export default {
           }
           axios(configbrands).then(res => {
             this.brand = res.data.data.products
-            const brands = this.brand.find((post, index) => {
-              if (post.brandId === split[1]) {
-                return true
-              }
+            const brands = this.brand.filter((post, index) => {
+              return post.brandId === split[1]
             })
             console.log('detailb', brands)
             console.log('detailr', res.data.data.products)
-            this.brand = [
-              brands
-            ]
+            this.brand = brands
           })
         }
         console.log('valuefilters', configsearch)

@@ -144,7 +144,7 @@ export default {
         axios(config).then(res => {
           this.brand = res.data.data.products
           const brands = this.brand.find((post, index) => {
-            if (post.prodId === 'TY001') {
+            if (post.sku === split[1]) {
               return true
             }
           })
