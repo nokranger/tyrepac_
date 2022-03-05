@@ -123,7 +123,7 @@ export default {
         diameter: diameter
       }
       console.log(search)
-      localStorage.setItem('filter', JSON.stringify(search))
+      // localStorage.setItem('filter', JSON.stringify(search))
       // location.replace('/shop')
       if (width !== null) {
         console.log('width', width)

@@ -67,7 +67,7 @@ const routes = [
     component: tyrebrands
   },
   {
-    path: '/tyrebrand/:name/:name',
+    path: '/tyrebrand',
     name: 'tyredetail',
     component: tyredetail
   },

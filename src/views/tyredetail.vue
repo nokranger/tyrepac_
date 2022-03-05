@@ -49,27 +49,28 @@
                   </b-col>
                   <b-col>
                     <br>
+                    {{brand}}
                     <div style="color: #005099;font-weight: bold;font-size: 25px;">
-                      {{cart.name}}
+                      {{brand.name}}
                     </div>
                     <div style="color: #005099;font-weight: bold;">
-                      {{cart.price}} ต่อเส้น
+                      {{brand.price}} ต่อเส้น
                     </div>
                     <br>
                     <br>
                     <!-- {{brand.sku}} -->
                     <div style="margin: 5px;">
-                      <b-form-spinbutton style="width: 30%;" id="demo-sb" v-model="cart.value" min="4" max="100"></b-form-spinbutton>
+                      <b-form-spinbutton style="width: 30%;" id="demo-sb" v-model="value" min="4" max="100"></b-form-spinbutton>
                       <br>
-                      <b-button variant="primary" v-on:click="buy (cart.value)">สั่งซื้อเลย</b-button>
+                      <b-button variant="primary" v-on:click="buy (value)">สั่งซื้อเลย</b-button>
                     </div>
                     <div style="margin-left: 5px;">
                       <b-button style="background-color: #00c300;border: none;" href="https://line.me/R/ti/p/%40tyrepac_th" target="_blank">แชท + ซื้อผ่าน LINE</b-button>
                     </div>
                     <div style="border-radius: 5px;border: thin solid #E0E0E0;margin: 5px;font-size: 14px;">
-                      <div style="margin: 5px;">SKU: {{cart.sku}}</div>
-                      <div style="margin: 5px;">Categories: {{cart.type}}</div>
-                      <div style="margin: 5px;">Tags: {{cart.name}}, {{cart.type}}</div>
+                      <div style="margin: 5px;">SKU: {{brand.sku}}</div>
+                      <div style="margin: 5px;">Categories: {{brand.type}}</div>
+                      <div style="margin: 5px;">Tags: {{brand.name}}, {{brand.type}}</div>
                     </div>
                   </b-col>
                 </b-row>
@@ -109,9 +110,12 @@
 </template>
 <script>
 import toyo from '../assets/json/tyre/toyo.json'
+import apiURL from '../assets/js/connect.js'
+import axios from 'axios'
 export default {
   data () {
     return {
+      apiURL: apiURL,
       toyo: toyo,
       value: 4,
       code: '',
@@ -122,33 +126,68 @@ export default {
     }
   },
   mounted () {
-    console.log('code', this.$route.params.name)
-    console.log(JSON.parse(localStorage.getItem('cart')))
-    this.cart = JSON.parse(localStorage.getItem('cartdetail'))
-    this.brand = this.cart.brand
-    this.items = [
-      { names: 'Tyre Brand', detail: this.brand.brandId },
-      { names: 'รุ่นยาง', detail: this.brand.type },
-      { names: 'ความกว้าง', detail: this.brand.width },
-      { names: 'ขนาดวงล้อ', detail: this.brand.height },
-      { names: 'ซีรี่ย์ยาง', detail: this.brand.diameter },
-      { names: 'Load Index', detail: this.brand.loadIndex },
-      { names: 'Speed Index', detail: this.brand.speedIndex }
-    ]
+    console.log(location.href)
+    var split = location.href
+    split = split.split('?')
+    if (split.length > 1) {
+      console.log('good')
+      console.log('fsafaf')
+      split = split[1].split('=')
+      console.log('tyre', split[0])
+      console.log('value', split[1])
+      if (split[0] === 'brand') {
+        console.log('brands')
+        var config = {
+          method: 'get',
+          url: 'http://119.63.90.135:2083/product'
+        }
+        axios(config).then(res => {
+          this.brand = res.data.data.products
+          const brands = this.brand.find((post, index) => {
+            if (post.prodId === 'TY001') {
+              return true
+            }
+          })
+          console.log('detail', brands)
+          this.brand = brands
+          this.items = [
+            { names: 'Tyre Brand', detail: brands.brandId },
+            { names: 'รุ่นยาง', detail: brands.type },
+            { names: 'ความกว้าง', detail: brands.width },
+            { names: 'ขนาดวงล้อ', detail: brands.height },
+            { names: 'ซีรี่ย์ยาง', detail: brands.diameter },
+            { names: 'Load Index', detail: brands.loadIndex },
+            { names: 'Speed Index', detail: brands.speedIndex }
+          ]
+        })
+      }
+    }
+    // console.log('code', this.$route.params.name)
+    // console.log(JSON.parse(localStorage.getItem('cart')))
+    // this.cart = JSON.parse(localStorage.getItem('cartdetail'))
+    // this.brand = this.cart.brand
+    // this.items = [
+    //   { names: 'Tyre Brand', detail: this.brand.brandId },
+    //   { names: 'รุ่นยาง', detail: this.brand.type },
+    //   { names: 'ความกว้าง', detail: this.brand.width },
+    //   { names: 'ขนาดวงล้อ', detail: this.brand.height },
+    //   { names: 'ซีรี่ย์ยาง', detail: this.brand.diameter },
+    //   { names: 'Load Index', detail: this.brand.loadIndex },
+    //   { names: 'Speed Index', detail: this.brand.speedIndex }
+    // ]
   },
   methods: {
     buy (value) {
-      console.log(value)
+      console.log('buy', this.brand.sku)
       // console.log('buy', url + '-' + img + '-' + name + '-' + price + '-' + this.$refs[value][0].localValue)
       const cart = {
-        url: this.cart.url,
-        img: this.cart.img,
-        name: this.cart.name,
-        price: this.cart.price,
+        img: 'https://www.tyrepac.co.th/wp-content/uploads/2020/02/tyre-toyo-proxes-sport-suv.jpg',
+        name: this.brand.name,
+        price: this.brand.regularPrice,
         value: value,
-        type: this.cart.type,
-        sku: this.cart.sku,
-        brand: this.cart.brand
+        type: this.brand.type,
+        sku: this.brand.sku,
+        brand: this.brand.brand
       }
       console.log(cart)
       localStorage.setItem('cart', JSON.stringify(cart))

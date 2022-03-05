@@ -219,7 +219,7 @@
                     <div>{{data.item.value}}</div>
                   </template>
                   <template v-slot:cell(มูลค่าสินค้า)="data">
-                    <div>{{data.item.price}}</div>
+                    <div>{{data.item.price * data.item.value}}</div>
                   </template>
                 </b-table>
               </div>
@@ -233,7 +233,7 @@
                         มูลค่าสินค้า
                       </div>
                     </b-col>
-                    <b-col>฿{{cart.price}}</b-col>
+                    <b-col>฿{{cart.price * cart.value}}</b-col>
                   </b-row>
                   <br>
                   <b-row>
@@ -257,7 +257,7 @@
                     </b-col>
                     <b-col>
                       <div style="color: #005099;font-weight: bold;">
-                        ฿{{cart.price}}
+                        ฿{{cart.price * cart.value}}
                       </div>
                     </b-col>
                   </b-row>

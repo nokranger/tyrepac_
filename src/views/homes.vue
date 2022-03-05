@@ -41,19 +41,24 @@ export default {
     }
   },
   mounted () {
-    // axios({
-    //   method: 'get',
-    //   // headers: { 'Access-Control-Allow-Origin': '*' },
-    //   url: 'http://119.63.90.135:2083/productByFilter',
-    //   data: {
-    //     type: 'suv'
-    //   }
-    // }).then(function (response) {
-    //   console.log(response.data.data)
-    // })
-    axios.get('http://119.63.90.135:2083/product').then(response => {
-      console.log('res')
-      console.log(response)
+    var config = {
+      headers: {
+        'Access-Control-Allow-Origin': '*'
+      },
+      method: 'get',
+      url: 'http://119.63.90.135:2083/product'
+    }
+    // console.log('all null')
+    axios(config).then(res => {
+      // console.log(res.data.data)
+      this.brand = res.data.data.products
+      console.log('brands', res.data.data.products)
+      const vvv = this.brand.find((post, index) => {
+        if (post.prodId === 'TY001') {
+          return true
+        }
+      })
+      console.log('asfaf', vvv)
     })
   }
 }

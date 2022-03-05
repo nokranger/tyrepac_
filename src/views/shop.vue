@@ -192,55 +192,87 @@ export default {
     }
   },
   async mounted () {
-    this.filterss = localStorage.getItem('filter')
-    this.filterss = JSON.parse(this.filterss)
-    // fetch('http://119.63.90.135:2083/product', {
-    //   method: 'get',
-    //   mode: 'no-cors',
-    //   headers: {}
-    // }).then((res) => {
-    //   console.log(res)
-    // })
-    var config = {
-      headers: { 'Access-Control-Allow-Origin': '*' },
-      method: 'get',
-      mode: 'cors',
-      url: 'http://119.63.90.135:2083/product'
-    }
-    // console.log('all null')
-    await axios(config).then(res => {
-      // console.log(res.data.data)
-      this.brand = res.data.data.products
-      console.log('brands', res.data.data.products)
-    })
-    const vvv = this.brand.find((post, index) => {
-      if (post.prodId === 'TY001') {
-        return true
-      }
-    })
-    console.log('asfaf', vvv)
-
-    if (this.filterss.diameter === null) {
-      // console.log('all null')
-      // axios.get(apiURL + '/product').then(res => {
-      //   // console.log(res.data.data)
-      //   this.brand = res.data.data.products
-      // })
-    } else if (this.filterss.height === null) {
-      // console.log('all null')
-      // axios.get(apiURL + '/product').then(res => {
-      //   // console.log(res.data.data)
-      //   this.brand = res.data.data.products
-      // })
-    } else if (this.filterss === null) {
-    }
-    // console.log('fasfsaf', toyo)
-    // await axios.get(apiURL + '/product').then(res => {
-    //   console.log(res.data.data)
-    //   this.brand = res.data.data.products
-    // })
+    await this.product()
+    // const uri = 'ยางประสิทธิภาพสูง'
+    // const encoded = encodeURIComponent(uri)
+    // const decoded = decodeURIComponent(encoded)
+    // console.log('encodeee', encoded)
+    // console.log('decodeee', decoded)
   },
   methods: {
+    product () {
+      var configsearch = {
+        method: 'post',
+        url: apiURL + '/productByFilter'
+        // headers: {
+        //   'Content-Type': 'application/json, text/plain, */*',
+        //   'Access-Control-Allow-Origin': '*'
+        // },
+        // data: {
+        //   width: split[1]
+        // }
+      }
+      console.log(location.href)
+      var split = location.href
+      split = split.split('?')
+      if (split.length > 1) {
+        console.log('good')
+        console.log('fsafaf')
+        split = split[1].split('=')
+        console.log('tyre', split[0])
+        console.log('value', split[1])
+        if (split[0] === 'width') {
+          console.log('iswidth')
+          configsearch.data = {
+            width: split[1]
+          }
+        } else if (split[0] === 'height') {
+          console.log('isheight')
+          configsearch.data = {
+            height: split[1]
+          }
+        } else if (split[0] === 'diameter') {
+          console.log('isdiameter')
+          console.log('isdiameter', configsearch)
+          configsearch.data = {
+            diameter: split[1]
+          }
+        } else if (split[0] === 'type') {
+          console.log('istypess', decodeURIComponent(split[1]))
+          console.log('istype', configsearch)
+          configsearch.data = {
+            type: decodeURIComponent(split[1])
+          }
+        }
+        console.log('valuefilters', configsearch)
+        axios(configsearch).then((res) => {
+          console.log(res)
+          this.brand = res.data.data.products
+        })
+      } else {
+        console.log('nohaveroute')
+        var config = {
+          headers: {
+            'Access-Control-Allow-Origin': '*',
+            'X-Requested-With': 'XMLHttpRequest'
+          },
+          method: 'get',
+          url: 'http://119.63.90.135:2083/product'
+        }
+        // console.log('all null')
+        axios(config).then(res => {
+          // console.log(res.data.data)
+          this.brand = res.data.data.products
+          console.log('brands', res.data.data.products)
+          const vvv = this.brand.find((post, index) => {
+            if (post.prodId === 'TY001') {
+              return true
+            }
+          })
+          console.log('asfaf', vvv)
+        })
+      }
+    },
     sortprice (value) {
       console.log('value', value)
       // this.brand = this.brand
@@ -268,10 +300,6 @@ export default {
     },
     filtertyre (value) {
       console.log('valuefilters', value)
-      // var data = JSON.stringify({
-      //   // eslint-disable-next-line quote-props
-      //   'type': 'suv'
-      // })
       var config = {
         headers: {
           'Content-Type': 'application/json'
@@ -285,27 +313,12 @@ export default {
         data: {
           type: value
         }
-        // data: data
       }
-      // var config = {
-      //   method: 'get',
-      //   url: apiURL + '/productByFilter',
-      //   // headers: {
-      //   //   'Content-Type': 'application/json'
-      //   // },
-      //   params: {
-      //     type: value
-      //   }
-      // }
       console.log('valuefilters')
       axios(config).then((res) => {
         console.log(res)
         this.brand = res.data.data.products
       })
-      // axios.post(apiURL + '/productByFilter', { type: value }).then(res => {
-      //   // console.log(res.data.data)
-      //   this.brand = res.data.data.products
-      // })
     },
     filterwidth (value) {
       console.log('valuefilterswidth', value)
@@ -365,7 +378,7 @@ export default {
         brand: brand
       }
       localStorage.setItem('cartdetail', JSON.stringify(cart))
-      location.replace(url)
+      location.replace('/tyrebrand/?brand=' + sku)
     }
   }
 }
