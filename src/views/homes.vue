@@ -5,9 +5,10 @@
       <app-searchtyre></app-searchtyre>
       <app-detail></app-detail>
       <app-type></app-type>
+      <app-recommend></app-recommend>
       <app-brand></app-brand>
-      <!-- <app-detailtyre></app-detailtyre> -->
       <app-review></app-review>
+      <!-- <app-detailtyre></app-detailtyre> -->
       <app-service></app-service>
       <app-regis></app-regis>
     </div>
@@ -24,6 +25,7 @@ import review from '../components/home/review.vue'
 import service from '../components/home/service.vue'
 import regis from '../components/home/regis.vue'
 import typetyre from '../components/home/typetyre.vue'
+import recommend from '../components/home/recommend.vue'
 export default {
   components: {
     'app-toppic': toppic,
@@ -34,7 +36,8 @@ export default {
     'app-review': review,
     'app-service': service,
     'app-regis': regis,
-    'app-type': typetyre
+    'app-type': typetyre,
+    'app-recommend': recommend
   },
   data () {
     return {

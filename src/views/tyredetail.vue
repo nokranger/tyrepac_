@@ -49,7 +49,7 @@
                   </b-col>
                   <b-col>
                     <br>
-                    {{brand}}
+                    <!-- {{brand}} -->
                     <div style="color: #005099;font-weight: bold;font-size: 25px;">
                       {{brand.name}}
                     </div>
@@ -100,7 +100,7 @@
             <br>
             <br>
             <div style="text-align: left;font-weight: bold;color: black;">
-              <div>Related products</div>
+              <app-recommend></app-recommend>
             </div>
           </b-col>
         </b-row>
@@ -112,7 +112,11 @@
 import toyo from '../assets/json/tyre/toyo.json'
 import apiURL from '../assets/js/connect.js'
 import axios from 'axios'
+import recommend from '../components/home/recommend2.vue'
 export default {
+  components: {
+    'app-recommend': recommend
+  },
   data () {
     return {
       apiURL: apiURL,

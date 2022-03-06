@@ -147,11 +147,12 @@ import michelin from '../assets/json/tyre/michelin.json'
 import nankang from '../assets/json/tyre/nankang.json'
 import nitto from '../assets/json/tyre/nitto.json'
 import yokohama from '../assets/json/tyre/yokohama.json'
+// import recommend from '../components/home/recommend.vue'
 import apiURL from '../assets/js/connect.js'
 import axios from 'axios'
 export default {
   components: {
-    // 'app-menu': menu
+    // 'app-recommend': recommend
   },
   data () {
     return {
