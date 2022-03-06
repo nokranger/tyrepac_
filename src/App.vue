@@ -27,12 +27,9 @@ export default {
 </script>
 
 <style>
-@font-face {
-  font-family: 'Kanit', sans-serif;
-  src: url();
-}
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap');
 #app {
-  font-family: Kanit, Helvetica, Arial, sans-serif;
+  font-family: 'Kanit', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;

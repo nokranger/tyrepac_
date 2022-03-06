@@ -1,8 +1,9 @@
 /* @import url('https://fonts.googleapis.com/css?family=myc_font&display=swap'); */
-@font-face {
-  font-family: 'myc_font';
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap');
+/* @font-face {
+  font-family: 'Kanit', sans-serif;
   src: url('../font/seven_02.woff') format('woff');
-}
+} */
 .lpttlogo {
   /* width: 120px;
   height: 70px; */
@@ -84,7 +85,7 @@
   background-color: #666666;
 }
 .container-navbar-section a {
-  font-family: 'myc_font';
+  font-family: 'Kanit', sans-serif;
   font-style: normal;
   font-size: 13px;
   float: left;
@@ -111,8 +112,8 @@ div {
   /* display: block; */
 }
 b {
-  /* font-family: 'myc_font'; */
-  font-family: 'myc_font';
+  /* font-family: 'Kanit', sans-serif; */
+  font-family: 'Kanit', sans-serif;
   font-size: 13px;
   color: #000000;
   text-decoration: none;
@@ -133,7 +134,7 @@ b:hover::after{
   width: 100%;
 }
 a,h4 {
-  font-family: 'myc_font';
+  font-family: 'Kanit', sans-serif;
   color:#44494c;
 }
 .imgc {
@@ -149,7 +150,7 @@ a,h4 {
   vertical-align: middle;
 }
 .dropbtn {
-  font-family: 'myc_font';
+  font-family: 'Kanit', sans-serif;
   margin-top: 8px;
   background-color: white;
   color: white;
@@ -176,7 +177,7 @@ a,h4 {
 
 /* Links inside the dropdown */
 .dropdown-content a {
-  font-family: 'myc_font';
+  font-family: 'Kanit', sans-serif;
   color: black;
   text-decoration: none;
   display: block;

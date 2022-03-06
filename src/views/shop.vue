@@ -190,7 +190,8 @@ export default {
       tyre: '',
       filterss: '',
       width: '',
-      promotions: []
+      promotions: [],
+      checkcart: []
     }
   },
   async mounted () {
@@ -375,20 +376,72 @@ export default {
         this.brand = res.data.data.products
       })
     },
-    buy (url, img, name, price, value, type, sku, brand) {
-      console.log('buy', url + '-' + img + '-' + name + '-' + price + '-' + this.$refs[value][0].localValue)
-      const cart = {
-        url: url,
-        img: img,
-        name: name,
-        price: price,
-        value: this.$refs[value][0].localValue,
-        type: type,
-        sku: sku,
-        brand: brand
+    async buy (url, img, name, price, value, type, sku, brand) {
+      // console.log('itemcart', localStorage.getItem('cart'))
+      if (localStorage.getItem('cart') === null) {
+        console.log('null of cart')
+        const cart = {
+          url: url,
+          img: img,
+          name: name,
+          price: price,
+          value: this.$refs[value][0].localValue,
+          type: type,
+          sku: sku,
+          brand: brand
+        }
+        localStorage.setItem('cart', JSON.stringify(cart))
+        location.replace('/cart')
+      } else {
+        this.checkcart = []
+        this.checkcart = [
+          JSON.parse(localStorage.getItem('cart'))
+        ]
+        console.log('checkcart', this.checkcart)
+        // Object.keys(this.checkcart).forEach(key => this.checkcart.push())
+        // eslint-disable-next-line no-unused-vars
+        const checkcarts = this.checkcart.filter((post, index) => {
+          if (post.name === name) {
+            post.value = post.value + this.$refs[value][0].localValue
+            console.log('namesum', post.value)
+            const cart = {
+              url: url,
+              img: img,
+              name: name,
+              price: price,
+              value: post.value,
+              type: type,
+              sku: sku,
+              brand: brand
+            }
+            localStorage.setItem('cart', JSON.stringify(cart))
+            console.log('add value', checkcarts)
+            // location.replace('/cart')
+          } else {
+            this.checkcart = [JSON.parse(localStorage.getItem('cart'))]
+            console.log('new tyre', this.checkcart)
+            const cart = {
+              url: url,
+              img: img,
+              name: name,
+              price: price,
+              value: this.$refs[value][0].localValue,
+              type: type,
+              sku: sku,
+              brand: brand
+            }
+            console.log('new cart', cart)
+            // this.checkcart = Object.assign(this.checkcart, cart)
+            console.log('new cartsss', this.checkcart)
+            this.checkcart.push(cart)
+            console.log('add cart', this.checkcart)
+            // localStorage.setItem('cart', JSON.stringify(this.checkcart))
+          }
+          // this.checkcart = checkcarts
+          // console.log('checkcart', this.checkcart)
+        })
       }
-      localStorage.setItem('cart', JSON.stringify(cart))
-      location.replace('/cart')
+      console.log('buy', url + '-' + img + '-' + name + '-' + price + '-' + this.$refs[value][0].localValue)
     },
     buydetail (url, img, name, price, value, type, sku, brand) {
       console.log('buy', url + '-' + img + '-' + name + '-' + price + '-' + this.$refs[value][0].localValue)
