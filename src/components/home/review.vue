@@ -4,7 +4,7 @@
       <br />
       <h3>ดูสิ่งที่ผู้คนพูดเกี่ยวกับเราบน Facebook</h3>
       <b-button v-b-modal.my-modal variant="primary">ดูรีวิว</b-button>
-        <b-modal id="my-modal">Hello From My Modal!</b-modal>
+        <b-modal id="my-modal">รีวิว</b-modal>
       <br />
       <img
       style="width: 100%;"

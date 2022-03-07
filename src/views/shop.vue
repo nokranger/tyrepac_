@@ -244,7 +244,9 @@ export default {
       height: '',
       diameter: '',
       promotions: [],
-      checkcart: []
+      checkcart: [],
+      checkcarts: [],
+      checkcartz: []
     }
   },
   async mounted () {
@@ -495,88 +497,182 @@ export default {
           brand: brand
         }
         localStorage.setItem('cart', JSON.stringify(cart))
-        location.replace('/cart')
+        location.replace('/checkout')
       } else {
-        // this.checkcart = []
         this.checkcart = JSON.parse(localStorage.getItem('cart'))
-        if (Array.isArray(this.checkcart)) {
-          console.log('is array')
-          this.checkcart = JSON.parse(localStorage.getItem('cart'))
-        } else {
-          console.log('not array')
-          this.checkcart = [JSON.parse(localStorage.getItem('cart'))]
+        console.log('cart', this.checkcart.value)
+        const cart = {
+          url: url,
+          img: img,
+          name: name,
+          price: price,
+          value: this.$refs[value][0].localValue,
+          type: type,
+          sku: sku,
+          brand: brand
         }
-        console.log('checkcart', this.checkcart)
+        localStorage.setItem('cart', JSON.stringify(cart))
+        location.replace('/checkout')
+        // this.checkcart = []
+        // this.checkcart = JSON.parse(localStorage.getItem('cart'))
+        // if (Array.isArray(this.checkcart)) {
+        //   console.log('is array')
+        //   this.checkcart = JSON.parse(localStorage.getItem('cart'))
+        //   this.checkcartz = this.checkcart.find((post, index) => {
+        //     post.value = post.value + this.$refs[value][0].localValue
+        //     return true
+        //   })
+        // } else {
+        //   console.log('not array')
+        //   this.checkcart = [JSON.parse(localStorage.getItem('cart'))]
+        //   this.checkcartz = this.checkcart.find((post, index) => {
+        //     post.value = post.value + this.$refs[value][0].localValue
+        //     return true
+        //   })
+        //   console.log('count', this.checkcartz)
+        // }
+        // console.log('checkcart', this.checkcart)
+        // localStorage.setItem('cart', JSON.stringify(this.checkcart))
+        // location.replace('/checkout')
         // Object.keys(this.checkcart).forEach(key => this.checkcart.push())
         // eslint-disable-next-line no-unused-vars
-        const checkcarts = this.checkcart.find((post, index) => {
-          if (post.name === name) {
-            post.value = post.value + this.$refs[value][0].localValue
-            console.log('namesum', post.value)
-            const cart = {
-              url: url,
-              img: img,
-              name: name,
-              price: price,
-              value: post.value,
-              type: type,
-              sku: sku,
-              brand: brand
-            }
-            localStorage.setItem('cart', JSON.stringify(cart))
-            console.log('add value', checkcarts)
-            // location.replace('/cart')
-          } else if (post.name !== name) {
-            console.log('type', post.name)
-            console.log('typename', name)
-            console.log('array', Array.isArray(this.checkcart))
-            // this.checkcart = [JSON.parse(localStorage.getItem('cart'))]
-            // if (Array.isArray(this.checkcart)) {
-            //   console.log('more')
-            //   this.checkcart = JSON.parse(localStorage.getItem('cart'))
-            // } else {
-            //   console.log('not array')
-            // }
-            // console.log('new tyre', this.checkcart)
-            // const cart = {
-            //   url: url,
-            //   img: img,
-            //   name: name,
-            //   price: price,
-            //   value: this.$refs[value][0].localValue,
-            //   type: type,
-            //   sku: sku,
-            //   brand: brand
-            // }
-            // // this.checkcart = Object.assign(this.checkcart, cart)
-            // console.log('new cartsss', this.checkcart)
-            // // this.checkcart.push(cart)
-            // this.checkcart.push(cart)
-            // console.log('add cart', this.checkcart)
-            // localStorage.setItem('cart', JSON.stringify(this.checkcart))
-          }
-          console.log('new tyre', this.checkcart)
-          const cart = {
-            url: url,
-            img: img,
-            name: name,
-            price: price,
-            value: this.$refs[value][0].localValue,
-            type: type,
-            sku: sku,
-            brand: brand
-          }
-          // this.checkcart = Object.assign(this.checkcart, cart)
-          console.log('new cartsss', this.checkcart)
-          // this.checkcart.push(cart)
-          this.checkcart.push(cart)
-          console.log('add cart', this.checkcart)
-          localStorage.setItem('cart', JSON.stringify(this.checkcart))
-          // this.checkcart = checkcarts
-          // console.log('checkcart', this.checkcart)
-        })
+        // const checkcarts = this.checkcart.find((post, index) => {
+        //   if (post.name === name) {
+        //     post.value = post.value + this.$refs[value][0].localValue
+        //     console.log('namesum', post.value)
+        //     const cart = {
+        //       url: url,
+        //       img: img,
+        //       name: name,
+        //       price: price,
+        //       value: post.value,
+        //       type: type,
+        //       sku: sku,
+        //       brand: brand
+        //     }
+        //     localStorage.setItem('cart', JSON.stringify(cart))
+        //     console.log('add value', checkcarts)
+        //     // location.replace('/cart')
+        //   } else if (post.name !== name) {
+        //     console.log('type', post.name)
+        //     console.log('typename', name)
+        //     console.log('array', Array.isArray(this.checkcart))
+        //     // this.checkcart = [JSON.parse(localStorage.getItem('cart'))]
+        //     // if (Array.isArray(this.checkcart)) {
+        //     //   console.log('more')
+        //     //   this.checkcart = JSON.parse(localStorage.getItem('cart'))
+        //     // } else {
+        //     //   console.log('not array')
+        //     // }
+        //     // console.log('new tyre', this.checkcart)
+        //     // const cart = {
+        //     //   url: url,
+        //     //   img: img,
+        //     //   name: name,
+        //     //   price: price,
+        //     //   value: this.$refs[value][0].localValue,
+        //     //   type: type,
+        //     //   sku: sku,
+        //     //   brand: brand
+        //     // }
+        //     // // this.checkcart = Object.assign(this.checkcart, cart)
+        //     // console.log('new cartsss', this.checkcart)
+        //     // // this.checkcart.push(cart)
+        //     // this.checkcart.push(cart)
+        //     // console.log('add cart', this.checkcart)
+        //     // localStorage.setItem('cart', JSON.stringify(this.checkcart))
+        //   }
+        //   // console.log('new tyre', this.checkcart)
+        //   // const cart = {
+        //   //   url: url,
+        //   //   img: img,
+        //   //   name: name,
+        //   //   price: price,
+        //   //   value: this.$refs[value][0].localValue,
+        //   //   type: type,
+        //   //   sku: sku,
+        //   //   brand: brand
+        //   // }
+        //   // // this.checkcart = Object.assign(this.checkcart, cart)
+        //   // console.log('new cartsss', this.checkcart)
+        //   // // this.checkcart.push(cart)
+        //   // this.checkcart.push(cart)
+        //   // console.log('add cart', this.checkcart)
+        //   // localStorage.setItem('cart', JSON.stringify(this.checkcart))
+        //   // this.checkcart = checkcarts
+        //   // console.log('checkcart', this.checkcart)
+        // })
+      //   this.checkcart = JSON.parse(localStorage.getItem('cart'))
+      //   this.checkcart.find((post, index) => {
+      //     if (post.name !== name) {
+      //       // post.value = post.value + this.$refs[value][0].localValue
+      //       console.log('type', post.name)
+      //       console.log('typename', name)
+      //       const cart = {
+      //         url: url,
+      //         img: img,
+      //         name: name,
+      //         price: price,
+      //         value: post.value,
+      //         type: type,
+      //         sku: sku,
+      //         brand: brand
+      //       }
+      //       this.checkcart.push(cart)
+      //       // localStorage.setItem('cart', this.checkcart)
+      //       console.log('add value', this.checkcart)
+      //       // location.replace('/cart')
+      //     } else {
+      //       console.log('type', post.name)
+      //       console.log('typename', name)
+      //       console.log('array', Array.isArray(this.checkcart))
+      //       // this.checkcart = [JSON.parse(localStorage.getItem('cart'))]
+      //       // if (Array.isArray(this.checkcart)) {
+      //       //   console.log('more')
+      //       //   this.checkcart = JSON.parse(localStorage.getItem('cart'))
+      //       // } else {
+      //       //   console.log('not array')
+      //       // }
+      //       // console.log('new tyre', this.checkcart)
+      //       // const cart = {
+      //       //   url: url,
+      //       //   img: img,
+      //       //   name: name,
+      //       //   price: price,
+      //       //   value: this.$refs[value][0].localValue,
+      //       //   type: type,
+      //       //   sku: sku,
+      //       //   brand: brand
+      //       // }
+      //       // // this.checkcart = Object.assign(this.checkcart, cart)
+      //       // console.log('new cartsss', this.checkcart)
+      //       // // this.checkcart.push(cart)
+      //       // this.checkcart.push(cart)
+      //       // console.log('add cart', this.checkcart)
+      //       // localStorage.setItem('cart', JSON.stringify(this.checkcart))
+      //     }
+      //     // console.log('new tyre', this.checkcart)
+      //     // const cart = {
+      //     //   url: url,
+      //     //   img: img,
+      //     //   name: name,
+      //     //   price: price,
+      //     //   value: this.$refs[value][0].localValue,
+      //     //   type: type,
+      //     //   sku: sku,
+      //     //   brand: brand
+      //     // }
+      //     // // this.checkcart = Object.assign(this.checkcart, cart)
+      //     // console.log('new cartsss', this.checkcart)
+      //     // // this.checkcart.push(cart)
+      //     // this.checkcart.push(cart)
+      //     // console.log('add cart', this.checkcart)
+      //     // localStorage.setItem('cart', JSON.stringify(this.checkcart))
+      //     // this.checkcart = checkcarts
+      //     // console.log('checkcart', this.checkcart)
+      //   })
       }
-      console.log('buy', url + '-' + img + '-' + name + '-' + price + '-' + this.$refs[value][0].localValue)
+      // console.log('buy', url + '-' + img + '-' + name + '-' + price + '-' + this.$refs[value][0].localValue)
     },
     buydetail (url, img, name, price, value, type, sku, brand) {
       console.log('buy', url + '-' + img + '-' + name + '-' + price + '-' + this.$refs[value][0].localValue)

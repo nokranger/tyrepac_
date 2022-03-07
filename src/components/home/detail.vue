@@ -61,7 +61,7 @@
                   <p>ค้นหาศูนย์บริการที่มกล้คุณ พร้อมบริการติดตั้งฟรี จากร้านที่เข้าร่วมรายการ</p>
                 </div>
               </b-card-text>
-              <b-button href="#" variant="primary">เรียนรู้เพิ่มเติม</b-button>
+              <b-button href="/installer" variant="primary">เรียนรู้เพิ่มเติม</b-button>
             </b-card>
           </div>
         </b-col>
@@ -80,7 +80,7 @@
                   <p>เพียงกดค้นหาขนาดยางที่คุณต้องการ</p>
                 </div>
               </b-card-text>
-              <b-button href="#" variant="primary">เรียนรู้เพิ่มเติม</b-button>
+              <b-button href="/brand" variant="primary">เรียนรู้เพิ่มเติม</b-button>
             </b-card>
           </div>
         </b-col>

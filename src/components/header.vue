@@ -81,7 +81,7 @@
                       margin-top: -5px;
                     "
                   >
-                    <!-- <div style="margin: 5px">{{cart.value}}</div> -->
+                    <div style="margin: 5px">{{cart.value}}</div>
                   </div></i
                 ></b
               ></b-nav-item
@@ -105,6 +105,9 @@ export default {
   },
   mounted () {
     this.cart = JSON.parse(localStorage.getItem('cart'))
+    // if (Array.isArray(this.checkcart)) {
+    //   this.cart = JSON.parse(localStorage.getItem('cart'))
+    // }
   }
 }
 </script>
