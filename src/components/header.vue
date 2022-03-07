@@ -106,16 +106,20 @@ export default {
       test: { name: 'user3', value: 2, test: 'asfasfasf' }
     }
   },
-  mounted () {
+  async mounted () {
     // var user1 = { name: 'user1', value: 2, test: 'asfasfasf' }
     // var user2 = { name: 'user1', value: 1, test: 'asfasfasf' }
     var team = []
-    // const teams = JSON.parse(localStorage.getItem('test'))
-    var user4 = { name: 'user4', value: 1, test: 'asfasfasf' }
-    team.push(user4)
-    const teams = JSON.parse(localStorage.getItem('test'))
-    localStorage.setItem('test', JSON.stringify(team))
-    teams.forEach((a) => {
+    // team = JSON.parse(localStorage.getItem('test'))
+    // var user4 = { name: 'user4', value: 1, test: 'asfasfasf' }
+    // team.push(user4)
+    // // localStorage.setItem('test', JSON.stringify(team))
+    const teams = await JSON.parse(localStorage.getItem('test'))
+    console.log('teams', teams)
+    teams.push({ name: 'user3', value: 20, test: 'asfasfasf' })
+    // teams = await JSON.parse(localStorage.getItem('test'))
+    // localStorage.setItem('test', JSON.stringify(team))
+    await teams.forEach((a) => {
       if (!this[a.name]) {
         console.log('aname', a.name)
         this[a.name] = { name: a.name, value: 0, test: a.test }

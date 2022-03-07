@@ -40,8 +40,7 @@ export default {
       bw: ''
     }
   },
-  async mounted () {
-    this.magnify('myimage', 3)
+  mounted () {
   },
   methods: {
     // async magnify (imgID, zoom) {
