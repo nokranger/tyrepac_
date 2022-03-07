@@ -35,7 +35,7 @@
           </a>
         </b-col>
         <b-col>
-          <a href="/shop">
+          <a href="/shop?brand=006">
             <div>
             <b-card
               title="Nitto Tyres"

@@ -60,18 +60,18 @@ export default {
     buy (url, img, name, price, value, type, sku, brand) {
       console.log('itemcart', localStorage.getItem('cart'))
       console.log('buy', url + '-' + img + '-' + name + '-' + price + '-' + this.$refs[value][0].localValue)
-      // const cart = {
-      //   url: url,
-      //   img: img,
-      //   name: name,
-      //   price: price,
-      //   value: this.$refs[value][0].localValue,
-      //   type: type,
-      //   sku: sku,
-      //   brand: brand
-      // }
-      // localStorage.setItem('cart', JSON.stringify(cart))
-      // location.replace('/cart')
+      const cart = {
+        url: url,
+        img: img,
+        name: name,
+        price: price,
+        value: this.$refs[value][0].localValue,
+        type: type,
+        sku: sku,
+        brand: brand
+      }
+      localStorage.setItem('cart', JSON.stringify(cart))
+      location.replace('/checkout')
     },
     buydetail (url, img, name, price, value, type, sku, brand) {
       console.log('buy', url + '-' + img + '-' + name + '-' + price + '-' + this.$refs[value][0].localValue)

@@ -71,7 +71,7 @@ export default {
         brand: brand
       }
       localStorage.setItem('cart', JSON.stringify(cart))
-      location.replace('/cart')
+      location.replace('/checkout')
     },
     buydetail (url, img, name, price, value, type, sku, brand) {
       console.log('buy', url + '-' + img + '-' + name + '-' + price + '-' + this.$refs[value][0].localValue)

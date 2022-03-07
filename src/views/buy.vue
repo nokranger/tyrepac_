@@ -406,7 +406,7 @@ export default {
       location.replace('/bank')
     },
     paycredit () {
-      localStorage.setItem('checkout', JSON.parse(localStorage.getItem('cart')))
+      localStorage.setItem('checkout', localStorage.getItem('cart'))
       localStorage.removeItem('cart')
       localStorage.removeItem('cartdetail')
       location.replace('/credit')
