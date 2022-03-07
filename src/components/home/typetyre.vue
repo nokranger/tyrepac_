@@ -78,7 +78,7 @@
   display: inline-block;
 }
 .imgs {
-  width: 400px;
+  width: 300px;
   /* height: 400px; */
   transition: transform .5s;
 }

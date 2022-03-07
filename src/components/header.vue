@@ -68,7 +68,7 @@
               ></b-nav-item
             >
             <!-- <i class="fas fa-align-justify"></i> -->
-            <b-nav-item href="/cart"
+            <b-nav-item href="/checkout"
               ><b style="font-size: 16px; font-weight: normal"
                 ><i class="fas fa-shopping-cart" style="display: inline-block"
                   ><div
@@ -81,7 +81,8 @@
                       margin-top: -5px;
                     "
                   >
-                    <div style="margin: 5px">{{cart.value}}</div>
+                    <div v-if="statuss === 1" style="margin: 5px">{{cart.value}}</div>
+                    <div v-if="statuss === 0"></div>
                   </div></i
                 ></b
               ></b-nav-item
@@ -100,14 +101,43 @@ export default {
       qoute2: 'For project achievements in thailand please contact us',
       langs: '',
       routess: '',
-      cart: []
+      cart: [],
+      statuss: 0,
+      test: { name: 'user3', value: 2, test: 'asfasfasf' }
     }
   },
   mounted () {
+    // var user1 = { name: 'user1', value: 2, test: 'asfasfasf' }
+    // var user2 = { name: 'user1', value: 1, test: 'asfasfasf' }
+    var team = []
+    // const teams = JSON.parse(localStorage.getItem('test'))
+    var user4 = { name: 'user4', value: 1, test: 'asfasfasf' }
+    team.push(user4)
+    const teams = JSON.parse(localStorage.getItem('test'))
+    localStorage.setItem('test', JSON.stringify(team))
+    teams.forEach((a) => {
+      if (!this[a.name]) {
+        console.log('aname', a.name)
+        this[a.name] = { name: a.name, value: 0, test: a.test }
+        team.push(this[a.name])
+      }
+      this[a.name].value += a.value
+      // this[a.name].test = a.test
+    }, Object.create(null))
+    console.log('team', team)
+    // team.push(user1)
+    // team.push(user2)
+    // team.push(this.test)
+    // // console.log(team)
+    localStorage.setItem('test', JSON.stringify(team))
     this.cart = JSON.parse(localStorage.getItem('cart'))
-    // if (Array.isArray(this.checkcart)) {
-    //   this.cart = JSON.parse(localStorage.getItem('cart'))
-    // }
+    if (localStorage.getItem('cart') === null) {
+      this.statuss = 0
+      // this.cart = JSON.parse(localStorage.getItem('cart'))
+    } else {
+      this.statuss = 1
+      this.cart = JSON.parse(localStorage.getItem('cart'))
+    }
   }
 }
 </script>

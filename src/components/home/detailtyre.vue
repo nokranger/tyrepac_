@@ -1,17 +1,20 @@
 <template>
-  <div style="background-color: #333333">
-    <!-- <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/zeknoss/vue-magnifier@v0.2.0/dist/css/vue-magnifier.css" media="screen" /> -->
+  <div style='background-color: #333333'>
+    <!-- <link rel='stylesheet' type='text/css' href='https://cdn.jsdelivr.net/gh/zeknoss/vue-magnifier@v0.2.0/dist/css/vue-magnifier.css' media='screen' /> -->
     <div>
       <br />
-      <h1 style="color: white">ข้อมูลแก้มยาง</h1>
+      <h1 style='color: white'>ข้อมูลแก้มยาง</h1>
       <br />
       <img
-        src="https://i.imgur.com/rYKBx3L.png"
-        width="500"
-        height="500"
-        alt=""
+        src='https://i.imgur.com/rYKBx3L.png'
+        width='500'
+        height='500'
+        alt=''
       />
-      <!-- <vue-magnifier src="default-image-source" src-large="large-image-source"></vue-magnifier> -->
+      <!-- <div class="img-magnifier-container">
+        <img id="myimage" src="https://i.imgur.com/rYKBx3L.png" width="600" height="400">
+      </div> -->
+      <!-- <vue-magnifier src='default-image-source' src-large='large-image-source'></vue-magnifier> -->
       <br />
       <br />
       <br />
@@ -20,7 +23,7 @@
 </template>
 <script>
 // import vuePhotoZoomPro from 'vue-photo-zoom-pro'
-// import VueMagnifier from "@/components/vue-magnifier";
+// import VueMagnifier from '@/components/vue-magnifier';
 import 'vue-photo-zoom-pro/dist/style/vue-photo-zoom-pro.css'
 export default {
   components: {
@@ -29,8 +32,76 @@ export default {
   },
   data () {
     return {
-      imgUrl: 'https://i.imgur.com/rYKBx3L.png'
+      imgUrl: 'https://i.imgur.com/rYKBx3L.png',
+      img: '',
+      glass: '',
+      w: '',
+      h: '',
+      bw: ''
     }
+  },
+  async mounted () {
+    this.magnify('myimage', 3)
+  },
+  methods: {
+    // async magnify (imgID, zoom) {
+    //   // eslint-disable-next-line no-unused-vars
+    //   this.img = document.getElementById(imgID)
+    //   this.glass = document.createElement('DIV')
+    //   this.glass.setAttribute('class', 'img-magnifier-glass')
+    //   this.img.parentElement.insertBefore(this.glass, this.img)
+    //   this.glass.style.backgroundImage = "url('" + this.img.src + "')"
+    //   this.glass.style.backgroundRepeat = 'no-repeat'
+    //   this.glass.style.backgroundSize = (this.img.width * zoom) + 'px ' + (this.img.height * zoom) + 'px'
+    //   this.bw = 3
+    //   this.w = this.glass.offsetWidth / 2
+    //   this.h = this.glass.offsetHeight / 2
+    //   this.glass.addEventListener('mousemove', this.moveMagnifier())
+    //   this.img.addEventListener('mousemove', this.moveMagnifier())
+    //   this.glass.addEventListener('touchmove', this.moveMagnifier())
+    //   this.img.addEventListener('touchmove', this.moveMagnifier())
+    //   await this.moveMagnifier()
+    // },
+    // async moveMagnifier (e) {
+    //   var pos, x, y
+    //   await e.preventDefault()
+    //   pos = this.getCursorPos(e)
+    //   x = pos.x
+    //   y = pos.y
+    //   if (x > this.img.width - (this.w / this.zoom)) { x = this.img.width - (this.w / this.zoom) }
+    //   if (x < this.w / this.zoom) { x = this.w / this.zoom }
+    //   if (y > this.img.height - (this.h / this.zoom)) { y = this.img.height - (this.h / this.zoom) }
+    //   if (y < this.h / this.zoom) { y = this.h / this.zoom }
+    //   this.glass.style.left = (x - this.w) + 'px'
+    //   this.glass.style.top = (y - this.h) + 'px'
+    //   this.glass.style.backgroundPosition = '-' + ((x * this.zoom) - this.w + this.bw) + 'px -' + ((y * this.zoom) - this.h + this.bw) + 'px'
+    // },
+    // getCursorPos (e) {
+    //   // eslint-disable-next-line one-var
+    //   var a, x = 0, y = 0
+    //   e = e || window.event
+    //   a = this.img.getBoundingClientRect()
+    //   x = e.pageX - a.left
+    //   y = e.pageY - a.top
+    //   x = x - window.pageXOffset
+    //   y = y - window.pageYOffset
+    //   return { x: x, y: y }
+    // }
   }
 }
 </script>
+<style scoped>
+* {box-sizing: border-box;}
+.img-magnifier-container {
+  position:relative;
+}
+.img-magnifier-glass {
+  position: absolute;
+  border: 3px solid #000;
+  border-radius: 50%;
+  cursor: none;
+  /*Set the size of the magnifier glass:*/
+  width: 100px;
+  height: 100px;
+}
+</style>

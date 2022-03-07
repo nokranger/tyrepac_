@@ -3,6 +3,7 @@
     <br>
     <div>
       <div style="font-weight: bold;font-size: 25px;">สินค้าแนะนำ</div>
+      <div>ข้อเสนอสุดพิเศษจากแบรนด์ยาง</div>
       <div>
         <b-container>
           <br>

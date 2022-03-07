@@ -7,8 +7,8 @@
       <app-type></app-type>
       <app-recommend></app-recommend>
       <app-brand></app-brand>
+      <app-detailtyre></app-detailtyre>
       <app-review></app-review>
-      <!-- <app-detailtyre></app-detailtyre> -->
       <app-service></app-service>
       <app-regis></app-regis>
     </div>
@@ -20,7 +20,7 @@ import toppic from '../components/home/toppic.vue'
 import searchtyre from '../components/home/searchtyre.vue'
 import detail from '../components/home/detail.vue'
 import brand from '../components/home/brand.vue'
-// import detailtyre from '../components/home/detailtyre.vue'
+import detailtyre from '../components/home/detailtyre.vue'
 import review from '../components/home/review.vue'
 import service from '../components/home/service.vue'
 import regis from '../components/home/regis.vue'
@@ -32,7 +32,7 @@ export default {
     'app-searchtyre': searchtyre,
     'app-detail': detail,
     'app-brand': brand,
-    // 'app-detailtyre': detailtyre,
+    'app-detailtyre': detailtyre,
     'app-review': review,
     'app-service': service,
     'app-regis': regis,
