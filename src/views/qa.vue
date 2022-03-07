@@ -1,5 +1,5 @@
 <template>
-  <div style="margin-top: 90px">
+  <div style="margin-top: 90px;">
     <div
       style="
         color: #005099;
@@ -304,13 +304,13 @@
               </div>
             </b-col>
           </b-row>
-          <b-row>
+          <!-- <b-row>
             <div style="background-color: white;">
               <div>ดัชนีการรับน้ำหนัก</div>
               <p>A numeric code that tells you the maximum load carrying ability of each tyre.</p>
               <div style="margin: 10px;">Table</div>
             </div>
-          </b-row>
+          </b-row> -->
         </b-container>
         <div style="background-color: #333333;color: white;">
           <div>

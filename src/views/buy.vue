@@ -13,7 +13,7 @@
               <div style="margin: 15px;">ซื้อยาง 4 เส้น ติดตั้งฟรีกับร้านที่ร่วมรายการ</div>
               <br>
               <div style="margin: 15px;">
-                <b-button variant="primary">เลือกร้านติดตั้ง</b-button>
+                <b-button variant="primary" v-on:click="installer ()">เลือกร้านติดตั้ง</b-button>
                 <br>
                 <br>
               </div>
@@ -35,10 +35,77 @@
         <br>
         <br>
         <b-row>
+        <div v-if="statusin === 0">
+        </div>
+        <div v-if="statusin === 1">
+          <b-container>
+              <div style="text-align: left;">
+                <b-table ref="table" striped hover :items="itemin" :fields="fieldin" :per-page="perpage" :current-page="currentPage">
+                  <template v-slot:cell(ชื่อร้าน)="data">
+                    <div>{{data.item.name}}</div>
+                  </template>
+                  <template v-slot:cell(ที่อยู่)="data">
+                    <div>{{data.item.address}}</div>
+                  </template>
+                  <template v-slot:cell(เวลาทำการ)="data">
+                    <div>{{data.item.hours}}</div>
+                  </template>
+                  <template v-slot:cell(โทรศัพท์)="data">
+                    <div>{{data.item.phone}}</div>
+                  </template>
+                  <template v-slot:cell(ประเภท)="data">
+                    <div>{{data.item.category}}</div>
+                  </template>
+                  <template v-slot:cell(state)="data">
+                    <div>
+                      <b-button variant="primary" v-on:click="chooseinstaller(data.item.name, data.item.address)">เลือกร้านนี้</b-button>
+                    </div>
+                  </template>
+                </b-table>
+              </div>
+              <b-pagination
+              v-model="currentPage"
+              :total-rows="totalRows"
+              :per-page="perpage"
+              align="fill"
+              size="sm"
+              class="my-0"
+            ></b-pagination>
+          </b-container>
+          <br>
+          <br>
+        </div>
+        </b-row>
+        <b-row>
           <b-col>
             <div style="border-radius: 5px;border: thin solid #E0E0E0;margin: 5px;">
               <div style="margin: 15px;">
                 <br>
+                <div v-if="statusin === 1">
+                  <div style="font-weight: bold;font-size: 30px;">ศูนย์การติดตั้งที่เลือก</div>
+                  <br>
+                  <div>
+                    <div>ศูนย์การติดตั้งที่เลือก (ต้องระบุ)</div>
+                    <div>
+                      <b-textarea v-model="ins"></b-textarea>
+                      <br>
+                    </div>
+                  </div>
+                  <div>
+                    <div>เลือกวันที่ติดตั้ง (ต้องระบุ)</div>
+                    <div>
+                      <b-form-datepicker v-model="date" class="mb-2"></b-form-datepicker>
+                      <br>
+                    </div>
+                  </div>
+                  <div>
+                    <div>เลือกเวลาการติดตั้ง (optional)</div>
+                    <div>
+                      <b-input></b-input>
+                      <br>
+                    </div>
+                  </div>
+                </div>
                 <div style="font-weight: bold;font-size: 30px;">ข้อมูลรถยนต์ในการขอรับประกันยาง</div>
                 <br>
                 <div>
@@ -301,6 +368,7 @@
   </div>
 </template>
 <script>
+import installer from '../assets/installer.json'
 export default {
   data () {
     return {
@@ -310,12 +378,22 @@ export default {
       fields: ['สินค้า', ' ', 'จำนวน', 'มูลค่าสินค้า'],
       pay: '',
       cart: [],
-      check: []
+      check: [],
+      statusin: 0,
+      itemin: installer,
+      fieldin: ['ชื่อร้าน', 'ที่อยู่', 'เวลาทำการ', 'โทรศัพท์', 'ประเภท', 'state'],
+      perpage: 10,
+      currentPage: 1,
+      totalRows: 1,
+      date: '',
+      ins: ''
     }
   },
   mounted () {
     console.log(JSON.parse(localStorage.getItem('cart')))
     this.cart = JSON.parse(localStorage.getItem('cart'))
+    this.totalRows = this.itemin.length
+    this.currentPage = 1
     this.items = [
       { img: this.cart.img, name: this.cart.name, value: this.cart.value, price: this.cart.price }
     ]
@@ -332,6 +410,14 @@ export default {
       localStorage.removeItem('cart')
       localStorage.removeItem('cartdetail')
       location.replace('/credit')
+    },
+    installer () {
+      this.statusin = 1
+      console.log('status1')
+    },
+    chooseinstaller (value, add) {
+      console.log('choose', value)
+      this.ins = value + ' ' + add
     }
   }
 }

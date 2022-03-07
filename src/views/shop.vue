@@ -15,25 +15,75 @@
                           <option value="155"></option>
                           <option value="165"></option>
                           <option value="175"></option>
+                          <option value="185"></option>
+                          <option value="195"></option>
+                          <option value="205"></option>
+                          <option value="206"></option>
+                          <option value="215"></option>
+                          <option value="225"></option>
+                          <option value="235"></option>
+                          <option value="245"></option>
+                          <option value="255"></option>
+                          <option value="265"></option>
+                          <option value="275"></option>
+                          <option value="285"></option>
+                          <option value="295"></option>
+                          <option value="305"></option>
+                          <option value="315"></option>
+                          <option value="325"></option>
                         </datalist>
                       <br />
                     </div>
                     <div style="margin-left: 5px;">กรองตามซีรี่ย์ยาง</div>
                     <div>
-                      <b-input placeholder="ทุกๆ ซีรี่ย์ยาง"></b-input>
+                      <b-input list="height" placeholder="ทุกๆ ซีรี่ย์ยาง" v-model="height" v-on:change="filterheight (height)"></b-input>
+                      <datalist id="height">
+                        <option value="0"></option>
+                        <option value="25"></option>
+                        <option value="30"></option>
+                        <option value="35"></option>
+                        <option value="40"></option>
+                        <option value="45"></option>
+                        <option value="50"></option>
+                        <option value="55"></option>
+                        <option value="60"></option>
+                        <option value="65"></option>
+                        <option value="70"></option>
+                        <option value="75"></option>
+                        <option value="85"></option>
+                      </datalist>
                       <br />
                     </div>
                     <div style="margin-left: 5px;">กรองตามขนาดวงล้อ</div>
                     <div>
-                      <b-input placeholder="ทุกๆ ขนาดวงล้อ"></b-input>
+                      <b-input list="diameter" placeholder="ทุกๆ ขนาดวงล้อ" v-model="diameter" v-on:change="filterdiameter (diameter)"></b-input>
+                      <datalist id="diameter">
+                        <option value="13"></option>
+                        <option value="14"></option>
+                        <option value="15"></option>
+                        <option value="16"></option>
+                        <option value="17"></option>
+                        <option value="18"></option>
+                        <option value="19"></option>
+                        <option value="20"></option>
+                        <option value="21"></option>
+                        <option value="22"></option>
+                        <option value="24"></option>
+                      </datalist>
                       <br />
                     </div>
                     <div style="margin-left: 5px;">กรองตามรูปแบบยาง</div>
                     <div>
                       <b-input list="tyre" placeholder="ทุกๆ รุ่นยาง" v-model="tyre" v-on:change="filtertyre (tyre)"></b-input>
                       <datalist id="tyre" >
-                        <option value="suv"></option>
-                        <option value="suv"></option>
+                        <option value="SUV">ยางประสิทธิภาพสูง</option>
+                        <option value="ยางขับขี่ทั่วไป"></option>
+                        <option value="ยางขับขี่นุ่ม เงียบ"></option>
+                        <option value="ยางประสิทธิภาพสูง"></option>
+                        <option value="ยางประหยัดเชื้อเพลิง"></option>
+                        <option value="ยางรถกระบะ"></option>
+                        <option value="ยางรถเอนกประสงค์"></option>
+                        <option value="ยางออฟโรด"></option>
                       </datalist>
                       <br />
                     </div>
@@ -48,6 +98,7 @@
                         step="10"
                       ></b-form-input>
                       <div style="margin-left: 5px;" class="mt-2">ราคา {{ 2250 }} - {{ value }}</div>
+                      <b-button variant="primary" v-on:click="filterprice(value)">กรอง</b-button>
                       <br />
                     </div>
                   </div>
@@ -190,6 +241,8 @@ export default {
       tyre: '',
       filterss: '',
       width: '',
+      height: '',
+      diameter: '',
       promotions: [],
       checkcart: []
     }
@@ -360,16 +413,67 @@ export default {
         },
         data: data
       }
-      // var config = {
-      //   method: 'get',
-      //   url: apiURL + '/productByFilter',
-      //   // headers: {
-      //   //   'Content-Type': 'application/json'
-      //   // },
-      //   params: {
-      //     type: value
-      //   }
-      // }
+      console.log('valuefilters', data)
+      axios(config).then((res) => {
+        console.log(res)
+        this.brand = res.data.data.products
+      })
+    },
+    filterheight (value) {
+      console.log('valuefilterswidth', value)
+      var data = JSON.stringify({
+        // eslint-disable-next-line quote-props
+        'height': value
+      })
+      var config = {
+        method: 'post',
+        url: apiURL + '/productByFilter',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        data: data
+      }
+      console.log('valuefilters', data)
+      axios(config).then((res) => {
+        console.log(res)
+        this.brand = res.data.data.products
+      })
+    },
+    filterdiameter (value) {
+      console.log('valuefilterswidth', value)
+      var data = JSON.stringify({
+        // eslint-disable-next-line quote-props
+        'diameter': value
+      })
+      var config = {
+        method: 'post',
+        url: apiURL + '/productByFilter',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        data: data
+      }
+      console.log('valuefilters', data)
+      axios(config).then((res) => {
+        console.log(res)
+        this.brand = res.data.data.products
+      })
+    },
+    filterprice (value) {
+      console.log('valuefilterswidth', value)
+      var data = JSON.stringify({
+        // eslint-disable-next-line quote-props
+        minPrice: 2250,
+        maxPrice: value
+      })
+      var config = {
+        method: 'post',
+        url: apiURL + '/productByFilter',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        data: data
+      }
       console.log('valuefilters', data)
       axios(config).then((res) => {
         console.log(res)
@@ -393,14 +497,19 @@ export default {
         localStorage.setItem('cart', JSON.stringify(cart))
         location.replace('/cart')
       } else {
-        this.checkcart = []
-        this.checkcart = [
-          JSON.parse(localStorage.getItem('cart'))
-        ]
+        // this.checkcart = []
+        this.checkcart = JSON.parse(localStorage.getItem('cart'))
+        if (Array.isArray(this.checkcart)) {
+          console.log('is array')
+          this.checkcart = JSON.parse(localStorage.getItem('cart'))
+        } else {
+          console.log('not array')
+          this.checkcart = [JSON.parse(localStorage.getItem('cart'))]
+        }
         console.log('checkcart', this.checkcart)
         // Object.keys(this.checkcart).forEach(key => this.checkcart.push())
         // eslint-disable-next-line no-unused-vars
-        const checkcarts = this.checkcart.filter((post, index) => {
+        const checkcarts = this.checkcart.find((post, index) => {
           if (post.name === name) {
             post.value = post.value + this.$refs[value][0].localValue
             console.log('namesum', post.value)
@@ -417,26 +526,52 @@ export default {
             localStorage.setItem('cart', JSON.stringify(cart))
             console.log('add value', checkcarts)
             // location.replace('/cart')
-          } else {
-            this.checkcart = [JSON.parse(localStorage.getItem('cart'))]
-            console.log('new tyre', this.checkcart)
-            const cart = {
-              url: url,
-              img: img,
-              name: name,
-              price: price,
-              value: this.$refs[value][0].localValue,
-              type: type,
-              sku: sku,
-              brand: brand
-            }
-            console.log('new cart', cart)
-            // this.checkcart = Object.assign(this.checkcart, cart)
-            console.log('new cartsss', this.checkcart)
-            this.checkcart.push(cart)
-            console.log('add cart', this.checkcart)
+          } else if (post.name !== name) {
+            console.log('type', post.name)
+            console.log('typename', name)
+            console.log('array', Array.isArray(this.checkcart))
+            // this.checkcart = [JSON.parse(localStorage.getItem('cart'))]
+            // if (Array.isArray(this.checkcart)) {
+            //   console.log('more')
+            //   this.checkcart = JSON.parse(localStorage.getItem('cart'))
+            // } else {
+            //   console.log('not array')
+            // }
+            // console.log('new tyre', this.checkcart)
+            // const cart = {
+            //   url: url,
+            //   img: img,
+            //   name: name,
+            //   price: price,
+            //   value: this.$refs[value][0].localValue,
+            //   type: type,
+            //   sku: sku,
+            //   brand: brand
+            // }
+            // // this.checkcart = Object.assign(this.checkcart, cart)
+            // console.log('new cartsss', this.checkcart)
+            // // this.checkcart.push(cart)
+            // this.checkcart.push(cart)
+            // console.log('add cart', this.checkcart)
             // localStorage.setItem('cart', JSON.stringify(this.checkcart))
           }
+          console.log('new tyre', this.checkcart)
+          const cart = {
+            url: url,
+            img: img,
+            name: name,
+            price: price,
+            value: this.$refs[value][0].localValue,
+            type: type,
+            sku: sku,
+            brand: brand
+          }
+          // this.checkcart = Object.assign(this.checkcart, cart)
+          console.log('new cartsss', this.checkcart)
+          // this.checkcart.push(cart)
+          this.checkcart.push(cart)
+          console.log('add cart', this.checkcart)
+          localStorage.setItem('cart', JSON.stringify(this.checkcart))
           // this.checkcart = checkcarts
           // console.log('checkcart', this.checkcart)
         })

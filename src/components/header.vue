@@ -32,11 +32,16 @@
                 >โปรโมชั่น</b
               ></b-nav-item
             >
-            <b-nav-item href="/shop"
-              ><b style="font-size: 16px; font-weight: normal"
-                >ประเภทยาง</b
-              ></b-nav-item
-            >
+          <b-nav-item-dropdown toggle-class="text-dark" text="ประเภทยาง" right>
+            <b-dropdown-item href="/shop?type=ยางประสิทธิภาพสูง">ยาง SUV ประสิทธิภาพสูง</b-dropdown-item>
+            <b-dropdown-item href="/shop?type=ยางขับขี่ทั่วไป">ยางขับขี่ทั่วไป</b-dropdown-item>
+            <b-dropdown-item href="/shop?type=ยางขับขี่นุ่ม เงียบ">ยางยางขับขี่นุ่ม เงียบ</b-dropdown-item>
+            <b-dropdown-item href="/shop?type=ยางประสิทธิภาพสูง">ยางประสิทธิภาพสูง</b-dropdown-item>
+            <b-dropdown-item href="/shop?type=ยางประหยัดเชื้อเพลิง">ยางประหยัดเชื้อเพลิง</b-dropdown-item>
+            <b-dropdown-item href="/shop?type=ยางรถกระบะ">ยางรถกระบะ</b-dropdown-item>
+            <b-dropdown-item href="/shop?type=ยางรถเอนกประสงค์">ยางเอนกประสงค์ / SUV</b-dropdown-item>
+            <b-dropdown-item href="/shop?type=ยางออฟโรด">ยางออฟโรด</b-dropdown-item>
+          </b-nav-item-dropdown>
             <b-nav-item href="/installer"
               ><b style="font-size: 16px; font-weight: normal"
                 >ศูนย์บริการติดตั้ง</b
@@ -76,7 +81,7 @@
                       margin-top: -5px;
                     "
                   >
-                    <div style="margin: 5px">{{cart.value}}</div>
+                    <!-- <div style="margin: 5px">{{cart.value}}</div> -->
                   </div></i
                 ></b
               ></b-nav-item
