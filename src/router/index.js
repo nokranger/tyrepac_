@@ -37,7 +37,7 @@ const routes = [
     component: QandA
   },
   {
-    path: '/register',
+    path: '/register-installer',
     name: 'regis',
     component: regis
   },

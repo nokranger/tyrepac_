@@ -52,7 +52,7 @@
                 >คำถามที่พบบ่อย</b
               ></b-nav-item
             >
-            <b-nav-item href="/register"
+            <b-nav-item href="/register-installer"
               ><b style="font-size: 16px; font-weight: normal"
                 >สมัครร้านติดตั้ง</b
               ></b-nav-item
@@ -114,6 +114,7 @@ export default {
     // var user4 = { name: 'user4', value: 1, test: 'asfasfasf' }
     // team.push(user4)
     // // localStorage.setItem('test', JSON.stringify(team))
+    /*
     const teams = await JSON.parse(localStorage.getItem('test'))
     console.log('teams', teams)
     teams.push({ name: 'user3', value: 20, test: 'asfasfasf' })
@@ -129,6 +130,7 @@ export default {
       // this[a.name].test = a.test
     }, Object.create(null))
     console.log('team', team)
+    */
     // team.push(user1)
     // team.push(user2)
     // team.push(this.test)
@@ -136,9 +138,11 @@ export default {
     localStorage.setItem('test', JSON.stringify(team))
     this.cart = JSON.parse(localStorage.getItem('cart'))
     if (localStorage.getItem('cart') === null) {
+      console.log('show status')
       this.statuss = 0
       // this.cart = JSON.parse(localStorage.getItem('cart'))
     } else {
+      console.log('show status')
       this.statuss = 1
       this.cart = JSON.parse(localStorage.getItem('cart'))
     }

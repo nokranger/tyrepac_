@@ -42,7 +42,7 @@
                 <b-textarea></b-textarea>
                 <div>
                   <br />
-                  <b-button variant="primary">SEND</b-button>
+                  <b-button variant="primary">ส่ง</b-button>
                 </div>
               </div>
             </div>
