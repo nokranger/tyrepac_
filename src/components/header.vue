@@ -107,35 +107,21 @@ export default {
     }
   },
   async mounted () {
-    // var user1 = { name: 'user1', value: 2, test: 'asfasfasf' }
-    // var user2 = { name: 'user1', value: 1, test: 'asfasfasf' }
-    var team = []
-    // team = JSON.parse(localStorage.getItem('test'))
-    // var user4 = { name: 'user4', value: 1, test: 'asfasfasf' }
-    // team.push(user4)
-    // // localStorage.setItem('test', JSON.stringify(team))
-    /*
-    const teams = await JSON.parse(localStorage.getItem('test'))
-    console.log('teams', teams)
-    teams.push({ name: 'user3', value: 20, test: 'asfasfasf' })
-    // teams = await JSON.parse(localStorage.getItem('test'))
+    // var team = []
+    // const teams = await JSON.parse(localStorage.getItem('test'))
+    // console.log('teams', teams)
+    // teams.push({ name: 'user3', value: 20, test: 'asfasfasf' })
     // localStorage.setItem('test', JSON.stringify(team))
-    await teams.forEach((a) => {
-      if (!this[a.name]) {
-        console.log('aname', a.name)
-        this[a.name] = { name: a.name, value: 0, test: a.test }
-        team.push(this[a.name])
-      }
-      this[a.name].value += a.value
-      // this[a.name].test = a.test
-    }, Object.create(null))
-    console.log('team', team)
-    */
-    // team.push(user1)
-    // team.push(user2)
-    // team.push(this.test)
-    // // console.log(team)
-    localStorage.setItem('test', JSON.stringify(team))
+    // await teams.forEach((a) => {
+    //   if (!this[a.name]) {
+    //     console.log('aname', a.name)
+    //     this[a.name] = { name: a.name, value: 0, test: a.test }
+    //     team.push(this[a.name])
+    //   }
+    //   this[a.name].value += a.value
+    // }, Object.create(null))
+    // console.log('team', team)
+    // localStorage.setItem('test', JSON.stringify(team))
     this.cart = JSON.parse(localStorage.getItem('cart'))
     if (localStorage.getItem('cart') === null) {
       console.log('show status')
