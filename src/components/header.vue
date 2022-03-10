@@ -81,7 +81,7 @@
                       margin-top: -5px;
                     "
                   >
-                    <div v-if="statuss === 1" style="margin: 5px">{{}}</div>
+                    <div v-if="statuss === 1" style="margin: 5px">{{count}}</div>
                     <div v-if="statuss === 0"></div>
                   </div></i
                 ></b
@@ -103,7 +103,8 @@ export default {
       routess: '',
       cart: [],
       statuss: 0,
-      test: { name: 'user3', value: 2, test: 'asfasfasf' }
+      test: { name: 'user3', value: 2, test: 'asfasfasf' },
+      count: 0
     }
   },
   async mounted () {
@@ -131,6 +132,11 @@ export default {
       console.log('show status')
       this.statuss = 1
       this.cart = JSON.parse(localStorage.getItem('cart'))
+      for (var i = 0; i < this.cart.length; i++) {
+        this.count += this.cart[i].value
+        console.log('countcart', this.count)
+      }
+      console.log('countcart', this.count)
     }
   }
 }
