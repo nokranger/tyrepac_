@@ -4,38 +4,54 @@
       <b-container>
         <b-row>
           <b-col cols="3">
-            <div style="border-radius: 5px;border: thin solid #E0E0E0;">
-              <div>
-                ยางรถยนต์
-              </div>
-              <div style="border-radius: 5px;border: thin solid #E0E0E0;margin: 5px;">
-                <img src="https://i.imgur.com/dFBbXVM.png" alt="">
-              </div>
-              <div style="border-radius: 5px;border: thin solid #E0E0E0;margin: 5px;">
-                <img src="https://i.imgur.com/9JpV8e2.png" alt="">
-              </div>
-              <div style="border-radius: 5px;border: thin solid #E0E0E0;margin: 5px;">
-                <img src="https://i.imgur.com/yDA4cCy.png" alt="">
-              </div>
-              <div style="border-radius: 5px;border: thin solid #E0E0E0;margin: 5px;">
-                <img src="https://i.imgur.com/39bMB69.png" alt="">
-              </div>
-              <div style="border-radius: 5px;border: thin solid #E0E0E0;margin: 5px;">
-                <img src="https://i.imgur.com/iBpm6uT.png" alt="">
-              </div>
-              <div style="border-radius: 5px;border: thin solid #E0E0E0;margin: 5px;">
-                <img src="https://i.imgur.com/yvhHUsj.png" alt="">
-              </div>
-              <div style="border-radius: 5px;border: thin solid #E0E0E0;margin: 5px;">
-                <img src="https://i.imgur.com/TgbxVn2.png" alt="">
-              </div>
-              <div style="border-radius: 5px;border: thin solid #E0E0E0;margin: 5px;">
-                <img src="https://i.imgur.com/EByvNfm.png" alt="">
-              </div>
-              <div style="border-radius: 5px;border: thin solid #E0E0E0;margin: 5px;">
-                <img src="https://i.imgur.com/iiTZGZR.png" alt="">
-              </div>
-            </div>
+                <div style="border-radius: 5px; border: thin solid #e0e0e0">
+                  <div style="font-size: 20px;font-weight: bold;">ยางรถยนต์</div>
+                  <div style="border-radius: 5px; border: thin solid #e0e0e0; margin: 5px">
+                    <a href="/shop?brand=8">
+                      <img src="https://i.imgur.com/dFBbXVM.png" alt="" style="width:100%" />
+                    </a>
+                  </div>
+                  <div style="border-radius: 5px; border: thin solid #e0e0e0; margin: 5px">
+                    <a href="/shop?brand=6">
+                      <img src="https://i.imgur.com/9JpV8e2.png" alt="" style="width:100%" />
+                    </a>
+                  </div>
+                  <div style="border-radius: 5px; border: thin solid #e0e0e0; margin: 5px">
+                    <a href="">
+                      <img src="https://i.imgur.com/yDA4cCy.png" alt="" style="width:100%" />
+                    </a>
+                  </div>
+                  <div style="border-radius: 5px; border: thin solid #e0e0e0; margin: 5px">
+                    <a href="/shop?brand=1">
+                      <img src="https://i.imgur.com/39bMB69.png" alt="" style="width:100%" />
+                    </a>
+                  </div>
+                  <div style="border-radius: 5px; border: thin solid #e0e0e0; margin: 5px">
+                    <a href="/shop?brand=">
+                      <img src="https://i.imgur.com/iBpm6uT.png" alt="" style="width:100%" />
+                    </a>
+                  </div>
+                  <div style="border-radius: 5px; border: thin solid #e0e0e0; margin: 5px">
+                    <a href="/shop?brand=3">
+                      <img src="https://i.imgur.com/yvhHUsj.png" alt="" style="width:100%" />
+                    </a>
+                  </div>
+                  <div style="border-radius: 5px; border: thin solid #e0e0e0; margin: 5px">
+                    <a href="/shop?brand=">
+                      <img src="https://i.imgur.com/TgbxVn2.png" alt="" style="width:100%" />
+                    </a>
+                  </div>
+                  <div style="border-radius: 5px; border: thin solid #e0e0e0; margin: 5px">
+                    <a href="/shop?brand=">
+                      <img src="https://i.imgur.com/EByvNfm.png" alt="" style="width:100%" />
+                    </a>
+                  </div>
+                  <div style="border-radius: 5px; border: thin solid #e0e0e0; margin: 5px">
+                    <a href="/shop?brand=">
+                      <img src="https://i.imgur.com/iiTZGZR.png" alt="" style="width:100%" />
+                    </a>
+                  </div>
+                </div>
           </b-col>
           <b-col>
             <div style="border-radius: 5px;border: thin solid #E0E0E0;margin: 5px;text-align: left;">
