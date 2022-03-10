@@ -81,7 +81,7 @@
                       margin-top: -5px;
                     "
                   >
-                    <div v-if="statuss === 1" style="margin: 5px">{{cart.value}}</div>
+                    <div v-if="statuss === 1" style="margin: 5px">{{}}</div>
                     <div v-if="statuss === 0"></div>
                   </div></i
                 ></b

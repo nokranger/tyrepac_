@@ -8,7 +8,7 @@
         <b-container>
           <br>
           <b-row>
-            <b-col v-for="(item, index) in promotions" :key="index" cols="4">
+            <b-col v-for="(item, index) in promotions" :key="index" cols="3">
               <div style="border-radius: 5px;border: thin solid #E0E0E0;text-align: center;width: 100%;">
                 <div>
                   <a v-on:click="buydetail (('/tyrebrand' + '/' + item.prodId + '/' + item.sku), ('https://www.tyrepac.co.th/wp-content/uploads/2020/02/tyre-toyo-proxes-sport-suv.jpg'), item.name, item.regularPrice, ('values' + index), item.type, item.sku, item)">
@@ -53,7 +53,7 @@ export default {
       const promotion = this.promotions.filter((post, index) => {
         return post.status === 1
       })
-      this.promotions = promotion
+      this.promotions = promotion.slice(0, 9)
       console.log('promotions', this.promotions)
     })
   },

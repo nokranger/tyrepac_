@@ -1,6 +1,6 @@
 <template>
   <div style='background-color: #333333'>
-    <!-- <link rel='stylesheet' type='text/css' href='https://cdn.jsdelivr.net/gh/zeknoss/vue-magnifier@v0.2.0/dist/css/vue-magnifier.css' media='screen' /> -->
+    <!-- <link rel="stylesheet" href="/css/magnify.css"> -->
     <div>
       <br />
       <h1 style='color: white'>ข้อมูลแก้มยาง</h1>
@@ -11,6 +11,13 @@
         height='500'
         alt=''
       />
+      <!-- <div data-role="imagemagnifier"
+          data-magnifier-mode="glass"
+          data-lens-type="circle"
+          data-lens-size="200"
+      >
+          <img src="https://i.imgur.com/rYKBx3L.png">
+      </div> -->
       <!-- <div class="img-magnifier-container">
         <img id="myimage" src="https://i.imgur.com/rYKBx3L.png" width="600" height="400">
       </div> -->
