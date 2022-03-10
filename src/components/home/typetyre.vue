@@ -78,8 +78,8 @@
   display: inline-block;
 }
 .imgs {
-  width: 300px;
-  /* height: 400px; */
+  width: 460px;
+  height: 400px;
   transition: transform .5s;
 }
 .imgs:hover {
