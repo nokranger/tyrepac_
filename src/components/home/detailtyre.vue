@@ -1,6 +1,5 @@
 <template>
   <div style='background-color: #333333;color: white;text-align: left;'>
-    <!-- <link rel="stylesheet" href="/css/magnify.css"> -->
     <div>
       <b-container>
         <b-row>
@@ -38,12 +37,11 @@
               <br />
               <h1 style="color: white;text-align: center;font-weight: bold;">ข้อมูลแก้มยาง</h1>
               <br />
-              <img
-                src='https://i.imgur.com/rYKBx3L.png'
-                width='500'
-                height='500'
-                alt=''
-              />
+              <template>
+                <vue-photo-zoom-pro :highUrl="imgUrl">
+                  <img :src="imgUrl" alt="" width="500" height="500">
+                </vue-photo-zoom-pro>
+              </template>
             </div>
           </b-col>
           <b-col>
@@ -80,19 +78,15 @@
         <br>
         <br>
       </b-container>
-      <div>
-        <img class="magnifiedImg" src="https://3.bp.blogspot.com/-uu5s-2BvvgA/ToLadCZShOI/AAAAAAAAALE/_aj4_xuXd3E/s1600/Green+nature+wallpaper+%25283%2529.jpg" />
-      </div>
     </div>
   </div>
 </template>
 <script>
-// import vuePhotoZoomPro from 'vue-photo-zoom-pro'
-// import VueMagnifier from '@/components/vue-magnifier';
+import VuePhotoZoomPro from 'vue-photo-zoom-pro'
 import 'vue-photo-zoom-pro/dist/style/vue-photo-zoom-pro.css'
 export default {
   components: {
-    // vuePhotoZoomPro
+    VuePhotoZoomPro
     // VueMagnifier
   },
   data () {
@@ -173,31 +167,5 @@ li {
   /*Set the size of the magnifier glass:*/
   width: 100px;
   height: 100px;
-}
-
-p, h2{
-  font: bold 15px 'Open Sans', sans-serif;
-  color: #222;
-  text-align: center;
-}
-h2{
-  font-size: 35px;
-  margin: 10px 0;
-}
-img{
-  width: 700px;
-  display: block;
-  margin: auto;
-}
-.magnify{
-  border-radius: 50%;
-  border: 2px solid black;
-  position: absolute;
-  z-index: 20;
-  background-repeat: no-repeat;
-  background-color: white;
-  box-shadow: inset 0 0 20px rgba(0,0,0,.5);
-  display: none;
-  cursor: none;
 }
 </style>
