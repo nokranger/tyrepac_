@@ -187,7 +187,7 @@
                           <b-form-spinbutton :ref="'values' + index" id="demo-sb" :value="value2" min="4" max="100"></b-form-spinbutton>
                         </div>
                         <div style="margin: 5px;">
-                          <b-button variant="primary" v-on:click="buytest (('/tyrebrand' + '/' + brandd.prodId + '/' + brandd.sku), ('https://www.tyrepac.co.th/wp-content/uploads/2020/02/tyre-toyo-proxes-sport-suv.jpg'), brandd.name, brandd.regularPrice, ('values' + index), brandd.type, brandd.sku, brandd)">สั่งซื้อเลย</b-button>
+                          <b-button variant="primary" v-on:click="buycart (('/tyrebrand' + '/' + brandd.prodId + '/' + brandd.sku), ('https://www.tyrepac.co.th/wp-content/uploads/2020/02/tyre-toyo-proxes-sport-suv.jpg'), brandd.name, brandd.regularPrice, ('values' + index), brandd.type, brandd.sku, brandd)">สั่งซื้อเลย</b-button>
                         </div>
                       </div>
                     </b-col>
@@ -546,7 +546,7 @@ export default {
       localStorage.setItem('cartdetail', JSON.stringify(cart))
       location.replace('/tyrebrand/?brand=' + sku)
     },
-    async buytest (url, img, name, price, value, type, sku, brand) {
+    async buycart (url, img, name, price, value, type, sku, brand) {
       if (JSON.parse(localStorage.getItem('test')) === null) {
         localStorage.setItem('test', JSON.stringify(this.checkcart))
         console.log('ว่าง')
