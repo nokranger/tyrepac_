@@ -184,9 +184,9 @@
                     <!-- {{brand}} -->
                     <b-col cols="3" v-for="(brandd, index) in brand" :key="index" style="margin-bottom: 5px;">
                       <div style="border-radius: 5px;border: thin solid #E0E0E0;text-align: left;">
-                        <div>
+                        <div style="width: 100%;">
                           <a v-on:click="buydetail (('/tyrebrand' + '/' + brandd.prodId + '/' + brandd.sku), ('https://www.tyrepac.co.th/wp-content/uploads/2020/02/tyre-toyo-proxes-sport-suv.jpg'), brandd.name, brandd.regularPrice, ('values' + index), brandd.type, brandd.sku, brandd)">
-                            <img src="https://www.tyrepac.co.th/wp-content/uploads/2020/02/tyre-toyo-proxes-sport-suv.jpg" style="width: 150px;height: 150px;margin: 5px;" alt="">
+                            <img src="https://www.tyrepac.co.th/wp-content/uploads/2020/02/tyre-toyo-proxes-sport-suv.jpg" style="width: 100%;height: auto;margin: 5px;" alt="">
                           </a>
                         </div>
                         <div style="margin-left: 5px;color: #005099;font-weight: bold;">{{brandd.name}}</div>
