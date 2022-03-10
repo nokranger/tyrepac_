@@ -29,7 +29,8 @@
               </div>
               <div>
                 <datalist id="postal" >
-                  <option v-for="(item, index) in items" :key="index" :value="item.zip"></option>
+                  <option v-for="(item, index) in items" :key="index" :value="item.zipCode"></option>
+                  <!-- <option v-for="(item, index) in items" :key="index" :value="item.zip"></option> -->
                 </datalist>
               </div>
             </b-col>
@@ -64,7 +65,7 @@
                     <div>{{data.item.hours}}</div>
                   </template>
                   <template v-slot:cell(โทรศัพท์)="data">
-                    <div>{{data.item.phone}}</div>
+                    <div>{{data.item.phoneNo}}</div>
                   </template>
                   <template v-slot:cell(ประเภท)="data">
                     <div>{{data.item.category}}</div>
@@ -87,25 +88,43 @@
 </template>
 <script>
 import installer from '../assets/installer.json'
+import axios from 'axios'
+import apiURL from '../assets/js/connect'
 export default {
   data () {
     return {
-      items: installer,
-      fields: ['ชื่อร้าน', 'ที่อยู่', 'เวลาทำการ', 'โทรศัพท์', 'ประเภท'],
+      apiURL: apiURL,
+      items: '',
+      // items: installer,
+      fields: ['ชื่อร้าน', 'ที่อยู่', 'โทรศัพท์'],
+      // fields: ['ชื่อร้าน', 'ที่อยู่', 'เวลาทำการ', 'โทรศัพท์', 'ประเภท'],
       filter: null,
       filterOn: [],
       perpage: 10,
       totalRows: 1,
       currentPage: 1,
       installer: installer,
-      post: ''
+      post: '',
+      testinstaller: '',
+      installers: ''
     }
   },
   mounted () {
-    this.totalRows = this.items.length
-    this.currentPage = 1
+    axios.get(apiURL + '/installer').then((res) => {
+      // this.testinstaller = res.data.data.installers
+      this.installers = res.data.data.installers
+      this.items = this.installers
+      this.totalRows = this.items.length
+      this.currentPage = 1
+      console.log('installer', this.testinstaller)
+    })
   },
   methods: {
+    test (value) {
+      this.filter = value
+      console.log('testttclick')
+      this.$refs.table.refresh()
+    }
   }
 }
 </script>
