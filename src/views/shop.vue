@@ -568,7 +568,7 @@ export default {
         await teams.forEach((a) => {
           if (!this[a.name]) {
             console.log('aname', a.name)
-            this[a.name] = { name: a.name, value: 0, test: a.test }
+            this[a.name] = { name: a.name, value: 0, price: a.price, img: a.img, type: a.type, sku: a.sku }
             team.push(this[a.name])
           }
           this[a.name].value += a.value
@@ -598,7 +598,7 @@ export default {
         await teams.forEach((a) => {
           if (!this[a.name]) {
             console.log('aname', a.name)
-            this[a.name] = { name: a.name, value: 0, test: a.test }
+            this[a.name] = { name: a.name, value: 0, price: a.price, img: a.img, type: a.type, sku: a.sku }
             team.push(this[a.name])
           }
           this[a.name].value += a.value
