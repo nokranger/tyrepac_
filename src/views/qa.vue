@@ -15,7 +15,7 @@
       <div style="display: inline-block; margin: 10px">การสั่งซื้อ</div>
       <div style="display: inline-block; margin: 10px">การจัดส่ง</div>
       <div style="display: inline-block; margin: 10px">บริการหลังการขาย</div>
-      <div style="display: inline-block; margin: 10px">รถเข็น</div>
+      <!-- <div style="display: inline-block; margin: 10px">รถเข็น</div> -->
       <br />
       <br />
     </div>
@@ -27,35 +27,41 @@
           alt=""
         />
       </div>
-      <div>คำถามที่พบบ่อย</div>
+      <br>
+      <div style="font-weight: bold;font-size: 20px;">คำถามที่พบบ่อย</div>
+      <br>
       <div>
         <b-container>
           <b-row>
             <b-col>
-              <div style="background-color: #005099; color: whitesmoke">
-                <div>ยางรถยนต์</div>
+              <div style="background-color: #005099; color: whitesmoke;width: 250px;height: 150px;">
+                <br>
+                <div style="font-weight: bold;font-size: 20px;">ยางรถยนต์</div>
                 <div>
                   การเลือกยางรถยนต์ การเปลี่ยนยาง ความรู้เบื้องต้นยางรถยนต์
                 </div>
               </div>
             </b-col>
             <b-col>
-              <div style="background-color: #282828; color: whitesmoke">
-                <div>การสั่งซื้อสินค้า</div>
+              <div style="background-color: #282828; color: whitesmoke;width: 250px;height: 150px;">
+                <br>
+                <div style="font-weight: bold;font-size: 20px;">การสั่งซื้อสินค้า</div>
                 <div>สั่งซื้อสินค้า ติดตามการสั่งซื้อ การชำระเงิน</div>
               </div>
             </b-col>
             <b-col>
-              <div style="background-color: #005099; color: whitesmoke">
-                <div>การจัดส่งสินค้าและติดตั้ง</div>
+              <div style="background-color: #005099; color: whitesmoke;width: 250px;height: 150px;">
+                <br>
+                <div style="font-weight: bold;font-size: 20px;">การจัดส่งสินค้าและติดตั้ง</div>
                 <div>
                   การเปลี่ยนแปลงการจัดส่ง ระยะเวลาในการจัดส่ง การติดตั้ง
                 </div>
               </div>
             </b-col>
             <b-col>
-              <div style="background-color: #282828; color: whitesmoke">
-                <div>บริการหลังการขาย</div>
+              <div style="background-color: #282828; color: whitesmoke;width: 250px;height: 150px;">
+                <br>
+                <div style="font-weight: bold;font-size: 25px;">บริการหลังการขาย</div>
                 <div>
                   การยกเลิกคำสั่งซื้อ นโยบายการคืนสินค้า การรับประกันสินค้า
                 </div>
@@ -65,14 +71,14 @@
           <br />
           <b-row>
             <b-col>
-              <div style="background-color: #282828; color: whitesmoke">
-                <div>สอบถามข้อมูลทางอีเมล์</div>
+              <div style="background-color: #282828; color: whitesmoke;height: 100px;">
+                <div style="font-weight: bold;font-size: 25px;">สอบถามข้อมูลทางอีเมล์</div>
                 <div>info@tyrepac.co.th เราจะติดต่อคุณกลับโดยเร็วที่สุด</div>
               </div>
             </b-col>
             <b-col>
-              <div style="background-color: #f9bd45; color: whitesmoke">
-                <div>โทรศัพท์</div>
+              <div style="background-color: #f9bd45; color: whitesmoke;height: 100px;">
+                <div style="font-weight: bold;font-size: 25px;">โทรศัพท์</div>
                 <div>091-889-5127 จันทร์-ศุกร์ 8:30 – 17:00</div>
               </div>
             </b-col>

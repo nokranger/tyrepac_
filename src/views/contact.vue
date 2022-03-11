@@ -53,8 +53,9 @@
               <div>
                 <div>ติดต่อเรา</div>
                 <br />
-                <div>เบอร์ติดต่อ: 091-889-5127</div>
-                <div>อีเมล์: info.tyrepac@apo-th.com</div>
+                <div>เบอร์ติดต่อ: <a style="text-decoration: none;color: black;" href="tel:+66992839256">099-283-9256</a></div>
+                <div>เบอร์ติดต่อ: <a style="text-decoration: none;color: black;" href="tel:+66824771520">082-477-1520</a></div>
+                <div>อีเมล์: <a style="text-decoration: none;color: black;" href="mailto:info.tyrepac@apo-th.com">info.tyrepac@apo-th.com</a></div>
                 <div>
                   ที่อยู่: 594 ถนนหลวง แขวงป้อมปราบ เขตป้อมปราบศัตรูพ่าย
                   กรุงเทพฯ 10100
