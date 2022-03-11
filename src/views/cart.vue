@@ -6,6 +6,7 @@
           <br>
           <div style="margin-left: 15px;font-weight: bold;">คุณมีสินค้า {{cart.value}} รายการในตระกร้า</div>
           <br>
+          <!-- <div>{{cart}}</div> -->
               <div style="margin: 5px;">
                 <b-table ref="table" striped hover :items="items" :fields="fields">
                   <template v-slot:cell(สินค้า)="data">
@@ -22,6 +23,9 @@
                   <template v-slot:cell(มูลค่าสินค้า)="data">
                     <b-input style="border: none;display: inline;font-family: inherit;font-size: inherit;padding: none;width: auto;background-color: transparent;" disabled ref="total" :value="data.item.price * data.item.value"></b-input>
                   </template>
+                  <!-- <template v-slot:cell(ปรับปรุงสินค้า)="data">
+                    <b-button v-on:click="updateitem(data.item.name, data.item.value, data)">ปรับปรุงสินค้า</b-button>
+                  </template> -->
                 </b-table>
               </div>
         </div>
@@ -86,7 +90,7 @@
                     </b-col>
                     <b-col></b-col>
                     <b-col></b-col>
-                    <b-col>{{count}}</b-col>
+                    <b-col>฿{{count}}</b-col>
                   </b-row>
                   <br>
                   <b-row>
@@ -113,7 +117,7 @@
                     <b-col></b-col>
                     <b-col>
                       <div style="color: #005099;font-weight: bold;">
-                        {{count}}
+                        ฿{{count}}
                       </div>
                     </b-col>
                   </b-row>
@@ -152,15 +156,8 @@ export default {
   mounted () {
     console.log(JSON.parse(localStorage.getItem('cart')))
     this.cart = JSON.parse(localStorage.getItem('cart'))
-    this.items = [
-      { img: this.cart.img, name: this.cart.name, value: this.cart.value, price: this.cart.price }
-    ]
+    this.items = this.cart
     this.sortaa = this.items
-    // this.sortaa.sort((a, b) => {
-    //   console.log('aa', a.price)
-    //   return a.price * a.value
-    // })
-    // console.log('regu', this.sortaa)
     for (var c in this.items) {
       console.log(c)
       console.log('count', this.items[c].price)
@@ -169,9 +166,12 @@ export default {
     console.log('sum', this.count)
   },
   methods: {
-    updateitem (index) {
-      console.log('aa')
-      console.log(index)
+    async updateitem () {
+      console.log('aa', this.items)
+      localStorage.setItem('cart', JSON.stringify(this.items))
+      this.items = JSON.parse(localStorage.getItem('cart'))
+      console.log('sum', this.count)
+      location.reload()
     }
   }
 }

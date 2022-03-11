@@ -47,15 +47,15 @@
                   <template v-slot:cell(ที่อยู่)="data">
                     <div>{{data.item.address}}</div>
                   </template>
-                  <template v-slot:cell(เวลาทำการ)="data">
+                  <!-- <template v-slot:cell(เวลาทำการ)="data">
                     <div>{{data.item.hours}}</div>
-                  </template>
+                  </template> -->
                   <template v-slot:cell(โทรศัพท์)="data">
-                    <div>{{data.item.phone}}</div>
+                    <div>{{data.item.phoneNo}}</div>
                   </template>
-                  <template v-slot:cell(ประเภท)="data">
+                  <!-- <template v-slot:cell(ประเภท)="data">
                     <div>{{data.item.category}}</div>
-                  </template>
+                  </template> -->
                   <template v-slot:cell(state)="data">
                     <div>
                       <b-button variant="primary" v-on:click="chooseinstaller(data.item.name, data.item.address)">เลือกร้านนี้</b-button>
@@ -101,7 +101,10 @@
                   <div>
                     <div>เลือกเวลาการติดตั้ง (optional)</div>
                     <div>
-                      <b-input></b-input>
+                      <div>
+                        <b-form-timepicker v-model="valuetime" locale="en"></b-form-timepicker>
+                        <!-- <div class="mt-2">Value: '{{ valuetime }}'</div> -->
+                      </div>
                       <br>
                     </div>
                   </div>
@@ -368,10 +371,13 @@
   </div>
 </template>
 <script>
-import installer from '../assets/installer.json'
+// import installer from '../assets/installer.json'
+import apiURL from '../assets/js/connect'
+import axios from 'axios'
 export default {
   data () {
     return {
+      apiURL: apiURL,
       selected: '',
       statuss: 'not_accepted',
       items: [],
@@ -380,17 +386,26 @@ export default {
       cart: [],
       check: [],
       statusin: 0,
-      itemin: installer,
-      fieldin: ['ชื่อร้าน', 'ที่อยู่', 'เวลาทำการ', 'โทรศัพท์', 'ประเภท', 'state'],
+      itemin: '',
+      fieldin: ['ชื่อร้าน', 'ที่อยู่', 'โทรศัพท์', 'state'],
       perpage: 10,
       currentPage: 1,
       totalRows: 1,
       date: '',
       ins: '',
-      count: 0
+      count: 0,
+      valuetime: ''
     }
   },
   mounted () {
+    axios.get(apiURL + '/installer').then((res) => {
+      // this.testinstaller = res.data.data.installers
+      this.installers = res.data.data.installers
+      this.itemin = this.installers
+      this.totalRows = this.itemin.length
+      this.currentPage = 1
+      console.log('installer', this.testinstaller)
+    })
     console.log(JSON.parse(localStorage.getItem('cart')))
     this.cart = JSON.parse(localStorage.getItem('cart'))
     this.totalRows = this.itemin.length
@@ -407,12 +422,16 @@ export default {
       localStorage.setItem('checkout', localStorage.getItem('cart'))
       localStorage.removeItem('cart')
       localStorage.removeItem('cartdetail')
+      this.data = JSON.parse(localStorage.getItem('cart'))
+      console.log('databank', this.data)
       location.replace('/bank')
     },
     paycredit () {
       localStorage.setItem('checkout', localStorage.getItem('cart'))
       localStorage.removeItem('cart')
       localStorage.removeItem('cartdetail')
+      this.data = JSON.parse(localStorage.getItem('cart'))
+      console.log('databank', this.data)
       location.replace('/credit')
     },
     installer () {
