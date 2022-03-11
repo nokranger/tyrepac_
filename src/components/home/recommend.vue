@@ -92,12 +92,12 @@ export default {
       location.replace('/tyrebrand/?brand=' + sku)
     },
     async buycart (url, img, name, price, value, type, sku, brand) {
-      if (JSON.parse(localStorage.getItem('test')) === null) {
-        localStorage.setItem('test', JSON.stringify(this.checkcart))
+      if (JSON.parse(localStorage.getItem('cart')) === null) {
+        localStorage.setItem('cart', JSON.stringify(this.checkcart))
         console.log('ว่าง')
         var team = []
         // localStorage.setItem('test', JSON.stringify(team))
-        const teams = await JSON.parse(localStorage.getItem('test'))
+        const teams = await JSON.parse(localStorage.getItem('cart'))
         console.log('teams', teams)
         await teams.push({
           url: url,
@@ -109,7 +109,7 @@ export default {
           sku: sku,
           brand: brand
         })
-        await localStorage.setItem('test', JSON.stringify(team))
+        await localStorage.setItem('cart', JSON.stringify(team))
         await teams.forEach((a) => {
           if (!this[a.name]) {
             console.log('aname', a.name)
@@ -127,7 +127,7 @@ export default {
         console.log('ไม่ว่าง')
         team = []
         // localStorage.setItem('test', JSON.stringify(team))
-        const teams = await JSON.parse(localStorage.getItem('test'))
+        const teams = await JSON.parse(localStorage.getItem('cart'))
         console.log('teams', teams)
         await teams.push({
           url: url,
@@ -139,7 +139,7 @@ export default {
           sku: sku,
           brand: brand
         })
-        await localStorage.setItem('test', JSON.stringify(team))
+        await localStorage.setItem('cart', JSON.stringify(team))
         await teams.forEach((a) => {
           if (!this[a.name]) {
             console.log('aname', a.name)

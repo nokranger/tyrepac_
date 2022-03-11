@@ -300,7 +300,7 @@
                         มูลค่าสินค้า
                       </div>
                     </b-col>
-                    <b-col>฿{{cart.price * cart.value}}</b-col>
+                    <b-col>฿{{count}}</b-col>
                   </b-row>
                   <br>
                   <b-row>
@@ -324,7 +324,7 @@
                     </b-col>
                     <b-col>
                       <div style="color: #005099;font-weight: bold;">
-                        ฿{{cart.price * cart.value}}
+                        ฿{{count}}
                       </div>
                     </b-col>
                   </b-row>
@@ -386,7 +386,8 @@ export default {
       currentPage: 1,
       totalRows: 1,
       date: '',
-      ins: ''
+      ins: '',
+      count: 0
     }
   },
   mounted () {
@@ -394,9 +395,12 @@ export default {
     this.cart = JSON.parse(localStorage.getItem('cart'))
     this.totalRows = this.itemin.length
     this.currentPage = 1
-    this.items = [
-      { img: this.cart.img, name: this.cart.name, value: this.cart.value, price: this.cart.price }
-    ]
+    this.items = this.cart
+    for (var i = 0; i < this.cart.length; i++) {
+      this.count += (this.cart[i].value * this.cart[i].price)
+      console.log('countcart', this.count)
+    }
+    console.log('countcart', this.count)
   },
   methods: {
     paybank () {
