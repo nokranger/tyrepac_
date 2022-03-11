@@ -26,21 +26,21 @@
                 <div>
                   <br />
                   <div>ชิ้อร้านติดตั้ง*</div>
-                  <b-input></b-input>
+                  <b-input v-model="nameinstaller"></b-input>
                 </div>
                 <div>
                   <br />
                   <div>ชื่อผู้ติดต่อ*</div>
-                  <b-input></b-input>
+                  <b-input v-model="namecontact"></b-input>
                 </div>
                 <div>
                   <br />
                   <div>เบอร์โทรศัพท์*</div>
-                  <b-input></b-input>
+                  <b-input v-model="phoneinstaller"></b-input>
                 </div>
                 <div>
                   <br />
-                  <b-button variant="primary">ส่ง</b-button>
+                  <b-button variant="primary" v-on:click="registor()">ส่ง</b-button>
                 </div>
                 <br />
                 <br />
@@ -73,3 +73,41 @@
     </div>
   </div>
 </template>
+<script>
+import apiURL from '../assets/js/connect.js'
+import axios from 'axios'
+export default {
+  data () {
+    return {
+      apiURL: apiURL,
+      nameinstaller: '',
+      namecontact: '',
+      phoneinstaller: '',
+      data: ''
+
+    }
+  },
+  methods: {
+    registor () {
+      this.data = {
+        name: this.nameinstaller,
+        address: '',
+        latitude: 100.0,
+        longitude: 100.0,
+        installerWorking: {
+          monStatus: true,
+          tueStatus: true,
+          wedStatus: true,
+          thuStatus: true,
+          friStatus: true,
+          satStatus: true
+        }
+      }
+      console.log('datain', apiURL + '/installer/create')
+      axios.post(apiURL + '/installer/create', this.data).then((res) => {
+        console.log(res)
+      })
+    }
+  }
+}
+</script>
