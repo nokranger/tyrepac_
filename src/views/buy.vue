@@ -94,7 +94,7 @@
                   <div>
                     <div>เลือกวันที่ติดตั้ง (ต้องระบุ)</div>
                     <div>
-                      <b-form-datepicker v-model="date" class="mb-2"></b-form-datepicker>
+                      <b-form-datepicker v-model="date" min="2022-03-13" class="mb-2"></b-form-datepicker>
                       <br>
                     </div>
                   </div>
