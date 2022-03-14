@@ -23,6 +23,7 @@
                   </div>
                   <div style="margin: 5px;text-align: left;">
                     <b-button variant="primary" v-on:click="buycart (('/tyrebrand' + '/' + item.prodId + '/' + item.sku), ('https://www.tyrepac.co.th/wp-content/uploads/2020/02/tyre-toyo-proxes-sport-suv.jpg'), item.name, item.regularPrice, ('values' + index), item.type, item.sku, item)">สั่งซื้อเลย</b-button>
+                    <i class="fas fa-shopping-cart" style="display: inline-block;margin-left: 10px;font-size: 20px;cursor: pointer;color: #005099;" v-on:click="addtocart (('/tyrebrand' + '/' + item.prodId + '/' + item.sku), ('https://www.tyrepac.co.th/wp-content/uploads/2020/02/tyre-toyo-proxes-sport-suv.jpg'), item.name, item.regularPrice, ('values' + index), item.type, item.sku, item)"></i>
                   </div>
                 </div>
               </div>
@@ -153,6 +154,70 @@ export default {
         localStorage.setItem('cart', JSON.stringify(team))
         location.replace('/checkout')
         // location.reload()
+      }
+    },
+    async addtocart (url, img, name, price, value, type, sku, brand) {
+      if (JSON.parse(localStorage.getItem('cart')) === null) {
+        localStorage.setItem('cart', JSON.stringify(this.checkcart))
+        console.log('ว่าง')
+        var team = []
+        // localStorage.setItem('test', JSON.stringify(team))
+        const teams = await JSON.parse(localStorage.getItem('cart'))
+        console.log('teams', teams)
+        await teams.push({
+          url: url,
+          img: img,
+          name: name,
+          price: price,
+          value: this.$refs[value][0].localValue,
+          type: type,
+          sku: sku,
+          brand: brand
+        })
+        await localStorage.setItem('cart', JSON.stringify(team))
+        await teams.forEach((a) => {
+          if (!this[a.name]) {
+            console.log('aname', a.name)
+            this[a.name] = { name: a.name, value: 0, price: a.price, img: a.img, type: a.type, sku: a.sku }
+            team.push(this[a.name])
+          }
+          this[a.name].value += a.value
+        }, Object.create(null))
+        console.log('team', team)
+        localStorage.setItem('test', JSON.stringify(team))
+        localStorage.setItem('cart', JSON.stringify(team))
+        // location.replace('/checkout')
+        location.reload()
+      } else {
+        console.log('ไม่ว่าง')
+        team = []
+        // localStorage.setItem('test', JSON.stringify(team))
+        const teams = await JSON.parse(localStorage.getItem('cart'))
+        console.log('teams', teams)
+        await teams.push({
+          url: url,
+          img: img,
+          name: name,
+          price: price,
+          value: this.$refs[value][0].localValue,
+          type: type,
+          sku: sku,
+          brand: brand
+        })
+        await localStorage.setItem('cart', JSON.stringify(team))
+        await teams.forEach((a) => {
+          if (!this[a.name]) {
+            console.log('aname', a.name)
+            this[a.name] = { name: a.name, value: 0, price: a.price, img: a.img, type: a.type, sku: a.sku }
+            team.push(this[a.name])
+          }
+          this[a.name].value += a.value
+        }, Object.create(null))
+        console.log('team', team)
+        localStorage.setItem('test', JSON.stringify(team))
+        localStorage.setItem('cart', JSON.stringify(team))
+        // location.replace('/checkout')
+        location.reload()
       }
     }
   }

@@ -289,7 +289,10 @@
                     <div>{{data.item.value}}</div>
                   </template>
                   <template v-slot:cell(มูลค่าสินค้า)="data">
-                    <div>{{data.item.price * data.item.value}}</div>
+                    <div>฿{{data.item.price * data.item.value}}</div>
+                  </template>
+                  <template v-slot:cell(รถเข็น)="data">
+                    <i class="fas fa fa-times" style="display: inline-block;margin-left: 10px;font-size: 20px;cursor: pointer;color: #ee2456;" v-on:click="removeitem (data.item.name)"></i>
                   </template>
                 </b-table>
               </div>
@@ -381,7 +384,7 @@ export default {
       selected: '',
       statuss: 'not_accepted',
       items: [],
-      fields: ['สินค้า', ' ', 'จำนวน', 'มูลค่าสินค้า'],
+      fields: ['สินค้า', ' ', 'จำนวน', 'มูลค่าสินค้า', 'รถเข็น'],
       pay: '',
       cart: [],
       check: [],
@@ -395,7 +398,8 @@ export default {
       ins: '',
       count: 0,
       valuetime: '',
-      dates: ''
+      dates: '',
+      testss: ''
     }
   },
   mounted () {
@@ -421,6 +425,16 @@ export default {
     console.log('countcart', this.count)
   },
   methods: {
+    removeitem (name) {
+      console.log('remove', name)
+      this.items = this.items.filter((obj) => {
+        return obj.name !== name
+      })
+      console.log('remove: ', this.items)
+      localStorage.setItem('test', JSON.stringify(this.items))
+      localStorage.setItem('cart', JSON.stringify(this.items))
+      location.reload()
+    },
     paybank () {
       localStorage.setItem('checkout', localStorage.getItem('cart'))
       localStorage.removeItem('cart')
