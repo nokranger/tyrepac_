@@ -345,7 +345,7 @@
                     <div>
                       สามารถสั่งซื้อสินค้าผ่านทางโทรศัพท์ได้หรือไม่?
                     </div>
-                      <p>ทางเราไม่รับการสั่งซื้อทางโทรศัพท์ กรุณาสั่งซื้อออนไลน์</p>
+                      <p>สามารถสั่งซื้อผ่านทางโทรศัพท์และ Line Add และ เพจเฟสบุ๊ค <a href="https://www.facebook.com/tyrepacthailand/" target="_blank" style="text-decoration:none;">Tyrepac Thailand</a> </p>
                   </div>
                 </b-col>
               </b-col>

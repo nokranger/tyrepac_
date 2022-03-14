@@ -107,6 +107,7 @@
                       </div>
                       <br>
                     </div>
+                    <div> <label for="" style="color: #ee2456;">*</label> หากมีวันมีการเปลี่ยนแปลงทีมงานจะติดต่อกลับ</div>
                   </div>
                 </div>
                 <div style="font-weight: bold;font-size: 30px;">ข้อมูลรถยนต์ในการขอรับประกันยาง</div>
@@ -399,7 +400,8 @@ export default {
       count: 0,
       valuetime: '',
       dates: '',
-      testss: ''
+      testss: '',
+      data: {}
     }
   },
   mounted () {
@@ -425,6 +427,32 @@ export default {
     console.log('countcart', this.count)
   },
   methods: {
+    member () {
+      this.data = {
+        customerId: 123456,
+        couponId: 0,
+        status: 1,
+        totalPrice: 12345.65,
+        firstname: 'test',
+        lastname: 'testlast',
+        address: {
+          address: '1231412',
+          district: '42142141',
+          province: '42142141',
+          zipCode: '41241'
+        },
+        paymentId: 1,
+        taxInvoice: false,
+        warranty: false,
+        orderDetails: [
+          {
+            productId: 123,
+            qty: 5,
+            price: 1234.65
+          }
+        ]
+      }
+    },
     removeitem (name) {
       console.log('remove', name)
       this.items = this.items.filter((obj) => {
