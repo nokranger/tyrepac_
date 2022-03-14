@@ -94,7 +94,7 @@
                   <div>
                     <div>เลือกวันที่ติดตั้ง (ต้องระบุ)</div>
                     <div>
-                      <b-form-datepicker v-model="date" min="2022-03-13" class="mb-2"></b-form-datepicker>
+                      <b-form-datepicker v-model="date" :min="dates" class="mb-2"></b-form-datepicker>
                       <br>
                     </div>
                   </div>
@@ -394,10 +394,13 @@ export default {
       date: '',
       ins: '',
       count: 0,
-      valuetime: ''
+      valuetime: '',
+      dates: ''
     }
   },
   mounted () {
+    this.dates = new Date()
+    console.log('date', this.dates.toLocaleDateString())
     axios.get(apiURL + '/installer').then((res) => {
       // this.testinstaller = res.data.data.installers
       this.installers = res.data.data.installers
