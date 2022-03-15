@@ -415,7 +415,7 @@ export default {
       totalPrice: 0.0,
       firstname: '',
       lastname: '',
-      testsss: {},
+      datainfo: {},
       phoneNo: '',
       email: ''
     }
@@ -460,14 +460,14 @@ export default {
         warranty: this.statuss,
         orderDetails: this.items
       }
-      this.testsss = {
+      this.datainfo = {
         customerId: 'C001',
         paymentId: 1,
         status: 1,
         totalPrice: this.count,
         orderDetails: this.items
       }
-      console.log('data', this.testsss)
+      console.log('data', this.datainfo)
       localStorage.setItem('checkout', localStorage.getItem('cart'))
       localStorage.setItem('info', JSON.stringify(this.data))
       location.replace('/credit')

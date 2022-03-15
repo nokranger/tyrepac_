@@ -14,7 +14,7 @@ import cart from '../views/cart.vue'
 import credit from '../views/checkoutcredit.vue'
 import bank from '../views/checkoutbank.vue'
 import shop from '../views/shop.vue'
-import checkbank from '../views/checkout.vue'
+import donebank from '../views/donebank.vue'
 import donecredit from '../views/donecredit.vue'
 
 Vue.use(VueRouter)
@@ -101,7 +101,7 @@ const routes = [
   {
     path: '/checkbank',
     name: 'checkbank',
-    component: checkbank
+    component: donebank
   },
   {
     path: '/checkcredit',

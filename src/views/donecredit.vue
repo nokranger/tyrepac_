@@ -205,10 +205,11 @@ export default ({
   mounted () {
     this.dates = new Date()
     this.dates = this.dates.toLocaleDateString()
-    console.log(JSON.parse(localStorage.getItem('cart')))
-    this.cart = JSON.parse(localStorage.getItem('checkout'))
+    // console.log(JSON.parse(localStorage.getItem('cart')))
+    // this.cart = JSON.parse(localStorage.getItem('checkout'))
     this.info = JSON.parse(localStorage.getItem('info'))
-    this.items = this.cart
+    this.cart = this.info.orderDetails
+    console.log('countcart', this.items)
     for (var i = 0; i < this.cart.length; i++) {
       this.count += (this.cart[i].qty * this.cart[i].price)
       console.log('countcart', this.count)

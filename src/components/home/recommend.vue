@@ -8,7 +8,7 @@
         <b-container>
           <br>
           <b-row>
-            <b-col v-for="(item, index) in promotions" :key="index" cols="3">
+            <b-col v-for="(item, index) in promotions" :key="index" cols="3" style="margin-top: 5px;">
               <div style="border-radius: 5px;border: thin solid #E0E0E0;text-align: center;width: 100%;">
                 <div>
                   <a v-on:click="buydetail (('/tyrebrand' + '/' + item.prodId + '/' + item.sku), ('https://www.tyrepac.co.th/wp-content/uploads/2020/02/tyre-toyo-proxes-sport-suv.jpg'), item.name, item.regularPrice, ('values' + index), item.type, item.sku, item)">
@@ -23,8 +23,8 @@
                     <b-form-spinbutton :ref="'values' + index" id="demo-sb" :value="value2" min="4" max="100"></b-form-spinbutton>
                   </div>
                   <div style="margin: 5px;text-align: left;">
-                    <b-button variant="primary" v-on:click="buycart (('/tyrebrand' + '/' + item.prodId + '/' + item.sku), ('https://www.tyrepac.co.th/wp-content/uploads/2020/02/tyre-toyo-proxes-sport-suv.jpg'), item.name, item.regularPrice, ('values' + index), item.type, item.sku, item)">สั่งซื้อเลย</b-button>
-                    <i class="fas fa-shopping-cart" style="display: inline-block;margin-left: 10px;font-size: 20px;cursor: pointer;color: #005099;" v-on:click="addtocart (('/tyrebrand' + '/' + item.prodId + '/' + item.sku), ('https://www.tyrepac.co.th/wp-content/uploads/2020/02/tyre-toyo-proxes-sport-suv.jpg'), item.name, item.regularPrice, ('values' + index), item.type, item.sku, item)"></i>
+                    <b-button variant="primary" v-on:click="buycart (('/tyrebrand' + '/' + item.prodId + '/' + item.sku), ('https://www.tyrepac.co.th/wp-content/uploads/2020/02/tyre-toyo-proxes-sport-suv.jpg'), item.prodId, item.name, item.regularPrice, ('values' + index), item.type, item.sku, item)">สั่งซื้อเลย</b-button>
+                    <i class="fas fa-shopping-cart" style="display: inline-block;margin-left: 10px;font-size: 20px;cursor: pointer;color: #005099;" v-on:click="addtocart (('/tyrebrand' + '/' + item.prodId + '/' + item.sku), ('https://www.tyrepac.co.th/wp-content/uploads/2020/02/tyre-toyo-proxes-sport-suv.jpg'), item.prodId, item.name, item.regularPrice, ('values' + index), item.type, item.sku, item)"></i>
                   </div>
                 </div>
               </div>
@@ -161,7 +161,7 @@ export default {
     async addtocart (url, img, id, name, price, value, type, sku, brand) {
       if (JSON.parse(localStorage.getItem('cart')) === null) {
         localStorage.setItem('cart', JSON.stringify(this.checkcart))
-        console.log('ว่าง', id)
+        console.log('ว่าง', this.$refs[value][0].localValue)
         var team = []
         // localStorage.setItem('test', JSON.stringify(team))
         const teams = await JSON.parse(localStorage.getItem('cart'))

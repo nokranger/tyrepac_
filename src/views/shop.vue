@@ -361,7 +361,7 @@ export default {
         // console.log('all null')
         axios(config).then(res => {
           // console.log(res.data.data)
-          this.brand = res.data.data.products
+          this.brand = res.data.data.products.slice(0, 50)
           console.log('brands', res.data.data.products)
           const vvv = this.brand.find((post, index) => {
             if (post.prodId === 'TY001') {
