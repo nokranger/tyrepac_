@@ -10,9 +10,8 @@
           "
         >
           <div style="margin: 15px">
-            <!-- {{info}} -->
             <div style="font-weight: bold; font-size: 25px">
-              <!-- ขอบคุณค่ะ ได้รับรายการสั่งซื้อของคุณเรียบร้อยแล้ว -->
+              ขอบคุณค่ะ ได้รับรายการสั่งซื้อของคุณเรียบร้อยแล้ว
             </div>
             <ul>
               <div>
@@ -25,7 +24,7 @@
                 <div style="display: inline-block;font-weight: bold;">รวมทั้งหมด: </div><li>฿{{count}}</li>
               </div>
               <div>
-                <div style="display: inline-block;font-weight: bold;">วิธีการชำระเงิน: </div><li>บัตรเครดิต วีซ่า / มาสเตอร์การ์ด</li>
+                <div style="display: inline-block;font-weight: bold;">วิธีการชำระเงิน: </div><li>โอนเงินผ่านธนาคาร</li>
               </div>
               <div>
                 <div style="display: inline-block;font-weight: bold;">ชื่อ: </div><li>{{info.firstname}}</li>
@@ -44,14 +43,30 @@
               </div>
             </ul>
             <div>
-              Please send a check to store name, store street, store town, store
-              state / country, store postcode
+              <!-- ชำระเงินของคุณโดยตรงไปยังบันชีธนาคารของเรา โปรดใช้รหัสคำสั่งซื้อของคุณเป็นข้อมูลอ้างอิง คำสั่งซื้อของคุณจะไม่ถูกส่งจนกว่าเงินจะเคลียร์ในบันชีของเรา -->
             </div>
           </div>
+          <!-- <div style="text-align: center;">
+            <div>
+              <div style="font-weight: bold; font-size: 25px">
+                แสกน QR CODE เพื่อจ่ายเงิน
+              </div>
+            </div>
+            <div>
+              <img style="width: 300px;" src="https://i.imgur.com/YGIND7b.png" alt="">
+            </div>
+            <div style="font-weight: bold; font-size: 25px;text-align: left;">
+              <div style="margin-left: 10px;">ข้อมูลบันชีธนาคาร</div>
+              <ul>
+                <li>ธนาคาร: Bangkok Bank</li>
+                <li>หมายเลขบันชี: 222-453485-5</li>
+              </ul>
+            </div>
+          </div> -->
         </div>
         <br>
         <br>
-        <div
+        <!-- <div
           style="
             border-radius: 5px;
             border: thin solid #e0e0e0;
@@ -97,7 +112,7 @@
                         รวม
                       </div>
                     </b-col>
-                    <b-col>{{ count }}</b-col>
+                    <b-col>{{ count  }}</b-col>
                   </b-row>
                   <br>
                   <b-row>
@@ -132,7 +147,7 @@
                     </b-col>
                     <b-col>
                       <div style="color: #005099;font-weight: bold;">
-                        ฿{{count}}
+                        ฿{{count }}
                       </div>
                     </b-col>
                   </b-row>
@@ -140,10 +155,10 @@
                 </b-container>
               </div>
           </div>
-        </div>
+        </div> -->
         <br>
         <br>
-        <div style="border-radius: 5px;border: thin solid #e0e0e0;text-align: left;">
+        <!-- <div style="border-radius: 5px;border: thin solid #e0e0e0;text-align: left;">
           <div style="margin: 15px;">
             <div style="font-weight: bold; font-size: 25px">
               ใบเสร็จรับเงิน
@@ -152,12 +167,9 @@
               <img style="width:400px;height:700px" :src="previewImage">
             </div>
             <div>
-              <input ref="file" type="file" name="avatar" id="avatar" accept="image/jpeg, image/png" v-on:change="uploadImage">
-              <label for="avatar"><label style="color:red;font-size:25px;">*</label>Choose a file</label>
-              <b-button style="margin-left: 15px;" variant="primary" v-on:click="checkout ()">ยืนยัน</b-button>
             </div>
           </div>
-        </div>
+        </div> -->
       </b-container>
     </div>
   </div>
@@ -168,11 +180,11 @@ import axios from 'axios'
 export default ({
   data () {
     return {
-      apiURL: apiURL,
       imgs: '',
       previewImage: null,
       items: [],
       fields: ['สินค้า', ' ', 'จำนวน', 'มูลค่าสินค้า'],
+      cart: [],
       count: 0,
       dates: '',
       data: {},
@@ -232,10 +244,7 @@ export default ({
         console.log('response', res)
         if (res.data.status.code === 0) {
           // localStorage.setItem('info', JSON.stringify(this.data))
-          localStorage.removeItem('cart')
-          localStorage.removeItem('test')
-          localStorage.removeItem('checkout')
-          location.replace('/checkcredit')
+          location.replace('/checkdone')
         }
       })
     }

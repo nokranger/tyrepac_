@@ -133,7 +133,7 @@ export default {
       this.statuss = 1
       this.cart = JSON.parse(localStorage.getItem('cart'))
       for (var i = 0; i < this.cart.length; i++) {
-        this.count += this.cart[i].value
+        this.count += this.cart[i].qty
         console.log('countcart', this.count)
       }
       console.log('countcart', this.count)

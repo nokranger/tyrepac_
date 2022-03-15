@@ -144,8 +144,8 @@
                   <div style="font-weight: bold;font-size: 30px;">*กรุณาตรวจสอบข้อมูลให้ถูกต้อง ไม่สามารถแก้ไขเปลี่ยนแปลงและขอย้อนหลังได้</div>
                   <br>
                   <div>
-                    <b-form-radio v-model="selected" name="some-radios" value="A">ไม่ต้องการ</b-form-radio>
-                    <b-form-radio v-model="selected" name="some-radios" value="B">ต้องการ</b-form-radio>
+                    <b-form-radio v-model="selected" name="some-radios" value="false">ไม่ต้องการ</b-form-radio>
+                    <b-form-radio v-model="selected" name="some-radios" value="true">ต้องการ</b-form-radio>
                   </div>
                 </div>
                 <div>
@@ -157,7 +157,7 @@
                       ชื่อ *
                     </div>
                     <div>
-                      <b-input></b-input>
+                      <b-input v-model="firstname"></b-input>
                       <br>
                     </div>
                   </div>
@@ -166,7 +166,7 @@
                       นามสกุล *
                     </div>
                     <div>
-                      <b-input></b-input>
+                      <b-input v-model="lastname"></b-input>
                       <br>
                     </div>
                   </div>
@@ -175,7 +175,7 @@
                       ที่อยู่ *
                     </div>
                     <div>
-                      <b-input></b-input>
+                      <b-input v-model="address.address"></b-input>
                       <br>
                     </div>
                   </div>
@@ -184,7 +184,7 @@
                       อำเภอ *
                     </div>
                     <div>
-                      <b-input></b-input>
+                      <b-input v-model="address.district"></b-input>
                       <br>
                     </div>
                   </div>
@@ -193,7 +193,7 @@
                       จังหวัด *
                     </div>
                     <div>
-                      <b-input></b-input>
+                      <b-input v-model="address.province"></b-input>
                       <br>
                     </div>
                   </div>
@@ -202,7 +202,7 @@
                       รหัสไปรษณีย์ *
                     </div>
                     <div>
-                      <b-input></b-input>
+                      <b-input v-model="address.zipCode"></b-input>
                       <br>
                     </div>
                   </div>
@@ -211,7 +211,7 @@
                       โทรศัพท์ *
                     </div>
                     <div>
-                      <b-input></b-input>
+                      <b-input v-model="phoneNo"></b-input>
                       <br>
                     </div>
                   </div>
@@ -220,7 +220,7 @@
                       อีเมลแอดเดรส *
                     </div>
                     <div>
-                      <b-input></b-input>
+                      <b-input v-model="email"></b-input>
                       <br>
                     </div>
                   </div>
@@ -229,8 +229,8 @@
                       id="checkbox-1"
                       v-model="statuss"
                       name="checkbox-1"
-                      value="accepted"
-                      unchecked-value="not_accepted"
+                      value="true"
+                      unchecked-value="false"
                     >
                       กรุณาตรวจสอบรายการคำสั่งซื้อของคุณ ทางเราขอสงวนสิทธิ์หากชำระเงินแล้วไม่รับเปลี่ยนหรือคืน *
                     </b-form-checkbox>
@@ -269,13 +269,14 @@
               <br>
             <div style="font-weight: bold;font-size: 30px;">รายการสั่งซื้อของคุณ</div>
               <div >ใส่รหัสส่วนลดที่นี่? <a href="#" v-b-modal.modal-1 style="text-decoration: none;">คลิกที่นี่ เพื่อใส่รหัสส่วนลด.</a></div>
-              <b-modal id="modal-1" title="BootstrapVue">
+              <b-modal id="modal-1" hide-footer hide-header>
                 <p class="my-4">มีรหัสส่วนลดหรือไม่?</p>
                 <div>
-                  <b-input placeholder="รหัสส่วนลด"></b-input>
+                  <b-input v-model="couponId" placeholder="รหัสส่วนลด"></b-input>
                 </div>
+                <br>
                 <div>
-                  <b-button>ใช้รหัสส่วนลด</b-button>
+                  <b-button variant="primary">ใช้รหัสส่วนลด</b-button>
                 </div>
               </b-modal>
               <div style="margin: 5px;">
@@ -287,10 +288,10 @@
                     <div style="color: #005099;font-weight: bold;">{{data.item.name}}</div>
                   </template>
                   <template v-slot:cell(จำนวน)="data">
-                    <div>{{data.item.value}}</div>
+                    <div>{{data.item.qty}}</div>
                   </template>
                   <template v-slot:cell(มูลค่าสินค้า)="data">
-                    <div>฿{{data.item.price * data.item.value}}</div>
+                    <div>฿{{data.item.price * data.item.qty}}</div>
                   </template>
                   <template v-slot:cell(รถเข็น)="data">
                     <i class="fas fa fa-times" style="display: inline-block;margin-left: 10px;font-size: 20px;cursor: pointer;color: #ee2456;" v-on:click="removeitem (data.item.name)"></i>
@@ -342,7 +343,7 @@
                 <br>
                 <div style="margin: 15px;">
                   <div>
-                    <b-form-radio v-model="selected" name="some-radios" value="A">โอนเงินผ่านธนาคาร</b-form-radio>
+                    <b-form-radio v-model="selectedp" name="some-radios" value="1">โอนเงินผ่านธนาคาร</b-form-radio>
                     <br>
                     <div style="margin: 15px;">
                       ชำระเงินของคุณโดยตรงไปยังบัญชีธนาคารของเรา โปรดใช้รหัสคำสั่งซื้อของคุณเป็นข้อมูลอ้างอิงการชำระเงิน คำสั่งซื้อของคุณจะไม่ถูกส่งจนกว่าเงินจะเคลียร์ในบัญชีของเรา
@@ -350,17 +351,17 @@
                     <br>
                     <br>
                     <br>
-                    <b-form-radio v-model="selected" name="some-radios" value="B">บัตรเครดิต วีซ่า / มาสเตอร์การ์ด</b-form-radio>
+                    <b-form-radio v-model="selectedp" name="some-radios" value="2">บัตรเครดิต วีซ่า / มาสเตอร์การ์ด</b-form-radio>
                     <!-- {{selected}} -->
                     <br>
                     <div style="margin-left: 5px;">
                       ข้อมูลของคุณจะถูกใช้ในกระบวนการสั่งซื้อ เพื่อสร้างประสบการณ์ของคุณผ่านเว็บไซต์ ศึกษานโยบายส่วนตัว นโยบายความเป็นส่วนตัว.
                     </div>
-                    <div v-if="selected == 'A'" style="text-align: right;">
+                    <div v-if="selectedp == '1'" style="text-align: right;">
                       <b-button variant="primary" v-on:click="paybank">สั่งซื้อ</b-button>
                     </div>
-                    <div v-if="selected == 'B'" style="text-align: right;">
-                      <b-button variant="primary" v-on:click="paycredit ()">สั่งซื้อ</b-button>
+                    <div v-if="selectedp == '2'" style="text-align: right;">
+                      <b-button variant="primary" v-on:click="membercredit ()">สั่งซื้อ</b-button>
                     </div>
                     <br>
                   </div>
@@ -383,7 +384,8 @@ export default {
     return {
       apiURL: apiURL,
       selected: '',
-      statuss: 'not_accepted',
+      statuss: '',
+      selectedp: '',
       items: [],
       fields: ['สินค้า', ' ', 'จำนวน', 'มูลค่าสินค้า', 'รถเข็น'],
       pay: '',
@@ -401,7 +403,21 @@ export default {
       valuetime: '',
       dates: '',
       testss: '',
-      data: {}
+      data: {},
+      address: {
+        address: '',
+        district: '',
+        province: '',
+        zipCode: ''
+      },
+      status: 0,
+      couponId: 0,
+      totalPrice: 0.0,
+      firstname: '',
+      lastname: '',
+      testsss: {},
+      phoneNo: '',
+      email: ''
     }
   },
   mounted () {
@@ -421,37 +437,81 @@ export default {
     this.currentPage = 1
     this.items = this.cart
     for (var i = 0; i < this.cart.length; i++) {
-      this.count += (this.cart[i].value * this.cart[i].price)
+      this.count += (this.cart[i].qty * this.cart[i].price)
       console.log('countcart', this.count)
     }
     console.log('countcart', this.count)
   },
   methods: {
-    member () {
+    membercredit () {
       this.data = {
-        customerId: 123456,
+        customerId: 'C001',
         couponId: 0,
         status: 1,
-        totalPrice: 12345.65,
-        firstname: 'test',
-        lastname: 'testlast',
-        address: {
-          address: '1231412',
-          district: '42142141',
-          province: '42142141',
-          zipCode: '41241'
-        },
+        paymentType: 2,
+        totalPrice: this.count,
+        firstname: this.firstname,
+        lastname: this.lastname,
+        address: this.address,
+        phoneNo: this.phoneNo,
+        email: this.email,
         paymentId: 1,
-        taxInvoice: false,
-        warranty: false,
-        orderDetails: [
-          {
-            productId: 123,
-            qty: 5,
-            price: 1234.65
-          }
-        ]
+        taxInvoice: this.selected,
+        warranty: this.statuss,
+        orderDetails: this.items
       }
+      this.testsss = {
+        customerId: 'C001',
+        paymentId: 1,
+        status: 1,
+        totalPrice: this.count,
+        orderDetails: this.items
+      }
+      console.log('data', this.testsss)
+      localStorage.setItem('checkout', localStorage.getItem('cart'))
+      localStorage.setItem('info', JSON.stringify(this.data))
+      location.replace('/credit')
+      // axios.post(apiURL + '/order/create', this.testsss).then((res) => {
+      //   console.log('response', res.data.status.code)
+      //   console.log('response', res)
+      //   if (res.data.status.code === 0) {
+      //   }
+      // })
+    },
+    memberbank () {
+      this.data = {
+        customerId: 'C001',
+        couponId: 0,
+        status: 1,
+        paymentType: 2,
+        totalPrice: this.count,
+        firstname: this.firstname,
+        lastname: this.lastname,
+        address: this.address,
+        phoneNo: this.phoneNo,
+        email: this.email,
+        paymentId: 1,
+        taxInvoice: this.selected,
+        warranty: this.statuss,
+        orderDetails: this.items
+      }
+      this.testsss = {
+        customerId: 'C001',
+        paymentId: 1,
+        status: 1,
+        totalPrice: this.count,
+        orderDetails: this.items
+      }
+      console.log('data', this.testsss)
+      localStorage.setItem('checkout', localStorage.getItem('cart'))
+      localStorage.setItem('info', JSON.stringify(this.data))
+      location.replace('/bank')
+      // axios.post(apiURL + '/order/create', this.testsss).then((res) => {
+      //   console.log('response', res.data.status.code)
+      //   console.log('response', res)
+      //   if (res.data.status.code === 0) {
+      //   }
+      // })
     },
     removeitem (name) {
       console.log('remove', name)
@@ -465,18 +525,18 @@ export default {
     },
     paybank () {
       localStorage.setItem('checkout', localStorage.getItem('cart'))
-      localStorage.removeItem('cart')
-      localStorage.removeItem('cartdetail')
+      // localStorage.removeItem('cart')
+      // localStorage.removeItem('cartdetail')
       this.data = JSON.parse(localStorage.getItem('cart'))
       console.log('databank', this.data)
       location.replace('/bank')
     },
     paycredit () {
       localStorage.setItem('checkout', localStorage.getItem('cart'))
-      localStorage.removeItem('cart')
-      localStorage.removeItem('cartdetail')
-      this.data = JSON.parse(localStorage.getItem('cart'))
-      console.log('databank', this.data)
+      // localStorage.removeItem('cart')
+      // localStorage.removeItem('cartdetail')
+      // this.data = JSON.parse(localStorage.getItem('cart'))
+      // console.log('databank', this.data)
       location.replace('/credit')
     },
     installer () {

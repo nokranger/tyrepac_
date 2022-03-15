@@ -175,6 +175,7 @@
                   <b-row>
                     <!-- {{brand}} -->
                     <b-col cols="3" v-for="(brandd, index) in brand" :key="index" style="margin-bottom: 5px;">
+                      <!-- {{brandd.prodId}} -->
                       <div style="border-radius: 5px;border: thin solid #E0E0E0;text-align: left;">
                         <div style="width: 100%;">
                           <a v-on:click="buydetail (('/tyrebrand' + '/' + brandd.prodId + '/' + brandd.sku), ('https://www.tyrepac.co.th/wp-content/uploads/2020/02/tyre-toyo-proxes-sport-suv.jpg'), brandd.name, brandd.regularPrice, ('values' + index), brandd.type, brandd.sku, brandd)">
@@ -187,8 +188,8 @@
                           <b-form-spinbutton :ref="'values' + index" id="demo-sb" :value="value2" min="4" max="100"></b-form-spinbutton>
                         </div>
                         <div style="margin: 5px;">
-                          <b-button variant="primary" v-on:click="buycart (('/tyrebrand' + '/' + brandd.prodId + '/' + brandd.sku), ('https://www.tyrepac.co.th/wp-content/uploads/2020/02/tyre-toyo-proxes-sport-suv.jpg'), brandd.name, brandd.regularPrice, ('values' + index), brandd.type, brandd.sku, brandd)">สั่งซื้อเลย</b-button>
-                          <i class="fas fa-shopping-cart" style="display: inline-block;margin-left: 10px;font-size: 20px;cursor: pointer;color: #005099;" v-on:click="addtocart (('/tyrebrand' + '/' + brandd.prodId + '/' + brandd.sku), ('https://www.tyrepac.co.th/wp-content/uploads/2020/02/tyre-toyo-proxes-sport-suv.jpg'), brandd.name, brandd.regularPrice, ('values' + index), brandd.type, brandd.sku, brandd)"></i>
+                          <b-button variant="primary" v-on:click="buycart (('/tyrebrand' + '/' + brandd.prodId + '/' + brandd.sku), ('https://www.tyrepac.co.th/wp-content/uploads/2020/02/tyre-toyo-proxes-sport-suv.jpg'), brandd.prodId, brandd.name, brandd.regularPrice, ('values' + index), brandd.type, brandd.sku, brandd)">สั่งซื้อเลย</b-button>
+                          <i class="fas fa-shopping-cart" style="display: inline-block;margin-left: 10px;font-size: 20px;cursor: pointer;color: #005099;" v-on:click="addtocart (('/tyrebrand' + '/' + brandd.prodId + '/' + brandd.sku), ('https://www.tyrepac.co.th/wp-content/uploads/2020/02/tyre-toyo-proxes-sport-suv.jpg'), brandd.prodId, brandd.name, brandd.regularPrice, ('values' + index), brandd.type, brandd.sku, brandd)"></i>
                         </div>
                       </div>
                     </b-col>
@@ -550,7 +551,7 @@ export default {
       localStorage.setItem('cartdetail', JSON.stringify(cart))
       location.replace('/tyrebrand/?brand=' + sku)
     },
-    async buycart (url, img, name, price, value, type, sku, brand) {
+    async buycart (url, img, id, name, price, value, type, sku, brand) {
       if (JSON.parse(localStorage.getItem('cart')) === null) {
         localStorage.setItem('cart', JSON.stringify(this.checkcart))
         console.log('ว่าง')
@@ -562,8 +563,9 @@ export default {
           url: url,
           img: img,
           name: name,
+          productId: id,
           price: price,
-          value: this.$refs[value][0].localValue,
+          qty: this.$refs[value][0].localValue,
           type: type,
           sku: sku,
           brand: brand
@@ -572,10 +574,10 @@ export default {
         await teams.forEach((a) => {
           if (!this[a.name]) {
             console.log('aname', a.name)
-            this[a.name] = { name: a.name, value: 0, price: a.price, img: a.img, type: a.type, sku: a.sku }
+            this[a.name] = { name: a.name, qty: 0, price: a.price, img: a.img, type: a.type, sku: a.sku, productId: a.productId }
             team.push(this[a.name])
           }
-          this[a.name].value += a.value
+          this[a.name].qty += a.qty
         }, Object.create(null))
         console.log('team', team)
         localStorage.setItem('test', JSON.stringify(team))
@@ -592,8 +594,9 @@ export default {
           url: url,
           img: img,
           name: name,
+          productId: id,
           price: price,
-          value: this.$refs[value][0].localValue,
+          qty: this.$refs[value][0].localValue,
           type: type,
           sku: sku,
           brand: brand
@@ -602,10 +605,10 @@ export default {
         await teams.forEach((a) => {
           if (!this[a.name]) {
             console.log('aname', a.name)
-            this[a.name] = { name: a.name, value: 0, price: a.price, img: a.img, type: a.type, sku: a.sku }
+            this[a.name] = { name: a.name, qty: 0, price: a.price, img: a.img, type: a.type, sku: a.sku, productId: a.productId }
             team.push(this[a.name])
           }
-          this[a.name].value += a.value
+          this[a.name].qty += a.qty
         }, Object.create(null))
         console.log('team', team)
         localStorage.setItem('test', JSON.stringify(team))
@@ -614,32 +617,34 @@ export default {
         // location.reload()
       }
     },
-    async addtocart (url, img, name, price, value, type, sku, brand) {
+    async addtocart (url, img, id, name, price, value, type, sku, brand) {
       if (JSON.parse(localStorage.getItem('cart')) === null) {
         localStorage.setItem('cart', JSON.stringify(this.checkcart))
-        console.log('ว่าง')
+        console.log('ว่าง', id)
         var team = []
         // localStorage.setItem('test', JSON.stringify(team))
         const teams = await JSON.parse(localStorage.getItem('cart'))
-        console.log('teams', teams)
+        // console.log('teams', teams)
         await teams.push({
           url: url,
           img: img,
           name: name,
+          productId: id,
           price: price,
-          value: this.$refs[value][0].localValue,
+          qty: this.$refs[value][0].localValue,
           type: type,
           sku: sku,
           brand: brand
         })
+        console.log('teams', teams)
         await localStorage.setItem('cart', JSON.stringify(team))
         await teams.forEach((a) => {
           if (!this[a.name]) {
             console.log('aname', a.name)
-            this[a.name] = { name: a.name, value: 0, price: a.price, img: a.img, type: a.type, sku: a.sku }
+            this[a.name] = { name: a.name, qty: 0, price: a.price, img: a.img, type: a.type, sku: a.sku, productId: a.productId }
             team.push(this[a.name])
           }
-          this[a.name].value += a.value
+          this[a.name].qty += a.qty
         }, Object.create(null))
         console.log('team', team)
         localStorage.setItem('test', JSON.stringify(team))
@@ -647,29 +652,31 @@ export default {
         // location.replace('/checkout')
         location.reload()
       } else {
-        console.log('ไม่ว่าง')
+        console.log('ว่าง', id)
         team = []
         // localStorage.setItem('test', JSON.stringify(team))
         const teams = await JSON.parse(localStorage.getItem('cart'))
-        console.log('teams', teams)
+        // console.log('teams', teams)
         await teams.push({
           url: url,
           img: img,
           name: name,
+          productId: id,
           price: price,
-          value: this.$refs[value][0].localValue,
+          qty: this.$refs[value][0].localValue,
           type: type,
           sku: sku,
           brand: brand
         })
+        console.log('teams', teams)
         await localStorage.setItem('cart', JSON.stringify(team))
         await teams.forEach((a) => {
           if (!this[a.name]) {
             console.log('aname', a.name)
-            this[a.name] = { name: a.name, value: 0, price: a.price, img: a.img, type: a.type, sku: a.sku }
+            this[a.name] = { name: a.name, qty: 0, price: a.price, img: a.img, type: a.type, sku: a.sku, productId: a.productId }
             team.push(this[a.name])
           }
-          this[a.name].value += a.value
+          this[a.name].qty += a.qty
         }, Object.create(null))
         console.log('team', team)
         localStorage.setItem('test', JSON.stringify(team))

@@ -11,13 +11,36 @@
         >
           <div style="margin: 15px">
             <div style="font-weight: bold; font-size: 25px">
-              ขอบคุณค่ะ ได้รับรายการสั่งซื้อของคุณเรียบร้อยแล้ว
+              <!-- ขอบคุณค่ะ ได้รับรายการสั่งซื้อของคุณเรียบร้อยแล้ว -->
             </div>
             <ul>
-              <li>เลขที่คำสั่งซื้อ</li>
-              <li>วันที่</li>
-              <li>รวมทั้งหมด</li>
-              <li>วิธีการชำระเงิน</li>
+              <div>
+                <div style="display: inline-block;font-weight: bold;">วันที่: </div><li>{{dates}}</li>
+              </div>
+              <div>
+                <div style="display: inline-block;font-weight: bold;">เลขที่คำสั่งซื้อ: </div><li>Test101</li>
+              </div>
+              <div>
+                <div style="display: inline-block;font-weight: bold;">รวมทั้งหมด: </div><li>฿{{count}}</li>
+              </div>
+              <div>
+                <div style="display: inline-block;font-weight: bold;">วิธีการชำระเงิน: </div><li>โอนเงินผ่านธนาคาร</li>
+              </div>
+              <div>
+                <div style="display: inline-block;font-weight: bold;">ชื่อ: </div><li>{{info.firstname}}</li>
+              </div>
+              <div>
+                <div style="display: inline-block;font-weight: bold;">นามสกุล: </div><li>{{info.lastname}}</li>
+              </div>
+              <div>
+                <div style="display: inline-block;font-weight: bold;">ที่อยุ่: </div><li>{{info.address.address + ' ' +  info.address.district + ' ' + info.address.province + ' ' + info.address.zipCode}}</li>
+              </div>
+              <div>
+                <div style="display: inline-block;font-weight: bold;">โทรศัพท์: </div><li>{{info.phoneNo}}</li>
+              </div>
+              <div>
+                <div style="display: inline-block;font-weight: bold;">อีเมล: </div><li>{{info.email}}</li>
+              </div>
             </ul>
             <div>
               ชำระเงินของคุณโดยตรงไปยังบันชีธนาคารของเรา โปรดใช้รหัสคำสั่งซื้อของคุณเป็นข้อมูลอ้างอิง คำสั่งซื้อของคุณจะไม่ถูกส่งจนกว่าเงินจะเคลียร์ในบันชีของเรา
@@ -72,10 +95,10 @@
                   <div>{{ data.item.name }}</div>
                 </template>
                 <template v-slot:cell(จำนวน)="data">
-                  <div>{{ data.item.value }}</div>
+                  <div>{{ data.item.qty }}</div>
                 </template>
                 <template v-slot:cell(มูลค่าสินค้า)="data">
-                  <div>{{ data.item.price * data.item.value }}</div>
+                  <div>{{ data.item.price * data.item.qty }}</div>
                 </template>
               </b-table>
             </div>
@@ -146,6 +169,7 @@
             <div>
               <input ref="file" type="file" name="avatar" id="avatar" accept="image/jpeg, image/png" v-on:change="uploadImage">
               <label for="avatar"><label style="color:red;font-size:25px;">*</label>Choose a file</label>
+              <b-button style="margin-left: 15px;" variant="primary" v-on:click="checkout ()">ยืนยัน</b-button>
             </div>
           </div>
         </div>
@@ -154,6 +178,8 @@
   </div>
 </template>
 <script>
+import apiURL from '../assets/js/connect'
+import axios from 'axios'
 export default ({
   data () {
     return {
@@ -162,15 +188,32 @@ export default ({
       items: [],
       fields: ['สินค้า', ' ', 'จำนวน', 'มูลค่าสินค้า'],
       cart: [],
-      count: 0
+      count: 0,
+      dates: '',
+      data: {},
+      address: {
+        address: '',
+        district: '',
+        province: '',
+        zipCode: ''
+      },
+      status: 0,
+      couponId: 0,
+      totalPrice: 0.0,
+      firstname: '',
+      lastname: '',
+      info: ''
     }
   },
   mounted () {
+    this.dates = new Date()
+    this.dates = this.dates.toLocaleDateString()
     console.log(JSON.parse(localStorage.getItem('cart')))
     this.cart = JSON.parse(localStorage.getItem('checkout'))
+    this.info = JSON.parse(localStorage.getItem('info'))
     this.items = this.cart
     for (var i = 0; i < this.cart.length; i++) {
-      this.count += (this.cart[i].value * this.cart[i].price)
+      this.count += (this.cart[i].qty * this.cart[i].price)
       console.log('countcart', this.count)
     }
     console.log('countcart', this.count)
@@ -188,7 +231,38 @@ export default ({
       reader.onload = e => {
         this.previewImage = e.target.result
       }
+    },
+    checkout () {
+      this.testsss = {
+        customerId: 'C001',
+        paymentId: 1,
+        status: 1,
+        totalPrice: this.count,
+        orderDetails: this.items
+      }
+      console.log('data', this.testsss)
+      // localStorage.setItem('checkout', localStorage.getItem('cart'))
+      axios.post(apiURL + '/order/create', this.testsss).then((res) => {
+        console.log('response', res.data.status.code)
+        console.log('response', res)
+        if (res.data.status.code === 0) {
+          // localStorage.setItem('info', JSON.stringify(this.data))
+          localStorage.removeItem('cart')
+          localStorage.removeItem('test')
+          localStorage.removeItem('checkout')
+          location.replace('/checkbank')
+        }
+      })
     }
   }
 })
 </script>
+<style scoped>
+li {
+  list-style-type: none;
+  margin-top: 15px;
+  margin-left: 5px;
+  /* font-size: 25px; */
+  display: inline-block;
+}
+</style>
