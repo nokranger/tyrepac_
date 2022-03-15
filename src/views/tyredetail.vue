@@ -54,6 +54,7 @@
                 </div>
           </b-col>
           <b-col>
+            <!-- <b-button v-on:mouseover="testmouse()">test</b-button> -->
             <div style="border-radius: 5px;border: thin solid #E0E0E0;margin: 5px;text-align: left;">
               <b-container>
                 <b-row>
@@ -201,6 +202,9 @@ export default {
     // ]
   },
   methods: {
+    testmouse () {
+      console.log('mouseover')
+    },
     buy (value) {
       console.log('buy', this.brand.sku)
       // console.log('buy', url + '-' + img + '-' + name + '-' + price + '-' + this.$refs[value][0].localValue)
