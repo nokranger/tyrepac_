@@ -32,16 +32,18 @@
                 >โปรโมชั่น</b
               ></b-nav-item
             >
-          <b-nav-item-dropdown toggle-class="text-dark" text="ประเภทยาง" right>
-            <b-dropdown-item href="/shop?type=ยางประสิทธิภาพสูง">ยาง SUV ประสิทธิภาพสูง</b-dropdown-item>
-            <b-dropdown-item href="/shop?type=ยางขับขี่ทั่วไป">ยางขับขี่ทั่วไป</b-dropdown-item>
-            <b-dropdown-item href="/shop?type=ยางขับขี่นุ่ม เงียบ">ยางยางขับขี่นุ่ม เงียบ</b-dropdown-item>
-            <b-dropdown-item href="/shop?type=ยางประสิทธิภาพสูง">ยางประสิทธิภาพสูง</b-dropdown-item>
-            <b-dropdown-item href="/shop?type=ยางประหยัดเชื้อเพลิง">ยางประหยัดเชื้อเพลิง</b-dropdown-item>
-            <b-dropdown-item href="/shop?type=ยางรถกระบะ">ยางรถกระบะ</b-dropdown-item>
-            <b-dropdown-item href="/shop?type=ยางรถเอนกประสงค์">ยางเอนกประสงค์ / SUV</b-dropdown-item>
-            <b-dropdown-item href="/shop?type=ยางออฟโรด">ยางออฟโรด</b-dropdown-item>
-          </b-nav-item-dropdown>
+          <div  @mouseover="onOvert" @mouseleave="onLeavet">
+            <b-nav-item-dropdown toggle-class="text-dark" text="ประเภทยาง" ref="dropdownt" right>
+              <b-dropdown-item href="/shop?type=ยางประสิทธิภาพสูง">ยาง SUV ประสิทธิภาพสูง</b-dropdown-item>
+              <b-dropdown-item href="/shop?type=ยางขับขี่ทั่วไป">ยางขับขี่ทั่วไป</b-dropdown-item>
+              <b-dropdown-item href="/shop?type=ยางขับขี่นุ่ม เงียบ">ยางยางขับขี่นุ่ม เงียบ</b-dropdown-item>
+              <b-dropdown-item href="/shop?type=ยางประสิทธิภาพสูง">ยางประสิทธิภาพสูง</b-dropdown-item>
+              <b-dropdown-item href="/shop?type=ยางประหยัดเชื้อเพลิง">ยางประหยัดเชื้อเพลิง</b-dropdown-item>
+              <b-dropdown-item href="/shop?type=ยางรถกระบะ">ยางรถกระบะ</b-dropdown-item>
+              <b-dropdown-item href="/shop?type=ยางรถเอนกประสงค์">ยางเอนกประสงค์ / SUV</b-dropdown-item>
+              <b-dropdown-item href="/shop?type=ยางออฟโรด">ยางออฟโรด</b-dropdown-item>
+            </b-nav-item-dropdown>
+          </div>
             <b-nav-item href="/installer"
               ><b style="font-size: 16px; font-weight: normal"
                 >ศูนย์บริการติดตั้ง</b
@@ -68,7 +70,31 @@
               ></b-nav-item
             >
             <!-- <i class="fas fa-align-justify"></i> -->
-            <b-nav-item href="/checkout"
+          <div @mouseover="onOver" @mouseleave="onLeave">
+            <b-nav-item-dropdown toggle-class="text-dark" ref="dropdown" right>
+              <template slot="button-content">
+                  <i class="fas fa-shopping-cart"></i>
+                  <em v-if="statuss === 1">{{count}}</em>
+              </template>
+              <b-dropdown-item v-for="(carts, index) in cart" :key="index" :href="'/tyrebrand/?brand=' + carts.sku">
+              <div>
+                <img :src="carts.img" alt="" width="50" height="50">
+                <div>{{carts.name}}</div>
+              </div>
+              <div>
+                <div>{{carts.qty}} x ฿{{carts.price}}</div>
+              </div>
+              </b-dropdown-item>
+              <b-dropdown-item href="/checkout">
+                <div>
+                  <div>
+                    <i class="fa-solid fa-check-to-slot"></i><div style="display: inline-block;margin-left: 5px;">Check out</div>
+                  </div>
+                </div>
+              </b-dropdown-item>
+            </b-nav-item-dropdown>
+          </div>
+            <!-- <b-nav-item href="/checkout"
               ><b style="font-size: 16px; font-weight: normal"
                 ><i class="fas fa-shopping-cart" style="display: inline-block"
                   ><div
@@ -86,7 +112,7 @@
                   </div></i
                 ></b
               ></b-nav-item
-            >
+            > -->
           </b-navbar-nav>
         </b-collapse>
       </b-navbar>
@@ -109,6 +135,7 @@ export default {
   },
   async mounted () {
     this.cart = JSON.parse(localStorage.getItem('cart'))
+    console.log('cart', this.cart)
     if (localStorage.getItem('cart') === null) {
       console.log('show status')
       this.statuss = 0
@@ -122,6 +149,20 @@ export default {
         console.log('countcart', this.count)
       }
       console.log('countcart', this.count)
+    }
+  },
+  methods: {
+    onOver () {
+      this.$refs.dropdown.visible = true
+    },
+    onLeave () {
+      this.$refs.dropdown.visible = false
+    },
+    onOvert () {
+      this.$refs.dropdownt.visible = true
+    },
+    onLeavet () {
+      this.$refs.dropdownt.visible = false
     }
   }
 }
