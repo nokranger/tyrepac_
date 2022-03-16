@@ -157,7 +157,7 @@
                       ชื่อ *
                     </div>
                     <div>
-                      <b-input v-model="firstname"></b-input>
+                      <b-input type="text" id="fname" name="fname" autocomplete="on" v-model="firstname"></b-input>
                       <br>
                     </div>
                   </div>
@@ -166,7 +166,7 @@
                       นามสกุล *
                     </div>
                     <div>
-                      <b-input v-model="lastname"></b-input>
+                      <b-input type="text" id="lname" name="lname" autocomplete="on"  v-model="lastname"></b-input>
                       <br>
                     </div>
                   </div>
@@ -175,7 +175,7 @@
                       ที่อยู่ *
                     </div>
                     <div>
-                      <b-input v-model="address.address"></b-input>
+                      <b-input type="text" id="address" name="address" autocomplete="on" v-model="address.address"></b-input>
                       <br>
                     </div>
                   </div>
@@ -184,7 +184,7 @@
                       อำเภอ *
                     </div>
                     <div>
-                      <b-input v-model="address.district"></b-input>
+                      <b-input type="text" id="address" name="address" autocomplete="on" v-model="address.district"></b-input>
                       <br>
                     </div>
                   </div>
@@ -193,7 +193,7 @@
                       จังหวัด *
                     </div>
                     <div>
-                      <b-input v-model="address.province"></b-input>
+                      <b-input type="text" id="address" name="address" autocomplete="on" v-model="address.province"></b-input>
                       <br>
                     </div>
                   </div>
@@ -202,7 +202,7 @@
                       รหัสไปรษณีย์ *
                     </div>
                     <div>
-                      <b-input v-model="address.zipCode"></b-input>
+                      <b-input type="text" id="zipcode" name="zipcode" autocomplete="on" v-model="address.zipCode"></b-input>
                       <br>
                     </div>
                   </div>
@@ -211,7 +211,7 @@
                       โทรศัพท์ *
                     </div>
                     <div>
-                      <b-input v-model="phoneNo"></b-input>
+                      <b-input type="text" id="phone" name="phone" autocomplete="on" v-model="phoneNo"></b-input>
                       <br>
                     </div>
                   </div>
@@ -220,7 +220,7 @@
                       อีเมลแอดเดรส *
                     </div>
                     <div>
-                      <b-input v-model="email"></b-input>
+                      <b-input type="email" id="email" name="email" autocomplete="on" v-model="email"></b-input>
                       <br>
                     </div>
                   </div>
@@ -443,7 +443,7 @@ export default {
       this.itemin = this.installers
       this.totalRows = this.itemin.length
       this.currentPage = 1
-      console.log('installer', this.testinstaller)
+      console.log('installer', this.itemin)
     })
     console.log(JSON.parse(localStorage.getItem('cart')))
     this.cart = JSON.parse(localStorage.getItem('cart'))
