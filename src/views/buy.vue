@@ -58,7 +58,7 @@
                   </template> -->
                   <template v-slot:cell(state)="data">
                     <div>
-                      <b-button variant="primary" v-on:click="chooseinstaller(data.item.name, data.item.address)">เลือกร้านนี้</b-button>
+                      <b-button variant="primary" v-on:click="chooseinstaller(data.item.name, data.item.address, data.item.province)">เลือกร้านนี้</b-button>
                     </div>
                   </template>
                 </b-table>
@@ -144,8 +144,8 @@
                   <div style="font-weight: bold;font-size: 30px;">*กรุณาตรวจสอบข้อมูลให้ถูกต้อง ไม่สามารถแก้ไขเปลี่ยนแปลงและขอย้อนหลังได้</div>
                   <br>
                   <div>
-                    <b-form-radio v-model="selected" name="some-radios" value="false">ไม่ต้องการ</b-form-radio>
-                    <b-form-radio v-model="selected" name="some-radios" value="true">ต้องการ</b-form-radio>
+                    <b-form-radio v-model="selectedtax" name="some-radios" value="false">ไม่ต้องการ</b-form-radio>
+                    <b-form-radio v-model="selectedtax" name="some-radios" value="true">ต้องการ</b-form-radio>
                   </div>
                 </div>
                 <div>
@@ -227,7 +227,7 @@
                   <div>
                     <b-form-checkbox
                       id="checkbox-1"
-                      v-model="statuss"
+                      v-model="warranty"
                       name="checkbox-1"
                       value="true"
                       unchecked-value="false"
@@ -358,7 +358,7 @@
                       ข้อมูลของคุณจะถูกใช้ในกระบวนการสั่งซื้อ เพื่อสร้างประสบการณ์ของคุณผ่านเว็บไซต์ ศึกษานโยบายส่วนตัว นโยบายความเป็นส่วนตัว.
                     </div>
                     <div v-if="selectedp == '1'" style="text-align: right;">
-                      <b-button variant="primary" v-on:click="paybank">สั่งซื้อ</b-button>
+                      <b-button variant="primary" v-on:click="memberbank ()">สั่งซื้อ</b-button>
                     </div>
                     <div v-if="selectedp == '2'" style="text-align: right;">
                       <b-button variant="primary" v-on:click="membercredit ()">สั่งซื้อ</b-button>
@@ -383,7 +383,8 @@ export default {
   data () {
     return {
       apiURL: apiURL,
-      selected: '',
+      selectedtax: false,
+      warranty: false,
       statuss: '',
       selectedp: '',
       items: [],
@@ -435,7 +436,8 @@ export default {
       this.email = this.autoinfo.email
       this.selected = this.autoinfo.taxInvoice
     }
-    this.dates = new Date()
+    this.dates = new Date(Date.now() + (24 * 60 * 60 * 1000))
+    // this.dates = this.dates.toLocaleDateString()
     console.log('date', this.dates.toLocaleDateString())
     axios.get(apiURL + '/installer').then((res) => {
       // this.testinstaller = res.data.data.installers
@@ -443,7 +445,7 @@ export default {
       this.itemin = this.installers
       this.totalRows = this.itemin.length
       this.currentPage = 1
-      console.log('installer', this.itemin)
+      // console.log('installer', this.itemin)
     })
     console.log(JSON.parse(localStorage.getItem('cart')))
     this.cart = JSON.parse(localStorage.getItem('cart'))
@@ -458,34 +460,44 @@ export default {
   },
   methods: {
     membercredit () {
+      if (this.selectedtax === 'true') {
+        this.selectedtax = true
+      } else if (this.selectedtax === 'false') {
+        this.selectedtax = false
+      }
+      if (this.warranty === 'true') {
+        this.warranty = true
+      } else if (this.warranty === 'false') {
+        this.warranty = false
+      }
       this.data = {
         customerId: 'C001',
-        couponId: 0,
+        paymentId: 1,
         status: 1,
-        paymentType: 2,
         totalPrice: this.count,
+        orderDetails: this.items,
+        couponId: 0,
         firstname: this.firstname,
         lastname: this.lastname,
         address: this.address,
         phoneNo: this.phoneNo,
         email: this.email,
-        paymentId: 1,
-        taxInvoice: this.selected,
-        warranty: this.statuss,
-        orderDetails: this.items
+        taxInvoice: this.selectedtax,
+        warranty: this.warranty
       }
       this.datainfo = {
-        customerId: 'C001',
+        customerId: 1,
         paymentId: 1,
         status: 1,
         totalPrice: this.count,
         orderDetails: this.items
       }
-      console.log('data', this.datainfo)
-      localStorage.setItem('checkout', localStorage.getItem('cart'))
-      localStorage.setItem('info', JSON.stringify(this.data))
-      location.replace('/credit')
-      // axios.post(apiURL + '/order/create', this.testsss).then((res) => {
+      console.log('data', this.data)
+      console.log('datainfo', this.datainfo)
+      // localStorage.setItem('checkout', localStorage.getItem('cart'))
+      // localStorage.setItem('info', JSON.stringify(this.data))
+      // // location.replace('/credit')
+      // axios.post(apiURL + '/order/create', this.data).then((res) => {
       //   console.log('response', res.data.status.code)
       //   console.log('response', res)
       //   if (res.data.status.code === 0) {
@@ -497,13 +509,13 @@ export default {
         customerId: 'C001',
         couponId: 0,
         status: 1,
-        paymentType: 2,
+        // paymentType: 2,
         totalPrice: this.count,
         firstname: this.firstname,
         lastname: this.lastname,
         address: this.address,
-        phoneNo: this.phoneNo,
-        email: this.email,
+        // phoneNo: this.phoneNo,
+        // email: this.email,
         paymentId: 1,
         taxInvoice: this.selected,
         warranty: this.statuss,
@@ -537,29 +549,19 @@ export default {
       localStorage.setItem('cart', JSON.stringify(this.items))
       location.reload()
     },
-    paybank () {
-      localStorage.setItem('checkout', localStorage.getItem('cart'))
-      // localStorage.removeItem('cart')
-      // localStorage.removeItem('cartdetail')
-      this.data = JSON.parse(localStorage.getItem('cart'))
-      console.log('databank', this.data)
-      location.replace('/bank')
-    },
-    paycredit () {
-      localStorage.setItem('checkout', localStorage.getItem('cart'))
-      // localStorage.removeItem('cart')
-      // localStorage.removeItem('cartdetail')
-      // this.data = JSON.parse(localStorage.getItem('cart'))
-      // console.log('databank', this.data)
-      location.replace('/credit')
-    },
     installer () {
       this.statusin = 1
       console.log('status1')
     },
-    chooseinstaller (value, add) {
-      console.log('choose', value)
+    chooseinstaller (value, add, province) {
+      console.log('choose', province)
       this.ins = value + ' ' + add
+      if (province === 'กรุงเทพมหานคร' || province === 'ปทุมธานี' || province === 'นครปฐม' || province === 'นนทบุรี' || province === 'สมุทรปราการ' || province === 'สมุทรสาคร') {
+        console.log('ปทุมกรุงเทพ')
+        this.dates = new Date(Date.now() + (24 * 60 * 60 * 1000))
+      } else {
+        this.dates = new Date(Date.now() + (3 * (24 * 60 * 60 * 1000)))
+      }
     }
   }
 }

@@ -55,13 +55,13 @@ export default {
     axios(config).then(res => {
       // console.log(res.data.data)
       this.brand = res.data.data.products
-      console.log('brands', res.data.data.products)
-      const vvv = this.brand.find((post, index) => {
-        if (post.prodId === 'TY001') {
-          return true
-        }
-      })
-      console.log('asfaf', vvv)
+      // console.log('brands', res.data.data.products)
+      // const vvv = this.brand.find((post, index) => {
+      //   if (post.prodId === 'TY001') {
+      //     return true
+      //   }
+      // })
+      // console.log('asfaf', vvv)
     })
   }
 }

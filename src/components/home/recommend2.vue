@@ -57,7 +57,7 @@ export default {
         return post.status === 1
       })
       this.promotions = promotion.slice(0, 9)
-      console.log('promotions', this.promotions)
+      // console.log('promotions', this.promotions)
     })
   },
   methods: {
