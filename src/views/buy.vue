@@ -417,10 +417,24 @@ export default {
       lastname: '',
       datainfo: {},
       phoneNo: '',
-      email: ''
+      email: '',
+      autoinfo: ''
     }
   },
   mounted () {
+    if (localStorage.getItem('info') === null) {
+      console.log('null of info')
+    } else {
+      console.log('not null of info')
+      this.autoinfo = JSON.parse(localStorage.getItem('info'))
+      console.log('not null of info', this.autoinfo)
+      this.address = this.autoinfo.address
+      this.firstname = this.autoinfo.firstname
+      this.lastname = this.autoinfo.lastname
+      this.phoneNo = this.autoinfo.phoneNo
+      this.email = this.autoinfo.email
+      this.selected = this.autoinfo.taxInvoice
+    }
     this.dates = new Date()
     console.log('date', this.dates.toLocaleDateString())
     axios.get(apiURL + '/installer').then((res) => {
