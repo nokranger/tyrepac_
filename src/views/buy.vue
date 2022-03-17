@@ -279,21 +279,24 @@
                   <b-button variant="primary">ใช้รหัสส่วนลด</b-button>
                 </div>
               </b-modal>
-              <div style="margin: 5px;">
-                <b-table ref="table" striped hover :items="items" :fields="fields">
+              <div style="margin: 5px;text-align: left;">
+                <b-table ref="table" hover :items="items" :fields="fields">
                   <template v-slot:cell(สินค้า)="data">
-                    <img style="width: 150px;" :src="data.item.img" alt="">
+                    <div style="color: #005099;font-weight: bold;display:inline-block;">
+                      <img style="width: 150px;" :src="data.item.img" alt="">
+                    </div>
+                    <div style="color: #005099;font-weight: bold;display:inline-block;margin-left: 15px;">{{data.item.name}}</div>
                   </template>
-                  <template v-slot:cell()="data">
+                  <!-- <template v-slot:cell()="data">
                     <div style="color: #005099;font-weight: bold;">{{data.item.name}}</div>
-                  </template>
+                  </template> -->
                   <template v-slot:cell(จำนวน)="data">
                     <div>{{data.item.qty}}</div>
                   </template>
                   <template v-slot:cell(มูลค่าสินค้า)="data">
                     <div>฿{{data.item.price * data.item.qty}}</div>
                   </template>
-                  <template v-slot:cell(รถเข็น)="data">
+                  <template v-slot:cell()="data">
                     <i class="fas fa fa-times" style="display: inline-block;margin-left: 10px;font-size: 20px;cursor: pointer;color: #ee2456;" v-on:click="removeitem (data.item.name)"></i>
                   </template>
                 </b-table>
@@ -388,7 +391,7 @@ export default {
       statuss: '',
       selectedp: '',
       items: [],
-      fields: ['สินค้า', ' ', 'จำนวน', 'มูลค่าสินค้า', 'รถเข็น'],
+      fields: ['สินค้า', 'จำนวน', 'มูลค่าสินค้า', ' '],
       pay: '',
       cart: [],
       check: [],

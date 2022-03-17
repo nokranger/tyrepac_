@@ -8,20 +8,31 @@
           <br>
           <!-- <div>{{cart}}</div> -->
               <div style="margin: 5px;">
-                <b-table ref="table" striped hover :items="items" :fields="fields">
+                <b-table ref="table" hover :items="items" :fields="fields">
                   <template v-slot:cell(สินค้า)="data">
-                    <img style="width: 150px;" :src="data.item.img" alt="">
+                    <div style="color: #005099;font-weight: bold;display:inline-block;">
+                      <img style="width: 150px;" :src="data.item.img" alt="">
+                    </div>
+                    <div style="color: #005099;font-weight: bold;display:inline-block;margin-left: 15px;">{{data.item.name}}</div>
                   </template>
-                  <template v-slot:cell()="data">
+                  <!-- <template v-slot:cell()="data">
                     <div style="color: #005099;font-weight: bold;">{{data.item.name}}</div>
-                  </template>
+                  </template> -->
                   <template v-slot:cell(จำนวน)="data">
-                    <div style="margin: 5px;">
+                    <div style="margin: 5px;text-align: left;">
                       <b-form-spinbutton id="demo-sb" v-model="data.item.qty" min="4" max="100"></b-form-spinbutton>
                     </div>
                   </template>
+                  <template v-slot:cell(ราคา)="data">
+                    <div>
+                      <div>฿{{data.item.price}}</div>
+                    </div>
+                  </template>
                   <template v-slot:cell(มูลค่าสินค้า)="data">
-                    <b-input style="border: none;display: inline;font-family: inherit;font-size: inherit;padding: none;width: auto;background-color: transparent;" disabled ref="total" :value="data.item.price * data.item.qty"></b-input>
+                    <div>฿{{data.item.price * data.item.qty}}</div>
+                  </template>
+                  <template v-slot:cell()="data">
+                    <i class="fas fa fa-times" style="display: inline-block;margin-left: 10px;font-size: 20px;cursor: pointer;color: #ee2456;" v-on:click="removeitem (data.item.name)"></i>
                   </template>
                   <!-- <template v-slot:cell(ปรับปรุงสินค้า)="data">
                     <b-button v-on:click="updateitem(data.item.name, data.item.value, data)">ปรับปรุงสินค้า</b-button>
@@ -145,7 +156,7 @@ export default {
   data () {
     return {
       items: [],
-      fields: ['สินค้า', ' ', 'จำนวน', 'มูลค่าสินค้า'],
+      fields: ['สินค้า', 'จำนวน', 'ราคา', 'มูลค่าสินค้า', ' '],
       value: 4,
       cart: [],
       sortaa: '',
@@ -186,6 +197,16 @@ export default {
       localStorage.setItem('cart', JSON.stringify(this.items))
       this.items = JSON.parse(localStorage.getItem('cart'))
       console.log('sum', this.count)
+      location.reload()
+    },
+    removeitem (name) {
+      console.log('remove', name)
+      this.items = this.items.filter((obj) => {
+        return obj.name !== name
+      })
+      console.log('remove: ', this.items)
+      localStorage.setItem('test', JSON.stringify(this.items))
+      localStorage.setItem('cart', JSON.stringify(this.items))
       location.reload()
     }
   }
