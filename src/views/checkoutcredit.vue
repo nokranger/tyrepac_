@@ -10,55 +10,6 @@
           "
         >
           <div style="margin: 15px">
-            <!-- {{info}} -->
-            <div style="font-weight: bold; font-size: 25px">
-              <!-- ขอบคุณค่ะ ได้รับรายการสั่งซื้อของคุณเรียบร้อยแล้ว -->
-            </div>
-            <ul>
-              <div>
-                <div style="display: inline-block;font-weight: bold;">วันที่: </div><li>{{dates}}</li>
-              </div>
-              <div>
-                <div style="display: inline-block;font-weight: bold;">เลขที่คำสั่งซื้อ: </div><li>Test101</li>
-              </div>
-              <div>
-                <div style="display: inline-block;font-weight: bold;">รวมทั้งหมด: </div><li>฿{{count}}</li>
-              </div>
-              <div>
-                <div style="display: inline-block;font-weight: bold;">วิธีการชำระเงิน: </div><li>บัตรเครดิต วีซ่า / มาสเตอร์การ์ด</li>
-              </div>
-              <div>
-                <div style="display: inline-block;font-weight: bold;">ชื่อ: </div><li>{{info.firstname}}</li>
-              </div>
-              <div>
-                <div style="display: inline-block;font-weight: bold;">นามสกุล: </div><li>{{info.lastname}}</li>
-              </div>
-              <div>
-                <div style="display: inline-block;font-weight: bold;">ที่อยุ่: </div><li>{{info.address.address + ' ' +  info.address.district + ' ' + info.address.province + ' ' + info.address.zipCode}}</li>
-              </div>
-              <div>
-                <div style="display: inline-block;font-weight: bold;">โทรศัพท์: </div><li>{{info.phoneNo}}</li>
-              </div>
-              <div>
-                <div style="display: inline-block;font-weight: bold;">อีเมล: </div><li>{{info.email}}</li>
-              </div>
-            </ul>
-            <div>
-              Please send a check to store name, store street, store town, store
-              state / country, store postcode
-            </div>
-          </div>
-        </div>
-        <br>
-        <br>
-        <div
-          style="
-            border-radius: 5px;
-            border: thin solid #e0e0e0;
-            text-align: left;
-          "
-        >
-          <div style="margin: 15px">
             <div style="font-weight: bold; font-size: 25px">
               รายละเอียดสั่งซื้อยาง
             </div>
@@ -66,7 +17,6 @@
             <div style="text-align: left">
               <b-table
                 ref="table"
-                striped
                 hover
                 :items="items"
                 :fields="fields"
@@ -77,11 +27,11 @@
                   </div>
                 </template>
                 <template v-slot:cell()="data">
-                  <div>{{ data.item.name }}</div>
+                  <div>{{ data.item.name }} x {{ data.item.qty }}</div>
                 </template>
-                <template v-slot:cell(จำนวน)="data">
+                <!-- <template v-slot:cell(จำนวน)="data">
                   <div>{{ data.item.qty }}</div>
-                </template>
+                </template> -->
                 <template v-slot:cell(มูลค่าสินค้า)="data">
                   <div>{{ data.item.price * data.item.qty }}</div>
                 </template>
@@ -143,17 +93,69 @@
         </div>
         <br>
         <br>
-        <div style="border-radius: 5px;border: thin solid #e0e0e0;text-align: left;">
-          <div style="margin: 15px;">
-            <div style="font-weight: bold; font-size: 25px">
-              ใบเสร็จรับเงิน
+        <div
+          style="
+            border-radius: 5px;
+            border: thin solid #e0e0e0;
+            text-align: left;
+          "
+        >
+          <div style="margin: 15px">
+            <!-- {{info}} -->
+            <div style="text-align: right;">
+              <b-button variant="primary" href="/checkout">แก้ไขข้อมูล</b-button>
             </div>
+            <div style="font-weight: bold; font-size: 25px">
+              <!-- ขอบคุณค่ะ ได้รับรายการสั่งซื้อของคุณเรียบร้อยแล้ว -->
+            </div>
+            <ul>
+              <div>
+                <div style="display: inline-block;font-weight: bold;">วันที่: </div><li>{{dates}}</li>
+              </div>
+              <div>
+                <!-- <div style="display: inline-block;font-weight: bold;">เลขที่คำสั่งซื้อ: </div><li>-</li> -->
+              </div>
+              <div>
+                <div style="display: inline-block;font-weight: bold;">รวมทั้งหมด: </div><li>฿{{count}}</li>
+              </div>
+              <div>
+                <div style="display: inline-block;font-weight: bold;">วิธีการชำระเงิน: </div><li>บัตรเครดิต วีซ่า / มาสเตอร์การ์ด</li>
+              </div>
+              <div>
+                <div style="display: inline-block;font-weight: bold;">ชื่อ: </div><li>{{info.firstname}}</li>
+              </div>
+              <div>
+                <div style="display: inline-block;font-weight: bold;">นามสกุล: </div><li>{{info.lastname}}</li>
+              </div>
+              <div>
+                <div style="display: inline-block;font-weight: bold;">ที่อยุ่: </div><li>{{info.address.address + ' ' +  info.address.district + ' ' + info.address.province + ' ' + info.address.zipCode}}</li>
+              </div>
+              <div>
+                <div style="display: inline-block;font-weight: bold;">โทรศัพท์: </div><li>{{info.phoneNo}}</li>
+              </div>
+              <div>
+                <div style="display: inline-block;font-weight: bold;">อีเมล: </div><li>{{info.email}}</li>
+              </div>
+            </ul>
+            <div>
+              Please send a check to store name, store street, store town, store
+              state / country, store postcode
+            </div>
+          </div>
+        </div>
+        <br>
+        <br>
+        <div style="text-align: right;">
+          <div style="margin: 15px;">
+            <!-- <div style="font-weight: bold; font-size: 25px">
+              ใบเสร็จรับเงิน
+            </div> -->
             <div v-if="previewImage != null">
               <img style="width:400px;height:700px" :src="previewImage">
             </div>
             <div>
-              <input ref="file" type="file" name="avatar" id="avatar" accept="image/jpeg, image/png" v-on:change="uploadImage">
-              <label for="avatar"><label style="color:red;font-size:25px;">*</label>Choose a file</label>
+              <!-- <input ref="file" type="file" name="avatar" id="avatar" accept="image/jpeg, image/png" v-on:change="uploadImage">
+              <label for="avatar"><label style="color:red;font-size:25px;">*</label>Choose a file</label> -->
               <b-button style="margin-left: 15px;" variant="primary" v-on:click="checkout ()">ยืนยัน</b-button>
             </div>
           </div>
@@ -172,7 +174,7 @@ export default ({
       imgs: '',
       previewImage: null,
       items: [],
-      fields: ['สินค้า', ' ', 'จำนวน', 'มูลค่าสินค้า'],
+      fields: ['สินค้า', ' ', 'มูลค่าสินค้า'],
       count: 0,
       dates: '',
       data: {},
@@ -204,9 +206,6 @@ export default ({
     console.log('countcart', this.count)
   },
   methods: {
-    test () {
-      console.log('fsafasfaff')
-    },
     uploadImage () {
       console.log('test')
       this.imgs = this.$refs.file.files[0]
@@ -217,25 +216,22 @@ export default ({
         this.previewImage = e.target.result
       }
     },
-    checkout () {
-      this.testsss = {
-        customerId: 'C001',
-        paymentId: 1,
-        status: 1,
-        totalPrice: this.count,
-        orderDetails: this.items
-      }
-      console.log('data', this.testsss)
+    async checkout () {
+      console.log(JSON.parse(localStorage.getItem('info')))
+      this.data = await JSON.parse(localStorage.getItem('info'))
+      console.log('data', this.data)
       // localStorage.setItem('checkout', localStorage.getItem('cart'))
-      axios.post(apiURL + '/order/create', this.testsss).then((res) => {
+      await axios.post(apiURL + '/order/create', this.data).then((res) => {
         console.log('response', res.data.status.code)
         console.log('response', res)
         if (res.data.status.code === 0) {
           // localStorage.setItem('info', JSON.stringify(this.data))
-          localStorage.removeItem('cart')
-          localStorage.removeItem('test')
-          localStorage.removeItem('checkout')
-          location.replace('/checkcredit')
+          // localStorage.removeItem('cart')
+          // localStorage.removeItem('test')
+          // localStorage.removeItem('checkout')
+          // localStorage.removeItem('info')
+          localStorage.setItem('user', JSON.stringify(this.data))
+          // location.replace('/checkcredit')
         }
       })
     }

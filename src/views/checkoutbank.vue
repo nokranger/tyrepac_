@@ -11,77 +11,12 @@
         >
           <div style="margin: 15px">
             <div style="font-weight: bold; font-size: 25px">
-              <!-- ขอบคุณค่ะ ได้รับรายการสั่งซื้อของคุณเรียบร้อยแล้ว -->
-            </div>
-            <ul>
-              <div>
-                <div style="display: inline-block;font-weight: bold;">วันที่: </div><li>{{dates}}</li>
-              </div>
-              <div>
-                <div style="display: inline-block;font-weight: bold;">เลขที่คำสั่งซื้อ: </div><li>Test101</li>
-              </div>
-              <div>
-                <div style="display: inline-block;font-weight: bold;">รวมทั้งหมด: </div><li>฿{{count}}</li>
-              </div>
-              <div>
-                <div style="display: inline-block;font-weight: bold;">วิธีการชำระเงิน: </div><li>โอนเงินผ่านธนาคาร</li>
-              </div>
-              <div>
-                <div style="display: inline-block;font-weight: bold;">ชื่อ: </div><li>{{info.firstname}}</li>
-              </div>
-              <div>
-                <div style="display: inline-block;font-weight: bold;">นามสกุล: </div><li>{{info.lastname}}</li>
-              </div>
-              <div>
-                <div style="display: inline-block;font-weight: bold;">ที่อยุ่: </div><li>{{info.address.address + ' ' +  info.address.district + ' ' + info.address.province + ' ' + info.address.zipCode}}</li>
-              </div>
-              <div>
-                <div style="display: inline-block;font-weight: bold;">โทรศัพท์: </div><li>{{info.phoneNo}}</li>
-              </div>
-              <div>
-                <div style="display: inline-block;font-weight: bold;">อีเมล: </div><li>{{info.email}}</li>
-              </div>
-            </ul>
-            <div>
-              ชำระเงินของคุณโดยตรงไปยังบันชีธนาคารของเรา โปรดใช้รหัสคำสั่งซื้อของคุณเป็นข้อมูลอ้างอิง คำสั่งซื้อของคุณจะไม่ถูกส่งจนกว่าเงินจะเคลียร์ในบันชีของเรา
-            </div>
-          </div>
-          <div style="text-align: center;">
-            <div>
-              <div style="font-weight: bold; font-size: 25px">
-                แสกน QR CODE เพื่อจ่ายเงิน
-              </div>
-            </div>
-            <div>
-              <img style="width: 300px;" src="https://i.imgur.com/YGIND7b.png" alt="">
-            </div>
-            <div style="font-weight: bold; font-size: 25px;text-align: left;">
-              <div style="margin-left: 10px;">ข้อมูลบันชีธนาคาร</div>
-              <ul>
-                <li>ธนาคาร: Bangkok Bank</li>
-                <li>หมายเลขบันชี: 222-453485-5</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <br>
-        <br>
-        <div
-          style="
-            border-radius: 5px;
-            border: thin solid #e0e0e0;
-            text-align: left;
-          "
-        >
-          <div style="margin: 15px">
-            <div style="font-weight: bold; font-size: 25px">
               รายละเอียดสั่งซื้อยาง
             </div>
             <br />
             <div style="text-align: left">
               <b-table
                 ref="table"
-                striped
                 hover
                 :items="items"
                 :fields="fields"
@@ -92,11 +27,11 @@
                   </div>
                 </template>
                 <template v-slot:cell()="data">
-                  <div>{{ data.item.name }}</div>
+                  <div>{{ data.item.name }} x {{ data.item.qty }}</div>
                 </template>
-                <template v-slot:cell(จำนวน)="data">
+                <!-- <template v-slot:cell(จำนวน)="data">
                   <div>{{ data.item.qty }}</div>
-                </template>
+                </template> -->
                 <template v-slot:cell(มูลค่าสินค้า)="data">
                   <div>{{ data.item.price * data.item.qty }}</div>
                 </template>
@@ -158,6 +93,73 @@
         </div>
         <br>
         <br>
+        <div
+          style="
+            border-radius: 5px;
+            border: thin solid #e0e0e0;
+            text-align: left;
+          "
+        >
+          <div style="margin: 15px">
+            <div style="text-align: right;">
+              <b-button variant="primary" href="/checkout">แก้ไขข้อมูล</b-button>
+            </div>
+            <div style="font-weight: bold; font-size: 25px">
+              <!-- ขอบคุณค่ะ ได้รับรายการสั่งซื้อของคุณเรียบร้อยแล้ว -->
+            </div>
+            <ul>
+              <div>
+                <div style="display: inline-block;font-weight: bold;">วันที่: </div><li>{{dates}}</li>
+              </div>
+              <!-- <div>
+                <div style="display: inline-block;font-weight: bold;">เลขที่คำสั่งซื้อ: </div><li>Test101</li>
+              </div> -->
+              <div>
+                <div style="display: inline-block;font-weight: bold;">รวมทั้งหมด: </div><li>฿{{count}}</li>
+              </div>
+              <div>
+                <div style="display: inline-block;font-weight: bold;">วิธีการชำระเงิน: </div><li>โอนเงินผ่านธนาคาร</li>
+              </div>
+              <div>
+                <div style="display: inline-block;font-weight: bold;">ชื่อ: </div><li>{{info.firstname}}</li>
+              </div>
+              <div>
+                <div style="display: inline-block;font-weight: bold;">นามสกุล: </div><li>{{info.lastname}}</li>
+              </div>
+              <div>
+                <div style="display: inline-block;font-weight: bold;">ที่อยุ่: </div><li>{{info.address.address + ' ' +  info.address.district + ' ' + info.address.province + ' ' + info.address.zipCode}}</li>
+              </div>
+              <div>
+                <div style="display: inline-block;font-weight: bold;">โทรศัพท์: </div><li>{{info.phoneNo}}</li>
+              </div>
+              <div>
+                <div style="display: inline-block;font-weight: bold;">อีเมล: </div><li>{{info.email}}</li>
+              </div>
+            </ul>
+            <div>
+              ชำระเงินของคุณโดยตรงไปยังบันชีธนาคารของเรา โปรดใช้รหัสคำสั่งซื้อของคุณเป็นข้อมูลอ้างอิง คำสั่งซื้อของคุณจะไม่ถูกส่งจนกว่าเงินจะเคลียร์ในบันชีของเรา
+            </div>
+          </div>
+          <div style="text-align: center;">
+            <div>
+              <div style="font-weight: bold; font-size: 25px">
+                แสกน QR CODE เพื่อจ่ายเงิน
+              </div>
+            </div>
+            <div>
+              <img style="width: 300px;" src="https://i.imgur.com/YGIND7b.png" alt="">
+            </div>
+            <div style="font-weight: bold; font-size: 25px;text-align: left;">
+              <div style="margin-left: 10px;">ข้อมูลบันชีธนาคาร</div>
+              <ul>
+                <li>ธนาคาร: Bangkok Bank</li>
+                <li>หมายเลขบันชี: 222-453485-5</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <br>
+        <br>
         <div style="border-radius: 5px;border: thin solid #e0e0e0;text-align: left;">
           <div style="margin: 15px;">
             <div style="font-weight: bold; font-size: 25px">
@@ -186,7 +188,7 @@ export default ({
       imgs: '',
       previewImage: null,
       items: [],
-      fields: ['สินค้า', ' ', 'จำนวน', 'มูลค่าสินค้า'],
+      fields: ['สินค้า', ' ', 'มูลค่าสินค้า'],
       cart: [],
       count: 0,
       dates: '',

@@ -79,11 +79,11 @@
                 </a>
               </template>
               <b-dropdown-item v-for="(carts, index) in cart" :key="index" :href="'/tyrebrand/?brand=' + carts.sku">
-              <div>
+              <div style="font-size: 15px;">
                 <img :src="carts.img" alt="" width="50" height="50">
                 <div>{{carts.name}}</div>
               </div>
-              <div>
+              <div style="font-size: 15px;">
                 <div>{{carts.qty}} x ฿{{carts.price}}</div>
               </div>
               </b-dropdown-item>

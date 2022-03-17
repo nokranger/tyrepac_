@@ -285,14 +285,14 @@
                     <div style="color: #005099;font-weight: bold;display:inline-block;">
                       <img style="width: 150px;" :src="data.item.img" alt="">
                     </div>
-                    <div style="color: #005099;font-weight: bold;display:inline-block;margin-left: 15px;">{{data.item.name}}</div>
+                    <div style="color: #005099;font-weight: bold;display:inline-block;margin-left: 15px;">{{data.item.name}} x {{data.item.qty}}</div>
                   </template>
                   <!-- <template v-slot:cell()="data">
                     <div style="color: #005099;font-weight: bold;">{{data.item.name}}</div>
                   </template> -->
-                  <template v-slot:cell(จำนวน)="data">
+                  <!-- <template v-slot:cell(จำนวน)="data">
                     <div>{{data.item.qty}}</div>
-                  </template>
+                  </template> -->
                   <template v-slot:cell(มูลค่าสินค้า)="data">
                     <div>฿{{data.item.price * data.item.qty}}</div>
                   </template>
@@ -391,7 +391,7 @@ export default {
       statuss: '',
       selectedp: '',
       items: [],
-      fields: ['สินค้า', 'จำนวน', 'มูลค่าสินค้า', ' '],
+      fields: ['สินค้า', 'มูลค่าสินค้า', ' '],
       pay: '',
       cart: [],
       check: [],
@@ -474,7 +474,7 @@ export default {
         this.warranty = false
       }
       this.data = {
-        customerId: 'C001',
+        customerId: null,
         paymentId: 1,
         status: 1,
         totalPrice: this.count,
@@ -497,50 +497,48 @@ export default {
       }
       console.log('data', this.data)
       console.log('datainfo', this.datainfo)
-      // localStorage.setItem('checkout', localStorage.getItem('cart'))
-      // localStorage.setItem('info', JSON.stringify(this.data))
-      // // location.replace('/credit')
-      // axios.post(apiURL + '/order/create', this.data).then((res) => {
-      //   console.log('response', res.data.status.code)
-      //   console.log('response', res)
-      //   if (res.data.status.code === 0) {
-      //   }
-      // })
+      localStorage.setItem('checkout', localStorage.getItem('cart'))
+      localStorage.setItem('info', JSON.stringify(this.data))
+      location.replace('/credit')
     },
     memberbank () {
+      if (this.selectedtax === 'true') {
+        this.selectedtax = true
+      } else if (this.selectedtax === 'false') {
+        this.selectedtax = false
+      }
+      if (this.warranty === 'true') {
+        this.warranty = true
+      } else if (this.warranty === 'false') {
+        this.warranty = false
+      }
       this.data = {
-        customerId: 'C001',
-        couponId: 0,
+        customerId: null,
+        paymentId: 1,
         status: 1,
-        // paymentType: 2,
         totalPrice: this.count,
+        orderDetails: this.items,
+        couponId: 0,
         firstname: this.firstname,
         lastname: this.lastname,
         address: this.address,
-        // phoneNo: this.phoneNo,
-        // email: this.email,
-        paymentId: 1,
-        taxInvoice: this.selected,
-        warranty: this.statuss,
-        orderDetails: this.items
+        phoneNo: this.phoneNo,
+        email: this.email,
+        taxInvoice: this.selectedtax,
+        warranty: this.warranty
       }
-      this.testsss = {
-        customerId: 'C001',
+      this.datainfo = {
+        customerId: 1,
         paymentId: 1,
         status: 1,
         totalPrice: this.count,
         orderDetails: this.items
       }
-      console.log('data', this.testsss)
+      console.log('data', this.data)
+      console.log('datainfo', this.datainfo)
       localStorage.setItem('checkout', localStorage.getItem('cart'))
       localStorage.setItem('info', JSON.stringify(this.data))
       location.replace('/bank')
-      // axios.post(apiURL + '/order/create', this.testsss).then((res) => {
-      //   console.log('response', res.data.status.code)
-      //   console.log('response', res)
-      //   if (res.data.status.code === 0) {
-      //   }
-      // })
     },
     removeitem (name) {
       console.log('remove', name)
