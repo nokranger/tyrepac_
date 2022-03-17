@@ -265,7 +265,7 @@ export default {
             this[a.name] = { name: a.name, qty: 0, price: a.price, img: a.img, type: a.type, sku: a.sku, productId: a.productId }
             team.push(this[a.name])
           }
-          this[a.name].value += a.value
+          this[a.name].qty += a.qty
         }, Object.create(null))
         console.log('team', team)
         localStorage.setItem('test', JSON.stringify(team))

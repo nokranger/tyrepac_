@@ -94,7 +94,7 @@
                   </div>
                 </div>
               </b-dropdown-item>
-              <b-dropdown-item style="display: inline-block;margin-left: 30px;" href="/checkout">
+              <b-dropdown-item style="display: inline-block;" href="/checkout">
                 <div>
                   <div>
                     <i class="fa-solid fa-check-to-slot"></i><div style="display: inline-block;margin-left: 5px;">Check out</div>

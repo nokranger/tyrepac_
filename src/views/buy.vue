@@ -25,7 +25,7 @@
               <div style="margin: 15px;">การเลือกตัวเลือกนี้จะส่งไปยังที่อยู่สำหรับการเรียกเก็บเงินและการจัดส่งของคุณด้านล่าง</div>
               <br>
               <div style="margin: 15px;">
-                <b-button variant="primary">กำหนดสถานที่ส่ง</b-button>
+                <b-button variant="primary" href="#more">กำหนดสถานที่ส่ง</b-button>
                 <br>
                 <br>
               </div>
@@ -58,7 +58,7 @@
                   </template> -->
                   <template v-slot:cell(state)="data">
                     <div>
-                      <b-button variant="primary" v-on:click="chooseinstaller(data.item.name, data.item.address, data.item.province)">เลือกร้านนี้</b-button>
+                      <b-button variant="primary" v-on:click="chooseinstaller(data.item.name, data.item.address, data.item.province)" href="#installer">เลือกร้านนี้</b-button>
                     </div>
                   </template>
                 </b-table>
@@ -78,7 +78,7 @@
         </b-row>
         <b-row>
           <b-col>
-            <div style="border-radius: 5px;border: thin solid #E0E0E0;margin: 5px;">
+            <div id="installer" style="border-radius: 5px;border: thin solid #E0E0E0;margin: 5px;">
               <div style="margin: 15px;">
                 <br>
                 <div v-if="statusin === 1">
@@ -242,7 +242,7 @@
             </div>
           </b-col>
           <b-col>
-            <div style="border-radius: 5px;border: thin solid #E0E0E0;margin: 5px;">
+            <div id="more" style="border-radius: 5px;border: thin solid #E0E0E0;margin: 5px;">
               <div style="margin: 15px;">
                 <br>
                 <div style="font-weight: bold;font-size: 30px;">
