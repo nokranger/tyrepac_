@@ -4,7 +4,7 @@
       <b-container>
         <div style="border-radius: 5px;border: thin solid #E0E0E0;text-align: left;">
           <br>
-          <div style="margin-left: 15px;font-weight: bold;">คุณมีสินค้า {{cart.value}} รายการในตระกร้า</div>
+          <div style="margin-left: 15px;font-weight: bold;">คุณมีสินค้า {{counts}} รายการในตระกร้า</div>
           <br>
           <!-- <div>{{cart}}</div> -->
               <div style="margin: 5px;">
@@ -17,11 +17,11 @@
                   </template>
                   <template v-slot:cell(จำนวน)="data">
                     <div style="margin: 5px;">
-                      <b-form-spinbutton id="demo-sb" v-model="data.item.value" min="4" max="100"></b-form-spinbutton>
+                      <b-form-spinbutton id="demo-sb" v-model="data.item.qty" min="4" max="100"></b-form-spinbutton>
                     </div>
                   </template>
                   <template v-slot:cell(มูลค่าสินค้า)="data">
-                    <b-input style="border: none;display: inline;font-family: inherit;font-size: inherit;padding: none;width: auto;background-color: transparent;" disabled ref="total" :value="data.item.price * data.item.value"></b-input>
+                    <b-input style="border: none;display: inline;font-family: inherit;font-size: inherit;padding: none;width: auto;background-color: transparent;" disabled ref="total" :value="data.item.price * data.item.qty"></b-input>
                   </template>
                   <!-- <template v-slot:cell(ปรับปรุงสินค้า)="data">
                     <b-button v-on:click="updateitem(data.item.name, data.item.value, data)">ปรับปรุงสินค้า</b-button>
@@ -103,7 +103,7 @@
                     <b-col></b-col>
                     <b-col>
                       <div>จัดส่งฟรี</div>
-                      <div>จัดส่งไปที่ กรุงเทพมหานคร</div>
+                      <!-- <div>จัดส่งไปที่ กรุงเทพมหานคร</div> -->
                     </b-col>
                   </b-row>
                   <br>
@@ -150,10 +150,25 @@ export default {
       cart: [],
       sortaa: '',
       count: 0,
+      counts: 0,
       price: 0
     }
   },
   mounted () {
+    if (localStorage.getItem('cart') === null) {
+      console.log('show status')
+      this.statuss = 0
+      // this.cart = JSON.parse(localStorage.getItem('cart'))
+    } else {
+      console.log('show status')
+      this.statuss = 1
+      this.cart = JSON.parse(localStorage.getItem('cart'))
+      for (var i = 0; i < this.cart.length; i++) {
+        this.counts += this.cart[i].qty
+        console.log('countcart', this.counts)
+      }
+      console.log('countcart', this.counts)
+    }
     console.log(JSON.parse(localStorage.getItem('cart')))
     this.cart = JSON.parse(localStorage.getItem('cart'))
     this.items = this.cart
@@ -161,7 +176,7 @@ export default {
     for (var c in this.items) {
       console.log(c)
       console.log('count', this.items[c].price)
-      this.count = this.count + (this.items[c].price * this.items[c].value)
+      this.count = this.count + (this.items[c].price * this.items[c].qty)
     }
     console.log('sum', this.count)
   },

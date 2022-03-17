@@ -73,8 +73,10 @@
           <div @mouseover="onOver" @mouseleave="onLeave">
             <b-nav-item-dropdown toggle-class="text-dark" ref="dropdown" right>
               <template slot="button-content">
+                <a href="/checkout" style="text-decoration: none;">
                   <i class="fas fa-shopping-cart"></i>
                   <em v-if="statuss === 1">{{count}}</em>
+                </a>
               </template>
               <b-dropdown-item v-for="(carts, index) in cart" :key="index" :href="'/tyrebrand/?brand=' + carts.sku">
               <div>
@@ -85,7 +87,14 @@
                 <div>{{carts.qty}} x ฿{{carts.price}}</div>
               </div>
               </b-dropdown-item>
-              <b-dropdown-item href="/checkout">
+              <b-dropdown-item style="display: inline-block;" href="/cart">
+                <div>
+                  <div>
+                    <i class="fas fa-shopping-cart"></i><div style="display: inline-block;margin-left: 5px;">Cart View</div>
+                  </div>
+                </div>
+              </b-dropdown-item>
+              <b-dropdown-item style="display: inline-block;margin-left: 30px;" href="/checkout">
                 <div>
                   <div>
                     <i class="fa-solid fa-check-to-slot"></i><div style="display: inline-block;margin-left: 5px;">Check out</div>
