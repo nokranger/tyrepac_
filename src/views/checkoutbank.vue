@@ -221,9 +221,6 @@ export default ({
     console.log('countcart', this.count)
   },
   methods: {
-    test () {
-      console.log('fsafasfaff')
-    },
     uploadImage () {
       console.log('test')
       this.imgs = this.$refs.file.files[0]
@@ -234,17 +231,12 @@ export default ({
         this.previewImage = e.target.result
       }
     },
-    checkout () {
-      this.testsss = {
-        customerId: 'C001',
-        paymentId: 1,
-        status: 1,
-        totalPrice: this.count,
-        orderDetails: this.items
-      }
-      console.log('data', this.testsss)
+    async checkout () {
+      console.log(JSON.parse(localStorage.getItem('info')))
+      this.data = await JSON.parse(localStorage.getItem('info'))
+      console.log('data', this.data)
       // localStorage.setItem('checkout', localStorage.getItem('cart'))
-      axios.post(apiURL + '/order/create', this.testsss).then((res) => {
+      await axios.post(apiURL + '/order/create', this.data).then((res) => {
         console.log('response', res.data.status.code)
         console.log('response', res)
         if (res.data.status.code === 0) {
@@ -252,6 +244,8 @@ export default ({
           localStorage.removeItem('cart')
           localStorage.removeItem('test')
           localStorage.removeItem('checkout')
+          localStorage.removeItem('info')
+          localStorage.setItem('user', JSON.stringify(this.data))
           location.replace('/checkbank')
         }
       })

@@ -18,7 +18,7 @@
                 <div style="display: inline-block;font-weight: bold;">วันที่: </div><li>{{dates}}</li>
               </div>
               <div>
-                <div style="display: inline-block;font-weight: bold;">เลขที่คำสั่งซื้อ: </div><li>Test101</li>
+                <div style="display: inline-block;font-weight: bold;">เลขที่คำสั่งซื้อ: </div><li>-</li>
               </div>
               <div>
                 <div style="display: inline-block;font-weight: bold;">รวมทั้งหมด: </div><li>฿{{count}}</li>
@@ -46,130 +46,11 @@
               <!-- ชำระเงินของคุณโดยตรงไปยังบันชีธนาคารของเรา โปรดใช้รหัสคำสั่งซื้อของคุณเป็นข้อมูลอ้างอิง คำสั่งซื้อของคุณจะไม่ถูกส่งจนกว่าเงินจะเคลียร์ในบันชีของเรา -->
             </div>
           </div>
-          <!-- <div style="text-align: center;">
-            <div>
-              <div style="font-weight: bold; font-size: 25px">
-                แสกน QR CODE เพื่อจ่ายเงิน
-              </div>
-            </div>
-            <div>
-              <img style="width: 300px;" src="https://i.imgur.com/YGIND7b.png" alt="">
-            </div>
-            <div style="font-weight: bold; font-size: 25px;text-align: left;">
-              <div style="margin-left: 10px;">ข้อมูลบันชีธนาคาร</div>
-              <ul>
-                <li>ธนาคาร: Bangkok Bank</li>
-                <li>หมายเลขบันชี: 222-453485-5</li>
-              </ul>
-            </div>
-          </div> -->
         </div>
         <br>
         <br>
-        <!-- <div
-          style="
-            border-radius: 5px;
-            border: thin solid #e0e0e0;
-            text-align: left;
-          "
-        >
-          <div style="margin: 15px">
-            <div style="font-weight: bold; font-size: 25px">
-              รายละเอียดสั่งซื้อยาง
-            </div>
-            <br />
-            <div style="text-align: left">
-              <b-table
-                ref="table"
-                striped
-                hover
-                :items="items"
-                :fields="fields"
-              >
-                <template v-slot:cell(สินค้า)="data">
-                  <div>
-                    <img style="width:150px;" :src="data.item.img " alt="">
-                  </div>
-                </template>
-                <template v-slot:cell()="data">
-                  <div>{{ data.item.name }}</div>
-                </template>
-                <template v-slot:cell(จำนวน)="data">
-                  <div>{{ data.item.qty }}</div>
-                </template>
-                <template v-slot:cell(มูลค่าสินค้า)="data">
-                  <div>{{ data.item.price * data.item.qty }}</div>
-                </template>
-              </b-table>
-            </div>
-              <div style="text-align: right;">
-                <b-container>
-                  <b-row>
-                    <b-col></b-col>
-                    <b-col></b-col>
-                    <b-col>
-                      <div style="color: black;font-weight: bold;">
-                        รวม
-                      </div>
-                    </b-col>
-                    <b-col>{{ count  }}</b-col>
-                  </b-row>
-                  <br>
-                  <b-row>
-                    <b-col></b-col>
-                    <b-col></b-col>
-                    <b-col>
-                       <div style="color: black;font-weight: bold;">
-                        การจัดส่ง
-                      </div>
-                    </b-col>
-                    <b-col>จัดส่งฟรี</b-col>
-                  </b-row>
-                  <br>
-                  <b-row>
-                    <b-col></b-col>
-                    <b-col></b-col>
-                    <b-col>
-                       <div style="color: black;font-weight: bold;">
-                        วิธีการชำระเงิน
-                      </div>
-                    </b-col>
-                    <b-col>บัตรเครดิตวีซ่า / มาสเตอร์การ์ด</b-col>
-                  </b-row>
-                  <br>
-                  <b-row>
-                    <b-col></b-col>
-                    <b-col></b-col>
-                    <b-col>
-                      <div style="color: black;font-weight: bold;">
-                        รวมทั้งหมด
-                      </div>
-                    </b-col>
-                    <b-col>
-                      <div style="color: #005099;font-weight: bold;">
-                        ฿{{count }}
-                      </div>
-                    </b-col>
-                  </b-row>
-                  <br>
-                </b-container>
-              </div>
-          </div>
-        </div> -->
         <br>
         <br>
-        <!-- <div style="border-radius: 5px;border: thin solid #e0e0e0;text-align: left;">
-          <div style="margin: 15px;">
-            <div style="font-weight: bold; font-size: 25px">
-              ใบเสร็จรับเงิน
-            </div>
-            <div v-if="previewImage != null">
-              <img style="width:400px;height:700px" :src="previewImage">
-            </div>
-            <div>
-            </div>
-          </div>
-        </div> -->
       </b-container>
     </div>
   </div>
@@ -207,7 +88,7 @@ export default ({
     this.dates = this.dates.toLocaleDateString()
     // console.log(JSON.parse(localStorage.getItem('cart')))
     // this.cart = JSON.parse(localStorage.getItem('checkout'))
-    this.info = JSON.parse(localStorage.getItem('info'))
+    this.info = JSON.parse(localStorage.getItem('user'))
     this.cart = this.info.orderDetails
     console.log('countcart', this.items)
     for (var i = 0; i < this.cart.length; i++) {
@@ -231,13 +112,6 @@ export default ({
       }
     },
     checkout () {
-      this.testsss = {
-        customerId: 'C001',
-        paymentId: 1,
-        status: 1,
-        totalPrice: this.count,
-        orderDetails: this.items
-      }
       console.log('data', this.testsss)
       // localStorage.setItem('checkout', localStorage.getItem('cart'))
       axios.post(apiURL + '/order/create', this.testsss).then((res) => {

@@ -187,19 +187,6 @@ export default {
         })
       }
     }
-    // console.log('code', this.$route.params.name)
-    // console.log(JSON.parse(localStorage.getItem('cart')))
-    // this.cart = JSON.parse(localStorage.getItem('cartdetail'))
-    // this.brand = this.cart.brand
-    // this.items = [
-    //   { names: 'Tyre Brand', detail: this.brand.brandId },
-    //   { names: 'รุ่นยาง', detail: this.brand.type },
-    //   { names: 'ความกว้าง', detail: this.brand.width },
-    //   { names: 'ขนาดวงล้อ', detail: this.brand.height },
-    //   { names: 'ซีรี่ย์ยาง', detail: this.brand.diameter },
-    //   { names: 'Load Index', detail: this.brand.loadIndex },
-    //   { names: 'Speed Index', detail: this.brand.speedIndex }
-    // ]
   },
   methods: {
     testmouse () {
@@ -219,7 +206,7 @@ export default {
       }
       console.log(cart)
       localStorage.setItem('cart', JSON.stringify(cart))
-      location.replace('/checkout')
+      location.replace('/cart')
     },
     async buycart (value) {
       if (JSON.parse(localStorage.getItem('cart')) === null) {
@@ -252,7 +239,7 @@ export default {
         console.log('team', team)
         localStorage.setItem('test', JSON.stringify(team))
         localStorage.setItem('cart', JSON.stringify(team))
-        location.replace('/checkout')
+        location.replace('/cart')
         // location.reload()
       } else {
         console.log('ไม่ว่าง')
@@ -283,7 +270,7 @@ export default {
         console.log('team', team)
         localStorage.setItem('test', JSON.stringify(team))
         localStorage.setItem('cart', JSON.stringify(team))
-        location.replace('/checkout')
+        location.replace('/cart')
         // location.reload()
       }
     },

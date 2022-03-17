@@ -474,7 +474,7 @@ export default {
         this.warranty = false
       }
       this.data = {
-        customerId: null,
+        customerId: 'C001',
         paymentId: 1,
         status: 1,
         totalPrice: this.count,
@@ -513,7 +513,7 @@ export default {
         this.warranty = false
       }
       this.data = {
-        customerId: null,
+        customerId: 'C001',
         paymentId: 1,
         status: 1,
         totalPrice: this.count,

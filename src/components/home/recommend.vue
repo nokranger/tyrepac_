@@ -123,7 +123,7 @@ export default {
         console.log('team', team)
         localStorage.setItem('test', JSON.stringify(team))
         localStorage.setItem('cart', JSON.stringify(team))
-        location.replace('/checkout')
+        location.replace('/cart')
         // location.reload()
       } else {
         console.log('ไม่ว่าง')
@@ -154,7 +154,7 @@ export default {
         console.log('team', team)
         localStorage.setItem('test', JSON.stringify(team))
         localStorage.setItem('cart', JSON.stringify(team))
-        location.replace('/checkout')
+        location.replace('/cart')
         // location.reload()
       }
     },

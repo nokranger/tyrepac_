@@ -7,7 +7,7 @@
         <b-container>
           <br>
           <b-row>
-            <b-col v-for="(item, index) in promotions" :key="index" cols="3">
+            <b-col v-for="(item, index) in promotions" :key="index" cols="3" style="margin-top: 5px;">
               <div style="border-radius: 5px;border: thin solid #E0E0E0;text-align: center;width: 100%;">
                 <div>
                   <a v-on:click="buydetail (('/tyrebrand' + '/' + item.prodId + '/' + item.sku), ('https://www.tyrepac.co.th/wp-content/uploads/2020/02/tyre-toyo-proxes-sport-suv.jpg'), item.name, item.regularPrice, ('values' + index), item.type, item.sku, item)">
@@ -123,7 +123,7 @@ export default {
         console.log('team', team)
         localStorage.setItem('test', JSON.stringify(team))
         localStorage.setItem('cart', JSON.stringify(team))
-        location.replace('/checkout')
+        location.replace('/cart')
         // location.reload()
       } else {
         console.log('ไม่ว่าง')
@@ -154,7 +154,7 @@ export default {
         console.log('team', team)
         localStorage.setItem('test', JSON.stringify(team))
         localStorage.setItem('cart', JSON.stringify(team))
-        location.replace('/checkout')
+        location.replace('/cart')
         // location.reload()
       }
     },

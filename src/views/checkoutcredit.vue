@@ -226,12 +226,12 @@ export default ({
         console.log('response', res)
         if (res.data.status.code === 0) {
           // localStorage.setItem('info', JSON.stringify(this.data))
-          // localStorage.removeItem('cart')
-          // localStorage.removeItem('test')
-          // localStorage.removeItem('checkout')
-          // localStorage.removeItem('info')
+          localStorage.removeItem('cart')
+          localStorage.removeItem('test')
+          localStorage.removeItem('checkout')
+          localStorage.removeItem('info')
           localStorage.setItem('user', JSON.stringify(this.data))
-          // location.replace('/checkcredit')
+          location.replace('/checkcredit')
         }
       })
     }

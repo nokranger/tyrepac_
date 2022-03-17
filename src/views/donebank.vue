@@ -18,7 +18,7 @@
                 <div style="display: inline-block;font-weight: bold;">วันที่: </div><li>{{dates}}</li>
               </div>
               <div>
-                <div style="display: inline-block;font-weight: bold;">เลขที่คำสั่งซื้อ: </div><li>Test101</li>
+                <div style="display: inline-block;font-weight: bold;">เลขที่คำสั่งซื้อ: </div><li>-</li>
               </div>
               <div>
                 <div style="display: inline-block;font-weight: bold;">รวมทั้งหมด: </div><li>฿{{count}}</li>
@@ -207,7 +207,7 @@ export default ({
     this.dates = this.dates.toLocaleDateString()
     // console.log(JSON.parse(localStorage.getItem('cart')))
     // this.cart = JSON.parse(localStorage.getItem('checkout'))
-    this.info = JSON.parse(localStorage.getItem('info'))
+    this.info = JSON.parse(localStorage.getItem('user'))
     this.cart = this.info.orderDetails
     console.log('countcart', this.items)
     for (var i = 0; i < this.cart.length; i++) {
