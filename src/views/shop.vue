@@ -269,32 +269,21 @@ export default {
   },
   async mounted () {
     await this.product()
+    console.log('promotions')
     axios.get(apiURL + '/product').then(res => {
       this.promotions = res.data.data.products
       const promotion = this.promotions.filter((post, index) => {
         return post.status === 1
       })
       this.promotions = promotion
-      console.log('promotions', this.promotions)
+      console.log('promotionsssss', this.promotions)
     })
-    // const uri = 'ยางประสิทธิภาพสูง'
-    // const encoded = encodeURIComponent(uri)
-    // const decoded = decodeURIComponent(encoded)
-    // console.log('encodeee', encoded)
-    // console.log('decodeee', decoded)
   },
   methods: {
     product () {
       var configsearch = {
         method: 'post',
         url: apiURL + '/productByFilter'
-        // headers: {
-        //   'Content-Type': 'application/json, text/plain, */*',
-        //   'Access-Control-Allow-Origin': '*'
-        // },
-        // data: {
-        //   width: split[1]
-        // }
       }
       console.log(location.href)
       var split = location.href
@@ -331,7 +320,7 @@ export default {
           console.log('brands')
           var configbrands = {
             method: 'get',
-            url: 'http://119.63.90.135:2083/product'
+            url: apiURL + '/product'
           }
           axios(configbrands).then(res => {
             this.brand = res.data.data.products
@@ -356,7 +345,7 @@ export default {
             'X-Requested-With': 'XMLHttpRequest'
           },
           method: 'get',
-          url: 'http://119.63.90.135:2083/product'
+          url: apiURL + '/product'
         }
         // console.log('all null')
         axios(config).then(res => {
@@ -400,9 +389,9 @@ export default {
     filtertyre (value) {
       console.log('valuefilters', value)
       var config = {
-        headers: {
-          'Content-Type': 'application/json'
-        },
+        // headers: {
+        //   'Content-Type': 'application/json'
+        // },
         method: 'post',
         url: apiURL + '/productByFilter',
         // headers: {
@@ -431,9 +420,9 @@ export default {
       var config = {
         method: 'post',
         url: apiURL + '/productByFilter',
-        headers: {
-          'Content-Type': 'application/json'
-        },
+        // headers: {
+        //   'Content-Type': 'application/json'
+        // },
         data: data
       }
       console.log('valuefilters', data)
@@ -451,9 +440,9 @@ export default {
       var config = {
         method: 'post',
         url: apiURL + '/productByFilter',
-        headers: {
-          'Content-Type': 'application/json'
-        },
+        // headers: {
+        //   'Content-Type': 'application/json'
+        // },
         data: data
       }
       console.log('valuefilters', data)
@@ -471,9 +460,9 @@ export default {
       var config = {
         method: 'post',
         url: apiURL + '/productByFilter',
-        headers: {
-          'Content-Type': 'application/json'
-        },
+        // headers: {
+        //   'Content-Type': 'application/json'
+        // },
         data: data
       }
       console.log('valuefilters', data)
@@ -492,9 +481,9 @@ export default {
       var config = {
         method: 'post',
         url: apiURL + '/productByFilter',
-        headers: {
-          'Content-Type': 'application/json'
-        },
+        // headers: {
+        //   'Content-Type': 'application/json'
+        // },
         data: data
       }
       console.log('valuefilters', data)
