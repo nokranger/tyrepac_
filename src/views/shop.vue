@@ -254,11 +254,8 @@ export default {
       selected2: null,
       options: [
         { value: null, text: 'เรียงลำดับ' },
-        // { value: 'createAt', text: 'เรียงตาม ปีที่ผลิต' },
         { value: 'name', text: 'เรียงตาม ชื่อ' },
         { value: 'regularPrice', text: 'เรียงตาม ราคา' }
-        // { value: 'c', text: 'เรียงตาม ยอดนิยม' },
-        // { value: 'd', text: 'เรียงตาม อันดับ' }
       ],
       options2: [
         { value: null, text: 'แสดงรายการ' },
@@ -302,11 +299,9 @@ export default {
       var split = location.href
       split = split.split('?')
       if (split.length > 1) {
-        console.log('good')
-        console.log('fsafaf')
         split = split[1].split('=')
-        console.log('tyre', split[0])
-        console.log('value', split[1])
+        // console.log('tyre', split[0])
+        // console.log('value', split[1])
         if (split[0] === 'width') {
           console.log('iswidth')
           configsearch.data = {
@@ -319,7 +314,7 @@ export default {
           }
         } else if (split[0] === 'diameter') {
           console.log('isdiameter')
-          console.log('isdiameter', configsearch)
+          // console.log('isdiameter', configsearch)
           configsearch.data = {
             diameter: split[1]
           }
@@ -342,13 +337,13 @@ export default {
             })
             console.log('detailb', brands)
             console.log('detailr', res.data.data.products)
-            this.brand = brands
+            this.brand = brands.slice(0, 100)
           })
         }
         console.log('valuefilters', configsearch)
         axios(configsearch).then((res) => {
           console.log(res)
-          this.brand = res.data.data.products
+          this.brand = res.data.data.products.slice(0, 100)
         })
       } else {
         console.log('nohaveroute')
@@ -363,7 +358,7 @@ export default {
         // console.log('all null')
         axios(config).then(res => {
           // console.log(res.data.data)
-          this.brand = res.data.data.products
+          this.brand = res.data.data.products.slice(0, 100)
           console.log('brands', res.data.data.products)
           const vvv = this.brand.find((post, index) => {
             if (post.prodId === 'TY001') {
@@ -376,14 +371,6 @@ export default {
     },
     sortprice (value) {
       console.log('value', value)
-      // this.brand = this.brand
-      for (const k in this.brand) {
-        const newObj = this.brand[k]
-        // console.log(newObj)
-        this.newArray.push(newObj)
-        // console.log(this.newArray)
-      }
-      // console.log('sortsssss', this.newArray)
       this.sortaa = this.brand
       if (value.toString() === 'regularPrice') {
         this.sortaa.sort((a, b) => {
@@ -401,14 +388,6 @@ export default {
     },
     qtytyre (value) {
       console.log('value', value)
-      // this.brand = this.brand
-      for (const k in this.brand) {
-        const newObj = this.brand[k]
-        // console.log(newObj)
-        this.newArray.push(newObj)
-        // console.log(this.newArray)
-      }
-      // console.log('sortsssss', this.newArray)
       this.sortaa = this.brand
       if (value.toString() === 'regularPrice') {
         this.sortaa.sort((a, b) => {
@@ -424,30 +403,66 @@ export default {
         console.log('regu', this.sortaa)
       }
     },
-    filtertyre (value) {
+    async filtertyre (value) {
+      let brands = []
       console.log('valuefilters', value)
+      var split = location.href
+      split = split.split('?')
       var config = {
-        // headers: {
-        //   'Content-Type': 'application/json'
-        // },
         method: 'post',
-        url: apiURL + '/productByFilter',
-        // headers: {
-        //   'Content-Type': 'application/json, text/plain, */*',
-        //   'Access-Control-Allow-Origin': '*'
-        // },
-        data: {
-          type: value
-        }
+        url: apiURL + '/productByFilter'
       }
-      console.log('valuefilters')
-      axios(config).then((res) => {
+      config.data = {
+        type: value
+      }
+      await axios(config).then((res) => {
         console.log(res)
+        // const brandtest = res.data.data.products
         this.brand = res.data.data.products
       })
-    },
-    test () {
-      console.log('testsaagasgsga')
+      if (split.length > 1) {
+        split = split[1].split('=')
+        console.log('filtyre', split[0])
+        if (split[0] === 'brand') {
+          brands = await this.brand.filter((post, index) => {
+            return post.brandId === split[1]
+          })
+          this.brand = brands.slice(0, 100)
+        } else if (split[0] === 'height') {
+          brands = await this.brand.filter((post, index) => {
+            return post.height === split[1]
+          })
+          this.brand = brands.slice(0, 100)
+        } else if (split[0] === 'diameter') {
+          brands = await this.brand.filter((post, index) => {
+            return post.diameter === split[1]
+          })
+          this.brand = brands.slice(0, 100)
+        } else if (split[0] === 'type') {
+          brands = await this.brand.filter((post, index) => {
+            return post.type === split[1]
+          })
+          this.brand = brands.slice(0, 100)
+        } else if (split[0] === 'width') {
+          brands = await this.brand.filter((post, index) => {
+            return post.width === split[1]
+          })
+          this.brand = brands.slice(0, 100)
+        }
+      } else {
+        config = {
+          method: 'post',
+          url: apiURL + '/productByFilter',
+          data: {
+            type: value
+          }
+        }
+        console.log('valuefilters')
+        await axios(config).then((res) => {
+          console.log(res)
+          this.brand = res.data.data.products
+        })
+      }
     },
     filterwidth (value) {
       console.log('valuefilterswidth', value)
