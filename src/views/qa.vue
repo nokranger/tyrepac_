@@ -11,10 +11,23 @@
       <br />
       <br />
       <br />
-      <div style="display: inline-block; margin: 10px">ยางรถยนต์</div>
-      <div style="display: inline-block; margin: 10px">การสั่งซื้อ</div>
-      <div style="display: inline-block; margin: 10px">การจัดส่ง</div>
-      <div style="display: inline-block; margin: 10px">บริการหลังการขาย</div>
+      <a href="#tyre">
+        <div style="display: inline-block; margin: 10px">ยางรถยนต์</div>
+      </a>
+      <a href="#order">
+        <div style="display: inline-block; margin: 10px">การสั่งซื้อ</div>
+      </a>
+      <a href="#delivery">
+        <div style="display: inline-block; margin: 10px">การจัดส่ง</div>
+      </a>
+      <a href="#aftersales">
+        <div style="display: inline-block; margin: 10px">บริการหลังการขาย</div>
+      </a>
+      <a href="/shop">
+        <div style="display: inline-block; margin: 10px">
+          <i class="fas fa-shopping-cart"></i>
+        </div>
+      </a>
       <!-- <div style="display: inline-block; margin: 10px">รถเข็น</div> -->
       <br />
       <br />
@@ -99,7 +112,8 @@
             <br />
             <br />
           </div>
-          <div>ยางรถยนต์</div>
+          <div id="tyre">ยางรถยนต์</div>
+          <br>
           <b-row>
             <b-col>
               <b-col>
@@ -322,7 +336,7 @@
           <div>
             <img src="https://tyrepac.co.th/wp-content/uploads/2019/12/small-icon-white.png" alt="">
           </div>
-          <div>
+          <div id="order">
             การสั่ง
           </div>
           <div>
@@ -375,7 +389,7 @@
                 <br>
                 <br>
               </div>
-              <div>การจัดส่งและติดตั้ง</div>
+              <div id="delivery">การจัดส่งและติดตั้ง</div>
               <div>การเปลี่ยนแปลงการจัดส่ง</div>
               <div>การเปลี่ยนแปลงการจัดส่ง</div>
               <b-col>
@@ -416,7 +430,7 @@
             <br>
           </b-container>
         </div>
-        <div style="background-color: white;color: black;">
+        <div id="aftersales" style="background-color: white;color: black;" >
           <b-container>
             <b-row>
               <b-col>
@@ -554,3 +568,12 @@ export default {
   }
 }
 </script>
+<style scoped>
+a {
+  text-decoration: none;
+  color: #005099;
+}
+a:hover {
+  color: whitesmoke;
+}
+</style>

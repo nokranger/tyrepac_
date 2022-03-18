@@ -18,7 +18,7 @@
                 <div style="margin-left: 5px;color: #005099;text-align: left;">฿{{ item.regularPrice}} ต่อเส้น</div>
                 <div style="border-top: thin solid #E0E0E0;margin-bottom: 4px;margin-left: 20px;margin-right: 20px;text-align: center;"></div>
                 <div style="border-top: thin solid #E0E0E0;margin-bottom: 4px;margin-left: 20px;margin-right: 20px;">
-                  <div style="margin: 5px;width: 80%;">
+                  <div style="margin: 5px;width: 100%;">
                     <b-form-spinbutton :ref="'values' + index" id="demo-sb" :value="value2" min="4" max="100"></b-form-spinbutton>
                   </div>
                   <div style="margin: 5px;text-align: left;">

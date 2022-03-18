@@ -19,7 +19,7 @@
       <b-row>
         <b-col cols="2"></b-col>
         <b-col>
-          <a href="/shop?brand=008">
+          <a href="/shop?brand=8">
             <div>
               <b-card
                 title="Toyo Tyres"
@@ -35,7 +35,7 @@
           </a>
         </b-col>
         <b-col>
-          <a href="/shop?brand=006">
+          <a href="/shop?brand=6">
             <div>
             <b-card
               title="Nitto Tyres"
@@ -51,7 +51,7 @@
           </a>
         </b-col>
         <b-col>
-          <a href="/shop">
+          <a href="/shop?brand=7">
             <div>
             <b-card
               title="Nankang Tyres"
@@ -71,7 +71,7 @@
       <b-row>
         <b-col cols="2"></b-col>
         <b-col>
-          <a href="/shop?brand=001">
+          <a href="/shop?brand=1">
             <div>
             <b-card
               title="Bridgestone Tyres"
@@ -87,7 +87,7 @@
           </a>
         </b-col>
         <b-col>
-          <a href="/shop">
+          <a href="/shop?brand=002">
             <div>
             <b-card
               title="Continental Tyres"
@@ -103,7 +103,7 @@
           </a>
         </b-col>
         <b-col>
-          <a href="/shop?brand=003">
+          <a href="/shop?brand=3">
             <div>
             <b-card
               title="Dunlop Tyres"
@@ -123,7 +123,7 @@
       <b-row>
         <b-col cols="2"></b-col>
         <b-col>
-          <a href="/shop">
+          <a href="/shop?brand=4">
             <div>
             <b-card
               title="Goodyear Tyres"
@@ -139,7 +139,7 @@
           </a>
         </b-col>
         <b-col>
-          <a href="/shop">
+          <a href="/shop?brand=5">
             <div>
             <b-card
               title="Michelin Tyres"
@@ -155,7 +155,7 @@
           </a>
         </b-col>
         <b-col>
-          <a href="/shop">
+          <a href="/shop?brand=9">
             <div>
             <b-card
               title="Yokohama Tyres"
@@ -179,5 +179,9 @@
 <style scoped>
 p {
   font-size: 15px;
+}
+a {
+  text-decoration: none;
+  color: black;
 }
 </style>

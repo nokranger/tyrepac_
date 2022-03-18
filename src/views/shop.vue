@@ -76,7 +76,7 @@
                     <div>
                       <b-input list="tyre" placeholder="ทุกๆ รุ่นยาง" v-model="tyre" v-on:change="filtertyre (tyre)"></b-input>
                       <datalist id="tyre" >
-                        <option value="SUV">ยางประสิทธิภาพสูง</option>
+                        <option value="SUV"></option>
                         <option value="ยางขับขี่ทั่วไป"></option>
                         <option value="ยางขับขี่นุ่ม เงียบ"></option>
                         <option value="ยางประสิทธิภาพสูง"></option>
@@ -113,7 +113,7 @@
                     </a>
                   </div>
                   <div style="border-radius: 5px; border: thin solid #e0e0e0; margin: 5px">
-                    <a href="">
+                    <a href="/shop?brand=7">
                       <img src="https://i.imgur.com/yDA4cCy.png" alt="" style="width:100%" />
                     </a>
                   </div>
@@ -123,7 +123,7 @@
                     </a>
                   </div>
                   <div style="border-radius: 5px; border: thin solid #e0e0e0; margin: 5px">
-                    <a href="/shop?brand=">
+                    <a href="/shop?brand=002">
                       <img src="https://i.imgur.com/iBpm6uT.png" alt="" style="width:100%" />
                     </a>
                   </div>
@@ -133,17 +133,17 @@
                     </a>
                   </div>
                   <div style="border-radius: 5px; border: thin solid #e0e0e0; margin: 5px">
-                    <a href="/shop?brand=">
+                    <a href="/shop?brand=4">
                       <img src="https://i.imgur.com/TgbxVn2.png" alt="" style="width:100%" />
                     </a>
                   </div>
                   <div style="border-radius: 5px; border: thin solid #e0e0e0; margin: 5px">
-                    <a href="/shop?brand=">
+                    <a href="/shop?brand=5">
                       <img src="https://i.imgur.com/EByvNfm.png" alt="" style="width:100%" />
                     </a>
                   </div>
                   <div style="border-radius: 5px; border: thin solid #e0e0e0; margin: 5px">
-                    <a href="/shop?brand=">
+                    <a href="/shop?brand=9">
                       <img src="https://i.imgur.com/iiTZGZR.png" alt="" style="width:100%" />
                     </a>
                   </div>
@@ -169,6 +169,17 @@
                       </div>
                     </b-col>
                     <b-col>
+                      <!-- <div>
+                        <b-form-select
+                          style="width: 100%; font-size: 20px; margin: 5px;color: gray;height: 35px;"
+                          v-model="selected2"
+                          name=""
+                          id=""
+                          v-on:change="qtytyre(selected2)"
+                          :options="options2"
+                        >
+                        </b-form-select>
+                      </div> -->
                     </b-col>
                   </b-row>
                   <br>
@@ -250,9 +261,11 @@ export default {
         // { value: 'd', text: 'เรียงตาม อันดับ' }
       ],
       options2: [
-        { value: null, text: '16' },
-        { value: 'a', text: '32' },
-        { value: 'b', text: '48' }
+        { value: null, text: 'แสดงรายการ' },
+        { value: 16, text: '16' },
+        { value: 32, text: '32' },
+        { value: 48, text: '48' },
+        { value: 100, text: '100' }
       ],
       tyre: '',
       filterss: '',
@@ -350,7 +363,7 @@ export default {
         // console.log('all null')
         axios(config).then(res => {
           // console.log(res.data.data)
-          this.brand = res.data.data.products.slice(0, 50)
+          this.brand = res.data.data.products
           console.log('brands', res.data.data.products)
           const vvv = this.brand.find((post, index) => {
             if (post.prodId === 'TY001') {
@@ -362,6 +375,31 @@ export default {
       }
     },
     sortprice (value) {
+      console.log('value', value)
+      // this.brand = this.brand
+      for (const k in this.brand) {
+        const newObj = this.brand[k]
+        // console.log(newObj)
+        this.newArray.push(newObj)
+        // console.log(this.newArray)
+      }
+      // console.log('sortsssss', this.newArray)
+      this.sortaa = this.brand
+      if (value.toString() === 'regularPrice') {
+        this.sortaa.sort((a, b) => {
+          return b[value.toString()] - a[value.toString()]
+        })
+        this.brand = this.sortaa
+        console.log('regu', this.sortaa)
+      } else if (value.toString() === 'name') {
+        this.sortaa.sort((a, b) => {
+          return a.sku > b.sku ? 1 : b.sku > a.sku ? -1 : 0
+        })
+        this.brand = this.sortaa
+        console.log('regu', this.sortaa)
+      }
+    },
+    qtytyre (value) {
       console.log('value', value)
       // this.brand = this.brand
       for (const k in this.brand) {
