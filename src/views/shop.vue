@@ -343,6 +343,7 @@ export default {
         console.log('valuefilters', configsearch)
         axios(configsearch).then((res) => {
           console.log(res)
+          console.log('valuefilters', res.data.data.products.slice(0, 100))
           this.brand = res.data.data.products.slice(0, 100)
         })
       } else {
@@ -425,13 +426,18 @@ export default {
         console.log('filtyre', split[0])
         if (split[0] === 'brand') {
           brands = await this.brand.filter((post, index) => {
+            console.log('filtyre', split[0])
+            console.log('logwidth', post + split[1])
             return post.brandId === split[1]
           })
+          console.log('widthfilter', brands)
           this.brand = brands.slice(0, 100)
         } else if (split[0] === 'height') {
           brands = await this.brand.filter((post, index) => {
+            console.log('logwidth', post.height + split[1])
             return post.height === split[1]
           })
+          console.log('widthfilter', brands)
           this.brand = brands.slice(0, 100)
         } else if (split[0] === 'diameter') {
           brands = await this.brand.filter((post, index) => {
@@ -445,8 +451,10 @@ export default {
           this.brand = brands.slice(0, 100)
         } else if (split[0] === 'width') {
           brands = await this.brand.filter((post, index) => {
+            console.log('logwidth', post.width + split[1])
             return post.width === split[1]
           })
+          console.log('widthfilter', brands)
           this.brand = brands.slice(0, 100)
         }
       } else {
@@ -544,39 +552,6 @@ export default {
         console.log(res)
         this.brand = res.data.data.products
       })
-    },
-    async buy (url, img, name, price, value, type, sku, brand) {
-      // console.log('itemcart', localStorage.getItem('cart'))
-      if (localStorage.getItem('cart') === null) {
-        console.log('null of cart')
-        const cart = {
-          url: url,
-          img: img,
-          name: name,
-          price: price,
-          value: this.$refs[value][0].localValue,
-          type: type,
-          sku: sku,
-          brand: brand
-        }
-        localStorage.setItem('cart', JSON.stringify(cart))
-        location.replace('/checkout')
-      } else {
-        this.checkcart = JSON.parse(localStorage.getItem('cart'))
-        console.log('cart', this.checkcart.value)
-        const cart = {
-          url: url,
-          img: img,
-          name: name,
-          price: price,
-          value: this.$refs[value][0].localValue,
-          type: type,
-          sku: sku,
-          brand: brand
-        }
-        localStorage.setItem('cart', JSON.stringify(cart))
-        location.replace('/checkout')
-      }
     },
     buydetail (url, img, name, price, value, type, sku, brand) {
       console.log('buy', url + '-' + img + '-' + name + '-' + price + '-' + this.$refs[value][0].localValue)
