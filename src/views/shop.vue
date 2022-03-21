@@ -169,7 +169,7 @@
                       </div>
                     </b-col>
                     <b-col>
-                      <!-- <div>
+                      <div>
                         <b-form-select
                           style="width: 100%; font-size: 20px; margin: 5px;color: gray;height: 35px;"
                           v-model="selected2"
@@ -179,7 +179,7 @@
                           :options="options2"
                         >
                         </b-form-select>
-                      </div> -->
+                      </div>
                     </b-col>
                   </b-row>
                   <br>
@@ -388,21 +388,9 @@ export default {
       }
     },
     qtytyre (value) {
-      console.log('value', value)
-      this.sortaa = this.brand
-      if (value.toString() === 'regularPrice') {
-        this.sortaa.sort((a, b) => {
-          return b[value.toString()] - a[value.toString()]
-        })
-        this.brand = this.sortaa
-        console.log('regu', this.sortaa)
-      } else if (value.toString() === 'name') {
-        this.sortaa.sort((a, b) => {
-          return a.sku > b.sku ? 1 : b.sku > a.sku ? -1 : 0
-        })
-        this.brand = this.sortaa
-        console.log('regu', this.sortaa)
-      }
+      console.log('qty', this.brand)
+      const brans = this.brand
+      this.brand = brans.slice(0, value)
     },
     async filtertyre (value) {
       let brands = []
@@ -432,30 +420,6 @@ export default {
           })
           console.log('widthfilter', brands)
           this.brand = brands.slice(0, 100)
-        } else if (split[0] === 'height') {
-          brands = await this.brand.filter((post, index) => {
-            console.log('logwidth', post.height + split[1])
-            return post.height === split[1]
-          })
-          console.log('widthfilter', brands)
-          this.brand = brands.slice(0, 100)
-        } else if (split[0] === 'diameter') {
-          brands = await this.brand.filter((post, index) => {
-            return post.diameter === split[1]
-          })
-          this.brand = brands.slice(0, 100)
-        } else if (split[0] === 'type') {
-          brands = await this.brand.filter((post, index) => {
-            return post.type === split[1]
-          })
-          this.brand = brands.slice(0, 100)
-        } else if (split[0] === 'width') {
-          brands = await this.brand.filter((post, index) => {
-            console.log('logwidth', post.width + split[1])
-            return post.width === split[1]
-          })
-          console.log('widthfilter', brands)
-          this.brand = brands.slice(0, 100)
         }
       } else {
         config = {
@@ -472,86 +436,185 @@ export default {
         })
       }
     },
-    filterwidth (value) {
-      console.log('valuefilterswidth', value)
-      var data = JSON.stringify({
-        // eslint-disable-next-line quote-props
-        'width': value
-      })
+    async filterwidth (value) {
+      let brands = []
+      console.log('valuefilters', value)
+      var split = location.href
+      split = split.split('?')
       var config = {
         method: 'post',
-        url: apiURL + '/productByFilter',
-        // headers: {
-        //   'Content-Type': 'application/json'
-        // },
-        data: data
+        url: apiURL + '/productByFilter'
       }
-      console.log('valuefilters', data)
-      axios(config).then((res) => {
+      config.data = {
+        width: value
+      }
+      await axios(config).then((res) => {
         console.log(res)
+        // const brandtest = res.data.data.products
         this.brand = res.data.data.products
       })
+      if (split.length > 1) {
+        split = split[1].split('=')
+        console.log('filtyre', split[0])
+        if (split[0] === 'brand') {
+          brands = await this.brand.filter((post, index) => {
+            console.log('filtyre', split[0])
+            console.log('logwidth', post + split[1])
+            return post.brandId === split[1]
+          })
+          console.log('widthfilter', brands)
+          this.brand = brands.slice(0, 100)
+        }
+      } else {
+        config = {
+          method: 'post',
+          url: apiURL + '/productByFilter',
+          data: {
+            width: value
+          }
+        }
+        console.log('valuefilters')
+        await axios(config).then((res) => {
+          console.log(res)
+          this.brand = res.data.data.products
+        })
+      }
     },
-    filterheight (value) {
-      console.log('valuefilterswidth', value)
-      var data = JSON.stringify({
-        // eslint-disable-next-line quote-props
-        'height': value
-      })
+    async filterheight (value) {
+      let brands = []
+      console.log('valuefilters', value)
+      var split = location.href
+      split = split.split('?')
       var config = {
         method: 'post',
-        url: apiURL + '/productByFilter',
-        // headers: {
-        //   'Content-Type': 'application/json'
-        // },
-        data: data
+        url: apiURL + '/productByFilter'
       }
-      console.log('valuefilters', data)
-      axios(config).then((res) => {
+      config.data = {
+        height: value
+      }
+      await axios(config).then((res) => {
         console.log(res)
+        // const brandtest = res.data.data.products
         this.brand = res.data.data.products
       })
+      if (split.length > 1) {
+        split = split[1].split('=')
+        console.log('filtyre', split[0])
+        if (split[0] === 'brand') {
+          brands = await this.brand.filter((post, index) => {
+            console.log('filtyre', split[0])
+            console.log('logheight', post + split[1])
+            return post.brandId === split[1]
+          })
+          console.log('heightfilter', brands)
+          this.brand = brands.slice(0, 100)
+        }
+      } else {
+        config = {
+          method: 'post',
+          url: apiURL + '/productByFilter',
+          data: {
+            height: value
+          }
+        }
+        console.log('valuefilters')
+        await axios(config).then((res) => {
+          console.log(res)
+          this.brand = res.data.data.products
+        })
+      }
     },
-    filterdiameter (value) {
-      console.log('valuefilterswidth', value)
-      var data = JSON.stringify({
-        // eslint-disable-next-line quote-props
-        'diameter': value
-      })
+    async filterdiameter (value) {
+      let brands = []
+      console.log('valuefilters', value)
+      var split = location.href
+      split = split.split('?')
       var config = {
         method: 'post',
-        url: apiURL + '/productByFilter',
-        // headers: {
-        //   'Content-Type': 'application/json'
-        // },
-        data: data
+        url: apiURL + '/productByFilter'
       }
-      console.log('valuefilters', data)
-      axios(config).then((res) => {
+      config.data = {
+        diameter: value
+      }
+      await axios(config).then((res) => {
         console.log(res)
+        // const brandtest = res.data.data.products
         this.brand = res.data.data.products
       })
+      if (split.length > 1) {
+        split = split[1].split('=')
+        console.log('filtyre', split[0])
+        if (split[0] === 'brand') {
+          brands = await this.brand.filter((post, index) => {
+            console.log('filtyre', split[0])
+            console.log('logdiameter', post + split[1])
+            return post.brandId === split[1]
+          })
+          console.log('diameterfilter', brands)
+          this.brand = brands.slice(0, 100)
+        }
+      } else {
+        config = {
+          method: 'post',
+          url: apiURL + '/productByFilter',
+          data: {
+            diameter: value
+          }
+        }
+        console.log('valuefilters')
+        await axios(config).then((res) => {
+          console.log(res)
+          this.brand = res.data.data.products
+        })
+      }
     },
-    filterprice (min, max) {
+    async filterprice (min, max) {
       console.log('valuefilterswidth', min + max)
-      var data = JSON.stringify({
-        // eslint-disable-next-line quote-props
+      let brands = []
+      // console.log('valuefilters', value)
+      var split = location.href
+      split = split.split('?')
+      var config = {
+        method: 'post',
+        url: apiURL + '/productByFilter'
+      }
+      config.data = {
         minPrice: min,
         maxPrice: max
-      })
-      var config = {
-        method: 'post',
-        url: apiURL + '/productByFilter',
-        // headers: {
-        //   'Content-Type': 'application/json'
-        // },
-        data: data
       }
-      console.log('valuefilters', data)
-      axios(config).then((res) => {
+      console.log('pricecheck', config)
+      await axios(config).then((res) => {
         console.log(res)
+        // const brandtest = res.data.data.products
         this.brand = res.data.data.products
       })
+      if (split.length > 1) {
+        split = split[1].split('=')
+        console.log('filtyre', split[0])
+        if (split[0] === 'brand') {
+          brands = await this.brand.filter((post, index) => {
+            // console.log('filtyre', split[0])
+            // console.log('logwidth', post + split[1])
+            return post.brandId === split[1]
+          })
+          console.log('widthfilter', brands)
+          this.brand = brands.slice(0, 100)
+        }
+      } else {
+        config = {
+          method: 'post',
+          url: apiURL + '/productByFilter',
+          data: {
+            minPrice: min,
+            maxPrice: max
+          }
+        }
+        console.log('valuefilters')
+        await axios(config).then((res) => {
+          console.log(res)
+          this.brand = res.data.data.products
+        })
+      }
     },
     buydetail (url, img, name, price, value, type, sku, brand) {
       console.log('buy', url + '-' + img + '-' + name + '-' + price + '-' + this.$refs[value][0].localValue)

@@ -293,6 +293,11 @@
                   <!-- <template v-slot:cell(จำนวน)="data">
                     <div>{{data.item.qty}}</div>
                   </template> -->
+                  <template v-slot:cell(จำนวน)="data">
+                    <div style="margin: 5px;text-align: left;">
+                      <b-form-spinbutton id="demo-sb" v-model="data.item.qty" min="4" max="100"></b-form-spinbutton>
+                    </div>
+                  </template>
                   <template v-slot:cell(มูลค่าสินค้า)="data">
                     <div>฿{{data.item.price * data.item.qty}}</div>
                   </template>
@@ -336,6 +341,16 @@
                     <b-col>
                       <div style="color: #005099;font-weight: bold;">
                         ฿{{count}}
+                      </div>
+                    </b-col>
+                  </b-row>
+                  <br>
+                  <b-row>
+                    <b-col></b-col>
+                    <b-col></b-col>
+                    <b-col>
+                      <div>
+                        <b-button variant="primary" v-on:click="updateitem ()">ปรับปรุงสินค้าในตระกร้า</b-button>
                       </div>
                     </b-col>
                   </b-row>
@@ -391,7 +406,7 @@ export default {
       statuss: '',
       selectedp: '',
       items: [],
-      fields: ['สินค้า', 'มูลค่าสินค้า', ' '],
+      fields: ['สินค้า', 'จำนวน', 'มูลค่าสินค้า', ' '],
       pay: '',
       cart: [],
       check: [],
@@ -462,6 +477,13 @@ export default {
     console.log('countcart', this.count)
   },
   methods: {
+    async updateitem () {
+      console.log('aa', this.items)
+      localStorage.setItem('cart', JSON.stringify(this.items))
+      this.items = JSON.parse(localStorage.getItem('cart'))
+      console.log('sum', this.count)
+      location.reload()
+    },
     membercredit () {
       if (this.selectedtax === 'true') {
         this.selectedtax = true
