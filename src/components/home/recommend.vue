@@ -37,6 +37,7 @@
   </div>
 </template>
 <script>
+// import axios from '../../axios/index'
 import axios from 'axios'
 import apiURL from '../../assets/js/connect'
 export default {
@@ -52,9 +53,19 @@ export default {
     }
   },
   mounted () {
-    console.log('getproduct')
-    axios.get('/product').then(res => {
-      console.log('getproduct')
+    const url = process.env.VUE_APP_API_URL
+    console.log('urlrec', url)
+    const config = {
+      method: 'get',
+      url: '/product'
+      // headers: {
+      //   'Content-Type': 'application/json',
+      //   'Access-Control-Allow-Origin': '*'
+      // }
+    }
+    console.log('getproduct', config)
+    axios(config).then(res => {
+      console.log('getproduct', res)
       this.promotions = res.data.data.products
       const promotion = this.promotions.filter((post, index) => {
         return post.status === 1

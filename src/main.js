@@ -20,7 +20,7 @@ Vue.use(BootstrapVue)
 library.add(faHatWizard)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 
-// axios.defaults.baseURL = 'http://119.63.90.135:2083/'
+// axios.defaults.baseURL = process.env.VUE_APP_API_URL
 
 Vue.use(vuePhotoZoomPro)
 
