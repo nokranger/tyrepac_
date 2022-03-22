@@ -110,7 +110,7 @@ export default {
     }
   },
   mounted () {
-    axios.get(apiURL + '/installer').then((res) => {
+    axios.get('/installer').then((res) => {
       // this.testinstaller = res.data.data.installers
       this.installers = res.data.data.installers
       this.items = this.installers

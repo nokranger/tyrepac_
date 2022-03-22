@@ -182,7 +182,7 @@ export default {
         console.log('brands')
         var config = {
           method: 'get',
-          url: 'http://119.63.90.135:2083/product'
+          url: '/product'
         }
         axios(config).then(res => {
           this.brand = res.data.data.products
@@ -207,9 +207,6 @@ export default {
     }
   },
   methods: {
-    testmouse () {
-      console.log('mouseover')
-    },
     buy (value) {
       console.log('buy', this.brand.sku)
       // console.log('buy', url + '-' + img + '-' + name + '-' + price + '-' + this.$refs[value][0].localValue)

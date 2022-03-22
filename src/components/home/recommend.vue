@@ -52,7 +52,9 @@ export default {
     }
   },
   mounted () {
-    axios.get(apiURL + '/product').then(res => {
+    console.log('getproduct')
+    axios.get('/product').then(res => {
+      console.log('getproduct')
       this.promotions = res.data.data.products
       const promotion = this.promotions.filter((post, index) => {
         return post.status === 1

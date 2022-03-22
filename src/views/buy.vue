@@ -457,7 +457,7 @@ export default {
     this.dates = new Date(Date.now() + (24 * 60 * 60 * 1000))
     // this.dates = this.dates.toLocaleDateString()
     console.log('date', this.dates.toLocaleDateString())
-    axios.get(apiURL + '/installer').then((res) => {
+    axios.get('/installer').then((res) => {
       // this.testinstaller = res.data.data.installers
       this.installers = res.data.data.installers
       this.itemin = this.installers

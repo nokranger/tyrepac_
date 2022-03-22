@@ -280,7 +280,7 @@ export default {
   async mounted () {
     await this.product()
     console.log('promotions')
-    axios.get(apiURL + '/product').then(res => {
+    axios.get('/product').then(res => {
       this.promotions = res.data.data.products
       const promotion = this.promotions.filter((post, index) => {
         return post.status === 1
@@ -293,7 +293,7 @@ export default {
     product () {
       var configsearch = {
         method: 'post',
-        url: apiURL + '/productByFilter'
+        url: '/productByFilter'
       }
       console.log(location.href)
       var split = location.href
@@ -328,7 +328,7 @@ export default {
           console.log('brands')
           var configbrands = {
             method: 'get',
-            url: apiURL + '/product'
+            url: '/product'
           }
           axios(configbrands).then(res => {
             this.brand = res.data.data.products
@@ -354,7 +354,7 @@ export default {
             'X-Requested-With': 'XMLHttpRequest'
           },
           method: 'get',
-          url: apiURL + '/product'
+          url: '/product'
         }
         // console.log('all null')
         axios(config).then(res => {
@@ -399,7 +399,7 @@ export default {
       split = split.split('?')
       var config = {
         method: 'post',
-        url: apiURL + '/productByFilter'
+        url: '/productByFilter'
       }
       config.data = {
         type: value
@@ -424,7 +424,7 @@ export default {
       } else {
         config = {
           method: 'post',
-          url: apiURL + '/productByFilter',
+          url: '/productByFilter',
           data: {
             type: value
           }
@@ -443,7 +443,7 @@ export default {
       split = split.split('?')
       var config = {
         method: 'post',
-        url: apiURL + '/productByFilter'
+        url: '/productByFilter'
       }
       config.data = {
         width: value
@@ -468,7 +468,7 @@ export default {
       } else {
         config = {
           method: 'post',
-          url: apiURL + '/productByFilter',
+          url: '/productByFilter',
           data: {
             width: value
           }
@@ -487,7 +487,7 @@ export default {
       split = split.split('?')
       var config = {
         method: 'post',
-        url: apiURL + '/productByFilter'
+        url: '/productByFilter'
       }
       config.data = {
         height: value
@@ -512,7 +512,7 @@ export default {
       } else {
         config = {
           method: 'post',
-          url: apiURL + '/productByFilter',
+          url: '/productByFilter',
           data: {
             height: value
           }
@@ -531,7 +531,7 @@ export default {
       split = split.split('?')
       var config = {
         method: 'post',
-        url: apiURL + '/productByFilter'
+        url: '/productByFilter'
       }
       config.data = {
         diameter: value
@@ -556,7 +556,7 @@ export default {
       } else {
         config = {
           method: 'post',
-          url: apiURL + '/productByFilter',
+          url: '/productByFilter',
           data: {
             diameter: value
           }
@@ -576,7 +576,7 @@ export default {
       split = split.split('?')
       var config = {
         method: 'post',
-        url: apiURL + '/productByFilter'
+        url: '/productByFilter'
       }
       config.data = {
         minPrice: min,
@@ -603,7 +603,7 @@ export default {
       } else {
         config = {
           method: 'post',
-          url: apiURL + '/productByFilter',
+          url: '/productByFilter',
           data: {
             minPrice: min,
             maxPrice: max

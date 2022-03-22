@@ -56,7 +56,6 @@
   </div>
 </template>
 <script>
-import apiURL from '../assets/js/connect'
 import axios from 'axios'
 export default ({
   data () {
@@ -114,7 +113,7 @@ export default ({
     checkout () {
       console.log('data', this.testsss)
       // localStorage.setItem('checkout', localStorage.getItem('cart'))
-      axios.post(apiURL + '/order/create', this.testsss).then((res) => {
+      axios.post('/order/create', this.testsss).then((res) => {
         console.log('response', res.data.status.code)
         console.log('response', res)
         if (res.data.status.code === 0) {

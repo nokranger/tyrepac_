@@ -103,8 +103,8 @@ export default {
           satStatus: true
         }
       }
-      console.log('datain', apiURL + '/installer/create')
-      axios.post(apiURL + '/installer/create', this.data).then((res) => {
+      console.log('datain', '/installer/create')
+      axios.post('/installer/create', this.data).then((res) => {
         console.log(res)
       })
     }
