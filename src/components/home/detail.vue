@@ -5,7 +5,7 @@
       <br>
       <b-row>
         <b-col>
-          <div>
+          <div style="box-shadow: 5px 10px 18px #888888;">
             <b-card
               img-alt="Image"
               img-top
@@ -26,7 +26,7 @@
           </div>
         </b-col>
         <b-col>
-          <div>
+          <div style="box-shadow: 5px 10px 18px #888888;">
             <b-card
               img-alt="Image"
               img-top
@@ -47,7 +47,7 @@
           </div>
         </b-col>
         <b-col>
-          <div>
+          <div style="box-shadow: 5px 10px 18px #888888;">
             <b-card
               img-alt="Image"
               img-top
@@ -66,7 +66,7 @@
           </div>
         </b-col>
         <b-col>
-          <div>
+          <div style="box-shadow: 5px 10px 18px #888888;">
             <b-card
               img-alt="Image"
               img-top
