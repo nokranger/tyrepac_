@@ -23,7 +23,6 @@ Vue.component('font-awesome-icon', FontAwesomeIcon)
 // axios.defaults.baseURL = process.env.VUE_APP_API_URL
 
 Vue.use(vuePhotoZoomPro)
-
 new Vue({
   router,
   store,
