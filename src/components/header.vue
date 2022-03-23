@@ -20,7 +20,6 @@
           ><i class="fas fa-align-justify"></i
         ></b-navbar-toggle>
         <b-collapse id="nav-collapse" is-nav>
-          <b-navbar-nav> </b-navbar-nav>
           <b-navbar-nav class="ml-auto align-left">
             <b-nav-item href="/brand"
               ><b style="font-size: 16px; font-weight: normal"

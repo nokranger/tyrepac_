@@ -20,7 +20,7 @@
         <b-col cols="2"></b-col>
         <b-col>
           <a href="/shop?brand=8">
-            <div>
+            <div style="box-shadow: 5px 10px 18px #888888;">
               <b-card
                 title="Toyo Tyres"
                 img-src="https://i.imgur.com/dFBbXVM.png"
@@ -36,7 +36,7 @@
         </b-col>
         <b-col>
           <a href="/shop?brand=6">
-            <div>
+            <div style="box-shadow: 5px 10px 18px #888888;">
             <b-card
               title="Nitto Tyres"
               img-src="https://i.imgur.com/9JpV8e2.png"
@@ -52,7 +52,7 @@
         </b-col>
         <b-col>
           <a href="/shop?brand=7">
-            <div>
+            <div style="box-shadow: 5px 10px 18px #888888;">
             <b-card
               title="Nankang Tyres"
               img-src="https://i.imgur.com/yDA4cCy.png"
@@ -68,11 +68,12 @@
         </b-col>
         <b-col cols="2"></b-col>
       </b-row>
+      <br>
       <b-row>
         <b-col cols="2"></b-col>
         <b-col>
           <a href="/shop?brand=1">
-            <div>
+            <div style="box-shadow: 5px 10px 18px #888888;">
             <b-card
               title="Bridgestone Tyres"
               img-src="https://i.imgur.com/39bMB69.png"
@@ -88,7 +89,7 @@
         </b-col>
         <b-col>
           <a href="/shop?brand=002">
-            <div>
+            <div style="box-shadow: 5px 10px 18px #888888;">
             <b-card
               title="Continental Tyres"
               img-src="https://i.imgur.com/iBpm6uT.png"
@@ -104,7 +105,7 @@
         </b-col>
         <b-col>
           <a href="/shop?brand=3">
-            <div>
+            <div style="box-shadow: 5px 10px 18px #888888;">
             <b-card
               title="Dunlop Tyres"
               img-src="https://i.imgur.com/yvhHUsj.png"
@@ -120,11 +121,12 @@
         </b-col>
         <b-col cols="2"></b-col>
       </b-row>
+      <br>
       <b-row>
         <b-col cols="2"></b-col>
         <b-col>
           <a href="/shop?brand=4">
-            <div>
+            <div style="box-shadow: 5px 10px 18px #888888;">
             <b-card
               title="Goodyear Tyres"
               img-src="https://i.imgur.com/TgbxVn2.png"
@@ -140,7 +142,7 @@
         </b-col>
         <b-col>
           <a href="/shop?brand=5">
-            <div>
+            <div style="box-shadow: 5px 10px 18px #888888;">
             <b-card
               title="Michelin Tyres"
               img-src="https://i.imgur.com/EByvNfm.png"
@@ -156,7 +158,7 @@
         </b-col>
         <b-col>
           <a href="/shop?brand=9">
-            <div>
+            <div style="box-shadow: 5px 10px 18px #888888;">
             <b-card
               title="Yokohama Tyres"
               img-src="https://i.imgur.com/iiTZGZR.png"
