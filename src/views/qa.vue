@@ -47,7 +47,7 @@
         <b-container>
           <b-row>
             <b-col>
-              <div style="background-color: #005099; color: whitesmoke;width: 250px;height: 150px;">
+              <div style="background-color: #005099; color: whitesmoke;width: 250px;height: 150px;box-shadow: 5px 10px 18px #888888;border-radius: 5px;">
                 <br>
                 <div style="font-weight: bold;font-size: 20px;">ยางรถยนต์</div>
                 <div>
@@ -56,14 +56,14 @@
               </div>
             </b-col>
             <b-col>
-              <div style="background-color: #282828; color: whitesmoke;width: 250px;height: 150px;">
+              <div style="background-color: #282828; color: whitesmoke;width: 250px;height: 150px;box-shadow: 5px 10px 18px #888888;border-radius: 5px;">
                 <br>
                 <div style="font-weight: bold;font-size: 20px;">การสั่งซื้อสินค้า</div>
                 <div>สั่งซื้อสินค้า ติดตามการสั่งซื้อ การชำระเงิน</div>
               </div>
             </b-col>
             <b-col>
-              <div style="background-color: #005099; color: whitesmoke;width: 250px;height: 150px;">
+              <div style="background-color: #005099; color: whitesmoke;width: 250px;height: 150px;box-shadow: 5px 10px 18px #888888;border-radius: 5px;">
                 <br>
                 <div style="font-weight: bold;font-size: 20px;">การจัดส่งสินค้าและติดตั้ง</div>
                 <div>
@@ -72,7 +72,7 @@
               </div>
             </b-col>
             <b-col>
-              <div style="background-color: #282828; color: whitesmoke;width: 250px;height: 150px;">
+              <div style="background-color: #282828; color: whitesmoke;width: 250px;height: 150px;box-shadow: 5px 10px 18px #888888;border-radius: 5px;">
                 <br>
                 <div style="font-weight: bold;font-size: 25px;">บริการหลังการขาย</div>
                 <div>
@@ -84,13 +84,13 @@
           <br />
           <b-row>
             <b-col>
-              <div style="background-color: #282828; color: whitesmoke;height: 100px;">
+              <div style="background-color: #282828; color: whitesmoke;height: 100px;box-shadow: 5px 10px 18px #888888;border-radius: 5px;">
                 <div style="font-weight: bold;font-size: 25px;">สอบถามข้อมูลทางอีเมล์</div>
                 <div>info@tyrepac.co.th เราจะติดต่อคุณกลับโดยเร็วที่สุด</div>
               </div>
             </b-col>
             <b-col>
-              <div style="background-color: #f9bd45; color: whitesmoke;height: 100px;">
+              <div style="background-color: #f9bd45; color: whitesmoke;height: 100px;box-shadow: 5px 10px 18px #888888;border-radius: 5px;">
                 <div style="font-weight: bold;font-size: 25px;">โทรศัพท์</div>
                 <div>091-889-5127 จันทร์-ศุกร์ 8:30 – 17:00</div>
               </div>
@@ -112,13 +112,13 @@
             <br />
             <br />
           </div>
-          <div id="tyre">ยางรถยนต์</div>
+          <div id="tyre" style="font-weight: bold;font-size: 20px;">ยางรถยนต์</div>
           <br>
           <b-row>
             <b-col>
               <b-col>
                 <div>
-                  <div>A. การเลือกยางรถยนต์</div>
+                  <div style="font-weight: bold;font-size: 20px;">A. การเลือกยางรถยนต์</div>
                   <div>ขนาดยางรถยนต์ของฉันคือเท่าใด ?</div>
                   <div>
                     สามารถอ่านขนาดของยางรถยนต์ได้ที่แก้มยางรถยนต์ของคุณ
@@ -137,8 +137,8 @@
               </b-col>
             </b-col>
             <b-col>
-              <div>
-                <img
+              <div style="box-shadow: 5px 10px 18px #888888;">
+                <img style="width: 100%;"
                   src="https://www.tyrepac.co.th/wp-content/uploads/2019/12/tyre-guide.jpg"
                   alt=""
                 />
@@ -149,33 +149,35 @@
             <b-col>
               <b-col>
                 <br />
-                <div style="background-color: white">
-                  <div>Directional ดอกยางแบบทิศทางเดียว</div>
-                  <br />
-                  <br />
-                  <div>รายละเอียด</div>
-                  <p>
-                    ลวดลายดอกยางถูกออกแบบมาเพื่อหมุนไปในทิศทางเดียวเท่านั้น
-                    ด้วยเหตุผลนี้ยางจึงมีสัญลักษณ์ลูกศร แสดงอยู่ที่ขอบยาง
-                    เพื่อระบุทิศทางในการติดตั้งยาง
-                    ลายร่องด้านข้างทั้งสองข้างของยาง
-                    จะหันไปทางกึ่งกลางของยางทำให้เกิดรูปร่างตัววี (v)
-                    ร่องยางลักษณะนี้สามารถระบายน้ำได้อย่างมีประสิทธิภาพ
-                    ผ่านดอกยาง เพื่อให้ยางสามารถสัมผัสกับถนน
-                    และเพื่อเพิ่มการยึดเกาะถนนเปียก
-                    และยังสามารถต้านทานแรงดันน้ำได้แม้ในความเร็วสูง
-                  </p>
-                  <br />
-                  <div>ข้อดี</div>
-                  <p>
-                    เหมาะกับรถยนต์สมรรถนะสูง
-                    จะให้ความเสถียรเมื่อขับขี่ด้วยความเร็วสูง
-                  </p>
-                  <div>
-                    <img
-                      src="https://www.tyrepac.co.th/wp-content/uploads/2019/12/tyre-directional.jpg"
-                      alt=""
-                    />
+                <div style="background-color: white;box-shadow: 5px 10px 18px #888888;border-radius: 5px;">
+                  <div class="headers">Directional ดอกยางแบบทิศทางเดียว</div>
+                  <div style="margin: 15px;">
+                    <br />
+                    <br />
+                    <div>รายละเอียด</div>
+                    <p>
+                      ลวดลายดอกยางถูกออกแบบมาเพื่อหมุนไปในทิศทางเดียวเท่านั้น
+                      ด้วยเหตุผลนี้ยางจึงมีสัญลักษณ์ลูกศร แสดงอยู่ที่ขอบยาง
+                      เพื่อระบุทิศทางในการติดตั้งยาง
+                      ลายร่องด้านข้างทั้งสองข้างของยาง
+                      จะหันไปทางกึ่งกลางของยางทำให้เกิดรูปร่างตัววี (v)
+                      ร่องยางลักษณะนี้สามารถระบายน้ำได้อย่างมีประสิทธิภาพ
+                      ผ่านดอกยาง เพื่อให้ยางสามารถสัมผัสกับถนน
+                      และเพื่อเพิ่มการยึดเกาะถนนเปียก
+                      และยังสามารถต้านทานแรงดันน้ำได้แม้ในความเร็วสูง
+                    </p>
+                    <br />
+                    <div>ข้อดี</div>
+                    <p>
+                      เหมาะกับรถยนต์สมรรถนะสูง
+                      จะให้ความเสถียรเมื่อขับขี่ด้วยความเร็วสูง
+                    </p>
+                    <div>
+                      <img
+                        src="https://www.tyrepac.co.th/wp-content/uploads/2019/12/tyre-directional.jpg"
+                        alt=""
+                      />
+                    </div>
                   </div>
                 </div>
               </b-col>
@@ -183,34 +185,36 @@
             <b-col>
               <b-col>
                 <br />
-                <div style="background-color: white">
-                  <div>Symmetrical Design ดอกยางแบบสมมาตร</div>
-                  <br />
-                  <br />
-                  <div>รายละเอียด</div>
-                  <p>
-                    เป็นรูปแบบดอกยางที่พบมากที่สุด
-                    สำหรับรถซีดานมาตรฐานและรถบรรทุกขนาดเล็ก
-                    ยางเหล่านี้มีบล็อกดอกยางแบบต่อเนื่องทั่วพื้นผิวทั้งหมดของยาง
-                    ลวดลายในแต่ละด้านของยางนั้นเหมือนกันทุกประการ
-                  </p>
-                  <br />
-                  <div>ข้อดี</div>
-                  <p>
-                    ดอกยางเป็นลายเล็ก ๆ และละเอียด
-                    ช่วยลดเสียงของยางและเสียงเมื่อสัมผัสกับถนน
-                    ทำให้เป็นยางที่ค่อนข้างเงียบ
-                  </p>
-                  <p>
-                    การสึกหรอและอายุการใช้งานที่ยาวนาน
-                    เนื่องจากสามารถสลับยางได้ทั้ง 4 เส้น
-                    เพื่อให้การสึกหรอเท่ากันในทุกๆ ด้าน
-                  </p>
-                  <div>
-                    <img
-                      src="https://www.tyrepac.co.th/wp-content/uploads/2019/12/tyre-directional.jpg"
-                      alt=""
-                    />
+                <div style="background-color: white;box-shadow: 5px 10px 18px #888888;border-radius: 5px;">
+                  <div class="headers">Symmetrical Design ดอกยางแบบสมมาตร</div>
+                  <div style="margin: 15px;">
+                    <br />
+                    <br />
+                    <div>รายละเอียด</div>
+                    <p>
+                      เป็นรูปแบบดอกยางที่พบมากที่สุด
+                      สำหรับรถซีดานมาตรฐานและรถบรรทุกขนาดเล็ก
+                      ยางเหล่านี้มีบล็อกดอกยางแบบต่อเนื่องทั่วพื้นผิวทั้งหมดของยาง
+                      ลวดลายในแต่ละด้านของยางนั้นเหมือนกันทุกประการ
+                    </p>
+                    <br />
+                    <div>ข้อดี</div>
+                    <p>
+                      ดอกยางเป็นลายเล็ก ๆ และละเอียด
+                      ช่วยลดเสียงของยางและเสียงเมื่อสัมผัสกับถนน
+                      ทำให้เป็นยางที่ค่อนข้างเงียบ
+                    </p>
+                    <p>
+                      การสึกหรอและอายุการใช้งานที่ยาวนาน
+                      เนื่องจากสามารถสลับยางได้ทั้ง 4 เส้น
+                      เพื่อให้การสึกหรอเท่ากันในทุกๆ ด้าน
+                    </p>
+                    <div>
+                      <img
+                        src="https://www.tyrepac.co.th/wp-content/uploads/2019/12/tyre-directional.jpg"
+                        alt=""
+                      />
+                    </div>
                   </div>
                 </div>
               </b-col>
@@ -218,55 +222,63 @@
             <b-col>
               <b-col>
                 <br />
-                <div style="background-color: white">
-                  <div>Asymmetric Design ดอกยางแบบอสมมาตร</div>
-                  <br />
-                  <br />
-                  <div>รายละเอียด</div>
-                  <p>
-                    ลักษณะลายดอกยางบนหน้ายางสองฝั่งไม่เหมือนกัน
-                    เพื่อช่วยเพิ่มประสิทธิภาพในการขับขี่ให้ดียิ่งขึ้น
-                    หน้ายางด้านในเหมาะสำหรับขับทางตรงและใช้ความเร็วสูง
-                    ในขณะที่หน้ายางด้านนอกมีหน้าที่ช่วยยึดเกาะถนนได้ดีเวลาเข้าโค้ง
-                    เหมาะกับการขับรถที่ใช้ความเร็วและต้องการเข้าโค้งที่ปลอดภัย
-                  </p>
-                  <br />
-                  <div>ข้อดี</div>
-                  <p>
-                    เหมาะกับรถยนต์สมรรถนะสูง และรถยนต์ที่ใช้ความเร็ว
-                    เพื่อการทรงตัวที่ดีขณะเข้าโค้ง
-                  </p>
-                  <p>
-                    สามารถสลับยางได้ทั้ง 4 ล้อ
-                    เพื่อให้การสึกหรอเป็นไปอย่างสม่ำเสมอ และช่วยยืดอายุการใช้งาน
-                    โดยบนแก้มยางแบบ “อสมมาตร” จะมีคำว่า “inside” และ “outside”
-                    อยู่บนแก้มยาง เมื่อต้องสลับยาง
-                    ต้องดูให้แน่ใจว่าได้เอาด้านที่มีคำว่า “outside”
-                    ไว้ด้านนอกเสมอ
-                  </p>
-                  <div>
-                    <img
-                      src="https://www.tyrepac.co.th/wp-content/uploads/2019/12/tyre-directional.jpg"
-                      alt=""
-                    />
+                <div style="background-color: white;box-shadow: 5px 10px 18px #888888;border-radius: 5px;">
+                  <div class="headers">Asymmetric Design ดอกยางแบบอสมมาตร</div>
+                  <div style="margin: 15px;">
+                    <br />
+                    <br />
+                    <div>รายละเอียด</div>
+                    <p>
+                      ลักษณะลายดอกยางบนหน้ายางสองฝั่งไม่เหมือนกัน
+                      เพื่อช่วยเพิ่มประสิทธิภาพในการขับขี่ให้ดียิ่งขึ้น
+                      หน้ายางด้านในเหมาะสำหรับขับทางตรงและใช้ความเร็วสูง
+                      ในขณะที่หน้ายางด้านนอกมีหน้าที่ช่วยยึดเกาะถนนได้ดีเวลาเข้าโค้ง
+                      เหมาะกับการขับรถที่ใช้ความเร็วและต้องการเข้าโค้งที่ปลอดภัย
+                    </p>
+                    <br />
+                    <div>ข้อดี</div>
+                    <p>
+                      เหมาะกับรถยนต์สมรรถนะสูง และรถยนต์ที่ใช้ความเร็ว
+                      เพื่อการทรงตัวที่ดีขณะเข้าโค้ง
+                    </p>
+                    <p>
+                      สามารถสลับยางได้ทั้ง 4 ล้อ
+                      เพื่อให้การสึกหรอเป็นไปอย่างสม่ำเสมอ และช่วยยืดอายุการใช้งาน
+                      โดยบนแก้มยางแบบ “อสมมาตร” จะมีคำว่า “inside” และ “outside”
+                      อยู่บนแก้มยาง เมื่อต้องสลับยาง
+                      ต้องดูให้แน่ใจว่าได้เอาด้านที่มีคำว่า “outside”
+                      ไว้ด้านนอกเสมอ
+                    </p>
+                    <div>
+                      <img
+                        src="https://www.tyrepac.co.th/wp-content/uploads/2019/12/tyre-directional.jpg"
+                        alt=""
+                      />
+                    </div>
                   </div>
                 </div>
               </b-col>
             </b-col>
           </b-row>
+          <div>
+            <div>
+              B.MIXED TYRE
+            </div>
+          </div>
           <b-row>
-            <div>B.MIXED TYRE</div>
             <b-col>
-              <div>
-                <div>สามารถเปลี่ยนยางเส้นเดียวได้หรือไม่ ?</div>
-                <p>
-                  สามารถเปลี่ยนได้แต่อย่างไรก็ตามเราไม่แนะนำให้เปลี่ยนยางที่แตกต่างกันทีละเส้น
-                  ควรเปลี่ยนยางเป็นคู่เพื่อป้องกันการสึกหรอหรือความไม่สมดุลของยาง
-                </p>
+              <div style="background-color: white;box-shadow: 5px 10px 18px #888888;border-radius: 5px;">
+                <div>
+                  <div>สามารถเปลี่ยนยางเส้นเดียวได้หรือไม่ ?</div>
+                  <p>
+                    สามารถเปลี่ยนได้แต่อย่างไรก็ตามเราไม่แนะนำให้เปลี่ยนยางที่แตกต่างกันทีละเส้น
+                    ควรเปลี่ยนยางเป็นคู่เพื่อป้องกันการสึกหรอหรือความไม่สมดุลของยาง
+                  </p>
+                </div>
               </div>
             </b-col>
             <b-col>
-              <div>
+              <div style="background-color: white;box-shadow: 5px 10px 18px #888888;border-radius: 5px;">
                 <div>ควรติดตั้งยางคู่ใหม่ที่ไหน?</div>
                 <p>
                   ติดที่เพลาล้อหลัง
@@ -338,29 +350,40 @@
         </b-container>
         <div style="background-color: #333333;color: white;">
           <div>
+            <br>
             <img src="https://tyrepac.co.th/wp-content/uploads/2019/12/small-icon-white.png" alt="">
           </div>
-          <div id="order">
+          <div id="order" class="headers">
             การสั่ง
-          </div>
-          <div>
-            ก. การสั่งซื้อสินค้าของฉัน
           </div>
           <b-container>
             <b-row>
+              <div class="headers" style="text-align: left;margin-left: 40px;">
+                  ก. การสั่งซื้อสินค้าของฉัน
+              </div>
               <b-col>
                 <b-col>
-                  <div style="background-color: white;color: black;margin: 10px;margin-bottom: 20px;">
-                    <div>
+                  <div style="background-color: white;color: black;margin: 10px;margin-bottom: 20px;box-shadow: 5px 10px 18px #888888;border-radius: 5px;height: 150px;">
+                    <div class="headers" style="text-align: left;margin: 15px;">
                       ขั้นตอนการสั่งซื้อสินค้ามีอะไรบ้าง?
                       </div>
-                      <p>ค้นหาและเลือกยางที่ต้องการ
-                      เลือกสถานที่ติดตั้ง วัน และเวลา
-                      การชำระเงินด้วยเงินสดหรือบัตรเครดิต
-                      ติดตั้งยางตามกำหนด</p>
+                      <ul style="text-align: left;">
+                        <li>
+                          ค้นหาและเลือกยางที่ต้องการ
+                        </li>
+                        <li>
+                          เลือกสถานที่ติดตั้ง วัน และเวลา
+                        </li>
+                        <li>
+                          การชำระเงินด้วยเงินสดหรือบัตรเครดิต
+                        </li>
+                        <li>
+                          ติดตั้งยางตามกำหนด
+                        </li>
+                      </ul>
                   </div>
-                  <div style="background-color: white;color: black;margin: 10px;">
-                    <div>
+                  <div style="background-color: white;color: black;margin: 10px;box-shadow: 5px 10px 18px #888888;border-radius: 5px;height: 150px;">
+                    <div class="headers" style="text-align: left;margin: 15px;">
                       สามารถสั่งซื้อสินค้าผ่านทางโทรศัพท์ได้หรือไม่?
                     </div>
                       <p>สามารถสั่งซื้อผ่านทางโทรศัพท์และ Line Add และ เพจเฟสบุ๊ค <a href="https://www.facebook.com/tyrepacthailand/" target="_blank" style="text-decoration:none;">Tyrepac Thailand</a> </p>
@@ -368,20 +391,21 @@
                 </b-col>
               </b-col>
               <b-col>
-                  <div style="background-color: white;color: black;margin: 10px;">
-                    <div>
+                  <div style="background-color: white;color: black;margin: 10px;margin-bottom: 20px;box-shadow: 5px 10px 18px #888888;border-radius: 5px;height: 150px;">
+                    <div class="headers" style="text-align: left;margin: 15px;">
                       หากยางที่ฉันต้องการไม่มีในสต๊อก ฉันยังสามารถสั่งซื้อรุ่นนั้นได้หรือไม่?
                     </div>
                       <p>ติดต่อสายด่วนของเรา และเราให้คำแนะนำในการประมาณความพร้อมในการให้บริการยาง คุณสามารถส่งอีเมลถึงเราที่ info@tyrepac.co.th และเราจะติดต่อกลับคุณ</p>
                   </div>
-                  <div style="background-color: white;color: black;margin: 10px;">
-                    <div>
+                  <div style="background-color: white;color: black;margin: 10px;box-shadow: 5px 10px 18px #888888;border-radius: 5px;height: 150px;">
+                    <div class="headers" style="text-align: left;margin: 15px;">
                       สามารถขับรถไปยังสถานที่ติดตั้งโดยตรงดังที่แสดงไว้ได้หรือไม่?
                       </div>
                       <p>ไม่ ยางจะถูกส่งเมื่อได้รับการสั่งซื้อและการชำระเงินออนไลน์</p>
                   </div>
               </b-col>
             </b-row>
+            <br>
           </b-container>
         </div>
         <div  style="background-color: #f7f7f7;">
@@ -393,12 +417,18 @@
                 <br>
                 <br>
               </div>
-              <div id="delivery">การจัดส่งและติดตั้ง</div>
-              <div>การเปลี่ยนแปลงการจัดส่ง</div>
-              <div>การเปลี่ยนแปลงการจัดส่ง</div>
+              <div id="delivery" style="font-weight: bold;font-size: 25px;">
+                <div>
+                  การจัดส่งและติดตั้ง
+                </div>
+                <div>
+                  การเปลี่ยนแปลงการจัดส่ง
+                </div>
+              </div>
+              <div style="font-weight: bold;">การเปลี่ยนแปลงการจัดส่ง</div>
               <b-col>
                 <br>
-                <div style="background-color: white;color: black;">
+                <div style="background-color: white;color: black;box-shadow: 5px 10px 18px #888888;border-radius: 5px;height: 150px;">
                   <div>
                     ฉันสามารถเปลี่ยนแปลงคำสั่งซื้อหลังจากการชำระเงินแล้วได้หรือไม่
                   </div>
@@ -407,7 +437,7 @@
                   </div>
                 </div>
                 <br>
-                <div style="background-color: white;color: black;">
+                <div style="background-color: white;color: black;box-shadow: 5px 10px 18px #888888;border-radius: 5px;height: 150px;">
                   <div>
                     ฉันสามารถเข้ารับการติดตั้งยางได้เร็วที่สุดเมื่อไหร่?
                   </div>
@@ -418,14 +448,14 @@
               </b-col>
               <b-col>
                 <br>
-                <div style="background-color: white;color: black;">
+                <div style="background-color: white;color: black;box-shadow: 5px 10px 18px #888888;border-radius: 5px;height: 150px;">
                   <div>ฉันสามารถเปลี่ยนศูนย์บริการติดตั้งและเวลาได้หรือไม่</div>
                   <div>
                     ได้ หากยางที่จัดเตรียมไว้ยังไม่ถูกส่ง มิเช่นนั้นจะมีการคิดค่าขนส่ง
                   </div>
                 </div>
                 <br>
-                <div style="background-color: white;color: black;">
+                <div style="background-color: white;color: black;box-shadow: 5px 10px 18px #888888;border-radius: 5px;height: 150px;">
                   <div>ฉันสามารถติดตั้งยางวันเดียวกับวันที่สั่งซื้อได้หรือไม่?</div>
                   <div>วันติดตั้งจะนับจากวันที่คุณทำการสั่งซื้อ 3 วันทำการ หากต้องการติดตั้งแบบเร่งด่วน กรุณาติดต่อสายด่วนบริการลูกค้าเพื่อนัดหมาย</div>
                 </div>
@@ -434,20 +464,24 @@
             <br>
           </b-container>
         </div>
-        <div id="aftersales" style="background-color: white;color: black;" >
+        <div id="aftersales" style="background-color: white;color: black;box-shadow: 5px 10px 18px #888888;border-radius: 5px;height: 150px;" >
           <b-container>
             <b-row>
               <b-col>
                 <div>
                   <div>
+                    <br>
                     <img src="https://tyrepac.co.th/wp-content/uploads/2019/12/icon-3lines.png" alt="">
                   </div>
                   <div>
-                    บริการหลังการขาย
+                    <div>
+                      บริการหลังการขาย
+                    </div>
+                    <div>
+                      การยกเลิกการสั่งซื้อ
+                    </div>
                   </div>
-                  <div>
-                    การยกเลิกการสั่งซื้อ
-                  </div>
+
                 </div>
               </b-col>
             </b-row>
@@ -457,10 +491,10 @@
           <div>นโยบายการยกเลิกการสั่งซื้อของทางบริษัทเป็นอย่างไร?</div>
           <p>การยกเลิกล่วงหน้าก่อนการจัดส่งสามารถทำได้ จะมีการคิดค่าขนส่งสำหรับการยกเลิกหากมีการจัดส่งยางไปแล้ว กรุณาตรวจสอบข้อกำหนดและเงื่อนไขการขายของเรา</p>
         </div>
-        <div style="background-color: white;color: black;">
+        <div style="background-color: white;color: black;box-shadow: 5px 10px 18px #888888;border-radius: 5px;height: 150px;">
           <div>นโยบายการคืนสินค้า</div>
         </div>
-        <div style="background-color: #f7f7f7;color: black;">
+        <div style="background-color: #f7f7f7;color: black;box-shadow: 5px 10px 18px #888888;border-radius: 5px;height: 150px;">
           <b-container>
             <b-row>
               <b-col>
@@ -482,10 +516,10 @@
             </b-row>
           </b-container>
         </div>
-        <div style="background-color: white;color: black;">
+        <div style="background-color: white;color: black;box-shadow: 5px 10px 18px #888888;border-radius: 5px;height: 150px;">
           <div>นโยบายการคืนสินค้า</div>
         </div>
-        <div style="background-color: #f7f7f7;color: black;">
+        <div style="background-color: #f7f7f7;color: black;box-shadow: 5px 10px 18px #888888;border-radius: 5px;">
           <div>
             บริษัทมีการรับประกันสินค้าสำหรับยางที่จำหน่ายหรือไม่?
           </div>
@@ -642,4 +676,9 @@ a {
 a:hover {
   color: whitesmoke;
 }
+.headers {
+font-weight: bold;
+font-size: 20px;
+}
+
 </style>

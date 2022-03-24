@@ -57,13 +57,13 @@ export default {
     console.log('urlrec', url)
     const config = {
       method: 'get',
-      url: '/product',
-      headers: {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Methods': 'GET, POST',
-        'Access-Control-Allow-Headers': 'Content-Type'
-      }
+      url: '/product'
+      // headers: {
+      //   'Content-Type': 'application/json',
+      //   'Access-Control-Allow-Origin': '*',
+      //   'Access-Control-Allow-Methods': 'GET, POST',
+      //   'Access-Control-Allow-Headers': 'Content-Type'
+      // }
     }
     console.log('getproduct', config)
     axios(config).then(res => {
