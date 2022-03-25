@@ -349,10 +349,10 @@ export default {
       } else {
         console.log('nohaveroute')
         var config = {
-          headers: {
-            'Access-Control-Allow-Origin': '*',
-            'X-Requested-With': 'XMLHttpRequest'
-          },
+          // headers: {
+          //   'Access-Control-Allow-Origin': '*',
+          //   'X-Requested-With': 'XMLHttpRequest'
+          // },
           method: 'get',
           url: '/product'
         }

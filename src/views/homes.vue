@@ -45,9 +45,9 @@ export default {
   },
   mounted () {
     var config = {
-      headers: {
-        'Access-Control-Allow-Origin': '*'
-      },
+      // headers: {
+      //   'Access-Control-Allow-Origin': '*'
+      // },
       method: 'get',
       url: 'http://119.63.90.135:2083/product'
     }
