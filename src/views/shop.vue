@@ -169,7 +169,7 @@
                       </div>
                     </b-col>
                     <b-col>
-                      <div>
+                      <!-- <div>
                         <b-form-select
                           style="width: 100%; font-size: 20px; margin: 5px;color: gray;height: 35px;"
                           v-model="selected2"
@@ -179,7 +179,7 @@
                           :options="options2"
                         >
                         </b-form-select>
-                      </div>
+                      </div> -->
                     </b-col>
                   </b-row>
                   <br>
@@ -257,13 +257,13 @@ export default {
         { value: 'name', text: 'เรียงตาม ชื่อ' },
         { value: 'regularPrice', text: 'เรียงตาม ราคา' }
       ],
-      options2: [
-        { value: null, text: 'แสดงรายการ' },
-        { value: 16, text: '16' },
-        { value: 32, text: '32' },
-        { value: 48, text: '48' },
-        { value: 100, text: '100' }
-      ],
+      // options2: [
+      //   { value: null, text: 'แสดงรายการ' },
+      //   { value: 16, text: '16' },
+      //   { value: 32, text: '32' },
+      //   { value: 48, text: '48' },
+      //   { value: 100, text: '100' }
+      // ],
       tyre: '',
       filterss: '',
       width: '',
