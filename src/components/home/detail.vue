@@ -16,7 +16,7 @@
               <b-card-text>
                 <div>
                   <h1>ผ่อน 0%</h1>
-                  <h3>นาน 10 เดือน</h3>
+                  <h3 style="font-weight: bold;font-size: 18px;">นาน 10 เดือน</h3>
                   <!-- <img src="https://picsum.photos/600/300/?image=25" alt=""> -->
                   <p>เลือกผ่อน 0% นาน 10 เดือน หรือรับส่วนลดเพิ่ม 5% เมื่อชำระเต็มจำนวน</p>
                 </div>
@@ -112,5 +112,6 @@
 h1 {
   font-family: 'Kanit', sans-serif;
   font-weight: bold;
+  font-size: 25px;
 }
 </style>

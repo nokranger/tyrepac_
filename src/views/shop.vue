@@ -189,7 +189,7 @@
                       <!-- {{brandd.prodId}} -->
                       <div style="border-radius: 5px;border: thin solid #E0E0E0;text-align: left;">
                         <div style="width: 100%;">
-                          <a v-on:click="buydetail (('/tyrebrand' + '/' + brandd.prodId + '/' + brandd.sku), ('https://www.tyrepac.co.th/wp-content/uploads/2020/02/tyre-toyo-proxes-sport-suv.jpg'), brandd.name, brandd.regularPrice, ('values' + index), brandd.type, brandd.sku, brandd)">
+                          <a style="cursor: pointer;" v-on:click="buydetail (('/tyrebrand' + '/' + brandd.prodId + '/' + brandd.sku), ('https://www.tyrepac.co.th/wp-content/uploads/2020/02/tyre-toyo-proxes-sport-suv.jpg'), brandd.name, brandd.regularPrice, ('values' + index), brandd.type, brandd.sku, brandd)">
                             <img src="https://www.tyrepac.co.th/wp-content/uploads/2020/02/tyre-toyo-proxes-sport-suv.jpg" style="width: 100%;height: auto;margin: 5px;" alt="">
                           </a>
                         </div>
@@ -290,7 +290,7 @@ export default {
         return post.status === 1
       })
       this.promotions = promotion
-      // console.log('promotionsssss', this.promotions)
+      console.log('promotionsssss', this.promotions)
     })
   },
   methods: {
