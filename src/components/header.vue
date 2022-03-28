@@ -1,5 +1,19 @@
 <template>
   <div>
+    <div style="border: 1px solid white;color: white;background-color: white;height: 25px;position: fixed;width:100%;z-index: 99;top: 0;text-align: left;">
+      <div style="font-size: 15px;top: 0;">
+        <div style="text-align: left;display: inline-block;margin: 10px;color: #4267B2;">
+          <a href="https://www.facebook.com/tyrepacthailand/" target="_blank" style="color: #4267B2;">
+            <i class="fa-brands fa-facebook-square"></i>
+          </a>
+        </div>
+        <div style="text-align: left;display: inline-block;margin: 10px;color: #00B900;">
+          <a href="https://line.me/R/ti/p/%40tyrepac_th" target="_blank" style="color: #00B900;">
+            <i class="fa-brands fa-line"></i>
+          </a>
+        </div>
+      </div>
+    </div>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
@@ -8,6 +22,7 @@
     <div>
       <b-navbar toggleable="lg" type="dark" class="header">
         <b-navbar-brand href="/">
+        <br>
           <div>
             <img
               style="width: 184.33px; height: auto; margin: 10px"
@@ -15,11 +30,14 @@
               alt=""
             />
           </div>
+          <br>
         </b-navbar-brand>
         <b-navbar-toggle target="nav-collapse" style="color: black"
           ><i class="fas fa-align-justify"></i
         ></b-navbar-toggle>
         <b-collapse id="nav-collapse" is-nav>
+          <br>
+          <br>
           <b-navbar-nav class="ml-auto align-left">
             <b-nav-item href="/brand"
               ><b style="font-size: 16px; font-weight: normal"

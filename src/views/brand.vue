@@ -1,5 +1,5 @@
 <template>
-  <div style="background-color: #eaeaea;margin-top: 90px">
+  <div style="background-color: #eaeaea;margin-top: 160px">
     <div style="margin-top: 10px">
       <br>
       <br>

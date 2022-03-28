@@ -29,16 +29,16 @@
               </div>
               <br>
               <div style="font-size: 25px;">
-              <div style="text-align: left;display: inline-block;margin: 10px;color: #4267B2;">
-                <a href="https://www.facebook.com/tyrepacthailand/" target="_blank" style="color: #4267B2;">
-                  <i class="fa-brands fa-facebook-square"></i>
-                </a>
-              </div>
-              <div style="text-align: left;display: inline-block;margin: 10px;color: #00B900;">
-                <a href="https://line.me/R/ti/p/%40tyrepac_th" target="_blank" style="color: #00B900;">
-                  <i class="fa-brands fa-line"></i>
-                </a>
-              </div>
+                <div style="text-align: left;display: inline-block;margin: 10px;color: #4267B2;">
+                  <a href="https://www.facebook.com/tyrepacthailand/" target="_blank" style="color: #4267B2;">
+                    <i class="fa-brands fa-facebook-square"></i>
+                  </a>
+                </div>
+                <div style="text-align: left;display: inline-block;margin: 10px;color: #00B900;">
+                  <a href="https://line.me/R/ti/p/%40tyrepac_th" target="_blank" style="color: #00B900;">
+                    <i class="fa-brands fa-line"></i>
+                  </a>
+                </div>
               </div>
               <br>
               <div>

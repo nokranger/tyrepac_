@@ -1,5 +1,5 @@
 <template>
-  <div style="margin-top: 90px">
+  <div style="margin-top: 160px">
     <div style="height: auto; text-align: center">
       <app-toppic></app-toppic>
       <app-searchtyre></app-searchtyre>
