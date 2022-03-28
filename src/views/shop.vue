@@ -194,7 +194,7 @@
                           </a>
                         </div>
                         <div style="margin-left: 5px;color: #005099;font-weight: bold;">{{brandd.name}}</div>
-                        <div style="margin-left: 5px;color: #005099;">฿{{ brandd.regularPrice}} ต่อเส้น</div>
+                        <div style="margin-left: 5px;color: #005099;" id="currency">฿{{ brandd.regularPrice}} ต่อเส้น</div>
                         <div style="margin: 5px;">
                           <b-form-spinbutton :ref="'values' + index" id="demo-sb" :value="value2" min="4" max="100"></b-form-spinbutton>
                         </div>
@@ -277,20 +277,25 @@ export default {
       maxAngle: 21100
     }
   },
+  metaInfo: {
+    title: 'Shop',
+    titleTemplate: "%s - Tyrepac - Asia's First Tyre Portal"
+  },
   async mounted () {
     await this.product()
-    console.log('promotions')
+    // console.log('promotions')
     axios.get('/product').then(res => {
       this.promotions = res.data.data.products
       const promotion = this.promotions.filter((post, index) => {
         return post.status === 1
       })
       this.promotions = promotion
-      console.log('promotionsssss', this.promotions)
+      // console.log('promotionsssss', this.promotions)
     })
   },
   methods: {
     async product () {
+      console.log('currency', document.querySelectorAll('currency'))
       var configsearch = {
         method: 'post',
         url: '/productByFilter'

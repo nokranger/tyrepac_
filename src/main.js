@@ -8,6 +8,7 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import vuePhotoZoomPro from 'vue-photo-zoom-pro'
 import 'vue-photo-zoom-pro/dist/style/vue-photo-zoom-pro.css'
+import VueMeta from 'vue-meta'
 // import axios from 'axios'
 
 import { faHatWizard } from '@fortawesome/free-solid-svg-icons'
@@ -16,6 +17,13 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 Vue.config.productionTip = false
 Vue.use(BootstrapVue)
+Vue.use(VueMeta, {
+  keyName: 'metaInfo',
+  attribute: 'data-vue-meta',
+  ssrAttribute: 'data-vue-meta-server-rendered',
+  tagIDKeyName: 'vmid',
+  refreshOnceOnNavigation: true
+})
 
 library.add(faHatWizard)
 Vue.component('font-awesome-icon', FontAwesomeIcon)

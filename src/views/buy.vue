@@ -116,21 +116,21 @@
                   <div>
                     <div>ยี่ห้อรถยนต์ *</div>
                     <div>
-                      <b-input></b-input>
+                      <b-input placeholder="ยี่ห้อรถยนต์"></b-input>
                       <br>
                     </div>
                   </div>
                   <div>
                     <div>รุ่นรถยนต์ *</div>
                     <div>
-                      <b-input></b-input>
+                      <b-input placeholder="รุ่นรถยนต์"></b-input>
                       <br>
                     </div>
                   </div>
                   <div>
                     <div>หมายเลขทะเบียนรถ *</div>
                     <div>
-                      <b-input></b-input>
+                      <b-input placeholder="หมายเลขทะเบียนรถ"></b-input>
                       <br>
                     </div>
                   </div>
@@ -157,7 +157,7 @@
                       ชื่อ *
                     </div>
                     <div>
-                      <b-input type="text" id="fname" name="fname" autocomplete="on" v-model="firstname"></b-input>
+                      <b-input type="text" id="fname" name="fname" autocomplete="on" v-model="firstname" placeholder="ชื่อ"></b-input>
                       <br>
                     </div>
                   </div>
@@ -166,7 +166,7 @@
                       นามสกุล *
                     </div>
                     <div>
-                      <b-input type="text" id="lname" name="lname" autocomplete="on"  v-model="lastname"></b-input>
+                      <b-input type="text" id="lname" name="lname" autocomplete="on"  v-model="lastname" placeholder="นามสกุล"></b-input>
                       <br>
                     </div>
                   </div>
@@ -175,7 +175,7 @@
                       ที่อยู่ *
                     </div>
                     <div>
-                      <b-input type="text" id="address" name="address" autocomplete="on" v-model="address.address"></b-input>
+                      <b-input type="text" id="address" name="address" autocomplete="on" v-model="address.address" placeholder="ที่อยู่"></b-input>
                       <br>
                     </div>
                   </div>
@@ -184,7 +184,7 @@
                       อำเภอ *
                     </div>
                     <div>
-                      <b-input type="text" id="address" name="address" autocomplete="on" v-model="address.district"></b-input>
+                      <b-input type="text" id="address" name="address" autocomplete="on" v-model="address.district" placeholder="อำเภอ"></b-input>
                       <br>
                     </div>
                   </div>
@@ -193,7 +193,7 @@
                       จังหวัด *
                     </div>
                     <div>
-                      <b-input type="text" id="address" name="address" autocomplete="on" v-model="address.province"></b-input>
+                      <b-input type="text" id="address" name="address" autocomplete="on" v-model="address.province" placeholder="จังหวัด"></b-input>
                       <br>
                     </div>
                   </div>
@@ -202,7 +202,7 @@
                       รหัสไปรษณีย์ *
                     </div>
                     <div>
-                      <b-input type="text" id="zipcode" name="zipcode" autocomplete="on" v-model="address.zipCode"></b-input>
+                      <b-input type="text" id="zipcode" name="zipcode" autocomplete="on" v-model="address.zipCode" placeholder="รหัสไปรษณีย์"></b-input>
                       <br>
                     </div>
                   </div>
@@ -211,7 +211,7 @@
                       โทรศัพท์ *
                     </div>
                     <div>
-                      <b-input type="text" id="phone" name="phone" autocomplete="on" v-model="phoneNo"></b-input>
+                      <b-input type="text" id="phone" name="phone" autocomplete="on" v-model="phoneNo" placeholder="โทรศัพท์"></b-input>
                       <br>
                     </div>
                   </div>
@@ -220,7 +220,7 @@
                       อีเมลแอดเดรส *
                     </div>
                     <div>
-                      <b-input type="email" id="email" name="email" autocomplete="on" v-model="email"></b-input>
+                      <b-input type="email" id="email" name="email" autocomplete="on" v-model="email" placeholder="อีเมลแอดเดรส"></b-input>
                       <br>
                     </div>
                   </div>
@@ -439,6 +439,10 @@ export default {
       email: '',
       autoinfo: ''
     }
+  },
+  metaInfo: {
+    title: 'การชำระเงิน',
+    titleTemplate: "%s - Tyrepac - Asia's First Tyre Portal"
   },
   mounted () {
     if (localStorage.getItem('info') === null) {

@@ -87,6 +87,10 @@ export default {
 
     }
   },
+  metaInfo: {
+    title: 'สมัครร้านติดตั้ง',
+    titleTemplate: "%s - Tyrepac - Asia's First Tyre Portal"
+  },
   methods: {
     registor () {
       this.data = {

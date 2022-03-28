@@ -75,3 +75,14 @@
     </div>
   </div>
 </template>
+<script>
+export default {
+  data () {
+    return {}
+  },
+  metaInfo: {
+    title: 'ติดต่อเรา',
+    titleTemplate: "%s - Tyrepac - Asia's First Tyre Portal"
+  }
+}
+</script>

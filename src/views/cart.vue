@@ -165,6 +165,10 @@ export default {
       price: 0
     }
   },
+  metaInfo: {
+    title: 'ตะกร้าสินค้า',
+    titleTemplate: "%s - Tyrepac - Asia's First Tyre Portal"
+  },
   mounted () {
     if (localStorage.getItem('cart') === null) {
       console.log('show status')

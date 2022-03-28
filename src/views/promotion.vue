@@ -13,3 +13,14 @@
       </b-container>
     </div>
 </template>
+<script>
+export default {
+  data () {
+    return {}
+  },
+  metaInfo: {
+    title: 'โปรโมชั่น',
+    titleTemplate: "%s - Tyrepac - Asia's First Tyre Portal"
+  }
+}
+</script>

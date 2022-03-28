@@ -192,6 +192,10 @@ export default ({
       info: ''
     }
   },
+  metaInfo: {
+    title: 'การชำระเงิน',
+    titleTemplate: "%s - Tyrepac - Asia's First Tyre Portal"
+  },
   mounted () {
     this.dates = new Date()
     this.dates = this.dates.toLocaleDateString()

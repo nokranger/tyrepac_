@@ -43,6 +43,10 @@ export default {
     return {
     }
   },
+  metaInfo: {
+    title: 'Tyrepac Home',
+    titleTemplate: "%s - Tyrepac - Asia's First Tyre Portal"
+  },
   mounted () {
     var config = {
       // headers: {

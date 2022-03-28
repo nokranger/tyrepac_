@@ -168,6 +168,10 @@ export default {
       checkcartz: []
     }
   },
+  metaInfo: {
+    title: 'Shop',
+    titleTemplate: "%s - Tyrepac - Asia's First Tyre Portal"
+  },
   mounted () {
     console.log(location.href)
     var split = location.href

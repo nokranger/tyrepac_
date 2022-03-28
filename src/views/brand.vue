@@ -167,6 +167,17 @@
     </b-container>
   </div>
 </template>
+<script>
+export default {
+  data () {
+    return {}
+  },
+  metaInfo: {
+    title: 'ยางรถยนต์',
+    titleTemplate: "%s - Tyrepac - Asia's First Tyre Portal"
+  }
+}
+</script>
 <style scoped>
 a {
   text-decoration: none;

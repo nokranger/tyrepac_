@@ -770,6 +770,10 @@ export default {
         { รหัส: 119, กิโลกรัม: 1360 }
       ]
     }
+  },
+  metaInfo: {
+    title: 'คำถามที่พบบ่อย',
+    titleTemplate: "%s - Tyrepac - Asia's First Tyre Portal"
   }
 }
 </script>

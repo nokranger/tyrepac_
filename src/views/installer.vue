@@ -109,6 +109,10 @@ export default {
       installers: ''
     }
   },
+  metaInfo: {
+    title: 'ร้านติดตั้ง',
+    titleTemplate: "%s - Tyrepac - Asia's First Tyre Portal"
+  },
   mounted () {
     axios.get('/installer').then((res) => {
       // this.testinstaller = res.data.data.installers
