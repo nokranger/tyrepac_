@@ -332,7 +332,7 @@
                   <br>
                   <br>
                   <div v-for="(details, index) in detail" :key="index">
-                    <div style="text-align: left;font-weight: bold;">{{index + 1}}. {{details.name}}</div>
+                    <div style="text-align: left;">{{index + 1}}. {{details.name}}</div>
                   </div>
                   <div>**(C & U regulations stipulate all tyres used in the UK must carry an E number)</div>
                 </b-col>

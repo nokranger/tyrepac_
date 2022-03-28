@@ -179,11 +179,16 @@
   </div>
 </template>
 <style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@700&display=swap');
 p {
-  font-size: 15px;
+  font-size: 17px;
 }
 a {
   text-decoration: none;
   color: black;
+}
+h1 {
+  font-family: 'Kanit', sans-serif;
+  font-weight: bold;
 }
 </style>

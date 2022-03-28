@@ -21,22 +21,22 @@
               "
             >
               <div style="margin: 15px">
-                <div>กรุณากรอกข้อมูลเพื่อติดต่อกลับ</div>
+                <div style="font-weight: bold;">กรุณากรอกข้อมูลเพื่อติดต่อกลับ</div>
                 <br />
                 <div>
                   <br />
-                  <div>ชิ้อร้านติดตั้ง*</div>
-                  <b-input v-model="nameinstaller"></b-input>
+                  <div>ชิ้อร้านติดตั้ง *</div>
+                  <b-input v-model="nameinstaller" placeholder="ชื่อร้านติดตั้ง"></b-input>
                 </div>
                 <div>
                   <br />
-                  <div>ชื่อผู้ติดต่อ*</div>
-                  <b-input v-model="namecontact"></b-input>
+                  <div>ชื่อผู้ติดต่อ *</div>
+                  <b-input v-model="namecontact" placeholder="ชื่อผู้ติดต่อ"></b-input>
                 </div>
                 <div>
                   <br />
-                  <div>เบอร์โทรศัพท์*</div>
-                  <b-input v-model="phoneinstaller"></b-input>
+                  <div>เบอร์โทรศัพท์ *</div>
+                  <b-input v-model="phoneinstaller" placeholder="เบอร์โทรศัพท์"></b-input>
                 </div>
                 <div>
                   <br />
@@ -58,7 +58,7 @@
               "
             >
               <div style="margin: 15px">
-                <div>รายละเอียดเพิ่มเติม</div>
+                <div style="font-weight: bold;">รายละเอียดเพิ่มเติม</div>
                 <br />
                 <div>
                   <b-button variant="primary" href="https://www.tyrepac.co.th/wp-content/uploads/2020/06/shop_installer_registration_form.pdf" target="_blank">Download</b-button>

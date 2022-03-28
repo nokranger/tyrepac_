@@ -89,6 +89,7 @@
   </div>
 </template>
 <style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@700&display=swap');
 .img-wrapper {
     display: inline-block;
     overflow: hidden;
@@ -107,5 +108,9 @@
     -ms-transform:scale(1.5); /* IE 9 */
     -o-transform:scale(1.5); /* Opera */
     transform:scale(1.5);
+}
+h1 {
+  font-family: 'Kanit', sans-serif;
+  font-weight: bold;
 }
 </style>
