@@ -35,3 +35,11 @@
   </b-container>
   </div>
 </template>
+<style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@700&display=swap');
+h1 {
+  font-family: 'Kanit', sans-serif;
+  font-weight: bold;
+  font-size: 25px;
+}
+</style>
