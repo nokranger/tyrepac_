@@ -112,7 +112,7 @@
           </b-row>
         </b-container>
       </div>
-      <br />
+      <br id="tyre" />
       <br />
       <div style="background-color: #f7f7f7">
         <b-container>
@@ -126,7 +126,7 @@
             <br />
             <br />
           </div>
-          <div id="tyre" style="font-weight: bold;font-size: 20px;">ยางรถยนต์</div>
+          <div style="font-weight: bold;font-size: 20px;">ยางรถยนต์</div>
           <br>
           <b-row>
             <b-col>
@@ -387,12 +387,12 @@
           </b-row>
           <br>
         </b-container>
-        <div style="background-color: #333333;color: white;">
+        <div id="order" style="background-color: #333333;color: white;">
           <div>
             <br>
             <img src="https://tyrepac.co.th/wp-content/uploads/2019/12/small-icon-white.png" alt="">
           </div>
-          <div id="order" class="headers">
+          <div class="headers">
             การสั่ง
           </div>
           <b-container>
@@ -457,7 +457,7 @@
             <br>
           </b-container>
         </div>
-        <div  style="background-color: #f7f7f7;">
+        <div id="delivery" style="background-color: #f7f7f7;">
           <b-container>
             <b-row>
               <div>
@@ -466,7 +466,7 @@
                 <br>
                 <br>
               </div>
-              <div id="delivery" style="font-weight: bold;font-size: 25px;">
+              <div style="font-weight: bold;font-size: 25px;">
                 <div>
                   การจัดส่งและติดตั้ง
                 </div>

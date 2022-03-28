@@ -4,6 +4,8 @@
       background-image: url('https://i.imgur.com/am2boDx.jpg');
       height: 700px;
       text-align: left;
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
 
     "
   >

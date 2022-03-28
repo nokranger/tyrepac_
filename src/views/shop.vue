@@ -290,40 +290,61 @@ export default {
     })
   },
   methods: {
-    product () {
+    async product () {
       var configsearch = {
         method: 'post',
         url: '/productByFilter'
       }
       console.log(location.href)
-      var split = location.href
-      split = split.split('?')
+      var split = await location.href
+      split = await split.split('?')
       if (split.length > 1) {
-        split = split[1].split('=')
+        split = await split[1].split('=')
         // console.log('tyre', split[0])
         // console.log('value', split[1])
         if (split[0] === 'width') {
-          console.log('iswidth')
+          // console.log('iswidth')
           configsearch.data = {
             width: split[1]
           }
+          axios(configsearch).then((res) => {
+            // console.log(res)
+            // console.log('valuefilters', res.data.data.products.slice(0, 100))
+            this.brand = res.data.data.products.slice(0, 100)
+          })
         } else if (split[0] === 'height') {
           console.log('isheight')
           configsearch.data = {
             height: split[1]
           }
+          axios(configsearch).then((res) => {
+            // console.log(res)
+            // console.log('valuefilters', res.data.data.products.slice(0, 100))
+            this.brand = res.data.data.products.slice(0, 100)
+          })
         } else if (split[0] === 'diameter') {
           console.log('isdiameter')
           // console.log('isdiameter', configsearch)
           configsearch.data = {
             diameter: split[1]
           }
+          axios(configsearch).then((res) => {
+            // console.log(res)
+            // console.log('valuefilters', res.data.data.products.slice(0, 100))
+            this.brand = res.data.data.products.slice(0, 100)
+          })
         } else if (split[0] === 'type') {
-          console.log('istypess', decodeURIComponent(split[1]))
-          console.log('istype', configsearch)
+          // console.log('istypess', decodeURIComponent(split[1]))
+          // console.log('istype', configsearch)
           configsearch.data = {
             type: decodeURIComponent(split[1])
           }
+          // console.log('valuefilters', configsearch)
+          axios(configsearch).then((res) => {
+            // console.log(res)
+            // console.log('valuefilters', res.data.data.products.slice(0, 100))
+            this.brand = res.data.data.products.slice(0, 100)
+          })
         } else if (split[0] === 'brand') {
           console.log('brands')
           var configbrands = {
@@ -331,21 +352,15 @@ export default {
             url: '/product'
           }
           axios(configbrands).then(res => {
-            this.brand = res.data.data.products
-            const brands = this.brand.filter((post, index) => {
+            let brands = res.data.data.products
+            brands = brands.filter((post, index) => {
               return post.brandId === split[1]
             })
-            console.log('detailb', brands)
-            console.log('detailr', res.data.data.products)
+            // console.log('detailb', brands)
+            // console.log('detailr', res.data.data.products)
             this.brand = brands.slice(0, 100)
           })
         }
-        console.log('valuefilters', configsearch)
-        axios(configsearch).then((res) => {
-          console.log(res)
-          console.log('valuefilters', res.data.data.products.slice(0, 100))
-          this.brand = res.data.data.products.slice(0, 100)
-        })
       } else {
         console.log('nohaveroute')
         var config = {
