@@ -30,14 +30,11 @@
               alt=""
             />
           </div>
-          <br>
         </b-navbar-brand>
         <b-navbar-toggle target="nav-collapse" style="color: black"
           ><i class="fas fa-align-justify"></i
         ></b-navbar-toggle>
         <b-collapse id="nav-collapse" is-nav>
-          <br>
-          <br>
           <b-navbar-nav class="ml-auto align-left">
             <b-nav-item href="/brand"
               ><b style="font-size: 16px; font-weight: normal"

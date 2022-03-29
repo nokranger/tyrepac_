@@ -103,7 +103,7 @@
                   <div>
                     091-889-5127
                   </div>
-                  <div>
+                  <div id="tyre">
                     จันทร์-ศุกร์ 8:30 – 17:00
                   </div>
                 </div>
@@ -112,7 +112,7 @@
           </b-row>
         </b-container>
       </div>
-      <br id="tyre" />
+      <br/>
       <br />
       <div style="background-color: #f7f7f7">
         <b-container>
@@ -378,28 +378,35 @@
                 <br>
                 <div class="headers">ดัชนีการรับน้ำหนัก</div>
                 <br>
-                <p>A numeric code that tells you the maximum load carrying ability of each tyre.</p>
+                <p >A numeric code that tells you the maximum load carrying ability of each tyre.</p>
               </div>
               <div style="margin: 10px;">
                 <b-table sticky-header striped hover :items="items2"></b-table>
               </div>
             </div>
           </b-row>
-          <br>
+          <br id="order">
         </b-container>
-        <div id="order" style="background-color: #333333;color: white;">
+        <div style="background-color: #333333;color: white;">
           <div>
+            <br>
+            <br>
             <br>
             <img src="https://tyrepac.co.th/wp-content/uploads/2019/12/small-icon-white.png" alt="">
           </div>
+          <br>
           <div class="headers">
             การสั่ง
           </div>
+          <br>
+          <br>
           <b-container>
             <b-row>
               <div class="headers" style="text-align: left;margin-left: 40px;">
                   ก. การสั่งซื้อสินค้าของฉัน
               </div>
+              <br>
+              <br>
               <b-col>
                 <b-col>
                   <div style="background-color: white;color: black;margin: 10px;margin-bottom: 20px;box-shadow: 5px 10px 18px #888888;border-radius: 5px;height: 200px;text-align: left;">
@@ -449,7 +456,7 @@
                       <div class="headers" style="text-align: left;margin: 15px;">
                         สามารถขับรถไปยังสถานที่ติดตั้งโดยตรงดังที่แสดงไว้ได้หรือไม่?
                         </div>
-                        <p>ไม่ ยางจะถูกส่งเมื่อได้รับการสั่งซื้อและการชำระเงินออนไลน์</p>
+                        <p id="delivery">ไม่ ยางจะถูกส่งเมื่อได้รับการสั่งซื้อและการชำระเงินออนไลน์</p>
                     </div>
                   </div>
               </b-col>
@@ -457,7 +464,7 @@
             <br>
           </b-container>
         </div>
-        <div id="delivery" style="background-color: #f7f7f7;">
+        <div style="background-color: #f7f7f7;">
           <b-container>
             <b-row>
               <div>
@@ -517,7 +524,7 @@
                 <br>
                 <div style="background-color: white;color: black;box-shadow: 5px 10px 18px #888888;border-radius: 5px;height: 200px;text-align: left;">
                   <br>
-                  <div style="margin: 15px;">
+                  <div id="aftersales" style="margin: 15px;">
                     <div class="headers">ฉันสามารถติดตั้งยางวันเดียวกับวันที่สั่งซื้อได้หรือไม่?</div>
                     <div>วันติดตั้งจะนับจากวันที่คุณทำการสั่งซื้อ 3 วันทำการ หากต้องการติดตั้งแบบเร่งด่วน กรุณาติดต่อสายด่วนบริการลูกค้าเพื่อนัดหมาย</div>
                   </div>
@@ -527,7 +534,7 @@
             <br>
           </b-container>
         </div>
-        <div id="aftersales" style="background-color: white;color: black;box-shadow: 5px 10px 18px #888888;border-radius: 5px;height: 150px;" >
+        <div style="background-color: white;color: black;box-shadow: 5px 10px 18px #888888;border-radius: 5px;height: 150px;" >
           <b-container>
             <b-row>
               <b-col>

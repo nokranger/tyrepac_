@@ -12,6 +12,28 @@
           <br>
           <b-row>
             <b-col>
+              <!-- <div>พื้นที่</div>
+              <div>
+                <b-input list="area" type="search" v-model="filter" placeholder="พื้นที่"></b-input>
+              </div>
+              <div>
+                <datalist id="area" >
+                  <option v-for="(item, index) in items" :key="index" :value="item.address"></option>
+                </datalist>
+              </div> -->
+            </b-col>
+            <b-col>
+              <!-- <div>รหัสไปรษณีย์</div>
+              <div>
+                <b-input list="postal" type="search" v-model="filter" placeholder="รหัสไปรษณีย์"></b-input>
+              </div>
+              <div>
+                <datalist id="postal" >
+                  <option v-for="(item, index) in items" :key="index" :value="item.zipCode"></option>
+                </datalist>
+              </div> -->
+            </b-col>
+            <b-col>
               <div>พื้นที่</div>
               <div>
                 <b-input list="area" type="search" v-model="filter" placeholder="พื้นที่"></b-input>
@@ -21,21 +43,7 @@
                   <option v-for="(item, index) in items" :key="index" :value="item.address"></option>
                 </datalist>
               </div>
-            </b-col>
-            <b-col>
-              <div>รหัสไปรษณีย์</div>
-              <div>
-                <b-input list="postal" type="search" v-model="filter" placeholder="รหัสไปรษณีย์"></b-input>
-              </div>
-              <div>
-                <datalist id="postal" >
-                  <option v-for="(item, index) in items" :key="index" :value="item.zipCode"></option>
-                  <!-- <option v-for="(item, index) in items" :key="index" :value="item.zip"></option> -->
-                </datalist>
-              </div>
-            </b-col>
-            <b-col>
-              <div>ประเภทร้านติดตั้ง</div>
+              <!-- <div>ประเภทร้านติดตั้ง</div>
               <div>
                 <b-input list="type" type="search" v-model="filter" placeholder="ประเภทร้านติดตั้ง"></b-input>
               </div>
@@ -44,7 +52,7 @@
                   <option value="ร้านติดตั้งทั้งหมด"></option>
                   <option value="ร้านติดตั้งฟรี"></option>
                 </datalist>
-              </div>
+              </div> -->
             </b-col>
           </b-row>
           <br>
