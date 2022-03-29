@@ -9,19 +9,21 @@
           <br>
           <b-row>
             <b-col v-for="(item, index) in promotions" :key="index" cols="3" style="margin-top: 5px;">
-              <div style="border-radius: 5px;border: thin solid #E0E0E0;text-align: center;width: 100%;">
-                <div>
+              <div style="border-radius: 5px;border: thin solid #E0E0E0;text-align: left;height: 400px;">
+                <div style="width: 100%;;text-align: center;">
                   <a style="cursor: pointer;" v-on:click="buydetail (('/tyrebrand' + '/' + item.prodId + '/' + item.sku), ('https://www.tyrepac.co.th/wp-content/uploads/2020/02/tyre-toyo-proxes-sport-suv.jpg'), item.name, item.regularPrice, ('values' + index), item.type, item.sku, item)">
                     <img src="https://www.tyrepac.co.th/wp-content/uploads/2020/02/tyre-toyo-proxes-sport-suv.jpg" style="width: 150px;height: 150px;margin: 5px;" alt="">
                   </a>
                 </div>
-                <div style="margin-left: 5px;color: #005099;font-weight: bold;text-align: left;">{{item.name}}</div>
+                <div style="margin-left: 5px;color: #005099;font-weight: bold;height: 60px;">{{item.name}}</div>
                 <div style="margin-left: 5px;color: #005099;text-align: left;">฿{{ item.regularPrice}} ต่อเส้น</div>
-                <div style="border-top: thin solid #E0E0E0;margin-bottom: 4px;margin-left: 20px;margin-right: 20px;text-align: center;"></div>
-                <div style="border-top: thin solid #E0E0E0;margin-bottom: 4px;margin-left: 20px;margin-right: 20px;">
+                <!-- <div style="border-top: thin solid #E0E0E0;margin-bottom: 4px;margin-left: 20px;margin-right: 20px;text-align: center;"></div> -->
+                <div style="margin-bottom: 4px;margin-left: 20px;margin-right: 20px;">
+                  <br>
                   <div style="margin: 5px;width: 100%;">
                     <b-form-spinbutton :ref="'values' + index" id="demo-sb" :value="value2" min="4" max="100"></b-form-spinbutton>
                   </div>
+                  <br>
                   <div style="margin: 5px;text-align: left;">
                     <b-button variant="primary" v-on:click="buycart (('/tyrebrand' + '/' + item.prodId + '/' + item.sku), ('https://www.tyrepac.co.th/wp-content/uploads/2020/02/tyre-toyo-proxes-sport-suv.jpg'), item.prodId, item.name, item.regularPrice, ('values' + index), item.type, item.sku, item)">สั่งซื้อเลย</b-button>
                     <i class="fas fa-shopping-cart" style="display: inline-block;margin-left: 10px;font-size: 20px;cursor: pointer;color: #005099;" v-on:click="addtocart (('/tyrebrand' + '/' + item.prodId + '/' + item.sku), ('https://www.tyrepac.co.th/wp-content/uploads/2020/02/tyre-toyo-proxes-sport-suv.jpg'), item.prodId, item.name, item.regularPrice, ('values' + index), item.type, item.sku, item)"></i>
