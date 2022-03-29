@@ -4,6 +4,41 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
     </div> -->
+    <div v-if="cookiewebs === 1">
+      <!-- <div class="cookie-consent-banner">
+        <div class="cookie-consent-banner__inner">
+          <div class="cookie-consent-banner__copy">
+            <div class="cookie-consent-banner__header">This website uses cookies and third party services</div>
+            <div class="cookie-consent-banner__description">We use cookies to improve your experience on our website, to personalise content and ads, to provide social media features and to analyse our traffic. We share information about your use of our website with our social media, advertising and analytics partners, who may combine it with other information that you have provided to them or that they have collected from your use of their services. Please click [Accept All Cookies] if you agree with the use of all of our cookies.</div>
+          </div>
+
+          <div class="cookie-consent-banner__actions">
+            <a style="cursor: pointer;" class="cookie-consent-banner__cta" v-on:click="cookieweb ()">
+              Accept All Cookies
+            </a>
+          </div>
+        </div>
+      </div> -->
+    </div>
+    <div v-else-if="cookiewebs === 0">
+      <div class="cookie-consent-banner">
+        <div class="cookie-consent-banner__inner">
+          <div class="cookie-consent-banner__copy">
+            <div class="cookie-consent-banner__header">This website uses cookies and third party services</div>
+            <div class="cookie-consent-banner__description">We use cookies to improve your experience on our website, to personalise content and ads, to provide social media features and to analyse our traffic. We share information about your use of our website with our social media, advertising and analytics partners, who may combine it with other information that you have provided to them or that they have collected from your use of their services. Please click [Accept All Cookies] if you agree with the use of all of our cookies.</div>
+          </div>
+
+          <div class="cookie-consent-banner__actions">
+            <a style="cursor: pointer;" class="cookie-consent-banner__cta" v-on:click="cookieweb ()">
+              Accept All Cookies
+            </a>
+            <!-- <a href="#" class="cookie-consent-banner__cta cookie-consent-banner__cta--secondary">
+              Decline
+            </a> -->
+          </div>
+        </div>
+      </div>
+    </div>
     <app-header id="header"></app-header>
     <router-view/>
     <!-- <back-to-top bottom="50px" right="50px">
@@ -25,12 +60,30 @@ export default {
     'app-footer3': footer3
   },
   data () {
-    return {}
+    return {
+      cookiewebs: 0
+    }
   },
   mounted () {
     window.addEventListener('scroll', this.scrollFunction)
+    if (JSON.parse(localStorage.getItem('cookie')) === true) {
+      console.log('truecookie')
+      this.cookiewebs = 1
+    } else {
+      this.cookiewebs = 0
+    }
   },
   methods: {
+    cookieweb () {
+      console.log('cookie')
+      localStorage.setItem('cookie', true)
+      if (JSON.parse(localStorage.getItem('cookie')) === true) {
+        console.log('truecookie')
+        this.cookiewebs = 1
+      } else {
+        this.cookiewebs = 0
+      }
+    },
     scrollFunction () {
       console.log('scroll')
       var mybutton = document.getElementById('mybtn')
@@ -97,5 +150,81 @@ export default {
 }
 #mybtn:hover {
   background-color: skyblue;
+}
+.cookie-consent-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 2147483645;
+  box-sizing: border-box;
+  width: 100%;
+
+  background-color: #F1F6F4;
+}
+
+.cookie-consent-banner__inner {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 32px 0;
+}
+
+.cookie-consent-banner__copy {
+  margin-bottom: 16px;
+}
+
+.cookie-consent-banner__actions {
+}
+
+.cookie-consent-banner__header {
+  margin-bottom: 8px;
+  font-family: "CeraPRO-Bold", sans-serif, arial;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.cookie-consent-banner__description {
+  font-family: "CeraPRO-Regular", sans-serif, arial;
+  font-weight: normal;
+  color: #838F93;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.cookie-consent-banner__cta {
+  box-sizing: border-box;
+  display: inline-block;
+  min-width: 164px;
+  padding: 11px 13px;
+  border-radius: 2px;
+  background-color: #2CE080;
+  color: #FFF;
+  text-decoration: none;
+  text-align: center;
+  font-family: "CeraPRO-Regular", sans-serif, arial;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.cookie-consent-banner__cta--secondary {
+  padding: 9px 13px;
+  border: 2px solid #3A4649;
+  background-color: transparent;
+  color: #2CE080;
+}
+
+.cookie-consent-banner__cta:hover {
+  background-color: #20BA68;
+}
+
+.cookie-consent-banner__cta--secondary:hover {
+  border-color: #838F93;
+  background-color: transparent;
+  color: #22C870;
+}
+
+.cookie-consent-banner__cta:last-child {
+  margin-left: 16px;
 }
 </style>
