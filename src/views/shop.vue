@@ -326,6 +326,7 @@ export default {
             // console.log(res)
             // console.log('valuefilters', res.data.data.products)
             this.brand = res.data.data.products
+            this.pageItem = this.brand
           })
         } else if (split[0] === 'height') {
           console.log('isheight')
@@ -336,6 +337,7 @@ export default {
             // console.log(res)
             // console.log('valuefilters', res.data.data.products)
             this.brand = res.data.data.products
+            this.pageItem = this.brand
           })
         } else if (split[0] === 'diameter') {
           console.log('isdiameter')
@@ -347,6 +349,7 @@ export default {
             // console.log(res)
             // console.log('valuefilters', res.data.data.products)
             this.brand = res.data.data.products
+            this.pageItem = this.brand
           })
         } else if (split[0] === 'type') {
           // console.log('istypess', decodeURIComponent(split[1]))
@@ -359,6 +362,7 @@ export default {
             // console.log(res)
             // console.log('valuefilters', res.data.data.products)
             this.brand = res.data.data.products
+            this.pageItem = this.brand
           })
         } else if (split[0] === 'brand') {
           console.log('brands')
@@ -374,6 +378,7 @@ export default {
             // console.log('detailb', brands)
             // console.log('detailr', res.data.data.products)
             this.brand = brands
+            this.pageItem = this.brand
           })
         }
       } else {
@@ -409,12 +414,14 @@ export default {
           return b[value.toString()] - a[value.toString()]
         })
         this.brand = this.sortaa
+        this.pageItem = this.brand
         console.log('regu', this.sortaa)
       } else if (value.toString() === 'name') {
         this.sortaa.sort((a, b) => {
           return a.sku > b.sku ? 1 : b.sku > a.sku ? -1 : 0
         })
         this.brand = this.sortaa
+        this.pageItem = this.brand
         console.log('regu', this.sortaa)
       }
     },
@@ -439,6 +446,7 @@ export default {
         console.log(res)
         // const brandtest = res.data.data.products
         this.brand = res.data.data.products
+        this.pageItem = this.brand
       })
       if (split.length > 1) {
         split = split[1].split('=')
@@ -451,6 +459,7 @@ export default {
           })
           console.log('widthfilter', brands)
           this.brand = brands
+          this.pageItem = this.brand
         }
       } else {
         config = {
@@ -464,6 +473,7 @@ export default {
         await axios(config).then((res) => {
           console.log(res)
           this.brand = res.data.data.products
+          this.pageItem = this.brand
         })
       }
     },
@@ -483,6 +493,7 @@ export default {
         console.log(res)
         // const brandtest = res.data.data.products
         this.brand = res.data.data.products
+        this.pageItem = this.brand
       })
       if (split.length > 1) {
         split = split[1].split('=')
@@ -495,6 +506,7 @@ export default {
           })
           console.log('widthfilter', brands)
           this.brand = brands
+          this.pageItem = this.brand
         }
       } else {
         config = {
@@ -508,6 +520,7 @@ export default {
         await axios(config).then((res) => {
           console.log(res)
           this.brand = res.data.data.products
+          this.pageItem = this.brand
         })
       }
     },
@@ -527,6 +540,7 @@ export default {
         console.log(res)
         // const brandtest = res.data.data.products
         this.brand = res.data.data.products
+        this.pageItem = this.brand
       })
       if (split.length > 1) {
         split = split[1].split('=')
@@ -539,6 +553,7 @@ export default {
           })
           console.log('heightfilter', brands)
           this.brand = brands
+          this.pageItem = this.brand
         }
       } else {
         config = {
@@ -552,6 +567,7 @@ export default {
         await axios(config).then((res) => {
           console.log(res)
           this.brand = res.data.data.products
+          this.pageItem = this.brand
         })
       }
     },
@@ -571,6 +587,7 @@ export default {
         console.log(res)
         // const brandtest = res.data.data.products
         this.brand = res.data.data.products
+        this.pageItem = this.brand
       })
       if (split.length > 1) {
         split = split[1].split('=')
@@ -583,6 +600,7 @@ export default {
           })
           console.log('diameterfilter', brands)
           this.brand = brands
+          this.pageItem = this.brand
         }
       } else {
         config = {
@@ -596,6 +614,7 @@ export default {
         await axios(config).then((res) => {
           console.log(res)
           this.brand = res.data.data.products
+          this.pageItem = this.brand
         })
       }
     },
@@ -618,6 +637,7 @@ export default {
         console.log(res)
         // const brandtest = res.data.data.products
         this.brand = res.data.data.products
+        this.pageItem = this.brand
       })
       if (split.length > 1) {
         split = split[1].split('=')
@@ -630,6 +650,7 @@ export default {
           })
           console.log('widthfilter', brands)
           this.brand = brands
+          this.pageItem = this.brand
         }
       } else {
         config = {
@@ -644,6 +665,7 @@ export default {
         await axios(config).then((res) => {
           console.log(res)
           this.brand = res.data.data.products
+          this.pageItem = this.brand
         })
       }
     },
