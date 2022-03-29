@@ -172,9 +172,6 @@ export default {
   margin-bottom: 16px;
 }
 
-.cookie-consent-banner__actions {
-}
-
 .cookie-consent-banner__header {
   margin-bottom: 8px;
   font-family: "CeraPRO-Bold", sans-serif, arial;
