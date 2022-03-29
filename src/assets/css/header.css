@@ -136,7 +136,7 @@ b::after {
   transition: width .3s;
 }
 b:hover::after{
-  width: 100%;
+  /* width: 100%; */
 }
 a,h4 {
   font-family: 'Kanit', sans-serif;
