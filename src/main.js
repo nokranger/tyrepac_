@@ -9,6 +9,7 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import vuePhotoZoomPro from 'vue-photo-zoom-pro'
 import 'vue-photo-zoom-pro/dist/style/vue-photo-zoom-pro.css'
 import VueMeta from 'vue-meta'
+import JwPagination from 'jw-vue-pagination'
 // import axios from 'axios'
 
 import { faHatWizard } from '@fortawesome/free-solid-svg-icons'
@@ -17,6 +18,7 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 Vue.config.productionTip = false
 Vue.use(BootstrapVue)
+Vue.component('jw-pagination', JwPagination)
 Vue.use(VueMeta, {
   keyName: 'metaInfo',
   attribute: 'data-vue-meta',

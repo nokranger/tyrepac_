@@ -187,17 +187,18 @@
                     <!-- {{brand}} -->
                     <b-col cols="3" v-for="(brandd, index) in brand" :key="index" style="margin-bottom: 5px;">
                       <!-- {{brandd.prodId}} -->
-                      <div style="border-radius: 5px;border: thin solid #E0E0E0;text-align: left;">
+                      <div style="border-radius: 5px;border: thin solid #E0E0E0;text-align: left;height: 420px;">
                         <div style="width: 100%;">
                           <a style="cursor: pointer;" v-on:click="buydetail (('/tyrebrand' + '/' + brandd.prodId + '/' + brandd.sku), ('https://www.tyrepac.co.th/wp-content/uploads/2020/02/tyre-toyo-proxes-sport-suv.jpg'), brandd.name, brandd.regularPrice, ('values' + index), brandd.type, brandd.sku, brandd)">
                             <img src="https://www.tyrepac.co.th/wp-content/uploads/2020/02/tyre-toyo-proxes-sport-suv.jpg" style="width: 100%;height: auto;margin: 5px;" alt="">
                           </a>
                         </div>
-                        <div style="margin-left: 5px;color: #005099;font-weight: bold;">{{brandd.name}}</div>
+                        <div style="margin-left: 5px;color: #005099;font-weight: bold;height: 70px;">{{brandd.name}}</div>
                         <div style="margin-left: 5px;color: #005099;" id="currency">฿{{ brandd.regularPrice}} ต่อเส้น</div>
                         <div style="margin: 5px;">
                           <b-form-spinbutton :ref="'values' + index" id="demo-sb" :value="value2" min="4" max="100"></b-form-spinbutton>
                         </div>
+                        <br>
                         <div style="margin: 5px;">
                           <b-button variant="primary" v-on:click="buycart (('/tyrebrand' + '/' + brandd.prodId + '/' + brandd.sku), ('https://www.tyrepac.co.th/wp-content/uploads/2020/02/tyre-toyo-proxes-sport-suv.jpg'), brandd.prodId, brandd.name, brandd.regularPrice, ('values' + index), brandd.type, brandd.sku, brandd)">สั่งซื้อเลย</b-button>
                           <i class="fas fa-shopping-cart" style="display: inline-block;margin-left: 10px;font-size: 20px;cursor: pointer;color: #005099;" v-on:click="addtocart (('/tyrebrand' + '/' + brandd.prodId + '/' + brandd.sku), ('https://www.tyrepac.co.th/wp-content/uploads/2020/02/tyre-toyo-proxes-sport-suv.jpg'), brandd.prodId, brandd.name, brandd.regularPrice, ('values' + index), brandd.type, brandd.sku, brandd)"></i>
@@ -205,6 +206,9 @@
                       </div>
                     </b-col>
                   </b-row>
+                  <div style="margin: 15px;">
+                    <jw-pagination :items="pageItem" @changePage="onChangePage"></jw-pagination>
+                  </div>
                 </b-container>
               </div>
             </div>
@@ -274,7 +278,9 @@ export default {
       checkcarts: [],
       checkcartz: [],
       minAngle: 2250,
-      maxAngle: 21100
+      maxAngle: 21100,
+      pageOfitems: [],
+      pageItem: ''
     }
   },
   metaInfo: {
@@ -294,6 +300,10 @@ export default {
     })
   },
   methods: {
+    async onChangePage (pageOfitems) {
+      console.log('pagination', pageOfitems)
+      this.brand = pageOfitems
+    },
     async product () {
       console.log('currency', document.querySelectorAll('currency'))
       var configsearch = {
@@ -314,8 +324,8 @@ export default {
           }
           axios(configsearch).then((res) => {
             // console.log(res)
-            // console.log('valuefilters', res.data.data.products.slice(0, 100))
-            this.brand = res.data.data.products.slice(0, 100)
+            // console.log('valuefilters', res.data.data.products)
+            this.brand = res.data.data.products
           })
         } else if (split[0] === 'height') {
           console.log('isheight')
@@ -324,8 +334,8 @@ export default {
           }
           axios(configsearch).then((res) => {
             // console.log(res)
-            // console.log('valuefilters', res.data.data.products.slice(0, 100))
-            this.brand = res.data.data.products.slice(0, 100)
+            // console.log('valuefilters', res.data.data.products)
+            this.brand = res.data.data.products
           })
         } else if (split[0] === 'diameter') {
           console.log('isdiameter')
@@ -335,8 +345,8 @@ export default {
           }
           axios(configsearch).then((res) => {
             // console.log(res)
-            // console.log('valuefilters', res.data.data.products.slice(0, 100))
-            this.brand = res.data.data.products.slice(0, 100)
+            // console.log('valuefilters', res.data.data.products)
+            this.brand = res.data.data.products
           })
         } else if (split[0] === 'type') {
           // console.log('istypess', decodeURIComponent(split[1]))
@@ -347,8 +357,8 @@ export default {
           // console.log('valuefilters', configsearch)
           axios(configsearch).then((res) => {
             // console.log(res)
-            // console.log('valuefilters', res.data.data.products.slice(0, 100))
-            this.brand = res.data.data.products.slice(0, 100)
+            // console.log('valuefilters', res.data.data.products)
+            this.brand = res.data.data.products
           })
         } else if (split[0] === 'brand') {
           console.log('brands')
@@ -363,7 +373,7 @@ export default {
             })
             // console.log('detailb', brands)
             // console.log('detailr', res.data.data.products)
-            this.brand = brands.slice(0, 100)
+            this.brand = brands
           })
         }
       } else {
@@ -379,7 +389,8 @@ export default {
         // console.log('all null')
         axios(config).then(res => {
           // console.log(res.data.data)
-          this.brand = res.data.data.products.slice(0, 100)
+          this.brand = res.data.data.products
+          this.pageItem = this.brand
           console.log('brands', res.data.data.products)
           const vvv = this.brand.find((post, index) => {
             if (post.prodId === 'TY001') {
@@ -439,7 +450,7 @@ export default {
             return post.brandId === split[1]
           })
           console.log('widthfilter', brands)
-          this.brand = brands.slice(0, 100)
+          this.brand = brands
         }
       } else {
         config = {
@@ -483,7 +494,7 @@ export default {
             return post.brandId === split[1]
           })
           console.log('widthfilter', brands)
-          this.brand = brands.slice(0, 100)
+          this.brand = brands
         }
       } else {
         config = {
@@ -527,7 +538,7 @@ export default {
             return post.brandId === split[1]
           })
           console.log('heightfilter', brands)
-          this.brand = brands.slice(0, 100)
+          this.brand = brands
         }
       } else {
         config = {
@@ -571,7 +582,7 @@ export default {
             return post.brandId === split[1]
           })
           console.log('diameterfilter', brands)
-          this.brand = brands.slice(0, 100)
+          this.brand = brands
         }
       } else {
         config = {
@@ -618,7 +629,7 @@ export default {
             return post.brandId === split[1]
           })
           console.log('widthfilter', brands)
-          this.brand = brands.slice(0, 100)
+          this.brand = brands
         }
       } else {
         config = {
