@@ -220,16 +220,6 @@
 </template>
 <script>
 // import menu from '../components/brand/menu.vue'
-import toyo from '../assets/json/tyre/toyo.json'
-import bridgestone from '../assets/json/tyre/bridgestone.json'
-import continantal from '../assets/json/tyre/continantal.json'
-import dunlop from '../assets/json/tyre/dunlop.json'
-import goodyear from '../assets/json/tyre/goodyear.json'
-import michelin from '../assets/json/tyre/michelin.json'
-import nankang from '../assets/json/tyre/nankang.json'
-import nitto from '../assets/json/tyre/nitto.json'
-import yokohama from '../assets/json/tyre/yokohama.json'
-// import recommend from '../components/home/recommend.vue'
 import apiURL from '../assets/js/connect.js'
 import axios from 'axios'
 export default {
@@ -240,15 +230,6 @@ export default {
     return {
       apiURL: apiURL,
       newArray: [],
-      toyo: toyo,
-      bridgestone: bridgestone,
-      continantal: continantal,
-      dunlop: dunlop,
-      goodyear: goodyear,
-      michelin: michelin,
-      nankang: nankang,
-      nitto: nitto,
-      yokohama: yokohama,
       brands: '',
       brand: '',
       aa: '',
