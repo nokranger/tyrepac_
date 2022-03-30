@@ -88,14 +88,20 @@
                       <br />
                     </div>
                     <div>
-                      <label style="margin-left: 5px;" for="range-2">กรองตามราคา</label>
-                      <div class='range-slider' style="margin-top: -60px;width: 100%;">
-                        <input type="range" min="2250" max="21100" step="1" v-model="sliderMin">
-                        <input type="range" min="2250" max="21100" step="1" v-model="sliderMax">
+                      <div>
+                        <label style="margin-left: 5px;" for="range-2">กรองตามราคา</label>
+                        <div class='range-slider' style="margin-top: -60px;width: 100%;">
+                          <input type="range" min="2250" max="21100" step="1" v-model="sliderMin">
+                          <input type="range" min="2250" max="21100" step="1" v-model="sliderMax">
+                        </div>
+                        <div style="margin: 10px;">
+                          <div style="display: inline-block;">
+                            <b-button variant="primary" v-on:click="filterprice(sliderMin, sliderMax)">กรอง</b-button>
+                          </div>
+                          <div style="margin-left: 5px;display: inline-block;" class="mt-2">ราคา ฿{{ sliderMin }} - ฿{{ sliderMax }}</div>
+                        </div>
+                        <br />
                       </div>
-                      <div style="margin-left: 5px;" class="mt-2">ราคา {{ sliderMin }} - {{ sliderMax }}</div>
-                      <b-button variant="primary" v-on:click="filterprice(sliderMin, sliderMax)">กรอง</b-button>
-                      <br />
                     </div>
                   </div>
                 </div>

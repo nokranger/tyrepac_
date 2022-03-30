@@ -47,8 +47,10 @@
         <b-container>
           <b-row>
             <b-col>
-              <div style="background-color: #005099; color: whitesmoke;width: 250px;height: 150px;box-shadow: 5px 10px 18px #888888;border-radius: 5px;">
+              <div style="background-color: #005099; color: whitesmoke;width: 250px;height: 250px;box-shadow: 5px 10px 18px #888888;border-radius: 5px;">
                 <br>
+                <!-- <img src="" height="100" width="100" alt=""> -->
+                <div style="width: 100px;height: 100px;"></div>
                 <div style="font-weight: bold;font-size: 20px;">ยางรถยนต์</div>
                 <div>
                   การเลือกยางรถยนต์ การเปลี่ยนยาง ความรู้เบื้องต้นยางรถยนต์
@@ -56,15 +58,17 @@
               </div>
             </b-col>
             <b-col>
-              <div style="background-color: #282828; color: whitesmoke;width: 250px;height: 150px;box-shadow: 5px 10px 18px #888888;border-radius: 5px;">
+              <div style="background-color: #282828; color: whitesmoke;width: 250px;height: 250px;box-shadow: 5px 10px 18px #888888;border-radius: 5px;">
                 <br>
+                <img src="https://www.tyrepac.co.th/wp-content/uploads/2019/12/icon-order.png" height="100" width="100" alt="">
                 <div style="font-weight: bold;font-size: 20px;">การสั่งซื้อสินค้า</div>
                 <div>สั่งซื้อสินค้า ติดตามการสั่งซื้อ การชำระเงิน</div>
               </div>
             </b-col>
             <b-col>
-              <div style="background-color: #005099; color: whitesmoke;width: 250px;height: 150px;box-shadow: 5px 10px 18px #888888;border-radius: 5px;">
+              <div style="background-color: #005099; color: whitesmoke;width: 250px;height: 250px;box-shadow: 5px 10px 18px #888888;border-radius: 5px;">
                 <br>
+                <div style="width: 100px;height: 100px;"></div>
                 <div style="font-weight: bold;font-size: 20px;">การจัดส่งสินค้าและติดตั้ง</div>
                 <div>
                   การเปลี่ยนแปลงการจัดส่ง ระยะเวลาในการจัดส่ง การติดตั้ง
@@ -72,8 +76,9 @@
               </div>
             </b-col>
             <b-col>
-              <div style="background-color: #282828; color: whitesmoke;width: 250px;height: 150px;box-shadow: 5px 10px 18px #888888;border-radius: 5px;">
+              <div style="background-color: #282828; color: whitesmoke;width: 250px;height: 250px;box-shadow: 5px 10px 18px #888888;border-radius: 5px;">
                 <br>
+                <img src="https://www.tyrepac.co.th/wp-content/uploads/2019/12/icon-support.png" width="100" height="100" alt="">
                 <div style="font-weight: bold;font-size: 25px;">บริการหลังการขาย</div>
                 <div>
                   การยกเลิกคำสั่งซื้อ นโยบายการคืนสินค้า การรับประกันสินค้า
@@ -133,7 +138,7 @@
               <b-col>
                 <div style="margin: 15px;text-align: left;">
                   <div style="font-weight: bold;font-size: 20px;">A. การเลือกยางรถยนต์</div>
-                  <div>ขนาดยางรถยนต์ของฉันคือเท่าใด ?</div>
+                  <div style="font-weight: bold;font-size: 20px;">ขนาดยางรถยนต์ของฉันคือเท่าใด ?</div>
                   <div>
                     สามารถอ่านขนาดของยางรถยนต์ได้ที่แก้มยางรถยนต์ของคุณ
                     ซึ่งจะเป็นชุดหมายเลขเช่นนี้ 205/55R16

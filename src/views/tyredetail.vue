@@ -358,21 +358,6 @@ export default {
         // location.replace('/checkout')
         location.reload()
       }
-    },
-    getcode (code) {
-      // console.log('toyo', this.toyo)
-      // console.log('codefilter', code)
-      return this.toyo.filter(
-        (toyo) => {
-          // console.log('toyofilter', toyo.Name)
-          return code === toyo.Name
-        }
-      )
-    },
-    getObjectByValue (array, key, value) {
-      return array.filter(function (object) {
-        return object[key] === value
-      })
     }
   }
 }
