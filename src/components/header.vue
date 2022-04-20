@@ -59,27 +59,27 @@
             </b-nav-item-dropdown>
           </div>
             <b-nav-item href="/installer"
-              ><b style="font-size: 16px; font-weight: normal"
+              ><b class="installer"
                 >ศูนย์บริการติดตั้ง</b
               ></b-nav-item
             >
             <b-nav-item href="/qa"
-              ><b style="font-size: 16px; font-weight: normal"
+              ><b class="installer"
                 >คำถามที่พบบ่อย</b
               ></b-nav-item
             >
             <b-nav-item href="/register-installer"
-              ><b style="font-size: 16px; font-weight: normal"
+              ><b class="installer"
                 >สมัครร้านติดตั้ง</b
               ></b-nav-item
             >
             <b-nav-item href="/contact"
-              ><b style="font-size: 16px; font-weight: normal"
+              ><b class="installer"
                 >ติดต่อเรา</b
               ></b-nav-item
             >
             <b-nav-item href="/shop"
-              ><b style="font-size: 16px; font-weight: normal"
+              ><b class="installer"
                 >สั่งซื้อเลย</b
               ></b-nav-item
             >
@@ -104,14 +104,14 @@
               <b-dropdown-item style="display: inline-block;" href="/cart">
                 <div>
                   <div>
-                    <i class="fas fa-shopping-cart"></i><div style="display: inline-block;margin-left: 5px;">Cart View</div>
+                    <i class="fas fa-shopping-cart"></i><div class="checkout">Cart View</div>
                   </div>
                 </div>
               </b-dropdown-item>
               <b-dropdown-item style="display: inline-block;" href="/checkout">
                 <div>
                   <div>
-                    <i class="fa-solid fa-check-to-slot"></i><div style="display: inline-block;margin-left: 5px;">Check out</div>
+                    <i class="fa-solid fa-check-to-slot"></i><div class="checkout">Check out</div>
                   </div>
                 </div>
               </b-dropdown-item>

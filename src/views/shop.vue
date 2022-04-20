@@ -6,8 +6,8 @@
         <b-row>
           <b-col cols="3">
               <div>
-                <div style="border-radius: 5px;border: thin solid #E0E0E0;margin: 5px;">
-                  <div style="text-align: left; font-weight: bold;margin: 5px;">
+                <div class="bordermenu">
+                  <div class="alignmenu">
                     <div style="margin-left: 5px;">กรองตามความกว้าง</div>
                     <div>
                       <b-input list="width" placeholder="ทุกๆ ความกว้าง" v-model="width" v-on:change="filterwidth (width)"></b-input>
@@ -108,49 +108,49 @@
                 <br />
                 <div style="border-radius: 5px; border: thin solid #e0e0e0">
                   <div style="font-weight: bold;font-size: 20px;">ยางรถยนต์</div>
-                  <div style="border-radius: 5px; border: thin solid #e0e0e0; margin: 5px">
+                  <div class="menutyre">
                     <a href="/shop?brand=8">
-                      <img src="https://i.imgur.com/dFBbXVM.png" alt="" style="width:100%" />
+                      <img src="https://i.imgur.com/dFBbXVM.png" alt="" width="100%" />
                     </a>
                   </div>
-                  <div style="border-radius: 5px; border: thin solid #e0e0e0; margin: 5px">
+                  <div class="menutyre">
                     <a href="/shop?brand=6">
-                      <img src="https://i.imgur.com/9JpV8e2.png" alt="" style="width:100%" />
+                      <img src="https://i.imgur.com/9JpV8e2.png" alt="" width="100%" />
                     </a>
                   </div>
-                  <div style="border-radius: 5px; border: thin solid #e0e0e0; margin: 5px">
+                  <div class="menutyre">
                     <a href="/shop?brand=7">
-                      <img src="https://i.imgur.com/yDA4cCy.png" alt="" style="width:100%" />
+                      <img src="https://i.imgur.com/yDA4cCy.png" alt="" width="100%" />
                     </a>
                   </div>
-                  <div style="border-radius: 5px; border: thin solid #e0e0e0; margin: 5px">
+                  <div class="menutyre">
                     <a href="/shop?brand=1">
-                      <img src="https://i.imgur.com/39bMB69.png" alt="" style="width:100%" />
+                      <img src="https://i.imgur.com/39bMB69.png" alt="" width="100%" />
                     </a>
                   </div>
-                  <div style="border-radius: 5px; border: thin solid #e0e0e0; margin: 5px">
+                  <div class="menutyre">
                     <a href="/shop?brand=002">
-                      <img src="https://i.imgur.com/iBpm6uT.png" alt="" style="width:100%" />
+                      <img src="https://i.imgur.com/iBpm6uT.png" alt="" width="100%" />
                     </a>
                   </div>
-                  <div style="border-radius: 5px; border: thin solid #e0e0e0; margin: 5px">
+                  <div class="menutyre">
                     <a href="/shop?brand=3">
-                      <img src="https://i.imgur.com/yvhHUsj.png" alt="" style="width:100%" />
+                      <img src="https://i.imgur.com/yvhHUsj.png" alt="" width="100%" />
                     </a>
                   </div>
-                  <div style="border-radius: 5px; border: thin solid #e0e0e0; margin: 5px">
+                  <div class="menutyre">
                     <a href="/shop?brand=4">
-                      <img src="https://i.imgur.com/TgbxVn2.png" alt="" style="width:100%" />
+                      <img src="https://i.imgur.com/TgbxVn2.png" alt="" width="100%" />
                     </a>
                   </div>
-                  <div style="border-radius: 5px; border: thin solid #e0e0e0; margin: 5px">
+                  <div class="menutyre">
                     <a href="/shop?brand=5">
-                      <img src="https://i.imgur.com/EByvNfm.png" alt="" style="width:100%" />
+                      <img src="https://i.imgur.com/EByvNfm.png" alt="" width="100%" />
                     </a>
                   </div>
-                  <div style="border-radius: 5px; border: thin solid #e0e0e0; margin: 5px">
+                  <div class="menutyre">
                     <a href="/shop?brand=9">
-                      <img src="https://i.imgur.com/iiTZGZR.png" alt="" style="width:100%" />
+                      <img src="https://i.imgur.com/iiTZGZR.png" alt="" width="100%" />
                     </a>
                   </div>
                 </div>
@@ -193,21 +193,21 @@
                     <!-- {{brand}} -->
                     <b-col cols="3" v-for="(brandd, index) in brand" :key="index" style="margin-bottom: 5px;">
                       <!-- {{brandd.prodId}} -->
-                      <div style="border-radius: 5px;border: thin solid #E0E0E0;text-align: left;height: 420px;">
+                      <div class="bordertyre">
                         <div style="width: 100%;">
-                          <a style="cursor: pointer;" v-on:click="buydetail (('/tyrebrand' + '/' + brandd.prodId + '/' + brandd.sku), ('https://www.tyrepac.co.th/wp-content/uploads/2020/02/tyre-toyo-proxes-sport-suv.jpg'), brandd.name, brandd.regularPrice, ('values' + index), brandd.type, brandd.sku, brandd)">
-                            <img src="https://www.tyrepac.co.th/wp-content/uploads/2020/02/tyre-toyo-proxes-sport-suv.jpg" style="width: 100%;height: auto;margin: 5px;" alt="" loading="lazy">
+                          <a v-on:click="buydetail (('/tyrebrand' + '/' + brandd.prodId + '/' + brandd.sku), ('https://www.tyrepac.co.th/wp-content/uploads/2020/02/tyre-toyo-proxes-sport-suv.jpg'), brandd.name, brandd.regularPrice, ('values' + index), brandd.type, brandd.sku, brandd)">
+                            <img src="https://www.tyrepac.co.th/wp-content/uploads/2020/02/tyre-toyo-proxes-sport-suv.jpg" style="margin: 5px;" width="100%" height="auto" alt="" loading="lazy">
                           </a>
                         </div>
-                        <div style="margin-left: 5px;color: #005099;font-weight: bold;height: 70px;">{{brandd.name}}</div>
-                        <div style="margin-left: 5px;color: #005099;" id="currency">฿{{ brandd.regularPrice}} ต่อเส้น</div>
+                        <div class="nametyre">{{brandd.name}}</div>
+                        <div class="regularprice" id="currency">฿{{ brandd.regularPrice}} ต่อเส้น</div>
                         <div style="margin: 5px;">
                           <b-form-spinbutton :ref="'values' + index" id="demo-sb" :value="value2" min="4" max="100"></b-form-spinbutton>
                         </div>
                         <br>
                         <div style="margin: 5px;">
                           <b-button variant="primary" v-on:click="buycart (('/tyrebrand' + '/' + brandd.prodId + '/' + brandd.sku), ('https://www.tyrepac.co.th/wp-content/uploads/2020/02/tyre-toyo-proxes-sport-suv.jpg'), brandd.prodId, brandd.name, brandd.regularPrice, ('values' + index), brandd.type, brandd.sku, brandd)">สั่งซื้อเลย</b-button>
-                          <i class="fas fa-shopping-cart" style="display: inline-block;margin-left: 10px;font-size: 20px;cursor: pointer;color: #005099;" v-on:click="addtocart (('/tyrebrand' + '/' + brandd.prodId + '/' + brandd.sku), ('https://www.tyrepac.co.th/wp-content/uploads/2020/02/tyre-toyo-proxes-sport-suv.jpg'), brandd.prodId, brandd.name, brandd.regularPrice, ('values' + index), brandd.type, brandd.sku, brandd)"></i>
+                          <i class="fas fa-shopping-cart icontyre" v-on:click="addtocart (('/tyrebrand' + '/' + brandd.prodId + '/' + brandd.sku), ('https://www.tyrepac.co.th/wp-content/uploads/2020/02/tyre-toyo-proxes-sport-suv.jpg'), brandd.prodId, brandd.name, brandd.regularPrice, ('values' + index), brandd.type, brandd.sku, brandd)"></i>
                         </div>
                       </div>
                     </b-col>
@@ -228,8 +228,10 @@
 // import menu from '../components/brand/menu.vue'
 import apiURL from '../assets/js/connect.js'
 import axios from 'axios'
+// import LazyText from 'vue-lazyload-text-dev/src/components/lazy-text'
 export default {
   components: {
+    // LazyText
     // 'app-recommend': recommend
   },
   data () {
@@ -836,82 +838,5 @@ export default {
   }
 }
 </script>
-<style scoped>
-.range-slider {
-  width: 300px;
-  margin: auto;
-  text-align: center;
-  position: relative;
-  height: 6em;
-}
-
-.range-slider input[type=range] {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-}
-
-input[type=number] {
-  border: 1px solid #ddd;
-  text-align: center;
-  font-size: 1.6em;
-  -moz-appearance: textfield;
-}
-
-input[type=number]::-webkit-outer-spin-button,
-input[type=number]::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-}
-
-input[type=number]:invalid,
-input[type=number]:out-of-range {
-  border: 2px solid #ff6347;
-}
-
-input[type=range] {
-  -webkit-appearance: none;
-  width: 100%;
-}
-
-input[type=range]:focus {
-  outline: none;
-}
-
-input[type=range]:focus::-webkit-slider-runnable-track {
-  background: #2497e3;
-}
-
-input[type=range]:focus::-ms-fill-lower {
-  background: #2497e3;
-}
-
-input[type=range]:focus::-ms-fill-upper {
-  background: #2497e3;
-}
-
-input[type=range]::-webkit-slider-runnable-track {
-  width: 100%;
-  height: 5px;
-  cursor: pointer;
-  animation: 0.2s;
-  background: #2497e3;
-  border-radius: 1px;
-  box-shadow: none;
-  border: 0;
-}
-
-input[type=range]::-webkit-slider-thumb {
-  z-index: 2;
-  position: relative;
-  box-shadow: 0px 0px 0px #000;
-  border: 1px solid #2497e3;
-  height: 18px;
-  width: 18px;
-  border-radius: 25px;
-  background: #a1d0ff;
-  cursor: pointer;
-  -webkit-appearance: none;
-  margin-top: -7px;
-}
-
+<style scoped src="@/assets/css/shop.css">
 </style>

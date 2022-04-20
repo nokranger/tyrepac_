@@ -203,3 +203,9 @@ a,h4 {
 .navbar-dark .navbar-nav .nav-link{
   color:black!important
 }
+.installer {
+  font-size: 16px; font-weight: normal;
+}
+.checkout {
+  display: inline-block;margin-left: 5px;
+}
