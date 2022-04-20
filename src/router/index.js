@@ -7,7 +7,7 @@ import contact from '../views/contact.vue'
 import promotion from '../views/promotion.vue'
 import brand from '../views/brand.vue'
 import installer from '../views/installer.vue'
-import tyrebrands from '../views/tyrebrands.vue'
+// import tyrebrands from '../views/tyrebrands.vue'
 import tyredetail from '../views/tyredetail.vue'
 import checkout from '../views/buy.vue'
 import cart from '../views/cart.vue'
@@ -63,11 +63,11 @@ const routes = [
     name: 'installer',
     component: installer
   },
-  {
-    path: '/tyrebrand/:name',
-    name: 'tyrebrands',
-    component: tyrebrands
-  },
+  // {
+  //   path: '/tyrebrand/:name',
+  //   name: 'tyrebrands',
+  //   component: tyrebrands
+  // },
   {
     path: '/tyrebrand',
     name: 'tyredetail',

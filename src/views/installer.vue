@@ -95,7 +95,6 @@
   </div>
 </template>
 <script>
-import installer from '../assets/installer.json'
 import axios from 'axios'
 import apiURL from '../assets/js/connect'
 export default {
@@ -111,7 +110,6 @@ export default {
       perpage: 10,
       totalRows: 1,
       currentPage: 1,
-      installer: installer,
       post: '',
       testinstaller: '',
       installers: ''

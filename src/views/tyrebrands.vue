@@ -5,7 +5,7 @@
         <br>
         <b-row>
           <b-col cols="3">
-            <app-menu></app-menu>
+            <!-- <app-menu></app-menu> -->
           </b-col>
           <b-col cols="9">
             <div style="border-radius: 5px;border: thin solid #E0E0E0;width: 100%;">
@@ -67,31 +67,31 @@
   </div>
 </template>
 <script>
-import menu from '../components/brand/menu.vue'
-import toyo from '../assets/json/tyre/toyo.json'
-import bridgestone from '../assets/json/tyre/bridgestone.json'
-import continantal from '../assets/json/tyre/continantal.json'
-import dunlop from '../assets/json/tyre/dunlop.json'
-import goodyear from '../assets/json/tyre/goodyear.json'
-import michelin from '../assets/json/tyre/michelin.json'
-import nankang from '../assets/json/tyre/nankang.json'
-import nitto from '../assets/json/tyre/nitto.json'
-import yokohama from '../assets/json/tyre/yokohama.json'
+// import menu from '../components/brand/menu.vue'
+// import toyo from '../assets/json/tyre/toyo.json'
+// import bridgestone from '../assets/json/tyre/bridgestone.json'
+// import continantal from '../assets/json/tyre/continantal.json'
+// import dunlop from '../assets/json/tyre/dunlop.json'
+// import goodyear from '../assets/json/tyre/goodyear.json'
+// import michelin from '../assets/json/tyre/michelin.json'
+// import nankang from '../assets/json/tyre/nankang.json'
+// import nitto from '../assets/json/tyre/nitto.json'
+// import yokohama from '../assets/json/tyre/yokohama.json'
 export default {
   components: {
-    'app-menu': menu
+    // 'app-menu': menu
   },
   data () {
     return {
-      toyo: toyo,
-      bridgestone: bridgestone,
-      continantal: continantal,
-      dunlop: dunlop,
-      goodyear: goodyear,
-      michelin: michelin,
-      nankang: nankang,
-      nitto: nitto,
-      yokohama: yokohama,
+      // toyo: toyo,
+      // bridgestone: bridgestone,
+      // continantal: continantal,
+      // dunlop: dunlop,
+      // goodyear: goodyear,
+      // michelin: michelin,
+      // nankang: nankang,
+      // nitto: nitto,
+      // yokohama: yokohama,
       brands: '',
       brand: '',
       aa: '',
@@ -114,27 +114,27 @@ export default {
     }
   },
   mounted () {
-    console.log('brands', this.$route.params.name)
-    this.brands = this.$route.params.name
-    if (this.brands === 'nitto') {
-      this.brand = this.nitto
-    } else if (this.brands === 'toyo') {
-      this.brand = this.toyo
-    } else if (this.brands === 'bridgestone') {
-      this.brand = this.bridgestone
-    } else if (this.brands === 'continantal') {
-      this.brand = this.continantal
-    } else if (this.brands === 'dunlop') {
-      this.brand = this.dunlop
-    } else if (this.brands === 'goodyear') {
-      this.brand = this.goodyear
-    } else if (this.brands === 'yokohama') {
-      this.brand = this.yokohama
-    } else if (this.brands === 'michelin') {
-      this.brand = this.michelin
-    } else if (this.brands === 'nankang') {
-      this.brand = this.nankang
-    }
+    // console.log('brands', this.$route.params.name)
+    // this.brands = this.$route.params.name
+    // if (this.brands === 'nitto') {
+    //   this.brand = this.nitto
+    // } else if (this.brands === 'toyo') {
+    //   this.brand = this.toyo
+    // } else if (this.brands === 'bridgestone') {
+    //   this.brand = this.bridgestone
+    // } else if (this.brands === 'continantal') {
+    //   this.brand = this.continantal
+    // } else if (this.brands === 'dunlop') {
+    //   this.brand = this.dunlop
+    // } else if (this.brands === 'goodyear') {
+    //   this.brand = this.goodyear
+    // } else if (this.brands === 'yokohama') {
+    //   this.brand = this.yokohama
+    // } else if (this.brands === 'michelin') {
+    //   this.brand = this.michelin
+    // } else if (this.brands === 'nankang') {
+    //   this.brand = this.nankang
+    // }
   }
 }
 </script>
