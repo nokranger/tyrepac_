@@ -8,47 +8,47 @@
                   <div style="font-weight: bold;font-size: 20px;">ยางรถยนต์</div>
                   <div style="border-radius: 5px; border: thin solid #e0e0e0; margin: 5px">
                     <a href="/shop?brand=8">
-                      <img src="https://i.imgur.com/dFBbXVM.png" alt="" style="width:100%" />
+                      <img src="https://i.imgur.com/dFBbXVM.png" alt="" />
                     </a>
                   </div>
-                  <div style="border-radius: 5px; border: thin solid #e0e0e0; margin: 5px">
+                  <div style="border-radius: 5px; border: thin solid #e0e0e0; margin: 5px;">
                     <a href="/shop?brand=6">
-                      <img src="https://i.imgur.com/9JpV8e2.png" alt="" style="width:100%" />
+                      <img src="https://i.imgur.com/9JpV8e2.png" alt="" />
                     </a>
                   </div>
                   <div style="border-radius: 5px; border: thin solid #e0e0e0; margin: 5px">
                     <a href="/shop?brand=7">
-                      <img src="https://i.imgur.com/yDA4cCy.png" alt="" style="width:100%" />
+                      <img src="https://i.imgur.com/yDA4cCy.png" alt="" style="" />
                     </a>
                   </div>
                   <div style="border-radius: 5px; border: thin solid #e0e0e0; margin: 5px">
                     <a href="/shop?brand=1">
-                      <img src="https://i.imgur.com/39bMB69.png" alt="" style="width:100%" />
+                      <img src="https://i.imgur.com/39bMB69.png" alt="" />
                     </a>
                   </div>
                   <div style="border-radius: 5px; border: thin solid #e0e0e0; margin: 5px">
                     <a href="/shop?brand=002">
-                      <img src="https://i.imgur.com/iBpm6uT.png" alt="" style="width:100%" />
+                      <img src="https://i.imgur.com/iBpm6uT.png" alt="" />
                     </a>
                   </div>
                   <div style="border-radius: 5px; border: thin solid #e0e0e0; margin: 5px">
                     <a href="/shop?brand=3">
-                      <img src="https://i.imgur.com/yvhHUsj.png" alt="" style="width:100%" />
+                      <img src="https://i.imgur.com/yvhHUsj.png" alt="" />
                     </a>
                   </div>
                   <div style="border-radius: 5px; border: thin solid #e0e0e0; margin: 5px">
                     <a href="/shop?brand=4">
-                      <img src="https://i.imgur.com/TgbxVn2.png" alt="" style="width:100%" />
+                      <img src="https://i.imgur.com/TgbxVn2.png" alt="" />
                     </a>
                   </div>
                   <div style="border-radius: 5px; border: thin solid #e0e0e0; margin: 5px">
                     <a href="/shop?brand=5">
-                      <img src="https://i.imgur.com/EByvNfm.png" alt="" style="width:100%" />
+                      <img src="https://i.imgur.com/EByvNfm.png" alt="" />
                     </a>
                   </div>
                   <div style="border-radius: 5px; border: thin solid #e0e0e0; margin: 5px">
                     <a href="/shop?brand=9">
-                      <img src="https://i.imgur.com/iiTZGZR.png" alt="" style="width:100%" />
+                      <img src="https://i.imgur.com/iiTZGZR.png" alt="" />
                     </a>
                   </div>
                 </div>

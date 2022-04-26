@@ -110,47 +110,47 @@
                   <div style="font-weight: bold;font-size: 20px;">ยางรถยนต์</div>
                   <div class="menutyre">
                     <a href="/shop?brand=8">
-                      <img src="https://i.imgur.com/dFBbXVM.png" alt="" width="100%" />
+                      <img src="https://i.imgur.com/dFBbXVM.png" alt="" />
                     </a>
                   </div>
                   <div class="menutyre">
                     <a href="/shop?brand=6">
-                      <img src="https://i.imgur.com/9JpV8e2.png" alt="" width="100%" />
+                      <img src="https://i.imgur.com/9JpV8e2.png" alt="" />
                     </a>
                   </div>
                   <div class="menutyre">
                     <a href="/shop?brand=7">
-                      <img src="https://i.imgur.com/yDA4cCy.png" alt="" width="100%" />
+                      <img src="https://i.imgur.com/yDA4cCy.png" alt="" />
                     </a>
                   </div>
                   <div class="menutyre">
                     <a href="/shop?brand=1">
-                      <img src="https://i.imgur.com/39bMB69.png" alt="" width="100%" />
+                      <img src="https://i.imgur.com/39bMB69.png" alt="" />
                     </a>
                   </div>
                   <div class="menutyre">
                     <a href="/shop?brand=002">
-                      <img src="https://i.imgur.com/iBpm6uT.png" alt="" width="100%" />
+                      <img src="https://i.imgur.com/iBpm6uT.png" alt="" />
                     </a>
                   </div>
                   <div class="menutyre">
                     <a href="/shop?brand=3">
-                      <img src="https://i.imgur.com/yvhHUsj.png" alt="" width="100%" />
+                      <img src="https://i.imgur.com/yvhHUsj.png" alt="" />
                     </a>
                   </div>
                   <div class="menutyre">
                     <a href="/shop?brand=4">
-                      <img src="https://i.imgur.com/TgbxVn2.png" alt="" width="100%" />
+                      <img src="https://i.imgur.com/TgbxVn2.png" alt="" />
                     </a>
                   </div>
                   <div class="menutyre">
                     <a href="/shop?brand=5">
-                      <img src="https://i.imgur.com/EByvNfm.png" alt="" width="100%" />
+                      <img src="https://i.imgur.com/EByvNfm.png" alt="" />
                     </a>
                   </div>
                   <div class="menutyre">
                     <a href="/shop?brand=9">
-                      <img src="https://i.imgur.com/iiTZGZR.png" alt="" width="100%" />
+                      <img src="https://i.imgur.com/iiTZGZR.png" alt="" />
                     </a>
                   </div>
                 </div>

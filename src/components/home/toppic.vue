@@ -12,10 +12,12 @@
       >
       </b-carousel-slide>
     </a>
+    <a href="https://www.facebook.com/tyrepacthailand">
       <b-carousel-slide
         img-src="https://i.imgur.com/7FF5JUf.jpg"
       >
       </b-carousel-slide>
+    </a>
     </b-carousel>
   </div>
 </template>
