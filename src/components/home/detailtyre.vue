@@ -12,22 +12,22 @@
             <div>
               <ul>
                 <div v-on:mouseover="mouseover (1)">
-                  <div style="display: inline-block;font-size: 25px;margin-right: 5px;">1. </div><li>ยี่ห้อยาง</li>
+                  <div style="display: inline-block;font-size: 22px;margin-right: 5px;">1. </div><li>ยี่ห้อยาง</li>
                 </div>
                 <div v-on:mouseover="mouseover (2)">
-                  <div style="display: inline-block;font-size: 25px;margin-right: 5px;">2. </div><li>น้ำหนักและแรงดันสูงสุด</li>
+                  <div style="display: inline-block;font-size: 22px;margin-right: 5px;">2. </div><li>น้ำหนักและแรงดันสูงสุด</li>
                 </div>
                 <div v-on:mouseover="mouseover (3)">
-                  <div style="display: inline-block;font-size: 25px;margin-right: 5px;">3. </div><li>ทิศทางการติดตั้ง</li>
+                  <div style="display: inline-block;font-size: 22px;margin-right: 5px;">3. </div><li>ทิศทางการติดตั้ง</li>
                 </div>
                 <div v-on:mouseover="mouseover (4)">
-                  <div style="display: inline-block;font-size: 25px;margin-right: 5px;">4. </div><li>รับน้ำหนักได้มากกว่าปกติ</li>
+                  <div style="display: inline-block;font-size: 22px;margin-right: 5px;">4. </div><li>รับน้ำหนักได้มากกว่าปกติ</li>
                 </div>
                 <div v-on:mouseover="mouseover (5)">
-                  <div style="display: inline-block;font-size: 25px;margin-right: 5px;">5. </div><li>ขนาดของยาง</li>
+                  <div style="display: inline-block;font-size: 22px;margin-right: 5px;">5. </div><li>ขนาดของยาง</li>
                 </div>
                 <div v-on:mouseover="mouseover (6)">
-                  <div style="display: inline-block;font-size: 25px;margin-right: 5px;">6. </div><li>ประเทศที่ผลิต</li>
+                  <div style="display: inline-block;font-size: 22px;margin-right: 5px;">6. </div><li>ประเทศที่ผลิต</li>
                 </div>
               </ul>
             </div>
@@ -92,22 +92,22 @@
             <dir>
               <ul>
                 <div v-on:mouseover="mouseover (7)">
-                  <div style="display: inline-block;font-size: 25px;margin-right: 5px;">7.</div><li>รุ่นของยาง</li>
+                  <div style="display: inline-block;font-size: 22px;margin-right: 5px;">7.</div><li>รุ่นของยาง</li>
                 </div>
                 <div v-on:mouseover="mouseover (8)">
-                  <div style="display: inline-block;font-size: 25px;margin-right: 5px;">8.</div><li>สัปดาห์ของยาง</li>
+                  <div style="display: inline-block;font-size: 22px;margin-right: 5px;">8.</div><li>สัปดาห์ของยาง</li>
                 </div>
                 <div v-on:mouseover="mouseover (9)">
-                  <div style="display: inline-block;font-size: 25px;margin-right: 5px;">9.</div><li>รหัสของผู้ผลิต</li>
+                  <div style="display: inline-block;font-size: 22px;margin-right: 5px;">9.</div><li>รหัสของผู้ผลิต</li>
                 </div>
                 <div v-on:mouseover="mouseover (10)">
-                  <div style="display: inline-block;font-size: 25px;margin-right: 5px;">10.</div><li>ปีที่ผลิต</li>
+                  <div style="display: inline-block;font-size: 22px;margin-right: 5px;">10.</div><li>ปีที่ผลิต</li>
                 </div>
                 <div v-on:mouseover="mouseover (11)">
-                  <div style="display: inline-block;font-size: 25px;margin-right: 5px;">11.</div><li>ยางที่ไม่ใช้ยางใน</li>
+                  <div style="display: inline-block;font-size: 22px;margin-right: 5px;">11.</div><li>ยางที่ไม่ใช้ยางใน</li>
                 </div>
                 <div v-on:mouseover="mouseover (12)">
-                  <div style="display: inline-block;font-size: 25px;margin-right: 5px;">12.</div><li>ประเภทของยาง</li>
+                  <div style="display: inline-block;font-size: 22px;margin-right: 5px;">12.</div><li>ประเภทของยาง</li>
                 </div>
               </ul>
             </dir>
@@ -237,7 +237,7 @@ export default {
 li {
   list-style-type: none;
   margin-top: 15px;
-  font-size: 25px;
+  font-size: 22px;
   display: inline-block;
 }
 * {box-sizing: border-box;}
