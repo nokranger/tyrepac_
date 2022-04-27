@@ -23,7 +23,7 @@
           </a>
         </b-col>
         <b-col cols="4" sm="4" md="4" lg="4" xl="4">
-          <a href="/shop?brand=6">
+          <a href="/shop?brand=7">
             <div>
             <b-card
               title="Nitto Tyres"
@@ -39,7 +39,7 @@
           </a>
         </b-col>
         <b-col cols="4" sm="4" md="4" lg="4" xl="4">
-          <a href="/shop?brand=7">
+          <a href="/shop?brand=6">
             <div>
             <b-card
               title="Nankang Tyres"
@@ -74,7 +74,7 @@
           </a>
         </b-col>
         <b-col cols="4" sm="4" md="4" lg="4" xl="4">
-          <a href="/shop?brand=002">
+          <a href="/shop?brand=2">
             <div>
             <b-card
               title="Continental Tyres"

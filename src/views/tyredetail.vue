@@ -12,12 +12,12 @@
                     </a>
                   </div>
                   <div style="border-radius: 5px; border: thin solid #e0e0e0; margin: 5px;">
-                    <a href="/shop?brand=6">
+                    <a href="/shop?brand=7">
                       <img src="https://i.imgur.com/9JpV8e2.png" alt="" />
                     </a>
                   </div>
                   <div style="border-radius: 5px; border: thin solid #e0e0e0; margin: 5px">
-                    <a href="/shop?brand=7">
+                    <a href="/shop?brand=6">
                       <img src="https://i.imgur.com/yDA4cCy.png" alt="" style="" />
                     </a>
                   </div>
@@ -27,7 +27,7 @@
                     </a>
                   </div>
                   <div style="border-radius: 5px; border: thin solid #e0e0e0; margin: 5px">
-                    <a href="/shop?brand=002">
+                    <a href="/shop?brand=2">
                       <img src="https://i.imgur.com/iBpm6uT.png" alt="" />
                     </a>
                   </div>

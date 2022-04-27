@@ -284,7 +284,7 @@
           </b-row>
           <div>
             <br>
-            <div class="headers">
+            <div class="headers" style="margin: 15px;text-align: left;">
               B.MIXED TYRE
             </div>
             <br>
@@ -318,10 +318,10 @@
           <br>
           <b-row>
             <br>
-            <div class="headers">C.ข้อมูลทางเทคนิค</div>
+            <div class="headers" style="margin: 15px;text-align: left;">C.ข้อมูลทางเทคนิค</div>
             <br>
             <br>
-            <div class="headers">1. ข้อมูลยางพื้นฐานที่ควรทราบ</div>
+            <div class="headers" style="margin: 15px;text-align: left;">1. ข้อมูลยางพื้นฐานที่ควรทราบ</div>
             <br>
             <br>
             <div style="background-color: white;box-shadow: 5px 10px 18px #888888;border-radius: 5px;">
@@ -568,8 +568,8 @@
             <b-row>
               <b-col>
                 <br>
-                <div style="margin: 40px;">
-                  <div class="headers">1. นโยบายการยกเลิกการสั่งซื้อของทางบริษัทเป็นอย่างไร?</div>
+                <div>
+                  <div class="headers" style="text-align: left;">1. นโยบายการยกเลิกการสั่งซื้อของทางบริษัทเป็นอย่างไร?</div>
                   <p>การยกเลิกล่วงหน้าก่อนการจัดส่งสามารถทำได้ จะมีการคิดค่าขนส่งสำหรับการยกเลิกหากมีการจัดส่งยางไปแล้ว กรุณาตรวจสอบข้อกำหนดและเงื่อนไขการขายของเรา</p>
                 </div>
               </b-col>
@@ -633,7 +633,7 @@
             <br>
             <b-row>
               <b-col>
-                <div class="headers" style="text-align: center;">
+                <div class="headers" style="text-align: left;">
                   4. บริษัทมีการรับประกันสินค้าสำหรับยางที่จำหน่ายหรือไม่?
                 </div>
                 <br>

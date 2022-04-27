@@ -239,7 +239,7 @@ export default ({
       this.data = await JSON.parse(localStorage.getItem('info'))
       console.log('data', this.data)
       // localStorage.setItem('checkout', localStorage.getItem('cart'))
-      await axios.post('/order/create', this.data).then((res) => {
+      await axios.post('/order', this.data).then((res) => {
         console.log('response', res.data.status.code)
         console.log('response', res)
         if (res.data.status.code === 0) {

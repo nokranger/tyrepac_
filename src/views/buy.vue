@@ -58,7 +58,7 @@
                   </template> -->
                   <template v-slot:cell(state)="data">
                     <div>
-                      <b-button variant="primary" v-on:click="chooseinstaller(data.item.name, data.item.address, data.item.province)" href="#installer">เลือกร้านนี้</b-button>
+                      <b-button variant="primary" v-on:click="chooseinstaller(data.item.name, data.item.address, data.item.province, data.item.id, data.item.district, data.item.zipCode, true)" href="#installer">เลือกร้านนี้</b-button>
                     </div>
                   </template>
                 </b-table>
@@ -429,6 +429,15 @@ export default {
         province: '',
         zipCode: ''
       },
+      shipment: {
+        installerId: 0,
+        shipmentDate: '',
+        address: '',
+        district: '',
+        province: '',
+        zipcode: '',
+        type: true
+      },
       status: 0,
       couponId: 0,
       totalPrice: 0.0,
@@ -512,7 +521,16 @@ export default {
         phoneNo: this.phoneNo,
         email: this.email,
         taxInvoice: this.selectedtax,
-        warranty: this.warranty
+        warranty: this.warranty,
+        shipment: {
+          installerId: this.shipment.installerId,
+          shipmentDate: this.date + ' ' + this.valuetime,
+          address: this.shipment.address,
+          district: this.shipment.district,
+          province: this.shipment.province,
+          zipcode: this.shipment.zipcode,
+          type: this.shipment.type
+        }
       }
       this.datainfo = {
         customerId: 1,
@@ -525,6 +543,7 @@ export default {
       console.log('datainfo', this.datainfo)
       localStorage.setItem('checkout', localStorage.getItem('cart'))
       localStorage.setItem('info', JSON.stringify(this.data))
+      // console.log('id', this.data.shipment)
       location.replace('/credit')
     },
     memberbank () {
@@ -551,7 +570,16 @@ export default {
         phoneNo: this.phoneNo,
         email: this.email,
         taxInvoice: this.selectedtax,
-        warranty: this.warranty
+        warranty: this.warranty,
+        shipment: {
+          installerId: this.shipment.installerId,
+          shipmentDate: this.date + ' ' + this.valuetime,
+          address: this.shipment.address,
+          district: this.shipment.district,
+          province: this.shipment.province,
+          zipcode: this.shipment.zipcode,
+          type: this.shipment.type
+        }
       }
       this.datainfo = {
         customerId: 1,
@@ -578,10 +606,34 @@ export default {
     },
     installer () {
       this.statusin = 1
+      // this.shipment = {
+      //   installerId: 0,
+      //   shipmentDate: '',
+      //   address: '',
+      //   district: '',
+      //   province: '',
+      //   zipcode: '',
+      //   type: true
+      // }
       console.log('status1')
     },
-    chooseinstaller (value, add, province) {
-      console.log('choose', province)
+    chooseinstaller (value, add, province, id, district, zipCode, type) {
+      this.shipment = {
+        installerId: id,
+        shipmentDate: '',
+        address: add,
+        district: district,
+        province: province,
+        zipcode: zipCode,
+        type: type
+      }
+      this.shipment.installerId = id
+      this.shipment.address = add
+      this.shipment.district = district
+      this.shipment.province = province
+      this.shipment.zipcode = zipCode
+      this.shipment.type = type
+      // console.log('choose', this.shipment.installerId)
       this.ins = value + ' ' + add
       if (province === 'กรุงเทพมหานคร' || province === 'ปทุมธานี' || province === 'นครปฐม' || province === 'นนทบุรี' || province === 'สมุทรปราการ' || province === 'สมุทรสาคร') {
         console.log('ปทุมกรุงเทพ')

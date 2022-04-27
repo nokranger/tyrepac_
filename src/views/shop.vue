@@ -114,12 +114,12 @@
                     </a>
                   </div>
                   <div class="menutyre">
-                    <a href="/shop?brand=6">
+                    <a href="/shop?brand=7">
                       <img src="https://i.imgur.com/9JpV8e2.png" alt="" />
                     </a>
                   </div>
                   <div class="menutyre">
-                    <a href="/shop?brand=7">
+                    <a href="/shop?brand=6">
                       <img src="https://i.imgur.com/yDA4cCy.png" alt="" />
                     </a>
                   </div>
@@ -129,7 +129,7 @@
                     </a>
                   </div>
                   <div class="menutyre">
-                    <a href="/shop?brand=002">
+                    <a href="/shop?brand=2">
                       <img src="https://i.imgur.com/iBpm6uT.png" alt="" />
                     </a>
                   </div>
