@@ -3,7 +3,7 @@
     <div>
       <b-container>
         <b-row>
-          <b-col>
+          <b-col cols="12" sm="12" md="12" lg="4" xl="4">
             <br>
             <br>
             <br>
@@ -32,7 +32,7 @@
               </ul>
             </div>
           </b-col>
-          <b-col>
+          <b-col cols="12" sm="12" md="12" lg="4" xl="4">
             <div>
               <br />
               <h1 style="color: white;text-align: center;font-weight: bold;">ข้อมูลแก้มยาง</h1>
@@ -83,13 +83,13 @@
               </template>
             </div>
           </b-col>
-          <b-col>
+          <b-col cols="12" sm="12" md="12" lg="4" xl="4">
             <br>
             <br>
             <br>
             <br>
             <br>
-            <dir>
+            <div style="margin-left: 100px;">
               <ul>
                 <div v-on:mouseover="mouseover (7)">
                   <div style="display: inline-block;font-size: 22px;margin-right: 5px;">7.</div><li>รุ่นของยาง</li>
@@ -110,7 +110,7 @@
                   <div style="display: inline-block;font-size: 22px;margin-right: 5px;">12.</div><li>ประเภทของยาง</li>
                 </div>
               </ul>
-            </dir>
+            </div>
           </b-col>
         </b-row>
         <br>

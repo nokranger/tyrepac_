@@ -4,7 +4,7 @@
       <br>
       <br>
       <b-row>
-        <b-col>
+        <b-col cols="12" sm="12" md="12" lg="3" xl="3">
           <div style="box-shadow: 5px 10px 18px #888888;">
             <b-card
               img-alt="Image"
@@ -25,7 +25,7 @@
             </b-card>
           </div>
         </b-col>
-        <b-col>
+        <b-col cols="12" sm="12" md="12" lg="3" xl="3">
           <div style="box-shadow: 5px 10px 18px #888888;">
             <b-card
               img-alt="Image"
@@ -46,7 +46,7 @@
             </b-card>
           </div>
         </b-col>
-        <b-col>
+        <b-col cols="12" sm="12" md="12" lg="3" xl="3">
           <div style="box-shadow: 5px 10px 18px #888888;">
             <b-card
               img-alt="Image"
@@ -65,7 +65,7 @@
             </b-card>
           </div>
         </b-col>
-        <b-col>
+        <b-col cols="12" sm="12" md="12" lg="3" xl="3">
           <div style="box-shadow: 5px 10px 18px #888888;">
             <b-card
               img-alt="Image"

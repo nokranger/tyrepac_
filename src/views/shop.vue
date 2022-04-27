@@ -4,7 +4,7 @@
       <b-container>
         <br>
         <b-row>
-          <b-col cols="3">
+          <b-col cols="12" sm="12" md="12" lg="3" xl="3">
               <div>
                 <div class="bordermenu">
                   <div class="alignmenu">
@@ -156,7 +156,7 @@
                 </div>
               </div>
           </b-col>
-          <b-col cols="9">
+          <b-col cols="12" sm="12" md="12" lg="9" xl="9">
             <div style="border-radius: 5px;border: thin solid #E0E0E0;width: 100%;">
               <div style="margin: 5px;">
                 <b-container>
@@ -191,7 +191,7 @@
                   <br>
                   <b-row>
                     <!-- {{brand}} -->
-                    <b-col cols="3" v-for="(brandd, index) in brand" :key="index" style="margin-bottom: 5px;">
+                    <b-col cols="3" sm="3" md="3" lg="3" xl="3" v-for="(brandd, index) in brand" :key="index" style="margin-bottom: 5px;">
                       <!-- {{brandd.prodId}} -->
                       <div class="bordertyre">
                         <div style="width: 100%;">
