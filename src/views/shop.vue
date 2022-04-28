@@ -196,7 +196,7 @@
                       <div class="bordertyre">
                         <div style="width: 100%;">
                           <a v-on:click="buydetail (('/tyrebrand' + '/' + brandd.prodId + '/' + brandd.sku), ('https://www.tyrepac.co.th/wp-content/uploads/2020/02/tyre-toyo-proxes-sport-suv.jpg'), brandd.name, brandd.regularPrice, ('values' + index), brandd.type, brandd.sku, brandd)">
-                            <img src="https://www.tyrepac.co.th/wp-content/uploads/2020/02/tyre-toyo-proxes-sport-suv.jpg" style="margin: 5px;" width="100%" height="auto" alt="" loading="lazy">
+                            <img :src="'http://119.63.90.135:2083/image?image_path=' + brandd.image" width="100%" height="auto" alt="" loading="lazy">
                           </a>
                         </div>
                         <div class="nametyre">{{brandd.name}}</div>

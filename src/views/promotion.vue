@@ -1,12 +1,33 @@
 <template>
     <div style="margin-top: 160px">
       <b-container>
-        <br>
-        <br>
-        <br>
-        <div style="text-align: left;">
-          <img src="https://www.tyrepac.co.th/wp-content/uploads/2020/12/pro-marry-christmas-200x200.jpg" alt="">
+        <!-- <div>
+          {{promotions}}
+        </div> -->
+        <div style="font-weight: bold;font-size: 30px;">
+          โปรโมชั่น
         </div>
+        <br>
+        <br>
+        <br>
+        <b-row>
+          <b-col cols="6" sm="6" md="6" lg="3" xl="3" v-for="(promotion, index) in promotions" :key="index">
+            <div style="text-align: left;">
+              <div>
+                <img :src="'http://119.63.90.135:2083/image?image_path=' + promotion.image" width="200" height="200" alt="">
+                <div style="font-weight: bold;font-size: 20px;">
+                  {{promotion.name}}
+                </div>
+                <div>
+                  {{promotion.description}}
+                </div>
+              </div>
+            </div>
+          </b-col>
+        </b-row>
+        <!-- <div style="text-align: left;">
+          <img src="https://www.tyrepac.co.th/wp-content/uploads/2020/12/pro-marry-christmas-200x200.jpg" alt="">
+        </div> -->
         <br>
         <br>
         <br>
@@ -14,9 +35,22 @@
     </div>
 </template>
 <script>
+import axios from 'axios'
 export default {
   data () {
-    return {}
+    return {
+      promotions: ''
+    }
+  },
+  mounted () {
+    axios.get('/promotion').then(res => {
+      this.promotions = res.data.data
+      // const promotion = this.promotions.filter((post, index) => {
+      //   return post.status === 1
+      // })
+      // this.promotions = promotion
+      // console.log('promotionsssss', this.promotions)
+    })
   },
   metaInfo: {
     title: 'โปรโมชั่น',
