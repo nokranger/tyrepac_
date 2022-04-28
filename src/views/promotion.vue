@@ -14,7 +14,9 @@
           <b-col cols="6" sm="6" md="6" lg="3" xl="3" v-for="(promotion, index) in promotions" :key="index">
             <div style="text-align: left;">
               <div>
-                <img :src="'http://119.63.90.135:2083/image?image_path=' + promotion.image" width="200" height="200" alt="">
+                <a :href="'/shop?promotionId=' + promotion.id">
+                  <img :src="'http://119.63.90.135:2083/image?image_path=' + promotion.image" width="200" height="200" alt="">
+                </a>
                 <div style="font-weight: bold;font-size: 20px;">
                   {{promotion.name}}
                 </div>

@@ -56,7 +56,7 @@ export default {
     axios.get('/product').then(res => {
       this.promotions = res.data.data.products
       const promotion = this.promotions.filter((post, index) => {
-        return post.status === 1
+        return post.recommend === 1
       })
       this.promotions = promotion.slice(0, 9)
       // console.log('promotions', this.promotions)

@@ -353,6 +353,25 @@ export default {
             this.brand = res.data.data.products
             this.pageItem = this.brand
           })
+        } else if (split[0] === 'promotionId') {
+          // console.log('istypess', decodeURIComponent(split[1]))
+          // console.log('istype', configsearch)
+          console.log('promotions', split[1])
+          var configpromotion = {
+            method: 'get',
+            url: '/product'
+          }
+          axios(configpromotion).then(res => {
+            let brands = res.data.data.products
+            brands = brands.filter((post, index) => {
+              // console.log('promotions', post.promotionId)
+              return post.promotionId === split[1]
+            })
+            // console.log('detailb', brands)
+            // console.log('detailr', res.data.data.products)
+            this.brand = brands
+            this.pageItem = this.brand
+          })
         } else if (split[0] === 'brand') {
           console.log('brands')
           var configbrands = {
@@ -362,6 +381,7 @@ export default {
           axios(configbrands).then(res => {
             let brands = res.data.data.products
             brands = brands.filter((post, index) => {
+              // console.log('promotionsbrand', post.brandId)
               return post.brandId === split[1]
             })
             // console.log('detailb', brands)
