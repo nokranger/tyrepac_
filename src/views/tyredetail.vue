@@ -61,7 +61,7 @@
                   <b-col>
                     <br>
                     <div>
-                      <img src="https://www.tyrepac.co.th/wp-content/uploads/2020/02/tyre-toyo-proxes-sport-suv.jpg" style="width: 300px;" alt="">
+                      <img :src="'http://119.63.90.135:2083/image?image_path=' + brand.image" style="width: 300px;" alt="">
                     </div>
                   </b-col>
                   <b-col>
@@ -215,7 +215,7 @@ export default {
       console.log('buy', this.brand.sku)
       // console.log('buy', url + '-' + img + '-' + name + '-' + price + '-' + this.$refs[value][0].localValue)
       const cart = {
-        img: 'https://www.tyrepac.co.th/wp-content/uploads/2020/02/tyre-toyo-proxes-sport-suv.jpg',
+        img: 'http://119.63.90.135:2083/image?image_path=' + this.brand.image,
         name: this.brand.name,
         price: this.brand.regularPrice,
         value: value,
@@ -237,7 +237,7 @@ export default {
         console.log('teams', teams)
         await teams.push({
           // url: url,
-          img: 'https://www.tyrepac.co.th/wp-content/uploads/2020/02/tyre-toyo-proxes-sport-suv.jpg',
+          img: 'http://119.63.90.135:2083/image?image_path=' + this.brand.image,
           name: this.brand.name,
           productId: this.brand.prodId,
           price: this.brand.regularPrice,
@@ -268,7 +268,7 @@ export default {
         console.log('teams', teams)
         await teams.push({
           // url: url,
-          img: 'https://www.tyrepac.co.th/wp-content/uploads/2020/02/tyre-toyo-proxes-sport-suv.jpg',
+          img: 'http://119.63.90.135:2083/image?image_path=' + this.brand.image,
           name: this.brand.name,
           productId: this.brand.prodId,
           price: this.brand.regularPrice,
@@ -303,7 +303,7 @@ export default {
         console.log('teams', teams)
         await teams.push({
           // url: url,
-          img: 'https://www.tyrepac.co.th/wp-content/uploads/2020/02/tyre-toyo-proxes-sport-suv.jpg',
+          img: 'http://119.63.90.135:2083/image?image_path=' + this.brand.image,
           name: this.brand.name,
           productId: this.brand.prodId,
           price: this.brand.regularPrice,
@@ -334,7 +334,7 @@ export default {
         console.log('teams', teams)
         await teams.push({
           // url: url,
-          img: 'https://www.tyrepac.co.th/wp-content/uploads/2020/02/tyre-toyo-proxes-sport-suv.jpg',
+          img: 'http://119.63.90.135:2083/image?image_path=' + this.brand.image,
           name: this.brand.name,
           productId: this.brand.prodId,
           price: this.brand.regularPrice,
