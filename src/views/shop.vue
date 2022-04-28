@@ -363,9 +363,10 @@ export default {
           }
           axios(configpromotion).then(res => {
             let brands = res.data.data.products
+            console.log('promotions', split[1])
             brands = brands.filter((post, index) => {
-              // console.log('promotions', post.promotionId)
-              return post.promotionId === split[1]
+              console.log('promotions', post.promotionId)
+              return post.promotionId === parseInt(split[1])
             })
             // console.log('detailb', brands)
             // console.log('detailr', res.data.data.products)
