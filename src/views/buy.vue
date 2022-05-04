@@ -114,21 +114,21 @@
                 <br>
                 <div>
                   <div>
-                    <div>ยี่ห้อรถยนต์ *</div>
+                    <div>ยี่ห้อรถยนต์ <div style="color: red;display: inline-block;font-weight: bold;">*</div></div>
                     <div>
                       <b-input placeholder="ยี่ห้อรถยนต์"></b-input>
                       <br>
                     </div>
                   </div>
                   <div>
-                    <div>รุ่นรถยนต์ *</div>
+                    <div>รุ่นรถยนต์ <div style="color: red;display: inline-block;font-weight: bold;">*</div></div>
                     <div>
                       <b-input placeholder="รุ่นรถยนต์"></b-input>
                       <br>
                     </div>
                   </div>
                   <div>
-                    <div>หมายเลขทะเบียนรถ *</div>
+                    <div>หมายเลขทะเบียนรถ <div style="color: red;display: inline-block;font-weight: bold;">*</div></div>
                     <div>
                       <b-input placeholder="หมายเลขทะเบียนรถ"></b-input>
                       <br>
@@ -141,7 +141,7 @@
                 <br>
                 <br>
                 <div>
-                  <div style="font-weight: bold;font-size: 30px;">*กรุณาตรวจสอบข้อมูลให้ถูกต้อง ไม่สามารถแก้ไขเปลี่ยนแปลงและขอย้อนหลังได้</div>
+                  <div id="information" style="font-weight: bold;font-size: 30px;">* กรุณาตรวจสอบข้อมูลให้ถูกต้อง ไม่สามารถแก้ไขเปลี่ยนแปลงและขอย้อนหลังได้</div>
                   <br>
                   <div>
                     <b-form-radio v-model="selectedtax" name="some-radios" value="false">ไม่ต้องการ</b-form-radio>
@@ -152,9 +152,13 @@
                   <br>
                   <div style="font-weight: bold;font-size: 30px;">ใบเสร็จ</div>
                   <br>
+                  <div v-if="information == 1" style="color: red;font-weight: bold;">
+                    ** กรุณากรอกข้อมูลให้ครบถ้วน
+                  </div>
+                  <br>
                   <div>
                     <div>
-                      ชื่อ *
+                      ชื่อ <div style="color: red;display: inline-block;font-weight: bold;">*</div>
                     </div>
                     <div>
                       <b-input type="text" id="fname" name="fname" autocomplete="on" v-model="firstname" placeholder="ชื่อ"></b-input>
@@ -163,7 +167,7 @@
                   </div>
                   <div>
                     <div>
-                      นามสกุล *
+                      นามสกุล <div style="color: red;display: inline-block;font-weight: bold;">*</div>
                     </div>
                     <div>
                       <b-input type="text" id="lname" name="lname" autocomplete="on"  v-model="lastname" placeholder="นามสกุล"></b-input>
@@ -172,7 +176,7 @@
                   </div>
                   <div>
                     <div>
-                      ที่อยู่ *
+                      ที่อยู่ <div style="color: red;display: inline-block;font-weight: bold;">*</div>
                     </div>
                     <div>
                       <b-input type="text" id="address" name="address" autocomplete="on" v-model="address.address" placeholder="ที่อยู่"></b-input>
@@ -181,7 +185,7 @@
                   </div>
                   <div>
                     <div>
-                      อำเภอ *
+                      อำเภอ <div style="color: red;display: inline-block;font-weight: bold;">*</div>
                     </div>
                     <div>
                       <b-input type="text" id="address" name="address" autocomplete="on" v-model="address.district" placeholder="อำเภอ"></b-input>
@@ -190,7 +194,7 @@
                   </div>
                   <div>
                     <div>
-                      จังหวัด *
+                      จังหวัด <div style="color: red;display: inline-block;font-weight: bold;">*</div>
                     </div>
                     <div>
                       <b-input type="text" id="address" name="address" autocomplete="on" v-model="address.province" placeholder="จังหวัด"></b-input>
@@ -199,7 +203,7 @@
                   </div>
                   <div>
                     <div>
-                      รหัสไปรษณีย์ *
+                      รหัสไปรษณีย์ <div style="color: red;display: inline-block;font-weight: bold;">*</div>
                     </div>
                     <div>
                       <b-input type="text" id="zipcode" name="zipcode" autocomplete="on" v-model="address.zipCode" placeholder="รหัสไปรษณีย์"></b-input>
@@ -208,7 +212,7 @@
                   </div>
                   <div>
                     <div>
-                      โทรศัพท์ *
+                      โทรศัพท์ <div style="color: red;display: inline-block;font-weight: bold;">*</div>
                     </div>
                     <div>
                       <b-input type="text" id="phone" name="phone" autocomplete="on" v-model="phoneNo" placeholder="โทรศัพท์"></b-input>
@@ -217,7 +221,7 @@
                   </div>
                   <div>
                     <div>
-                      อีเมลแอดเดรส *
+                      อีเมลแอดเดรส <div style="color: red;display: inline-block;font-weight: bold;">*</div>
                     </div>
                     <div>
                       <b-input type="email" id="email" name="email" autocomplete="on" v-model="email" placeholder="อีเมลแอดเดรส"></b-input>
@@ -446,7 +450,8 @@ export default {
       datainfo: {},
       phoneNo: '',
       email: '',
-      autoinfo: ''
+      autoinfo: '',
+      information: 0
     }
   },
   metaInfo: {
@@ -498,101 +503,113 @@ export default {
       location.reload()
     },
     membercredit () {
-      if (this.selectedtax === 'true') {
-        this.selectedtax = true
-      } else if (this.selectedtax === 'false') {
-        this.selectedtax = false
-      }
-      if (this.warranty === 'true') {
-        this.warranty = true
-      } else if (this.warranty === 'false') {
-        this.warranty = false
-      }
-      this.data = {
-        customerId: 'C001',
-        paymentId: 1,
-        status: 1,
-        totalPrice: this.count,
-        orderDetails: this.items,
-        couponId: 0,
-        firstname: this.firstname,
-        lastname: this.lastname,
-        address: this.address,
-        phoneNo: this.phoneNo,
-        email: this.email,
-        taxInvoice: this.selectedtax,
-        warranty: this.warranty,
-        shipment: {
-          installerId: this.shipment.installerId,
-          shipmentDate: this.date + ' ' + this.valuetime,
-          address: this.shipment.address,
-          district: this.shipment.district,
-          province: this.shipment.province,
-          zipcode: this.shipment.zipcode,
-          type: this.shipment.type
+      if (this.firstname === '' || this.lastname === '' || this.address.district === '' || this.address.province === '' || this.address.address === '' || this.address.zipCode === '' || this.phoneNo === '' || this.email === '') {
+        console.log('null')
+        location.replace('#information')
+        this.information = 1
+      } else {
+        if (this.selectedtax === 'true') {
+          this.selectedtax = true
+        } else if (this.selectedtax === 'false') {
+          this.selectedtax = false
         }
+        if (this.warranty === 'true') {
+          this.warranty = true
+        } else if (this.warranty === 'false') {
+          this.warranty = false
+        }
+        this.data = {
+          customerId: 'C001',
+          paymentId: 1,
+          status: 1,
+          totalPrice: this.count,
+          orderDetails: this.items,
+          couponId: 0,
+          firstname: this.firstname,
+          lastname: this.lastname,
+          address: this.address,
+          phoneNo: this.phoneNo,
+          email: this.email,
+          taxInvoice: this.selectedtax,
+          warranty: this.warranty,
+          shipment: {
+            installerId: this.shipment.installerId,
+            shipmentDate: this.date + ' ' + this.valuetime,
+            address: this.shipment.address,
+            district: this.shipment.district,
+            province: this.shipment.province,
+            zipcode: this.shipment.zipcode,
+            type: this.shipment.type
+          }
+        }
+        this.datainfo = {
+          customerId: 1,
+          paymentId: 1,
+          status: 1,
+          totalPrice: this.count,
+          orderDetails: this.items
+        }
+        console.log('data', this.data)
+        console.log('datainfo', this.datainfo)
+        localStorage.setItem('checkout', localStorage.getItem('cart'))
+        localStorage.setItem('info', JSON.stringify(this.data))
+        console.log('id', this.data.shipment)
+        location.replace('/credit')
       }
-      this.datainfo = {
-        customerId: 1,
-        paymentId: 1,
-        status: 1,
-        totalPrice: this.count,
-        orderDetails: this.items
-      }
-      console.log('data', this.data)
-      console.log('datainfo', this.datainfo)
-      localStorage.setItem('checkout', localStorage.getItem('cart'))
-      localStorage.setItem('info', JSON.stringify(this.data))
-      // console.log('id', this.data.shipment)
-      location.replace('/credit')
     },
     memberbank () {
-      if (this.selectedtax === 'true') {
-        this.selectedtax = true
-      } else if (this.selectedtax === 'false') {
-        this.selectedtax = false
-      }
-      if (this.warranty === 'true') {
-        this.warranty = true
-      } else if (this.warranty === 'false') {
-        this.warranty = false
-      }
-      this.data = {
-        customerId: 'C001',
-        paymentId: 1,
-        status: 1,
-        totalPrice: this.count,
-        orderDetails: this.items,
-        couponId: 0,
-        firstname: this.firstname,
-        lastname: this.lastname,
-        address: this.address,
-        phoneNo: this.phoneNo,
-        email: this.email,
-        taxInvoice: this.selectedtax,
-        warranty: this.warranty,
-        shipment: {
-          installerId: this.shipment.installerId,
-          shipmentDate: this.date + ' ' + this.valuetime,
-          address: this.shipment.address,
-          district: this.shipment.district,
-          province: this.shipment.province,
-          zipcode: this.shipment.zipcode,
-          type: this.shipment.type
+      if (this.firstname === '' || this.lastname === '' || this.address.district === '' || this.address.province === '' || this.address.address === '' || this.address.zipCode === '' || this.phoneNo === '' || this.email === '') {
+        console.log('null')
+        location.replace('#information')
+        this.information = 1
+      } else {
+        if (this.selectedtax === 'true') {
+          this.selectedtax = true
+        } else if (this.selectedtax === 'false') {
+          this.selectedtax = false
         }
+        if (this.warranty === 'true') {
+          this.warranty = true
+        } else if (this.warranty === 'false') {
+          this.warranty = false
+        }
+        this.data = {
+          customerId: 'C001',
+          paymentId: 1,
+          status: 1,
+          totalPrice: this.count,
+          orderDetails: this.items,
+          couponId: 0,
+          firstname: this.firstname,
+          lastname: this.lastname,
+          address: this.address,
+          phoneNo: this.phoneNo,
+          email: this.email,
+          taxInvoice: this.selectedtax,
+          warranty: this.warranty,
+          shipment: {
+            installerId: this.shipment.installerId,
+            shipmentDate: this.date + ' ' + this.valuetime,
+            address: this.shipment.address,
+            district: this.shipment.district,
+            province: this.shipment.province,
+            zipcode: this.shipment.zipcode,
+            type: this.shipment.type
+          }
+        }
+        this.datainfo = {
+          customerId: 1,
+          paymentId: 1,
+          status: 1,
+          totalPrice: this.count,
+          orderDetails: this.items
+        }
+        console.log('data', this.data)
+        console.log('datainfo', this.datainfo)
+        localStorage.setItem('checkout', localStorage.getItem('cart'))
+        localStorage.setItem('info', JSON.stringify(this.data))
+        location.replace('/bank')
       }
-      this.datainfo = {
-        customerId: 1,
-        paymentId: 1,
-        status: 1,
-        totalPrice: this.count,
-        orderDetails: this.items
-      }
-      console.log('data', this.data)
-      console.log('datainfo', this.datainfo)
-      localStorage.setItem('checkout', localStorage.getItem('cart'))
-      localStorage.setItem('info', JSON.stringify(this.data))
-      location.replace('/bank')
     },
     removeitem (name) {
       console.log('remove', name)
