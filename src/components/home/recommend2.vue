@@ -113,7 +113,8 @@ export default {
       })
       console.log('remove: ', this.showcompares)
       localStorage.setItem('compare', JSON.stringify(this.showcompares))
-      location.reload()
+      // location.reload()
+      this.$bvModal.show('modal-1')
     },
     async compare (itemss) {
       console.log('compare', itemss)

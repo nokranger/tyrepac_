@@ -334,14 +334,15 @@ export default {
     })
   },
   methods: {
-    removeitem (name) {
+    async removeitem (name) {
       console.log('remove', name)
       this.showcompares = this.showcompares.filter((obj) => {
         return obj.name !== name
       })
       console.log('remove: ', this.showcompares)
       localStorage.setItem('compare', JSON.stringify(this.showcompares))
-      location.reload()
+      // location.reload()
+      this.$bvModal.show('modal-1')
     },
     async compare (itemss) {
       console.log('compare', itemss)
