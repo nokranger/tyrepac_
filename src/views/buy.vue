@@ -303,7 +303,7 @@
                     </div>
                   </template>
                   <template v-slot:cell(มูลค่าสินค้า)="data">
-                    <div>฿{{data.item.price * data.item.qty}}</div>
+                    <div>฿{{(data.item.price * data.item.qty).toLocaleString('en')}}</div>
                   </template>
                   <template v-slot:cell()="data">
                     <i class="fas fa fa-times" style="display: inline-block;margin-left: 10px;font-size: 20px;cursor: pointer;color: #ee2456;" v-on:click="removeitem (data.item.name)"></i>
@@ -320,7 +320,7 @@
                         มูลค่าสินค้า
                       </div>
                     </b-col>
-                    <b-col>฿{{count}}</b-col>
+                    <b-col>฿{{(count).toLocaleString('en')}}</b-col>
                   </b-row>
                   <br>
                   <b-row>
@@ -344,7 +344,7 @@
                     </b-col>
                     <b-col>
                       <div style="color: #005099;font-weight: bold;">
-                        ฿{{count}}
+                        ฿{{(count).toLocaleString('en')}}
                       </div>
                     </b-col>
                   </b-row>

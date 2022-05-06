@@ -98,7 +98,7 @@
                 <div>{{carts.name}}</div>
               </div>
               <div style="font-size: 15px;">
-                <div>{{carts.qty}} x ฿{{carts.price}}</div>
+                <div>{{carts.qty}} x ฿{{(carts.price).toLocaleString('en')}}</div>
               </div>
               </b-dropdown-item>
               <b-dropdown-item style="display: inline-block;" href="/cart">
@@ -150,7 +150,7 @@ export default {
       qoute2: 'For project achievements in thailand please contact us',
       langs: '',
       routess: '',
-      cart: [],
+      cart: '',
       statuss: 0,
       test: { name: 'user3', value: 2, test: 'asfasfasf' },
       count: 0
@@ -158,6 +158,9 @@ export default {
   },
   async mounted () {
     this.cart = JSON.parse(localStorage.getItem('cart'))
+    // for (var j = 0; j < this.cart.length; j++) {
+    //   this.cart[j].regularPrice = this.cart[j].regularPrice.toLocaleString('en')
+    // }
     console.log('cart', this.cart)
     if (localStorage.getItem('cart') === null) {
       console.log('show status')
@@ -169,6 +172,7 @@ export default {
       this.cart = JSON.parse(localStorage.getItem('cart'))
       for (var i = 0; i < this.cart.length; i++) {
         this.count += this.cart[i].qty
+        // this.cart[i].price = this.cart[i].price.toLocaleString('en')
         console.log('countcart', this.count)
       }
       console.log('countcart', this.count)

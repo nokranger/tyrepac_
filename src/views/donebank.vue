@@ -21,7 +21,7 @@
                 <div style="display: inline-block;font-weight: bold;">เลขที่คำสั่งซื้อ: </div><li>-</li>
               </div>
               <div>
-                <div style="display: inline-block;font-weight: bold;">รวมทั้งหมด: </div><li>฿{{count}}</li>
+                <div style="display: inline-block;font-weight: bold;">รวมทั้งหมด: </div><li>฿{{(count).toLocaleString('en')}}</li>
               </div>
               <div>
                 <div style="display: inline-block;font-weight: bold;">วิธีการชำระเงิน: </div><li>โอนเงินผ่านธนาคาร</li>

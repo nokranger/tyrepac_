@@ -11,6 +11,7 @@
                 text-align: left;
               "
             >
+            <div class="currency">123456</div>
               <div style="margin: 15px">
                 <div>
                   <h1 style="font-weight: bold;">แบบฟอร์มสอบถาม</h1>
@@ -80,9 +81,23 @@ export default {
   data () {
     return {}
   },
+  mounted () {
+    var x = document.querySelectorAll('.currency')
+    console.log('currency', x)
+    for (let i = 0, len = x.length; i < len; i++) {
+      const num = Number(x[i].innerHTML).toLocaleString('en')
+      x[i].innerHTML = num
+      x[i].innerHTML.add('currSign')
+    }
+  },
   metaInfo: {
     title: 'ติดต่อเรา',
     titleTemplate: "%s - Tyrepac - Asia's First Tyre Portal"
   }
 }
 </script>
+<style scoped>
+  .currSign:before {
+    content: '$';
+  }
+</style>

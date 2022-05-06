@@ -71,7 +71,7 @@
                       {{brand.name}}
                     </div>
                     <div style="color: #005099;font-weight: bold;">
-                      ฿{{brand.regularPrice}} ต่อเส้น
+                      ฿{{(brand.regularPrice).toLocaleString('en')}} ต่อเส้น
                     </div>
                     <br>
                     <br>

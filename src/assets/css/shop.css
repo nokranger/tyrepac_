@@ -93,7 +93,13 @@
     margin-left: 5px;color: #005099;font-weight: bold;height: 120px;
   }
   .regularprice {
-    margin-left: 5px;color: #005099;
+    margin-left: 5px;margin-right: 5px;color: #005099;display: inline-block;
+  }
+  .regularprice2 {
+    margin-left: 5px;color: #005099;display: inline-block;
+  }
+  .regularprice3 {
+    color: #005099;display: inline-block;
   }
   .icontyre {
     display: inline-block;margin-left: 10px;font-size: 20px;cursor: pointer;color: #005099;

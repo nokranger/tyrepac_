@@ -25,11 +25,11 @@
                   </template>
                   <template v-slot:cell(ราคา)="data">
                     <div>
-                      <div>฿{{data.item.price}}</div>
+                      <div>฿{{(data.item.price).toLocaleString('en')}}</div>
                     </div>
                   </template>
                   <template v-slot:cell(มูลค่าสินค้า)="data">
-                    <div>฿{{data.item.price * data.item.qty}}</div>
+                    <div>฿{{(data.item.price * data.item.qty).toLocaleString('en')}}</div>
                   </template>
                   <template v-slot:cell()="data">
                     <i class="fas fa fa-times" style="display: inline-block;margin-left: 10px;font-size: 20px;cursor: pointer;color: #ee2456;" v-on:click="removeitem (data.item.name)"></i>
@@ -101,7 +101,7 @@
                     </b-col>
                     <b-col></b-col>
                     <b-col></b-col>
-                    <b-col>฿{{count}}</b-col>
+                    <b-col>฿{{(count).toLocaleString('en')}}</b-col>
                   </b-row>
                   <br>
                   <b-row>
@@ -128,7 +128,7 @@
                     <b-col></b-col>
                     <b-col>
                       <div style="color: #005099;font-weight: bold;">
-                        ฿{{count}}
+                        ฿{{(count).toLocaleString('en')}}
                       </div>
                     </b-col>
                   </b-row>
@@ -169,7 +169,7 @@ export default {
     title: 'ตะกร้าสินค้า',
     titleTemplate: "%s - Tyrepac - Asia's First Tyre Portal"
   },
-  mounted () {
+  async mounted () {
     if (localStorage.getItem('cart') === null) {
       console.log('show status')
       this.statuss = 0
@@ -180,12 +180,19 @@ export default {
       this.cart = JSON.parse(localStorage.getItem('cart'))
       for (var i = 0; i < this.cart.length; i++) {
         this.counts += this.cart[i].qty
+        // this.cart[i].price = this.cart[i].price.toLocaleString('en')
         console.log('countcart', this.counts)
       }
       console.log('countcart', this.counts)
     }
     console.log(JSON.parse(localStorage.getItem('cart')))
     this.cart = JSON.parse(localStorage.getItem('cart'))
+    // this.items = this.cart
+    // console.log('countcart', this.cart[1].price)
+    // for (var j = 0; j < this.cart.length; j++) {
+    //   this.cart[j].price = this.cart[j].price.toLocaleString('en')
+    //   console.log('countcart', this.count)
+    // }
     this.items = this.cart
     this.sortaa = this.items
     for (var c in this.items) {
@@ -193,9 +200,18 @@ export default {
       console.log('count', this.items[c].price)
       this.count = this.count + (this.items[c].price * this.items[c].qty)
     }
+    // this.count = this.count.toLocaleString('en')
     console.log('sum', this.count)
   },
   methods: {
+    // currency () {
+    //   var x = document.querySelectorAll('.currency')
+    //   console.log('currency', x)
+    //   for (let i = 0, len = x.length; i < len; i++) {
+    //     const num = Number(x[i].innerHTML).toLocaleString('en')
+    //     x[i].innerHTML = num
+    //   }
+    // },
     async updateitem () {
       console.log('aa', this.items)
       localStorage.setItem('cart', JSON.stringify(this.items))

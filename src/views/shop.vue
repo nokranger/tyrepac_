@@ -200,7 +200,11 @@
                           </a>
                         </div>
                         <div class="nametyre">{{brandd.name}}</div>
-                        <div class="regularprice" id="currency">฿{{ brandd.regularPrice}} ต่อเส้น</div>
+                        <div>
+                          <div class="regularprice2">฿</div>
+                          <div class="regularprice">{{ brandd.regularPrice }}</div>
+                          <div class="regularprice3">  ต่อเส้น</div>
+                        </div>
                         <div style="margin: 5px;">
                           <b-form-spinbutton :ref="'values' + index" id="demo-sb" :value="value2" min="4" max="100"></b-form-spinbutton>
                         </div>
@@ -289,8 +293,19 @@ export default {
     })
   },
   methods: {
+    currency () {
+      var x = document.querySelectorAll('.regularprice')
+      console.log('currency', x)
+      for (let i = 0, len = x.length; i < len; i++) {
+        const num = Number(x[i].innerHTML).toLocaleString('en')
+        x[i].innerHTML = num
+      }
+    },
     async onChangePage (pageOfitems) {
       console.log('pagination', pageOfitems)
+      for (var i = 0; i < pageOfitems.length; i++) {
+        pageOfitems[i].regularPrice = pageOfitems[i].regularPrice.toLocaleString('en')
+      }
       this.brand = pageOfitems
     },
     async product () {
@@ -685,7 +700,7 @@ export default {
         url: url,
         img: img,
         name: name,
-        price: price,
+        price: Number(price.replace(/[^0-9.]+/g, '')),
         value: 4,
         type: type,
         sku: sku,
@@ -707,7 +722,7 @@ export default {
           img: img,
           name: name,
           productId: id,
-          price: price,
+          price: Number(price.replace(/[^0-9.]+/g, '')),
           qty: this.$refs[value][0].localValue,
           type: type,
           sku: sku,
@@ -738,7 +753,7 @@ export default {
           img: img,
           name: name,
           productId: id,
-          price: price,
+          price: Number(price.replace(/[^0-9.]+/g, '')),
           qty: this.$refs[value][0].localValue,
           type: type,
           sku: sku,
@@ -773,7 +788,7 @@ export default {
           img: img,
           name: name,
           productId: id,
-          price: price,
+          price: Number(price.replace(/[^0-9.]+/g, '')),
           qty: this.$refs[value][0].localValue,
           type: type,
           sku: sku,
@@ -805,7 +820,7 @@ export default {
           img: img,
           name: name,
           productId: id,
-          price: price,
+          price: Number(price.replace(/[^0-9.]+/g, '')),
           qty: this.$refs[value][0].localValue,
           type: type,
           sku: sku,

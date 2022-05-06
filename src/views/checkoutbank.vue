@@ -33,7 +33,7 @@
                   <div>{{ data.item.qty }}</div>
                 </template> -->
                 <template v-slot:cell(มูลค่าสินค้า)="data">
-                  <div>{{ data.item.price * data.item.qty }}</div>
+                  <div>{{ (data.item.price * data.item.qty).toLocaleString('en') }}</div>
                 </template>
               </b-table>
             </div>
@@ -47,7 +47,7 @@
                         รวม
                       </div>
                     </b-col>
-                    <b-col>{{ count  }}</b-col>
+                    <b-col>{{(count).toLocaleString('en')}}</b-col>
                   </b-row>
                   <br>
                   <b-row>
@@ -82,7 +82,7 @@
                     </b-col>
                     <b-col>
                       <div style="color: #005099;font-weight: bold;">
-                        ฿{{count }}
+                        ฿{{(count).toLocaleString('en')}}
                       </div>
                     </b-col>
                   </b-row>
@@ -115,7 +115,7 @@
                 <div style="display: inline-block;font-weight: bold;">เลขที่คำสั่งซื้อ: </div><li>Test101</li>
               </div> -->
               <div>
-                <div style="display: inline-block;font-weight: bold;">รวมทั้งหมด: </div><li>฿{{count}}</li>
+                <div style="display: inline-block;font-weight: bold;">รวมทั้งหมด: </div><li>฿{{(count).toLocaleString('en')}}</li>
               </div>
               <div>
                 <div style="display: inline-block;font-weight: bold;">วิธีการชำระเงิน: </div><li>โอนเงินผ่านธนาคาร</li>

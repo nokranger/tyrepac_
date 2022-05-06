@@ -58,6 +58,9 @@ export default {
       const promotion = this.promotions.filter((post, index) => {
         return post.recommend === 1
       })
+      for (var i = 0; i < promotion.length; i++) {
+        promotion[i].regularPrice = promotion[i].regularPrice.toLocaleString('en')
+      }
       this.promotions = promotion.slice(0, 9)
       // console.log('promotions', this.promotions)
     })
@@ -70,7 +73,7 @@ export default {
         url: url,
         img: img,
         name: name,
-        price: price,
+        price: Number(price.replace(/[^0-9.]+/g, '')),
         value: this.$refs[value][0].localValue,
         type: type,
         sku: sku,
@@ -85,7 +88,7 @@ export default {
         url: url,
         img: img,
         name: name,
-        price: price,
+        price: Number(price.replace(/[^0-9.]+/g, '')),
         value: 4,
         type: type,
         sku: sku,
@@ -107,7 +110,7 @@ export default {
           img: img,
           name: name,
           productId: id,
-          price: price,
+          price: Number(price.replace(/[^0-9.]+/g, '')),
           qty: this.$refs[value][0].localValue,
           type: type,
           sku: sku,
@@ -138,7 +141,7 @@ export default {
           img: img,
           name: name,
           productId: id,
-          price: price,
+          price: Number(price.replace(/[^0-9.]+/g, '')),
           qty: this.$refs[value][0].localValue,
           type: type,
           sku: sku,
@@ -173,7 +176,7 @@ export default {
           img: img,
           name: name,
           productId: id,
-          price: price,
+          price: Number(price.replace(/[^0-9.]+/g, '')),
           qty: this.$refs[value][0].localValue,
           type: type,
           sku: sku,
@@ -205,7 +208,7 @@ export default {
           img: img,
           name: name,
           productId: id,
-          price: price,
+          price: Number(price.replace(/[^0-9.]+/g, '')),
           qty: this.$refs[value][0].localValue,
           type: type,
           sku: sku,
