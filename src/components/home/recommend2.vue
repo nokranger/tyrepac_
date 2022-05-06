@@ -27,11 +27,48 @@
                     <b-button variant="primary" v-on:click="buycart (('/tyrebrand' + '/' + item.prodId + '/' + item.sku), ('http://119.63.90.135:2083/image?image_path=' + item.image), item.prodId, item.name, item.regularPrice, ('values' + index), item.type, item.sku, item)">สั่งซื้อเลย</b-button>
                     <i class="fas fa-shopping-cart" style="display: inline-block;margin-left: 10px;font-size: 20px;cursor: pointer;color: #005099;" v-on:click="addtocart (('/tyrebrand' + '/' + item.prodId + '/' + item.sku), ('http://119.63.90.135:2083/image?image_path=' + item.image), item.prodId, item.name, item.regularPrice, ('values' + index), item.type, item.sku, item)"></i>
                   </div>
+                  <div>
+                    <i class="fa-solid fa-plus" style="cursor: pointer;" @click="compare(item)"></i><a style="cursor: pointer;margin-left: 5px;color: #005099;"  @click="showcompare()" v-b-modal.modal-1>ข้อมุลสินค้า</a>
+                  </div>
                 </div>
               </div>
             </b-col>
           </b-row>
         </b-container>
+          <div>
+            <b-modal id="modal-1" size="xl" title="Compare list">
+              <div style="cursor: pointer;color: red;font-weight: bold;;" @click="clearcompare()">Clear compare list</div>
+              <br>
+              <div>
+                <b-row>
+                  <b-col cols="6" sm="6" md="6" lg="3" xl="3" v-for="(showcompare, index) in showcompares" :key="index">
+                    <div style="margin: 5px;text-align: left;">
+                      <b-button variant="primary" v-on:click="buycart (('/tyrebrand' + '/' + showcompare.prodId + '/' + showcompare.sku), ('http://119.63.90.135:2083/image?image_path=' + showcompare.image), showcompare.prodId, showcompare.name, showcompare.regularPrice, ('values' + index), showcompare.type, showcompare.sku, showcompare)">สั่งซื้อเลย</b-button>
+                      <i class="fas fa-shopping-cart" style="display: inline-block;margin-left: 10px;font-size: 20px;cursor: pointer;color: #005099;" v-on:click="addtocart (('/tyrebrand' + '/' + showcompare.prodId + '/' + showcompare.sku), ('http://119.63.90.135:2083/image?image_path=' + showcompare.image), showcompare.prodId, showcompare.name, showcompare.regularPrice, ('values' + index), showcompare.type, showcompare.sku, showcompare)"></i>
+                    </div>
+                    <div style="margin-bottom: 5px;;width: 100%;">
+                      <b-form-spinbutton :ref="'values' + index" id="demo-sb" :value="value2" min="4" max="100"></b-form-spinbutton>
+                    </div>
+                    <div style="border-radius: 5px;border: thin solid #E0E0E0;text-align: left;width: 100%;height: 420px;">
+                      <div style="width: 100%;;text-align: center;">
+                        <a style="cursor: pointer;" v-on:click="buydetail (('/tyrebrand' + '/' + showcompare.prodId + '/' + showcompare.sku), ('http://119.63.90.135:2083/image?image_path=' + showcompare.image), showcompare.name, showcompare.regularPrice, ('values' + index), showcompare.type, showcompare.sku, showcompare)">
+                          <img :src="'http://119.63.90.135:2083/image?image_path=' + showcompare.image" style="width: 150px;height: 150px;margin: 5px;" alt="">
+                        </a>
+                      </div>
+                      <div style="margin-left: 5px;color: #005099;font-weight: bold;height: 60px;">{{showcompare.name}}</div>
+                      <div style="margin-left: 5px;color: #005099;text-align: left;">ราคา: ฿{{ showcompare.regularPrice}} ต่อเส้น</div>
+                      <div style="margin-left: 5px;color: #005099;text-align: left;">ความกว้าง: {{ showcompare.width}}</div>
+                      <div style="margin-left: 5px;color: #005099;text-align: left;">ซีรี่ย์ยาง: {{ showcompare.diameter}}</div>
+                      <div style="margin-left: 5px;color: #005099;text-align: left;">ขนาดวงล้อ: {{ showcompare.height}}</div>
+                      <div style="margin-left: 5px;color: #005099;text-align: left;">Load Index: {{ showcompare.loadIndex}}</div>
+                      <div style="margin-left: 5px;color: #005099;text-align: left;">Speed Index: {{ showcompare.speedIndex}}</div>
+                      <div style="margin-left: 5px;color: #005099;text-align: left;">สินค้า รุ่นยาง: {{ showcompare.type}}</div>
+                    </div>
+                  </b-col>
+                </b-row>
+              </div>
+            </b-modal>
+          </div>
       </div>
     </div>
     <br>
@@ -49,7 +86,9 @@ export default {
       value2: 4,
       checkcart: [],
       checkcarts: [],
-      checkcartz: []
+      checkcartz: [],
+      compares: [],
+      showcompares: ''
     }
   },
   mounted () {
@@ -66,6 +105,58 @@ export default {
     })
   },
   methods: {
+    async compare (itemss) {
+      console.log('compare', itemss)
+      if (JSON.parse(localStorage.getItem('compare')) === null) {
+        localStorage.setItem('compare', JSON.stringify(this.compares))
+        console.log('ว่าง')
+        var team = []
+        // localStorage.setItem('test', JSON.stringify(team))
+        const teams = await JSON.parse(localStorage.getItem('compare'))
+        console.log('teams', teams)
+        await teams.push(itemss)
+        await localStorage.setItem('compare', JSON.stringify(team))
+        await teams.forEach((a) => {
+          if (!this[a.name]) {
+            console.log('aname', a.name)
+            this[a.name] = { name: a.name, regularPrice: a.regularPrice, image: a.image, type: a.type, diameter: a.diameter, height: a.height, loadIndex: a.loadIndex, speedIndex: a.speedIndex, width: a.width }
+            team.push(this[a.name])
+          }
+          this[a.name].qty += a.qty
+        }, Object.create(null))
+        console.log('team', team)
+        localStorage.setItem('compare', JSON.stringify(team))
+        location.reload()
+      } else {
+        console.log('ไม่ว่าง')
+        team = []
+        // localStorage.setItem('test', JSON.stringify(team))
+        const teams = await JSON.parse(localStorage.getItem('compare'))
+        console.log('teams', teams)
+        await teams.push(itemss)
+        await localStorage.setItem('compare', JSON.stringify(team))
+        await teams.forEach((a) => {
+          if (!this[a.name]) {
+            console.log('aname', a.name)
+            this[a.name] = { name: a.name, regularPrice: a.regularPrice, image: a.image, type: a.type, diameter: a.diameter, height: a.height, loadIndex: a.loadIndex, speedIndex: a.speedIndex, width: a.width }
+            team.push(this[a.name])
+          }
+          this[a.name].qty += a.qty
+        }, Object.create(null))
+        console.log('team', team)
+        localStorage.setItem('compare', JSON.stringify(team))
+        location.reload()
+      }
+    },
+    showcompare () {
+      console.log('showcompare', JSON.parse(localStorage.getItem('compare')))
+      this.showcompares = JSON.parse(localStorage.getItem('compare'))
+    },
+    clearcompare () {
+      localStorage.removeItem('compare')
+      // eslint-disable-next-line no-undef
+      this.$bvModal.hide('modal-1')
+    },
     buy (url, img, name, price, value, type, sku, brand) {
       console.log('itemcart', localStorage.getItem('cart'))
       console.log('buy', url + '-' + img + '-' + name + '-' + price + '-' + this.$refs[value][0].localValue)
