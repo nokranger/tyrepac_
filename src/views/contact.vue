@@ -11,7 +11,6 @@
                 text-align: left;
               "
             >
-            <div class="currency">123456</div>
               <div style="margin: 15px">
                 <div>
                   <h1 style="font-weight: bold;">แบบฟอร์มสอบถาม</h1>
