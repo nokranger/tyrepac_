@@ -22,7 +22,7 @@
           <b-col>
             <div style="border-radius: 5px;border: thin solid #E0E0E0;margin: 5px;">
               <br>
-              <div style="margin: 15px;">การเลือกตัวเลือกนี้จะส่งไปยังที่อยู่สำหรับการเรียกเก็บเงินและการจัดส่งของคุณด้านล่าง</div>
+              <div id="information" style="margin: 15px;">การเลือกตัวเลือกนี้จะส่งไปยังที่อยู่สำหรับการเรียกเก็บเงินและการจัดส่งของคุณด้านล่าง</div>
               <br>
               <div style="margin: 15px;">
                 <b-button variant="primary" href="#more">กำหนดสถานที่ส่ง</b-button>
@@ -112,6 +112,10 @@
                 </div>
                 <div style="font-weight: bold;font-size: 30px;">ข้อมูลรถยนต์ในการขอรับประกันยาง</div>
                 <br>
+                  <div v-if="information == 1" style="color: red;font-weight: bold;">
+                    ** กรุณากรอกข้อมูลให้ครบถ้วน
+                  </div>
+                <br>
                 <div>
                   <div>
                     <div>ยี่ห้อรถยนต์ <div style="color: red;display: inline-block;font-weight: bold;">*</div></div>
@@ -141,7 +145,7 @@
                 <br>
                 <br>
                 <div>
-                  <div id="information" style="font-weight: bold;font-size: 30px;">* กรุณาตรวจสอบข้อมูลให้ถูกต้อง ไม่สามารถแก้ไขเปลี่ยนแปลงและขอย้อนหลังได้</div>
+                  <div style="font-weight: bold;font-size: 30px;">* กรุณาตรวจสอบข้อมูลให้ถูกต้อง ไม่สามารถแก้ไขเปลี่ยนแปลงและขอย้อนหลังได้</div>
                   <br>
                   <div>
                     <b-form-radio v-model="selectedtax" name="some-radios" value="false">ไม่ต้องการ</b-form-radio>
