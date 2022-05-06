@@ -77,11 +77,11 @@
                 <div style="margin: 15px;">
                   <div style="font-weight: bold;font-size: 30px;">มีรหัสส่วนลดหรือไม่?</div>
                   <div>
-                    <b-input placeholder="รหัสส่วนลด"></b-input>
+                    <b-input v-model="couponId" placeholder="รหัสส่วนลด"></b-input>
                     <br>
                   </div>
                   <div>
-                    <b-button variant="primary">ใช้รหัสส่วนลด</b-button>
+                    <b-button variant="primary" v-on:click="usecoupon()">ใช้รหัสส่วนลด</b-button>
                   </div>
                 </div>
               </div>
@@ -152,6 +152,7 @@
   </div>
 </template>
 <script>
+import axios from 'axios'
 export default {
   data () {
     return {
@@ -162,7 +163,9 @@ export default {
       sortaa: '',
       count: 0,
       counts: 0,
-      price: 0
+      price: 0,
+      couponId: '',
+      coupon: ''
     }
   },
   metaInfo: {
@@ -204,6 +207,19 @@ export default {
     console.log('sum', this.count)
   },
   methods: {
+    usecoupon () {
+      console.log('coupon', this.couponId)
+      axios.get('/coupon').then(res => {
+        this.coupon = res.data.data
+        console.log('couponssss', this.coupon)
+        const promotion = this.coupon.filter((post, index) => {
+          console.log('coupon', this.couponId)
+          return post.name === this.couponId
+        })
+        this.coupon = promotion[0]
+        console.log('couponssss', this.coupon)
+      })
+    },
     // currency () {
     //   var x = document.querySelectorAll('.currency')
     //   console.log('currency', x)

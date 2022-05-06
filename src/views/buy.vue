@@ -447,7 +447,7 @@ export default {
         type: true
       },
       status: 0,
-      couponId: 0,
+      couponId: '',
       totalPrice: 0.0,
       firstname: '',
       lastname: '',
@@ -499,6 +499,9 @@ export default {
     console.log('countcart', this.count)
   },
   methods: {
+    coupons () {
+      console.log('coupons', this.couponId)
+    },
     async updateitem () {
       console.log('aa', this.items)
       localStorage.setItem('cart', JSON.stringify(this.items))
@@ -528,7 +531,7 @@ export default {
           status: 1,
           totalPrice: this.count,
           orderDetails: this.items,
-          couponId: 0,
+          // couponId: 0,
           firstname: this.firstname,
           lastname: this.lastname,
           address: this.address,
@@ -583,7 +586,7 @@ export default {
           status: 1,
           totalPrice: this.count,
           orderDetails: this.items,
-          couponId: 0,
+          // couponId: 0,
           firstname: this.firstname,
           lastname: this.lastname,
           address: this.address,
