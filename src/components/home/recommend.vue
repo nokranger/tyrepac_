@@ -45,7 +45,8 @@
                   <b-col cols="6" sm="6" md="6" lg="3" xl="3" v-for="(showcompare, index) in showcompares" :key="index">
                     <div style="margin: 5px;text-align: left;">
                       <b-button variant="primary" v-on:click="buycart (('/tyrebrand' + '/' + showcompare.prodId + '/' + showcompare.sku), ('http://119.63.90.135:2083/image?image_path=' + showcompare.image), showcompare.prodId, showcompare.name, showcompare.regularPrice, ('values' + index), showcompare.type, showcompare.sku, showcompare)">สั่งซื้อเลย</b-button>
-                      <i class="fas fa-shopping-cart" style="display: inline-block;margin-left: 10px;font-size: 20px;cursor: pointer;color: #005099;" v-on:click="addtocart (('/tyrebrand' + '/' + showcompare.prodId + '/' + showcompare.sku), ('http://119.63.90.135:2083/image?image_path=' + showcompare.image), showcompare.prodId, showcompare.name, showcompare.regularPrice, ('values' + index), showcompare.type, showcompare.sku, showcompare)"></i>
+                      <i class="fas fa-shopping-cart" style="display: inline-block;margin-left: 20px;font-size: 20px;cursor: pointer;color: #005099;" v-on:click="addtocart (('/tyrebrand' + '/' + showcompare.prodId + '/' + showcompare.sku), ('http://119.63.90.135:2083/image?image_path=' + showcompare.image), showcompare.prodId, showcompare.name, showcompare.regularPrice, ('values' + index), showcompare.type, showcompare.sku, showcompare)"></i>
+                      <i class="fas fa fa-times" style="display: inline-block;margin-left: 20px;font-size: 20px;cursor: pointer;color: #ee2456;" v-on:click="removeitem (showcompare.name)"></i>
                     </div>
                     <div style="margin-bottom: 5px;;width: 100%;">
                       <b-form-spinbutton :ref="'values' + index" id="demo-sb" :value="value2" min="4" max="100"></b-form-spinbutton>
@@ -121,6 +122,15 @@ export default {
     })
   },
   methods: {
+    removeitem (name) {
+      console.log('remove', name)
+      this.showcompares = this.showcompares.filter((obj) => {
+        return obj.name !== name
+      })
+      console.log('remove: ', this.showcompares)
+      localStorage.setItem('compare', JSON.stringify(this.showcompares))
+      location.reload()
+    },
     async compare (itemss) {
       console.log('compare', itemss)
       if (JSON.parse(localStorage.getItem('compare')) === null) {
