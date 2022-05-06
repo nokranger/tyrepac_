@@ -214,7 +214,7 @@
                           <i class="fas fa-shopping-cart icontyre" v-on:click="addtocart (('/tyrebrand' + '/' + brandd.prodId + '/' + brandd.sku), ('http://119.63.90.135:2083/image?image_path=' + brandd.image), brandd.prodId, brandd.name, brandd.regularPrice, ('values' + index), brandd.type, brandd.sku, brandd)"></i>
                         </div>
                         <div>
-                          <i class="fa-solid fa-plus" style="cursor: pointer;margin-left: 5px;" @click="compare(item)"></i><a style="cursor: pointer;margin-left: 5px;color: #005099;font-weight: bold;"  @click="showcompare()" v-b-modal.modal-1>ข้อมุลสินค้า</a>
+                          <i class="fa-solid fa-plus" style="cursor: pointer;margin-left: 5px;" @click="compare(brandd)"></i><a style="cursor: pointer;margin-left: 5px;color: #005099;font-weight: bold;"  @click="showcompare()" v-b-modal.modal-1>ข้อมุลสินค้า</a>
                         </div>
                       </div>
                     </b-col>
@@ -312,7 +312,8 @@ export default {
       pageOfitems: [],
       pageItem: '',
       compares: [],
-      showcompares: ''
+      showcompares: '',
+      iconcompare: 0
     }
   },
   metaInfo: {
