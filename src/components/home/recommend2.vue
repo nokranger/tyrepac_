@@ -8,7 +8,7 @@
           <br>
           <b-row>
             <b-col cols="6" sm="6" md="6" lg="3" xl="3" v-for="(item, index) in promotions" :key="index" style="margin-top: 5px;">
-              <div style="border-radius: 5px;border: thin solid #E0E0E0;text-align: left;width: 100%;height: 400px;">
+              <div style="border-radius: 5px;border: thin solid #E0E0E0;text-align: left;width: 100%;height: 410px;">
                 <div style="width: 100%;;text-align: center;">
                   <a style="cursor: pointer;" v-on:click="buydetail (('/tyrebrand' + '/' + item.prodId + '/' + item.sku), ('http://119.63.90.135:2083/image?image_path=' + item.image), item.name, item.regularPrice, ('values' + index), item.type, item.sku, item)">
                     <img :src="'http://119.63.90.135:2083/image?image_path=' + item.image" style="width: 150px;height: 150px;margin: 5px;" alt="">
