@@ -47,11 +47,12 @@ export default {
   mounted () {
     axios.get('/promotion').then(res => {
       this.promotions = res.data.data
-      // const promotion = this.promotions.filter((post, index) => {
-      //   return post.status === 1
-      // })
-      // this.promotions = promotion
-      // console.log('promotionsssss', this.promotions)
+      console.log('promotions', this.promotions)
+      const promotion = this.promotions.filter((post, index) => {
+        return post.isActive === 1
+      })
+      this.promotions = promotion
+      console.log('promotionsssss', this.promotions)
     })
   },
   metaInfo: {
