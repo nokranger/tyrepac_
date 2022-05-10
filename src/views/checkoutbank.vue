@@ -77,12 +77,12 @@
                     <b-col></b-col>
                     <b-col>
                       <div style="color: black;font-weight: bold;">
-                        รวมทั้งหมด
+                        รวมทั้งหมด (ใช้รหัสส่วนลด)
                       </div>
                     </b-col>
                     <b-col>
                       <div style="color: #005099;font-weight: bold;">
-                        ฿{{(count).toLocaleString('en')}}
+                        ฿{{(info.totalPrice).toLocaleString('en')}}
                       </div>
                     </b-col>
                   </b-row>

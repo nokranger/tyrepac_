@@ -277,6 +277,7 @@
               <br>
             <div style="font-weight: bold;font-size: 30px;">รายการสั่งซื้อของคุณ</div>
               <div >ใส่รหัสส่วนลดที่นี่? <a href="#" v-b-modal.modal-1 style="text-decoration: none;">คลิกที่นี่ เพื่อใส่รหัสส่วนลด.</a></div>
+              <div v-if="coupons.status === 1" style="font-weight: bold;display: inline-block;">ออร์เดอร์นี้มีการใช้รหัสส่วนลด:&nbsp;&nbsp;&nbsp;</div><div style="font-weight: bold;display: inline-block;color: red;">{{coupons.promotion.name}}</div>
               <b-modal id="modal-1" hide-footer hide-header>
                 <p class="my-4">มีรหัสส่วนลดหรือไม่?</p>
                 <div>
@@ -284,7 +285,7 @@
                 </div>
                 <br>
                 <div>
-                  <b-button variant="primary">ใช้รหัสส่วนลด</b-button>
+                  <b-button variant="primary" v-on:click="usecoupon()">ใช้รหัสส่วนลด</b-button>
                 </div>
               </b-modal>
               <div style="margin: 5px;text-align: left;">
@@ -349,6 +350,20 @@
                     <b-col>
                       <div style="color: #005099;font-weight: bold;">
                         ฿{{(count).toLocaleString('en')}}
+                      </div>
+                    </b-col>
+                  </b-row>
+                  <b-row v-if="coupons.status === 1">
+                    <b-col></b-col>
+                    <b-col></b-col>
+                    <b-col>
+                      <div style="color: black;font-weight: bold;">
+                        รวมทั้งหมด (ใช้รหัสส่วนลด)
+                      </div>
+                    </b-col>
+                    <b-col>
+                      <div style="color: red;font-weight: bold;">
+                        ฿{{(coupons.priceCoup).toLocaleString('en')}}
                       </div>
                     </b-col>
                   </b-row>
@@ -448,6 +463,13 @@ export default {
       },
       status: 0,
       couponId: '',
+      coupon: '',
+      coupons: {
+        status: 0,
+        promotion: {
+          name: ''
+        }
+      },
       totalPrice: 0.0,
       firstname: '',
       lastname: '',
@@ -463,6 +485,12 @@ export default {
     titleTemplate: "%s - Tyrepac - Asia's First Tyre Portal"
   },
   mounted () {
+    if (localStorage.getItem('coupon') === null) {
+      console.log('nullcoup')
+    } else {
+      console.log('notnullcoup')
+      this.coupons = JSON.parse(localStorage.getItem('coupon'))
+    }
     if (localStorage.getItem('info') === null) {
       console.log('null of info')
     } else {
@@ -499,8 +527,81 @@ export default {
     console.log('countcart', this.count)
   },
   methods: {
-    coupons () {
-      console.log('coupons', this.couponId)
+    usecoupon () {
+      if (localStorage.getItem('coupon') === null) {
+        console.log('nullofcode')
+        console.log('coupon', this.couponId.toUpperCase())
+        axios.get('/coupon').then(res => {
+          this.coupon = res.data.data
+          console.log('couponssss', this.coupon)
+          const promotion = this.coupon.filter((post, index) => {
+            console.log('coupon', this.couponId)
+            return post.name === this.couponId.toUpperCase()
+          })
+          this.coupon = promotion[0]
+          // this.coupon = {
+          //   status: 1,
+          //   promotion: promotion[0]
+          // }
+          console.log('couponssss', this.coupon.type)
+          if (this.coupon.type === 2) {
+            console.log('type')
+            this.coupons = {
+              status: 1,
+              promotion: promotion[0],
+              price: this.count,
+              priceCoup: this.count - (this.coupon.amount)
+            }
+            // this.count = this.count - this.coupon.amount
+          } else if (this.coupon.type === 1) {
+            console.log('amout', (1 - (this.coupon.amount / 100)))
+            // this.count = this.count * (1 - (this.coupon.amount / 100))
+            this.coupons = {
+              status: 1,
+              promotion: promotion[0],
+              price: this.count,
+              priceCoup: this.count * (1 - (this.coupon.amount / 100))
+            }
+          }
+          localStorage.setItem('coupon', JSON.stringify(this.coupons))
+          this.$bvModal.hide('modal-1')
+        })
+      } else {
+        console.log('test')
+        this.coupons = JSON.parse(localStorage.getItem('coupon'))
+        console.log('test', this.coupons)
+        axios.get('/coupon').then(res => {
+          this.coupon = res.data.data
+          console.log('couponssss', this.coupon)
+          const promotion = this.coupon.filter((post, index) => {
+            console.log('coupon', this.couponId)
+            return post.name === this.couponId.toUpperCase()
+          })
+          this.coupon = promotion[0]
+          console.log('couponssss', this.coupon.type)
+          if (this.coupon.type === 2) {
+            console.log('type')
+            this.coupons = {
+              status: 1,
+              promotion: promotion[0],
+              price: this.count,
+              priceCoup: this.count - (this.coupon.amount)
+            }
+            // this.count = this.count - this.coupon.amount
+          } else if (this.coupon.type === 1) {
+            console.log('amout', (1 - (this.coupon.amount / 100)))
+            // this.count = this.count * (1 - (this.coupon.amount / 100))
+            this.coupons = {
+              status: 1,
+              promotion: promotion[0],
+              price: this.count,
+              priceCoup: this.count * (1 - (this.coupon.amount / 100))
+            }
+          }
+          localStorage.setItem('coupon', JSON.stringify(this.coupons))
+          this.$bvModal.hide('modal-1')
+        })
+      }
     },
     async updateitem () {
       console.log('aa', this.items)
@@ -525,28 +626,55 @@ export default {
         } else if (this.warranty === 'false') {
           this.warranty = false
         }
-        this.data = {
-          customerId: 'C001',
-          paymentId: 1,
-          status: 1,
-          totalPrice: this.count,
-          orderDetails: this.items,
-          // couponId: 0,
-          firstname: this.firstname,
-          lastname: this.lastname,
-          address: this.address,
-          phoneNo: this.phoneNo,
-          email: this.email,
-          taxInvoice: this.selectedtax,
-          warranty: this.warranty,
-          shipment: {
-            installerId: this.shipment.installerId,
-            shipmentDate: this.date + ' ' + this.valuetime,
-            address: this.shipment.address,
-            district: this.shipment.district,
-            province: this.shipment.province,
-            zipcode: this.shipment.zipcode,
-            type: this.shipment.type
+        if (this.coupons.status === 1) {
+          this.data = {
+            customerId: 'C001',
+            paymentId: 1,
+            status: 1,
+            totalPrice: this.coupons.priceCoup,
+            orderDetails: this.items,
+            // couponId: 0,
+            firstname: this.firstname,
+            lastname: this.lastname,
+            address: this.address,
+            phoneNo: this.phoneNo,
+            email: this.email,
+            taxInvoice: this.selectedtax,
+            warranty: this.warranty,
+            shipment: {
+              installerId: this.shipment.installerId,
+              shipmentDate: this.date + ' ' + this.valuetime,
+              address: this.shipment.address,
+              district: this.shipment.district,
+              province: this.shipment.province,
+              zipcode: this.shipment.zipcode,
+              type: this.shipment.type
+            }
+          }
+        } else {
+          this.data = {
+            customerId: 'C001',
+            paymentId: 1,
+            status: 1,
+            totalPrice: this.count,
+            orderDetails: this.items,
+            // couponId: 0,
+            firstname: this.firstname,
+            lastname: this.lastname,
+            address: this.address,
+            phoneNo: this.phoneNo,
+            email: this.email,
+            taxInvoice: this.selectedtax,
+            warranty: this.warranty,
+            shipment: {
+              installerId: this.shipment.installerId,
+              shipmentDate: this.date + ' ' + this.valuetime,
+              address: this.shipment.address,
+              district: this.shipment.district,
+              province: this.shipment.province,
+              zipcode: this.shipment.zipcode,
+              type: this.shipment.type
+            }
           }
         }
         this.datainfo = {
@@ -580,28 +708,55 @@ export default {
         } else if (this.warranty === 'false') {
           this.warranty = false
         }
-        this.data = {
-          customerId: 'C001',
-          paymentId: 1,
-          status: 1,
-          totalPrice: this.count,
-          orderDetails: this.items,
-          // couponId: 0,
-          firstname: this.firstname,
-          lastname: this.lastname,
-          address: this.address,
-          phoneNo: this.phoneNo,
-          email: this.email,
-          taxInvoice: this.selectedtax,
-          warranty: this.warranty,
-          shipment: {
-            installerId: this.shipment.installerId,
-            shipmentDate: this.date + ' ' + this.valuetime,
-            address: this.shipment.address,
-            district: this.shipment.district,
-            province: this.shipment.province,
-            zipcode: this.shipment.zipcode,
-            type: this.shipment.type
+        if (this.coupons.status === 1) {
+          this.data = {
+            customerId: 'C001',
+            paymentId: 1,
+            status: 1,
+            totalPrice: this.coupons.priceCoup,
+            orderDetails: this.items,
+            // couponId: 0,
+            firstname: this.firstname,
+            lastname: this.lastname,
+            address: this.address,
+            phoneNo: this.phoneNo,
+            email: this.email,
+            taxInvoice: this.selectedtax,
+            warranty: this.warranty,
+            shipment: {
+              installerId: this.shipment.installerId,
+              shipmentDate: this.date + ' ' + this.valuetime,
+              address: this.shipment.address,
+              district: this.shipment.district,
+              province: this.shipment.province,
+              zipcode: this.shipment.zipcode,
+              type: this.shipment.type
+            }
+          }
+        } else {
+          this.data = {
+            customerId: 'C001',
+            paymentId: 1,
+            status: 1,
+            totalPrice: this.count,
+            orderDetails: this.items,
+            // couponId: 0,
+            firstname: this.firstname,
+            lastname: this.lastname,
+            address: this.address,
+            phoneNo: this.phoneNo,
+            email: this.email,
+            taxInvoice: this.selectedtax,
+            warranty: this.warranty,
+            shipment: {
+              installerId: this.shipment.installerId,
+              shipmentDate: this.date + ' ' + this.valuetime,
+              address: this.shipment.address,
+              district: this.shipment.district,
+              province: this.shipment.province,
+              zipcode: this.shipment.zipcode,
+              type: this.shipment.type
+            }
           }
         }
         this.datainfo = {

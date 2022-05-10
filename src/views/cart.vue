@@ -77,6 +77,9 @@
                 <div style="margin: 15px;">
                   <div style="font-weight: bold;font-size: 30px;">มีรหัสส่วนลดหรือไม่?</div>
                   <div>
+                    <!-- <div>1{{coupons}}</div> -->
+                    <div v-if="coupons.status === 1" style="font-weight: bold;display: inline-block;">ออร์เดอร์นี้มีการใช้รหัสส่วนลด:&nbsp;&nbsp;&nbsp;</div><div style="font-weight: bold;display: inline-block;color: red;">{{coupons.promotion.name}}</div>
+                    <br>
                     <b-input v-model="couponId" placeholder="รหัสส่วนลด"></b-input>
                     <br>
                   </div>
@@ -132,6 +135,21 @@
                       </div>
                     </b-col>
                   </b-row>
+                  <!-- <div>{{coupons}}</div> -->
+                  <b-row v-if="coupons.status === 1">
+                    <b-col>
+                      <div style="color: black;font-weight: bold;">
+                        รวมทั้งหมด (ใช้รหัสส่วนลด)
+                      </div>
+                    </b-col>
+                    <b-col></b-col>
+                    <b-col></b-col>
+                    <b-col>
+                      <div style="color: red;font-weight: bold;">
+                        ฿{{(coupons.priceCoup).toLocaleString('en')}}
+                      </div>
+                    </b-col>
+                  </b-row>
                   <br>
                 </b-container>
               </div>
@@ -165,7 +183,13 @@ export default {
       counts: 0,
       price: 0,
       couponId: '',
-      coupon: ''
+      coupon: '',
+      coupons: {
+        status: 0,
+        promotion: {
+          name: ''
+        }
+      }
     }
   },
   metaInfo: {
@@ -173,6 +197,12 @@ export default {
     titleTemplate: "%s - Tyrepac - Asia's First Tyre Portal"
   },
   async mounted () {
+    if (localStorage.getItem('coupon') === null) {
+      console.log('nullcoup')
+    } else {
+      console.log('notnullcoup')
+      this.coupons = JSON.parse(localStorage.getItem('coupon'))
+    }
     if (localStorage.getItem('cart') === null) {
       console.log('show status')
       this.statuss = 0
@@ -208,31 +238,85 @@ export default {
   },
   methods: {
     usecoupon () {
-      console.log('coupon', this.couponId)
-      axios.get('/coupon').then(res => {
-        this.coupon = res.data.data
-        console.log('couponssss', this.coupon)
-        const promotion = this.coupon.filter((post, index) => {
-          console.log('coupon', this.couponId)
-          return post.name === this.couponId
+      if (localStorage.getItem('coupon') === null) {
+        console.log('nullofcode')
+        console.log('coupon', this.couponId.toUpperCase())
+        axios.get('/coupon').then(res => {
+          this.coupon = res.data.data
+          console.log('couponssss', this.coupon)
+          const promotion = this.coupon.filter((post, index) => {
+            console.log('coupon', this.couponId)
+            return post.name === this.couponId.toUpperCase()
+          })
+          this.coupon = promotion[0]
+          // this.coupon = {
+          //   status: 1,
+          //   promotion: promotion[0]
+          // }
+          console.log('couponssss', this.coupon.type)
+          if (this.coupon.type === 2) {
+            console.log('type')
+            this.coupons = {
+              status: 1,
+              promotion: promotion[0],
+              price: this.count,
+              priceCoup: this.count - (this.coupon.amount)
+            }
+            // this.count = this.count - this.coupon.amount
+          } else if (this.coupon.type === 1) {
+            console.log('amout', (1 - (this.coupon.amount / 100)))
+            // this.count = this.count * (1 - (this.coupon.amount / 100))
+            this.coupons = {
+              status: 1,
+              promotion: promotion[0],
+              price: this.count,
+              priceCoup: this.count * (1 - (this.coupon.amount / 100))
+            }
+          }
+          localStorage.setItem('coupon', JSON.stringify(this.coupons))
         })
-        this.coupon = promotion[0]
-        console.log('couponssss', this.coupon)
-      })
+      } else {
+        console.log('test')
+        this.coupons = JSON.parse(localStorage.getItem('coupon'))
+        console.log('test', this.coupons)
+        axios.get('/coupon').then(res => {
+          this.coupon = res.data.data
+          console.log('couponssss', this.coupon)
+          const promotion = this.coupon.filter((post, index) => {
+            console.log('coupon', this.couponId)
+            return post.name === this.couponId.toUpperCase()
+          })
+          this.coupon = promotion[0]
+          console.log('couponssss', this.coupon.type)
+          if (this.coupon.type === 2) {
+            console.log('type')
+            this.coupons = {
+              status: 1,
+              promotion: promotion[0],
+              price: this.count,
+              priceCoup: this.count - (this.coupon.amount)
+            }
+            // this.count = this.count - this.coupon.amount
+          } else if (this.coupon.type === 1) {
+            console.log('amout', (1 - (this.coupon.amount / 100)))
+            // this.count = this.count * (1 - (this.coupon.amount / 100))
+            this.coupons = {
+              status: 1,
+              promotion: promotion[0],
+              price: this.count,
+              priceCoup: this.count * (1 - (this.coupon.amount / 100))
+            }
+          }
+          localStorage.setItem('coupon', JSON.stringify(this.coupons))
+        })
+      }
     },
-    // currency () {
-    //   var x = document.querySelectorAll('.currency')
-    //   console.log('currency', x)
-    //   for (let i = 0, len = x.length; i < len; i++) {
-    //     const num = Number(x[i].innerHTML).toLocaleString('en')
-    //     x[i].innerHTML = num
-    //   }
-    // },
     async updateitem () {
       console.log('aa', this.items)
       localStorage.setItem('cart', JSON.stringify(this.items))
       this.items = JSON.parse(localStorage.getItem('cart'))
       console.log('sum', this.count)
+      localStorage.removeItem('coupon')
       location.reload()
     },
     removeitem (name) {
@@ -243,6 +327,7 @@ export default {
       console.log('remove: ', this.items)
       localStorage.setItem('test', JSON.stringify(this.items))
       localStorage.setItem('cart', JSON.stringify(this.items))
+      localStorage.removeItem('coupon')
       location.reload()
     }
   }
