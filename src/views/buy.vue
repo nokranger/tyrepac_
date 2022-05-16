@@ -210,7 +210,7 @@
                       รหัสไปรษณีย์ <div style="color: red;display: inline-block;font-weight: bold;">*</div>
                     </div>
                     <div>
-                      <b-input type="text" id="zipcode" name="zipcode" autocomplete="on" v-model="address.zipCode" placeholder="รหัสไปรษณีย์"></b-input>
+                      <b-input type="text" id="zipcode" name="zipcode" autocomplete="on" v-model="address.zipcode" placeholder="รหัสไปรษณีย์"></b-input>
                       <br>
                     </div>
                   </div>
@@ -454,7 +454,7 @@ export default {
         address: '',
         district: '',
         province: '',
-        zipCode: ''
+        zipcode: ''
       },
       shipment: {
         installerId: 0,
