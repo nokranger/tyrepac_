@@ -689,7 +689,7 @@ export default {
         localStorage.setItem('checkout', localStorage.getItem('cart'))
         localStorage.setItem('info', JSON.stringify(this.data))
         console.log('id', this.data.shipment)
-        location.replace('/credit')
+        location.replace('/checkcredit')
       }
     },
     memberbank () {
@@ -770,7 +770,7 @@ export default {
         console.log('datainfo', this.datainfo)
         localStorage.setItem('checkout', localStorage.getItem('cart'))
         localStorage.setItem('info', JSON.stringify(this.data))
-        location.replace('/bank')
+        location.replace('/checkbank')
       }
     },
     removeitem (name) {

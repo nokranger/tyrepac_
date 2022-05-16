@@ -84,13 +84,13 @@ const routes = [
     component: cart
   },
   {
-    path: '/credit',
-    name: 'credit',
+    path: '/checkcredit',
+    name: 'checkcredit',
     component: credit
   },
   {
-    path: '/bank',
-    name: 'bank',
+    path: '/checkbank',
+    name: 'checkbank',
     component: bank
   },
   {
@@ -99,13 +99,13 @@ const routes = [
     component: shop
   },
   {
-    path: '/checkbank',
-    name: 'checkbank',
+    path: '/donebank',
+    name: 'donebank',
     component: donebank
   },
   {
-    path: '/checkcredit',
-    name: 'checkcredit',
+    path: '/donecredit',
+    name: 'donecredit',
     component: donecredit
   }
 ]

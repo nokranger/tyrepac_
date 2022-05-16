@@ -249,8 +249,10 @@ export default ({
           localStorage.removeItem('checkout')
           localStorage.removeItem('info')
           localStorage.setItem('user', JSON.stringify(this.data))
-          location.replace('/checkbank')
+          location.replace('/donebank')
         }
+      }).catch((err) => {
+        console.log('resErr', err.response)
       })
     }
   }

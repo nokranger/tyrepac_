@@ -8,6 +8,7 @@
           <br>
           <!-- <div>{{cart}}</div> -->
               <div style="margin: 5px;">
+              <!-- <div>{{items}}</div> -->
                 <b-table ref="table" hover :items="items" :fields="fields">
                   <template v-slot:cell(สินค้า)="data">
                     <div style="color: #005099;font-weight: bold;display:inline-block;">
@@ -20,7 +21,7 @@
                   </template> -->
                   <template v-slot:cell(จำนวน)="data">
                     <div style="margin: 5px;text-align: left;">
-                      <b-form-spinbutton id="demo-sb" v-model="data.item.qty" min="4" max="100"></b-form-spinbutton>
+                      <b-form-spinbutton id="demo-sb" v-model="data.item.qty" min="4" max="100" v-on:change="updateitem ()"></b-form-spinbutton>
                     </div>
                   </template>
                   <template v-slot:cell(ราคา)="data">
@@ -153,11 +154,11 @@
                   <br>
                 </b-container>
               </div>
-                <div style="text-align: right;">
+                <!-- <div style="text-align: right;">
                   <b-button variant="primary" v-on:click="updateitem ()">ปรับปรุงสินค้าในตระกร้า</b-button>
                   <br>
                   <br>
-                </div>
+                </div> -->
                 <div style="text-align: right;">
                   <b-button variant="primary" href="/checkout">สั่งซื้อและชำระเงิน</b-button>
                 </div>
@@ -330,6 +331,9 @@ export default {
       localStorage.removeItem('coupon')
       location.reload()
     }
+  },
+  updated () {
+    // this.updateitem()
   }
 }
 </script>
