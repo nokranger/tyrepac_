@@ -127,14 +127,14 @@
                   <div>
                     <div>รุ่นรถยนต์ <div style="color: red;display: inline-block;font-weight: bold;">*</div></div>
                     <div>
-                      <b-input placeholder="รุ่นรถยนต์"></b-input>
+                      <b-input placeholder="รุ่นรถยนต์" v-model="warranty.carModel"></b-input>
                       <br>
                     </div>
                   </div>
                   <div>
                     <div>หมายเลขทะเบียนรถ <div style="color: red;display: inline-block;font-weight: bold;">*</div></div>
                     <div>
-                      <b-input placeholder="หมายเลขทะเบียนรถ"></b-input>
+                      <b-input placeholder="หมายเลขทะเบียนรถ" v-model="warranty.carNo"></b-input>
                       <br>
                     </div>
                   </div>
@@ -235,7 +235,7 @@
                   <div>
                     <b-form-checkbox
                       id="checkbox-1"
-                      v-model="warranty"
+                      v-model="warranty.carBrand"
                       name="checkbox-1"
                       value="true"
                       unchecked-value="false"
@@ -425,7 +425,11 @@ export default {
     return {
       apiURL: apiURL,
       selectedtax: false,
-      warranty: false,
+      warranty: {
+        carBrand: null,
+        carModel: '',
+        carNo: ''
+      },
       statuss: '',
       selectedp: '',
       items: [],
@@ -459,7 +463,7 @@ export default {
         district: '',
         province: '',
         zipcode: '',
-        type: true
+        type: 1
       },
       status: 0,
       couponId: '',
@@ -477,7 +481,8 @@ export default {
       phoneNo: '',
       email: '',
       autoinfo: '',
-      information: 0
+      information: 0,
+      remark: null
     }
   },
   metaInfo: {
@@ -621,18 +626,21 @@ export default {
         } else if (this.selectedtax === 'false') {
           this.selectedtax = false
         }
-        if (this.warranty === 'true') {
-          this.warranty = true
-        } else if (this.warranty === 'false') {
-          this.warranty = false
+        if (this.warranty.carBrand === 'true') {
+          this.warranty.carBrand = true
+          this.remark = true
+        } else if (this.warranty.carBrand === 'false') {
+          this.warranty.carBrand = false
+          this.remark = false
         }
+        console.log('warranty', this.warranty)
         if (this.coupons.status === 1) {
           this.data = {
             customerId: 'C001',
             paymentId: 1,
             status: 1,
             totalPrice: this.coupons.priceCoup,
-            orderDetails: this.items,
+            detailList: this.items,
             // couponId: 0,
             firstname: this.firstname,
             lastname: this.lastname,
@@ -641,6 +649,7 @@ export default {
             email: this.email,
             taxInvoice: this.selectedtax,
             warranty: this.warranty,
+            remark: this.remark,
             shipment: {
               installerId: this.shipment.installerId,
               shipmentDate: this.date + ' ' + this.valuetime,
@@ -657,7 +666,7 @@ export default {
             paymentId: 1,
             status: 1,
             totalPrice: this.count,
-            orderDetails: this.items,
+            detailList: this.items,
             // couponId: 0,
             firstname: this.firstname,
             lastname: this.lastname,
@@ -666,6 +675,7 @@ export default {
             email: this.email,
             taxInvoice: this.selectedtax,
             warranty: this.warranty,
+            remark: this.remark,
             shipment: {
               installerId: this.shipment.installerId,
               shipmentDate: this.date + ' ' + this.valuetime,
@@ -682,7 +692,7 @@ export default {
           paymentId: 1,
           status: 1,
           totalPrice: this.count,
-          orderDetails: this.items
+          detailList: this.items
         }
         console.log('data', this.data)
         console.log('datainfo', this.datainfo)
@@ -703,18 +713,21 @@ export default {
         } else if (this.selectedtax === 'false') {
           this.selectedtax = false
         }
-        if (this.warranty === 'true') {
-          this.warranty = true
-        } else if (this.warranty === 'false') {
-          this.warranty = false
+        if (this.warranty.carBrand === 'true') {
+          this.warranty.carBrand = true
+          this.remark = true
+        } else if (this.warranty.carBrand === 'false') {
+          this.warranty.carBrand = false
+          this.remark = false
         }
+        console.log('warranty', this.this.warranty)
         if (this.coupons.status === 1) {
           this.data = {
             customerId: 'C001',
             paymentId: 1,
             status: 1,
             totalPrice: this.coupons.priceCoup,
-            orderDetails: this.items,
+            detailList: this.items,
             // couponId: 0,
             firstname: this.firstname,
             lastname: this.lastname,
@@ -723,6 +736,7 @@ export default {
             email: this.email,
             taxInvoice: this.selectedtax,
             warranty: this.warranty,
+            remark: this.remark,
             shipment: {
               installerId: this.shipment.installerId,
               shipmentDate: this.date + ' ' + this.valuetime,
@@ -739,7 +753,7 @@ export default {
             paymentId: 1,
             status: 1,
             totalPrice: this.count,
-            orderDetails: this.items,
+            detailList: this.items,
             // couponId: 0,
             firstname: this.firstname,
             lastname: this.lastname,
@@ -748,6 +762,7 @@ export default {
             email: this.email,
             taxInvoice: this.selectedtax,
             warranty: this.warranty,
+            remark: this.remark,
             shipment: {
               installerId: this.shipment.installerId,
               shipmentDate: this.date + ' ' + this.valuetime,
@@ -764,7 +779,7 @@ export default {
           paymentId: 1,
           status: 1,
           totalPrice: this.count,
-          orderDetails: this.items
+          detailList: this.items
         }
         console.log('data', this.data)
         console.log('datainfo', this.datainfo)
