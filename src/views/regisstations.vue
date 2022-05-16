@@ -20,27 +20,28 @@
                 text-align: left;
               "
             >
+            <div v-if="status === 1" style="margin: 15px;color: #42ba96;font-weight: bold;font-size: 25;">ส่งข้อมูลการติดต่อเรียบร้อยแล้วค่ะ</div>
               <div style="margin: 15px">
                 <div style="font-weight: bold;">กรุณากรอกข้อมูลเพื่อติดต่อกลับ</div>
                 <br />
                 <div>
                   <br />
                   <div>ชิ้อร้านติดตั้ง *</div>
-                  <b-input v-model="nameinstaller" placeholder="ชื่อร้านติดตั้ง"></b-input>
+                  <b-input v-model="data.installerName" placeholder="ชื่อร้านติดตั้ง"></b-input>
                 </div>
                 <div>
                   <br />
                   <div>ชื่อผู้ติดต่อ *</div>
-                  <b-input v-model="namecontact" placeholder="ชื่อผู้ติดต่อ"></b-input>
+                  <b-input v-model="data.name" placeholder="ชื่อผู้ติดต่อ"></b-input>
                 </div>
                 <div>
                   <br />
                   <div>เบอร์โทรศัพท์ *</div>
-                  <b-input v-model="phoneinstaller" placeholder="เบอร์โทรศัพท์"></b-input>
+                  <b-input v-model="data.mobileNo" placeholder="เบอร์โทรศัพท์"></b-input>
                 </div>
                 <div>
                   <br />
-                  <b-button variant="primary" v-on:click="registor()">ส่ง</b-button>
+                  <b-button variant="primary" v-on:click="sendContact ()">ส่ง</b-button>
                 </div>
                 <br />
                 <br />
@@ -83,7 +84,18 @@ export default {
       nameinstaller: '',
       namecontact: '',
       phoneinstaller: '',
-      data: ''
+      data: {
+        installerName: '',
+        name: '',
+        email: '',
+        mobileNo: '',
+        carBrand: '',
+        carModel: '',
+        carYear: 0,
+        note: '',
+        type: 2
+      },
+      status: 0
 
     }
   },
@@ -110,6 +122,15 @@ export default {
       console.log('datain', '/installer/create')
       axios.post('/installer/create', this.data).then((res) => {
         console.log(res)
+      })
+    },
+    sendContact () {
+      console.log('contact', this.data)
+      axios.post('/contact', this.data).then(res => {
+        console.log('done')
+        this.status = 1
+        location.replace('#top')
+        this.data = {}
       })
     }
   }

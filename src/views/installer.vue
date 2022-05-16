@@ -112,7 +112,19 @@ export default {
       currentPage: 1,
       post: '',
       testinstaller: '',
-      installers: ''
+      installers: '',
+      data: {
+        installerName: '',
+        name: '',
+        email: '',
+        mobileNo: '',
+        carBrand: '',
+        carModel: '',
+        carYear: 0,
+        note: '',
+        type: 1
+      },
+      status: 0
     }
   },
   metaInfo: {
@@ -134,6 +146,14 @@ export default {
       this.filter = value
       console.log('testttclick')
       this.$refs.table.refresh()
+    },
+    sendContact () {
+      console.log('contact', this.data)
+      axios.post('/contact', this.data).then(res => {
+        console.log('done')
+        this.status = 1
+        location.replace('#top')
+      })
     }
   }
 }

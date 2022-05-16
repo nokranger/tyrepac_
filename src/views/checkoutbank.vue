@@ -69,7 +69,7 @@
                         วิธีการชำระเงิน
                       </div>
                     </b-col>
-                    <b-col>บัตรเครดิตวีซ่า / มาสเตอร์การ์ด</b-col>
+                    <b-col>โอนเงินผ่านธนาคาร</b-col>
                   </b-row>
                   <br>
                   <b-row>
@@ -248,6 +248,7 @@ export default ({
           localStorage.removeItem('test')
           localStorage.removeItem('checkout')
           localStorage.removeItem('info')
+          localStorage.removeItem('coupon')
           localStorage.setItem('user', JSON.stringify(this.data))
           location.replace('/donebank')
         }

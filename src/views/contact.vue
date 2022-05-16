@@ -4,26 +4,27 @@
       <b-container>
         <b-row>
           <b-col>
-            <div
+            <div id="top"
               style="
                 border-radius: 5px;
                 border: thin solid #e0e0e0;
                 text-align: left;
               "
             >
+            <div v-if="status === 1" style="margin: 15px;color: #42ba96;font-weight: bold;font-size: 25;">ส่งข้อมูลการติดต่อเรียบร้อยแล้วค่ะ</div>
               <div style="margin: 15px">
                 <div>
                   <h1 style="font-weight: bold;">แบบฟอร์มสอบถาม</h1>
                 </div>
                 <br />
                 <div>ชื่อของท่าน</div>
-                <b-input placeholder="กรุณากรอกชื่อ"></b-input>
+                <b-input placeholder="กรุณากรอกชื่อ" v-model="data.name"></b-input>
                 <br />
                 <div>อีเมล์</div>
-                <b-input placeholder="กรุณากรอกอีเมล"></b-input>
+                <b-input placeholder="กรุณากรอกอีเมล" v-model="data.email"></b-input>
                 <br />
                 <div>โทรศัพท์/แฟกซ์</div>
-                <b-input placeholder="กรุณากรอกเบอร์ / แฟกซ์"></b-input>
+                <b-input placeholder="กรุณากรอกเบอร์ / แฟกซ์" v-model="data.mobileNo"></b-input>
                 <br>
                 <div style="font-weight: bold;">
                   เพื่อตอบคำถามของคุณได้อย่างมีประสิทธิภาพมากขึ้น
@@ -31,19 +32,19 @@
                 </div>
                 <br />
                 <div>ยี่ห้อรถยนต์</div>
-                <b-input placeholder="ยี่ห้อรถยนต์"></b-input>
+                <b-input placeholder="ยี่ห้อรถยนต์" v-model="data.carBrand"></b-input>
                 <br />
                 <div>รุ่นรถยนต์</div>
-                <b-input placeholder="รุ่นรถยนต์"></b-input>
+                <b-input placeholder="รุ่นรถยนต์" v-model="data.carModel"></b-input>
                 <br />
                 <div>ปี</div>
-                <b-input placeholder="ปี"></b-input>
+                <b-input placeholder="ปี" v-model="data.carYear"></b-input>
                 <br />
                 <div>ความคิดเห็น</div>
-                <b-textarea placeholder="ความเห็น"></b-textarea>
+                <b-textarea placeholder="ความเห็น" v-model="data.note"></b-textarea>
                 <div>
                   <br />
-                  <b-button variant="primary">ส่ง</b-button>
+                  <b-button variant="primary" v-on:click="sendContact ()">ส่ง</b-button>
                 </div>
               </div>
             </div>
@@ -88,9 +89,24 @@
   </div>
 </template>
 <script>
+import axios from 'axios'
+// import axios from 'axios'
 export default {
   data () {
-    return {}
+    return {
+      installerName: '',
+      data: {
+        name: '',
+        email: '',
+        mobileNo: '',
+        carBrand: '',
+        carModel: '',
+        carYear: 0,
+        note: '',
+        type: 1
+      },
+      status: 0
+    }
   },
   mounted () {
     var x = document.querySelectorAll('.currency')
@@ -99,6 +115,17 @@ export default {
       const num = Number(x[i].innerHTML).toLocaleString('en')
       x[i].innerHTML = num
       x[i].innerHTML.add('currSign')
+    }
+  },
+  methods: {
+    sendContact () {
+      console.log('contact', this.data)
+      axios.post('/contact', this.data).then(res => {
+        console.log('done')
+        this.status = 1
+        location.replace('#top')
+        this.data = {}
+      })
     }
   },
   metaInfo: {
