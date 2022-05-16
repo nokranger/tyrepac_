@@ -33,7 +33,7 @@
                 <div style="display: inline-block;font-weight: bold;">นามสกุล: </div><li>{{info.lastname}}</li>
               </div>
               <div>
-                <div style="display: inline-block;font-weight: bold;">ที่อยุ่: </div><li>{{info.address.address + ' ' +  info.address.district + ' ' + info.address.province + ' ' + info.address.zipCode}}</li>
+                <div style="display: inline-block;font-weight: bold;">ที่อยุ่: </div><li>{{info.address.address + ' ' +  info.address.district + ' ' + info.address.province + ' ' + info.address.zipcode}}</li>
               </div>
               <div>
                 <div style="display: inline-block;font-weight: bold;">โทรศัพท์: </div><li>{{info.phoneNo}}</li>
