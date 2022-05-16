@@ -720,7 +720,7 @@ export default {
           this.warranty.carBrand = false
           this.remark = false
         }
-        console.log('warranty', this.this.warranty)
+        console.log('warranty', this.warranty)
         if (this.coupons.status === 1) {
           this.data = {
             customerId: 'C001',
