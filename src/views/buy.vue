@@ -637,7 +637,7 @@ export default {
         if (this.coupons.status === 1) {
           this.data = {
             customerId: 'C001',
-            paymentId: 1,
+            paymentId: 2,
             status: 1,
             totalPrice: this.coupons.priceCoup,
             detailList: this.items,
@@ -663,7 +663,7 @@ export default {
         } else {
           this.data = {
             customerId: 'C001',
-            paymentId: 1,
+            paymentId: 2,
             status: 1,
             totalPrice: this.count,
             detailList: this.items,
