@@ -55,7 +55,7 @@
               <div>
                 <div style="font-weight: bold;">ติดต่อเรา</div>
                 <br />
-                <div>เบอร์ติดต่อ: <a style="text-decoration: none;color: black;" href="tel:+66992839256">099-283-9256</a></div>
+                <div class="test">เบอร์ติดต่อ: <a style="text-decoration: none;color: black;" href="tel:+66992839256">099-283-9256</a></div>
                 <div>เบอร์ติดต่อ: <a style="text-decoration: none;color: black;" href="tel:+66824771520">082-477-1520</a></div>
                 <div>อีเมล์: <a style="text-decoration: none;color: black;" href="mailto:info.tyrepac@apo-th.com">info.tyrepac@apo-th.com</a></div>
                 <div>
@@ -138,4 +138,19 @@ export default {
   .currSign:before {
     content: '$';
   }
+.test {
+  background-color: lightblue;
+}
+
+/* @media screen and (min-width: 400px) {
+  .test {
+    background-color: lightgreen;
+  }
+} */
+
+@media only screen and (max-width: 800px) {
+  .test {
+    background-color: lavender;
+  }
+}
 </style>
