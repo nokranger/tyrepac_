@@ -1,7 +1,7 @@
 <template>
   <div>
     <div style="border: 1px solid white;color: white;background-color: white;height: 25px;position: fixed;width:100%;z-index: 99;top: 0;text-align: left;">
-      <div style="font-size: 15px;top: 0;">
+      <div style="font-size: 25px;top: 0;">
         <div style="text-align: left;display: inline-block;margin: 10px;color: #4267B2;">
           <a href="https://www.facebook.com/tyrepacthailand/" target="_blank" style="color: #4267B2;">
             <i class="fa-brands fa-facebook-square"></i>
@@ -48,12 +48,12 @@
             >
           <div  @mouseover="onOvert" @mouseleave="onLeavet">
             <b-nav-item-dropdown toggle-class="text-dark" text="ประเภทยาง" ref="dropdownt" right>
-              <b-dropdown-item href="/shop?type=ยางขับขี่ทั่วไป">ขับขี่ทั่วไป</b-dropdown-item>
-              <b-dropdown-item href="/shop?type=ยางประสิทธิภาพสูง">ประสิทธิภาพสูง</b-dropdown-item>
-              <b-dropdown-item href="/shop?type=ยางประสิทธิภาพสูง">SUV / ประสิทธิภาพสูง</b-dropdown-item>
+              <b-dropdown-item href="/shop?type=ยางขับขี่ทั่วไป">ยางขับขี่ทั่วไป</b-dropdown-item>
+              <b-dropdown-item href="/shop?type=ยางประสิทธิภาพสูง">ยางประสิทธิภาพสูง</b-dropdown-item>
+              <b-dropdown-item href="/shop?type=ยางประสิทธิภาพสูง">ยาง SUV / ประสิทธิภาพสูง</b-dropdown-item>
               <b-dropdown-item href="/shop?type=ยางประหยัดเชื้อเพลิง">ยางประหยัดเชื้อเพลิง</b-dropdown-item>
-              <b-dropdown-item href="/shop?type=ยางขับขี่นุ่ม เงียบ">ยางยางขับขี่นุ่ม เงียบ</b-dropdown-item>
-              <b-dropdown-item href="/shop?type=ยางรถเอนกประสงค์">ยางเอนกประสงค์ / SUV</b-dropdown-item>
+              <b-dropdown-item href="/shop?type=ยางขับขี่นุ่ม เงียบ">ยางขับขี่นุ่ม เงียบ</b-dropdown-item>
+              <b-dropdown-item href="/shop?type=ยางรถเอนกประสงค์">ยางรถเอนกประสงค์ / SUV</b-dropdown-item>
               <b-dropdown-item href="/shop?type=ยางรถกระบะ">ยางรถกระบะ</b-dropdown-item>
               <b-dropdown-item href="/shop?type=ยางออฟโรด">ยางออฟโรด</b-dropdown-item>
             </b-nav-item-dropdown>

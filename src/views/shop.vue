@@ -76,7 +76,7 @@
                     <div>
                       <b-input list="tyre" placeholder="ทุกๆ รุ่นยาง" v-model="tyre" v-on:change="filtertyre (tyre)"></b-input>
                       <datalist id="tyre" >
-                        <option value="SUV"></option>
+                        <option value="ยาง SUV"></option>
                         <option value="ยางขับขี่ทั่วไป"></option>
                         <option value="ยางขับขี่นุ่ม เงียบ"></option>
                         <option value="ยางประสิทธิภาพสูง"></option>
@@ -166,8 +166,6 @@
                         <b-form-select
                           style="width: 100%; font-size: 20px; margin: 5px;color: gray;height: 35px;"
                           v-model="selected1"
-                          name=""
-                          id=""
                           v-on:change="sortprice(selected1)"
                           :options="options"
                         >
@@ -214,7 +212,7 @@
                           <i class="fas fa-shopping-cart icontyre" v-on:click="addtocart (('/tyrebrand' + '/' + brandd.prodId + '/' + brandd.sku), ('http://119.63.90.135:2083/image?image_path=' + brandd.image), brandd.prodId, brandd.name, brandd.regularPrice, ('values' + index), brandd.type, brandd.sku, brandd)"></i>
                         </div>
                         <div>
-                          <i class="fa-solid fa-plus" style="cursor: pointer;margin-left: 5px;" @click="compare(brandd)"></i><a style="cursor: pointer;margin-left: 5px;color: #005099;font-weight: bold;"  @click="showcompare()" v-b-modal.modal-1>ข้อมุลสินค้า</a>
+                          <i class="fa-solid fa-plus" style="cursor: pointer;margin-left: 5px;" @click="compare(brandd)"></i><a style="cursor: pointer;margin-left: 5px;color: #005099;font-weight: bold;"  @click="showcompare()" v-b-modal.modal-1>ข้อมูลสินค้า</a>
                         </div>
                       </div>
                     </b-col>
@@ -287,18 +285,17 @@ export default {
       value2: 4,
       selected1: null,
       selected2: null,
+      selectedwidth: null,
       options: [
         { value: null, text: 'เรียงลำดับ' },
         { value: 'name', text: 'เรียงตาม ชื่อ' },
         { value: 'regularPrice', text: 'เรียงตาม ราคา' }
       ],
-      // options2: [
-      //   { value: null, text: 'แสดงรายการ' },
-      //   { value: 16, text: '16' },
-      //   { value: 32, text: '32' },
-      //   { value: 48, text: '48' },
-      //   { value: 100, text: '100' }
-      // ],
+      optionswidth: [
+        { value: null, text: 'ความกว้าง' },
+        { value: null, text: 'ความกว้าง' },
+        { value: null, text: 'ความกว้าง' }
+      ],
       tyre: '',
       filterss: '',
       width: '',

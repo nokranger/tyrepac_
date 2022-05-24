@@ -535,13 +535,13 @@ export default {
     usecoupon () {
       if (localStorage.getItem('coupon') === null) {
         console.log('nullofcode')
-        console.log('coupon', this.couponId.toUpperCase())
+        console.log('coupon', this.couponId)
         axios.get('/coupon').then(res => {
           this.coupon = res.data.data
           console.log('couponssss', this.coupon)
           const promotion = this.coupon.filter((post, index) => {
             console.log('coupon', this.couponId)
-            return post.name === this.couponId.toUpperCase()
+            return post.name === this.couponId
           })
           this.coupon = promotion[0]
           // this.coupon = {
@@ -580,7 +580,7 @@ export default {
           console.log('couponssss', this.coupon)
           const promotion = this.coupon.filter((post, index) => {
             console.log('coupon', this.couponId)
-            return post.name === this.couponId.toUpperCase()
+            return post.name === this.couponId
           })
           this.coupon = promotion[0]
           console.log('couponssss', this.coupon.type)

@@ -109,7 +109,7 @@
             </div>
             <ul>
               <div>
-                <div style="display: inline-block;font-weight: bold;">วันที่: </div><li>{{dates}}</li>
+                <div style="display: inline-block;font-weight: bold;">วันที่: </div><li>{{dates | moment('dddd, MMMM Do YYYY')}}</li>
               </div>
               <!-- <div>
                 <div style="display: inline-block;font-weight: bold;">เลขที่คำสั่งซื้อ: </div><li>Test101</li>
@@ -212,7 +212,7 @@ export default ({
   },
   mounted () {
     this.dates = new Date()
-    this.dates = this.dates.toLocaleDateString()
+    // this.dates = this.dates.toLocaleDateString()
     console.log(JSON.parse(localStorage.getItem('cart')))
     this.cart = JSON.parse(localStorage.getItem('checkout'))
     this.info = JSON.parse(localStorage.getItem('info'))

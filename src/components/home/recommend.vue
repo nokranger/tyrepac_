@@ -29,7 +29,7 @@
                     <i class="fas fa-shopping-cart" style="display: inline-block;margin-left: 10px;font-size: 20px;cursor: pointer;color: #005099;" v-on:click="addtocart (('/tyrebrand' + '/' + item.prodId + '/' + item.sku), ('http://119.63.90.135:2083/image?image_path=' + item.image), item.prodId, item.name, item.regularPrice, ('values' + index), item.type, item.sku, item)"></i>
                   </div>
                   <div>
-                    <i class="fa-solid fa-plus" style="cursor: pointer;" @click="compare(item)"></i><a style="cursor: pointer;margin-left: 5px;color: #005099;font-weight: bold;"  @click="showcompare()" v-b-modal.modal-1>ข้อมุลสินค้า</a>
+                    <i class="fa-solid fa-plus" style="cursor: pointer;" @click="compare(item)"></i><a style="cursor: pointer;margin-left: 5px;color: #005099;font-weight: bold;"  @click="showcompare()" v-b-modal.modal-1>ข้อมูลสินค้า</a>
                   </div>
                 </div>
               </div>

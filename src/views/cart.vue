@@ -79,7 +79,7 @@
                   <div style="font-weight: bold;font-size: 30px;">มีรหัสส่วนลดหรือไม่?</div>
                   <div>
                     <!-- <div>1{{coupons}}</div> -->
-                    <div v-if="coupons.status === 1" style="font-weight: bold;display: inline-block;">ออร์เดอร์นี้มีการใช้รหัสส่วนลด:&nbsp;&nbsp;&nbsp;</div><div style="font-weight: bold;display: inline-block;color: red;">{{coupons.promotion.name}}</div>
+                    <div v-if="coupons.status === 1" style="font-weight: bold;display: inline-block;">ออร์เดอร์นี้มีการใช้รหัสส่วนลด:&nbsp;&nbsp;&nbsp;</div><div style="font-weight: bold;display: inline-block;color: #005099;">{{coupons.promotion.name}}</div><i v-if="coupons.status === 1" class="fas fa fa-times" style="display: inline-block;margin-left: 10px;font-size: 20px;cursor: pointer;color: #ee2456;" v-on:click="cancleCoup ()"></i>
                     <br>
                     <b-input v-model="couponId" placeholder="รหัสส่วนลด"></b-input>
                     <br>
@@ -131,12 +131,29 @@
                     <b-col></b-col>
                     <b-col></b-col>
                     <b-col>
-                      <div style="color: #005099;font-weight: bold;">
+                      <div style="color: #005099;">
                         ฿{{(count).toLocaleString('en')}}
                       </div>
                     </b-col>
                   </b-row>
                   <!-- <div>{{coupons}}</div> -->
+                  <b-row v-if="coupons.status === 1">
+                    <b-col>
+                      <div style="color: black;font-weight: bold;">
+                        ส่วนลด
+                      </div>
+                    </b-col>
+                    <b-col></b-col>
+                    <b-col></b-col>
+                    <b-col>
+                      <div v-if="coupons.promotion.type === 1" style="color: red;">
+                        ฿{{(coupons.promotion.amount).toLocaleString('en')}} <div style="color: #005099;display: inline-block;">บาท</div>
+                      </div>
+                      <div v-if="coupons.promotion.type === 2" style="color: red;">
+                        ฿{{(coupons.promotion.amount).toLocaleString('en')}} <div style="color: #005099;display: inline-block;">%</div>
+                      </div>
+                    </b-col>
+                  </b-row>
                   <b-row v-if="coupons.status === 1">
                     <b-col>
                       <div style="color: black;font-weight: bold;">
@@ -146,7 +163,7 @@
                     <b-col></b-col>
                     <b-col></b-col>
                     <b-col>
-                      <div style="color: red;font-weight: bold;">
+                      <div style="color: red;">
                         ฿{{(coupons.priceCoup).toLocaleString('en')}}
                       </div>
                     </b-col>
@@ -241,13 +258,13 @@ export default {
     usecoupon () {
       if (localStorage.getItem('coupon') === null) {
         console.log('nullofcode')
-        console.log('coupon', this.couponId.toUpperCase())
+        console.log('coupon', this.couponId)
         axios.get('/coupon').then(res => {
           this.coupon = res.data.data
           console.log('couponssss', this.coupon)
           const promotion = this.coupon.filter((post, index) => {
             console.log('coupon', this.couponId)
-            return post.name === this.couponId.toUpperCase()
+            return post.name === this.couponId
           })
           this.coupon = promotion[0]
           // this.coupon = {
@@ -261,7 +278,7 @@ export default {
               status: 1,
               promotion: promotion[0],
               price: this.count,
-              priceCoup: this.count - (this.coupon.amount)
+              priceCoup: this.count * (1 - (this.coupon.amount / 100))
             }
             // this.count = this.count - this.coupon.amount
           } else if (this.coupon.type === 1) {
@@ -271,7 +288,7 @@ export default {
               status: 1,
               promotion: promotion[0],
               price: this.count,
-              priceCoup: this.count * (1 - (this.coupon.amount / 100))
+              priceCoup: this.count - (this.coupon.amount)
             }
           }
           localStorage.setItem('coupon', JSON.stringify(this.coupons))
@@ -285,7 +302,7 @@ export default {
           console.log('couponssss', this.coupon)
           const promotion = this.coupon.filter((post, index) => {
             console.log('coupon', this.couponId)
-            return post.name === this.couponId.toUpperCase()
+            return post.name === this.couponId
           })
           this.coupon = promotion[0]
           console.log('couponssss', this.coupon.type)
@@ -295,7 +312,7 @@ export default {
               status: 1,
               promotion: promotion[0],
               price: this.count,
-              priceCoup: this.count - (this.coupon.amount)
+              priceCoup: this.count * (1 - (this.coupon.amount / 100))
             }
             // this.count = this.count - this.coupon.amount
           } else if (this.coupon.type === 1) {
@@ -305,7 +322,7 @@ export default {
               status: 1,
               promotion: promotion[0],
               price: this.count,
-              priceCoup: this.count * (1 - (this.coupon.amount / 100))
+              priceCoup: this.count - (this.coupon.amount)
             }
           }
           localStorage.setItem('coupon', JSON.stringify(this.coupons))
@@ -329,6 +346,17 @@ export default {
       localStorage.setItem('test', JSON.stringify(this.items))
       localStorage.setItem('cart', JSON.stringify(this.items))
       localStorage.removeItem('coupon')
+      location.reload()
+    },
+    cancleCoup () {
+      this.couponId = ''
+      localStorage.removeItem('coupon')
+      // this.coupons = {
+      //   status: 0,
+      //   promotion: '',
+      //   price: '',
+      //   priceCoup: ''
+      // }
       location.reload()
     }
   },

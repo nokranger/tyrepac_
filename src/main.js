@@ -18,6 +18,7 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 Vue.config.productionTip = false
 Vue.use(BootstrapVue)
+Vue.use(require('vue-moment'))
 Vue.component('jw-pagination', JwPagination)
 Vue.use(VueMeta, {
   keyName: 'metaInfo',
