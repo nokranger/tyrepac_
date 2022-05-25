@@ -16,20 +16,20 @@
       <br>
       <div
         style="
-          background-color: whitesmoke;
-          opacity: 0.5;
+          background-color: white;
+          opacity: 0.8;
           width: 500px;
           color: black;
           margin: 5px;
         "
       >
         <h1>บริการลูกค้า</h1>
-        <p>
+        <p style="font-size: 20px;">
           กรุณาติดต่อฝ่ายบริการลูกค้าของเราหากมีคำถามใด ๆ เกี่ยวกับการเลือกยาง
         </p>
-        <h1>+66 099-283-9256</h1>
-        <h1>เวลาทำการคอลเซนเตอร์</h1>
-        <p>วันจันทร์ – ศุกร์ 08.30 น. – 17.00 น.</p>
+        <h1><a href="tel:+66992839256" style="text-decoration:none;color: black;">099-283-9256</a></h1>
+        <h1 style="font-size: 20px;">เวลาทำการคอลเซนเตอร์</h1>
+        <p style="font-size: 20px;">วันจันทร์ – ศุกร์ 08.30 น. – 17.00 น.</p>
       </div>
       <br />
   </b-container>

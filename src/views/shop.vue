@@ -189,7 +189,7 @@
                   <br>
                   <b-row>
                     <!-- {{brand}} -->
-                    <b-col cols="3" sm="3" md="3" lg="3" xl="3" v-for="(brandd, index) in brand" :key="index" style="margin-bottom: 5px;">
+                    <b-col cols="6" sm="4" md="4" lg="4" xl="3" v-for="(brandd, index) in brand" :key="index" style="margin-bottom: 5px;">
                       <!-- {{brandd.prodId}} -->
                       <div class="bordertyre">
                         <div style="width: 100%;">
@@ -227,7 +227,7 @@
                     <br>
                     <div>
                       <b-row>
-                        <b-col cols="6" sm="6" md="6" lg="3" xl="3" v-for="(showcompare, index) in showcompares" :key="index">
+                        <b-col cols="6" sm="6" md="6" lg="4" xl="3" v-for="(showcompare, index) in showcompares" :key="index">
                           <div style="margin: 5px;text-align: left;">
                             <b-button variant="primary" v-on:click="buycart (('/tyrebrand' + '/' + showcompare.prodId + '/' + showcompare.sku), ('http://119.63.90.135:2083/image?image_path=' + showcompare.image), showcompare.prodId, showcompare.name, showcompare.regularPrice, ('values' + index), showcompare.type, showcompare.sku, showcompare)">สั่งซื้อเลย</b-button>
                             <i class="fas fa-shopping-cart" style="display: inline-block;margin-left: 10px;font-size: 20px;cursor: pointer;color: #005099;" v-on:click="addtocart (('/tyrebrand' + '/' + showcompare.prodId + '/' + showcompare.sku), ('http://119.63.90.135:2083/image?image_path=' + showcompare.image), showcompare.prodId, showcompare.name, showcompare.regularPrice, ('values' + index), showcompare.type, showcompare.sku, showcompare)"></i>

@@ -6,11 +6,12 @@
       <div>ข้อเสนอสุดพิเศษจากแบรนด์ยาง</div>
       <div>
         <b-container>
+          <b-container>
           <br>
           <b-row>
-            <b-col cols="6" sm="6" md="6" lg="3" xl="3" v-for="(item, index) in promotions" :key="index" style="margin-top: 5px;">
-              <div style="border-radius: 5px;border: thin solid #E0E0E0;text-align: left;height: 410px;">
-                <div style="width: 100%;;text-align: center;">
+            <b-col cols="6" sm="6" md="4" lg="3" xl="2" v-for="(item, index) in promotions" :key="index" style="margin-top: 5px;">
+              <div style="border-radius: 5px;border: thin solid #E0E0E0;text-align: left;height: 410px;width: 100%;">
+                <div style="width: 100%;text-align: center;">
                   <a style="cursor: pointer;" v-on:click="buydetail (('/tyrebrand' + '/' + item.prodId + '/' + item.sku), ('http://119.63.90.135:2083/image?image_path=' + item.image), item.name, item.regularPrice, ('values' + index), item.type, item.sku, item)">
                     <img :src="'http://119.63.90.135:2083/image?image_path=' + item.image" style="width: 150px;height: 150px;margin: 5px;" alt="">
                   </a>
@@ -20,7 +21,7 @@
                 <!-- <div style="border-top: thin solid #E0E0E0;margin-bottom: 4px;margin-left: 20px;margin-right: 20px;text-align: center;"></div> -->
                 <div style="margin-bottom: 4px;margin-left: 20px;margin-right: 20px;">
                   <br>
-                  <div style="margin: 5px;width: 100%;">
+                  <div style="width: 100%;">
                     <b-form-spinbutton :ref="'values' + index" id="demo-sb" :value="value2" min="4" max="100"></b-form-spinbutton>
                   </div>
                   <br>
@@ -35,6 +36,7 @@
               </div>
             </b-col>
           </b-row>
+          </b-container>
         </b-container>
           <div>
             <b-modal id="modal-1" size="xl" title="Compare list">
