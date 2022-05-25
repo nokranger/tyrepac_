@@ -109,6 +109,18 @@ export default {
     }
   },
   mounted () {
+    // console.log('product')
+    // var config = {
+    //   // headers: {
+    //   //   'Access-Control-Allow-Origin': '*',
+    //   //   'X-Requested-With': 'XMLHttpRequest'
+    //   // },
+    //   method: 'get',
+    //   url: 'http://119.63.90.135:2083/product'
+    // }
+    // axios(config).then(res => {
+    //   console.log('product', res)
+    // })
     var x = document.querySelectorAll('.currency')
     console.log('currency', x)
     for (let i = 0, len = x.length; i < len; i++) {
@@ -138,9 +150,9 @@ export default {
   .currSign:before {
     content: '$';
   }
-.test {
+/* .test {
   background-color: lightblue;
-}
+} */
 
 /* @media screen and (min-width: 400px) {
   .test {
@@ -148,9 +160,9 @@ export default {
   }
 } */
 
-@media only screen and (max-width: 800px) {
+/* @media only screen and (max-width: 800px) {
   .test {
     background-color: lavender;
   }
-}
+} */
 </style>
