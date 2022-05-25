@@ -125,6 +125,7 @@ b {
 }
 b:hover {
   color: #1d89ca;
+  margin-left: 10px;
 }
 b::after {
   color: #1d89ca;
@@ -134,9 +135,11 @@ b::after {
   height: 2px;
   background: #1d89ca;
   transition: width .3s;
+  margin-left: 10px;
 }
 b:hover::after{
   width: 100%;
+  margin-left: 10px;
 }
 a,h4 {
   font-family: 'Kanit', sans-serif;

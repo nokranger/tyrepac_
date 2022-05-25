@@ -2,7 +2,7 @@
   <div>
     <div style="border: 1px solid white;color: white;background-color: white;height: 25px;position: fixed;width:100%;z-index: 99;top: 0;text-align: left;">
       <div style="font-size: 25px;top: 0;">
-        <div style="text-align: left;display: inline-block;margin: 10px;color: #4267B2;">
+        <div style="text-align: left;display: inline-block;margin: 10px;color: red">
           <a href="https://www.facebook.com/tyrepacthailand/" target="_blank" style="color: #4267B2;">
             <i class="fa-brands fa-facebook-square"></i>
           </a>
@@ -23,6 +23,7 @@
       <b-navbar toggleable="lg" type="dark" class="header">
         <b-navbar-brand href="/">
         <br>
+        <br>
           <div>
             <img
               style="width: 184.33px; height: auto; margin: 10px"
@@ -31,23 +32,23 @@
             />
           </div>
         </b-navbar-brand>
-        <b-navbar-toggle target="nav-collapse" style="color: black"
+        <b-navbar-toggle target="nav-collapse" style="color: black;margin-left: -15px;"
           ><i class="fas fa-align-justify"></i
         ></b-navbar-toggle>
         <b-collapse id="nav-collapse" is-nav>
           <b-navbar-nav class="ml-auto align-left">
             <b-nav-item href="/brand"
-              ><b style="font-size: 16px; font-weight: normal"
+              ><b style="font-size: 16px; font-weight: normal;margin-left: 15px;"
                 >ยางรถยนต์</b
               ></b-nav-item
             >
             <b-nav-item href="/promotions"
-              ><b style="font-size: 16px; font-weight: normal"
+              ><b style="font-size: 16px; font-weight: normal;margin-left: 15px;"
                 >โปรโมชั่น</b
               ></b-nav-item
             >
           <div  @mouseover="onOvert" @mouseleave="onLeavet">
-            <b-nav-item-dropdown toggle-class="text-dark" text="ประเภทยาง" ref="dropdownt" right>
+            <b-nav-item-dropdown toggle-class="text-dark" style="margin-left: 15px;" text="ประเภทยาง" ref="dropdownt" right>
               <b-dropdown-item href="/shop?type=ยางขับขี่ทั่วไป">ยางขับขี่ทั่วไป</b-dropdown-item>
               <b-dropdown-item href="/shop?type=ยางประสิทธิภาพสูง">ยางประสิทธิภาพสูง</b-dropdown-item>
               <b-dropdown-item href="/shop?type=ยางประสิทธิภาพสูง">ยาง SUV / ประสิทธิภาพสูง</b-dropdown-item>
@@ -59,27 +60,27 @@
             </b-nav-item-dropdown>
           </div>
             <b-nav-item href="/installer"
-              ><b class="installer"
+              ><b class="installer" style="margin-left: 15px;"
                 >ศูนย์บริการติดตั้ง</b
               ></b-nav-item
             >
             <b-nav-item href="/qa"
-              ><b class="installer"
+              ><b class="installer" style="margin-left: 15px;"
                 >คำถามที่พบบ่อย</b
               ></b-nav-item
             >
             <b-nav-item href="/register-installer"
-              ><b class="installer"
+              ><b class="installer" style="margin-left: 15px;"
                 >สมัครร้านติดตั้ง</b
               ></b-nav-item
             >
             <b-nav-item href="/contact"
-              ><b class="installer"
+              ><b class="installer" style="margin-left: 15px;"
                 >ติดต่อเรา</b
               ></b-nav-item
             >
             <b-nav-item href="/shop"
-              ><b class="installer"
+              ><b class="installer" style="margin-left: 15px;"
                 >สั่งซื้อเลย</b
               ></b-nav-item
             >
@@ -87,7 +88,7 @@
           <div @mouseover="onOver" @mouseleave="onLeave">
             <b-nav-item-dropdown toggle-class="text-dark" ref="dropdown" right>
               <template slot="button-content">
-                <a href="/checkout" style="text-decoration: none;">
+                <a href="/checkout" style="text-decoration: none;margin-left: 15px;;">
                   <i class="fas fa-shopping-cart"></i>
                   <em v-if="statuss === 1">{{count}}</em>
                 </a>
