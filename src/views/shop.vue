@@ -523,7 +523,7 @@ export default {
           // console.log(res.data.data)
           this.brand = res.data.data.products
           this.pageItem = this.brand
-          console.log('brands', res.data.data.products)
+          // console.log('brands', res.data.data.products)
           const vvv = this.brand.find((post, index) => {
             if (post.prodId === 'TY001') {
               return true
@@ -534,22 +534,24 @@ export default {
       }
     },
     sortprice (value) {
-      console.log('value', value)
+      console.log('value', this.brand)
       this.sortaa = this.brand
       if (value.toString() === 'regularPrice') {
         this.sortaa.sort((a, b) => {
-          return b[value.toString()] - a[value.toString()]
+          // console.log('regupricess', a.regularPrice + '====' + b.regularPrice)
+          return Number(a.regularPrice.replace(/[^0-9.]+/g, '')) - Number(b.regularPrice.replace(/[^0-9.]+/g, ''))
         })
         this.brand = this.sortaa
         this.pageItem = this.brand
-        console.log('regu', this.sortaa)
+        // console.log('regu', this.sortaa)
       } else if (value.toString() === 'name') {
-        this.sortaa.sort((a, b) => {
-          return a.sku > b.sku ? 1 : b.sku > a.sku ? -1 : 0
-        })
-        this.brand = this.sortaa
+        // this.sortaa.sort((a, b) => {
+        //   // console.log('regupricesssname', this.sortaa)
+        //   return a.sku > b.sku ? 1 : b.sku > a.sku ? -1 : 0
+        // })
+        this.brand = this.sortaa.sort()
         this.pageItem = this.brand
-        console.log('regu', this.sortaa)
+        // console.log('regu', this.sortaa)
       }
     },
     qtytyre (value) {
