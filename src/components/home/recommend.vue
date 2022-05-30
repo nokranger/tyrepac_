@@ -101,7 +101,7 @@ export default {
     console.log('urlrec', url)
     const config = {
       method: 'get',
-      url: '/product'
+      url: process.env.VUE_APP_API_URL + '/product'
       // headers: {
       //   'Content-Type': 'application/json',
       //   'Access-Control-Allow-Origin': '*',

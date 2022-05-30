@@ -259,7 +259,7 @@ export default {
       if (localStorage.getItem('coupon') === null) {
         console.log('nullofcode')
         console.log('coupon', this.couponId)
-        axios.get('/coupon').then(res => {
+        axios.get(process.env.VUE_APP_API_URL + '/coupon').then(res => {
           this.coupon = res.data.data
           console.log('couponssss', this.coupon)
           const promotion = this.coupon.filter((post, index) => {
@@ -297,7 +297,7 @@ export default {
         console.log('test')
         this.coupons = JSON.parse(localStorage.getItem('coupon'))
         console.log('test', this.coupons)
-        axios.get('/coupon').then(res => {
+        axios.get(process.env.VUE_APP_API_URL + '/coupon').then(res => {
           this.coupon = res.data.data
           console.log('couponssss', this.coupon)
           const promotion = this.coupon.filter((post, index) => {

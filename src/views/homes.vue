@@ -53,7 +53,7 @@ export default {
       //   'Access-Control-Allow-Origin': '*'
       // },
       method: 'get',
-      url: 'http://119.63.90.135:2083/product'
+      url: process.env.VUE_APP_API_URL + '/product'
     }
     // console.log('all null')
     axios(config).then(res => {

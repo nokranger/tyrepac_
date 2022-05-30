@@ -243,7 +243,7 @@ export default ({
       }
       console.log('data', this.testsss)
       // localStorage.setItem('checkout', localStorage.getItem('cart'))
-      axios.post('/order', this.testsss).then((res) => {
+      axios.post(process.env.VUE_APP_API_URL + '/order', this.testsss).then((res) => {
         console.log('response', res.data.status.code)
         console.log('response', res)
         if (res.data.status.code === 0) {

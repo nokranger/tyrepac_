@@ -186,7 +186,7 @@ export default {
         console.log('brands')
         var config = {
           method: 'get',
-          url: '/product'
+          url: process.env.VUE_APP_API_URL + '/product'
         }
         axios(config).then(res => {
           this.brand = res.data.data.products

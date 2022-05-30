@@ -93,7 +93,7 @@ export default {
     }
   },
   mounted () {
-    axios.get('/product').then(res => {
+    axios.get(process.env.VUE_APP_API_URL + '/product').then(res => {
       this.promotions = res.data.data.products
       const promotion = this.promotions.filter((post, index) => {
         return post.recommend === 1

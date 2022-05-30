@@ -45,7 +45,7 @@ export default {
     }
   },
   mounted () {
-    axios.get('/promotion').then(res => {
+    axios.get(process.env.VUE_APP_API_URL + '/promotion').then(res => {
       this.promotions = res.data.data
       console.log('promotions', this.promotions)
       const promotion = this.promotions.filter((post, index) => {

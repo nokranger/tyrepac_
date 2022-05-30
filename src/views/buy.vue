@@ -512,7 +512,7 @@ export default {
     this.dates = new Date(Date.now() + (24 * 60 * 60 * 1000))
     // this.dates = this.dates.toLocaleDateString()
     console.log('date', this.dates.toLocaleDateString())
-    axios.get('/installer').then((res) => {
+    axios.get(process.env.VUE_APP_API_URL + '/installer').then((res) => {
       // this.testinstaller = res.data.data.installers
       this.installers = res.data.data.installers
       this.itemin = this.installers
@@ -536,7 +536,7 @@ export default {
       if (localStorage.getItem('coupon') === null) {
         console.log('nullofcode')
         console.log('coupon', this.couponId)
-        axios.get('/coupon').then(res => {
+        axios.get(process.env.VUE_APP_API_URL + '/coupon').then(res => {
           this.coupon = res.data.data
           console.log('couponssss', this.coupon)
           const promotion = this.coupon.filter((post, index) => {
@@ -575,7 +575,7 @@ export default {
         console.log('test')
         this.coupons = JSON.parse(localStorage.getItem('coupon'))
         console.log('test', this.coupons)
-        axios.get('/coupon').then(res => {
+        axios.get(process.env.VUE_APP_API_URL + '/coupon').then(res => {
           this.coupon = res.data.data
           console.log('couponssss', this.coupon)
           const promotion = this.coupon.filter((post, index) => {

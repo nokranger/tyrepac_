@@ -120,13 +120,13 @@ export default {
         }
       }
       console.log('datain', '/installer/create')
-      axios.post('/installer/create', this.data).then((res) => {
+      axios.post(process.env.VUE_APP_API_URL + '/installer/create', this.data).then((res) => {
         console.log(res)
       })
     },
     sendContact () {
       console.log('contact', this.data)
-      axios.post('/contact', this.data).then(res => {
+      axios.post(process.env.VUE_APP_API_URL + '/contact', this.data).then(res => {
         console.log('done')
         this.status = 1
         location.replace('#top')

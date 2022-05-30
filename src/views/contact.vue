@@ -109,18 +109,18 @@ export default {
     }
   },
   mounted () {
-    // console.log('product')
-    // var config = {
-    //   // headers: {
-    //   //   'Access-Control-Allow-Origin': '*',
-    //   //   'X-Requested-With': 'XMLHttpRequest'
-    //   // },
-    //   method: 'get',
-    //   url: 'http://119.63.90.135:2083/product'
-    // }
-    // axios(config).then(res => {
-    //   console.log('product', res)
-    // })
+    console.log('product')
+    var config = {
+      // headers: {
+      //   'Access-Control-Allow-Origin': '*',
+      //   'X-Requested-With': 'XMLHttpRequest'
+      // },
+      method: 'get',
+      url: process.env.VUE_APP_API_URL + '/product'
+    }
+    axios(config).then(res => {
+      console.log('product', res)
+    })
     var x = document.querySelectorAll('.currency')
     console.log('currency', x)
     for (let i = 0, len = x.length; i < len; i++) {
@@ -132,7 +132,7 @@ export default {
   methods: {
     sendContact () {
       console.log('contact', this.data)
-      axios.post('/contact', this.data).then(res => {
+      axios.post(process.env.VUE_APP_API_URL + '/contact', this.data).then(res => {
         console.log('done')
         this.status = 1
         location.replace('#top')

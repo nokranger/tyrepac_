@@ -132,7 +132,7 @@ export default {
     titleTemplate: "%s - Tyrepac - Asia's First Tyre Portal"
   },
   mounted () {
-    axios.get('/installer').then((res) => {
+    axios.get(process.env.VUE_APP_API_URL + '/installer').then((res) => {
       // this.testinstaller = res.data.data.installers
       this.installers = res.data.data.installers
       this.items = this.installers
@@ -149,7 +149,7 @@ export default {
     },
     sendContact () {
       console.log('contact', this.data)
-      axios.post('/contact', this.data).then(res => {
+      axios.post(process.env.VUE_APP_API_URL + '/contact', this.data).then(res => {
         console.log('done')
         this.status = 1
         location.replace('#top')

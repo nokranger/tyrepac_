@@ -321,7 +321,7 @@ export default {
   async mounted () {
     await this.product()
     // console.log('promotions')
-    axios.get('/product').then(res => {
+    axios.get(process.env.VUE_APP_API_URL + '/product').then(res => {
       this.promotions = res.data.data.products
       const promotion = this.promotions.filter((post, index) => {
         return post.status === 1
@@ -412,7 +412,7 @@ export default {
       console.log('currency', document.querySelectorAll('currency'))
       var configsearch = {
         method: 'post',
-        url: '/productByFilter'
+        url: process.env.VUE_APP_API_URL + '/productByFilter'
       }
       console.log(location.href)
       var split = await location.href
@@ -474,7 +474,7 @@ export default {
           console.log('promotions', split[1])
           var configpromotion = {
             method: 'get',
-            url: '/product'
+            url: process.env.VUE_APP_API_URL + '/product'
           }
           axios(configpromotion).then(res => {
             let brands = res.data.data.products
@@ -492,7 +492,7 @@ export default {
           console.log('brands')
           var configbrands = {
             method: 'get',
-            url: '/product'
+            url: process.env.VUE_APP_API_URL + '/product'
           }
           axios(configbrands).then(res => {
             let brands = res.data.data.products
@@ -514,7 +514,7 @@ export default {
           //   'X-Requested-With': 'XMLHttpRequest'
           // },
           method: 'get',
-          url: '/product'
+          url: process.env.VUE_APP_API_URL + '/product'
         }
         // console.log('all null')
         axios(config).then(res => {
@@ -562,7 +562,7 @@ export default {
       split = split.split('?')
       var config = {
         method: 'post',
-        url: '/productByFilter'
+        url: process.env.VUE_APP_API_URL + '/productByFilter'
       }
       config.data = {
         type: value
@@ -589,7 +589,7 @@ export default {
       } else {
         config = {
           method: 'post',
-          url: '/productByFilter',
+          url: process.env.VUE_APP_API_URL + '/productByFilter',
           data: {
             type: value
           }
@@ -609,7 +609,7 @@ export default {
       split = split.split('?')
       var config = {
         method: 'post',
-        url: '/productByFilter'
+        url: process.env.VUE_APP_API_URL + '/productByFilter'
       }
       config.data = {
         width: value
@@ -636,7 +636,7 @@ export default {
       } else {
         config = {
           method: 'post',
-          url: '/productByFilter',
+          url: process.env.VUE_APP_API_URL + '/productByFilter',
           data: {
             width: value
           }
@@ -656,7 +656,7 @@ export default {
       split = split.split('?')
       var config = {
         method: 'post',
-        url: '/productByFilter'
+        url: process.env.VUE_APP_API_URL + '/productByFilter'
       }
       config.data = {
         height: value
@@ -683,7 +683,7 @@ export default {
       } else {
         config = {
           method: 'post',
-          url: '/productByFilter',
+          url: process.env.VUE_APP_API_URL + '/productByFilter',
           data: {
             height: value
           }
@@ -703,7 +703,7 @@ export default {
       split = split.split('?')
       var config = {
         method: 'post',
-        url: '/productByFilter'
+        url: process.env.VUE_APP_API_URL + '/productByFilter'
       }
       config.data = {
         diameter: value
@@ -730,7 +730,7 @@ export default {
       } else {
         config = {
           method: 'post',
-          url: '/productByFilter',
+          url: process.env.VUE_APP_API_URL + '/productByFilter',
           data: {
             diameter: value
           }
@@ -751,7 +751,7 @@ export default {
       split = split.split('?')
       var config = {
         method: 'post',
-        url: '/productByFilter'
+        url: process.env.VUE_APP_API_URL + '/productByFilter'
       }
       config.data = {
         minPrice: min,
@@ -780,7 +780,7 @@ export default {
       } else {
         config = {
           method: 'post',
-          url: '/productByFilter',
+          url: process.env.VUE_APP_API_URL + '/productByFilter',
           data: {
             minPrice: min,
             maxPrice: max
