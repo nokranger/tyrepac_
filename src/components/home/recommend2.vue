@@ -11,6 +11,7 @@
               <div style="border-radius: 5px;border: thin solid #E0E0E0;text-align: left;width: 100%;height: 430px;">
                 <div style="width: 100%;text-align: center;">
                 <div v-if="item.promotionId != 0 && item.promotionId != null && item.promotionId != 'null'" style="border-radius: 5px;margin-left: auto;margin-right: -15px;margin-top: -15px;background-color: #f16543;color: white;width: max-content;padding: 10px;">Sale</div>
+                <div v-if="item.promotionId == 0 || item.promotionId == null" style="height: 28px;"></div>
                   <a style="cursor: pointer;" v-on:click="buydetail (('/tyrebrand' + '/' + item.prodId + '/' + item.sku), ('http://119.63.90.135:2083/image?image_path=' + item.image), item.name, item.regularPrice, ('values' + index), item.type, item.sku, item)">
                     <img :src="'http://119.63.90.135:2083/image?image_path=' + item.image" style="width: 150px;height: 150px;margin: 5px;" alt="">
                   </a>

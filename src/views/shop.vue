@@ -193,7 +193,8 @@
                       <!-- {{brandd.prodId}} -->
                       <div class="bordertyre">
                         <div style="width: 100%;">
-                        <div v-if="brandd.promotionId != 0 && brandd.promotionId != null && brandd.promotionId != 'null'" style="border-radius: 5px;margin-left: auto;margin-right: -15px;margin-top: -15px;background-color: #f16543;color: white;width: max-content;padding: 10px;font-weight: bold;">Sale</div>
+                        <div v-if="brandd.promotionId != 0 && brandd.promotionId != null && brandd.promotionId != 'null'" class="SalesBanner">Sale</div>
+                        <div v-if="brandd.promotionId == 0 || brandd.promotionId == null" class="NoBanner"></div>
                           <a v-on:click="buydetail (('/tyrebrand' + '/' + brandd.prodId + '/' + brandd.sku), ('http://119.63.90.135:2083/image?image_path=' + brandd.image), brandd.name, brandd.regularPrice, ('values' + index), brandd.type, brandd.sku, brandd)">
                             <img :src="'http://119.63.90.135:2083/image?image_path=' + brandd.image" width="100%" height="auto" alt="" loading="lazy">
                           </a>
@@ -328,7 +329,7 @@ export default {
         return post.status === 1
       })
       this.promotions = promotion
-      console.log('promotionsssss', this.promotions)
+      // console.log('promotionsssss', this.promotions)
     })
   },
   methods: {
@@ -472,16 +473,16 @@ export default {
         } else if (split[0] === 'promotionId') {
           // console.log('istypess', decodeURIComponent(split[1]))
           // console.log('istype', configsearch)
-          console.log('promotions', split[1])
+          // console.log('promotions', split[1])
           var configpromotion = {
             method: 'get',
             url: process.env.VUE_APP_API_URL + '/product'
           }
           axios(configpromotion).then(res => {
             let brands = res.data.data.products
-            console.log('promotions', split[1])
+            // console.log('promotions', split[1])
             brands = brands.filter((post, index) => {
-              console.log('promotions', post.promotionId)
+              // console.log('promotions', post.promotionId)
               return post.promotionId === parseInt(split[1])
             })
             // console.log('detailb', brands)
