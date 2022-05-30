@@ -1,5 +1,5 @@
 <template>
-  <div style="margin-top: 160px">
+  <div style="margin-top: 180px">
     <div>
       <b-container>
         <b-row>

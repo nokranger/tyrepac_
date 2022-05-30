@@ -27,7 +27,7 @@
           <div>
             <img
               style="width: 184.33px; height: auto; margin: 10px"
-              src="https://www.tyrepac.co.th/wp-content/uploads/2019/10/tyrepac-logo.png"
+              src="https://i.imgur.com/XC4tAlX.png"
               alt=""
             />
           </div>

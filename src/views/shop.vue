@@ -189,10 +189,11 @@
                   <br>
                   <b-row>
                     <!-- {{brand}} -->
-                    <b-col cols="6" sm="4" md="4" lg="4" xl="3" v-for="(brandd, index) in brand" :key="index" style="margin-bottom: 5px;">
+                    <b-col cols="6" sm="4" md="4" lg="4" xl="3" v-for="(brandd, index) in brand" :key="index" style="margin-bottom: 25px;">
                       <!-- {{brandd.prodId}} -->
                       <div class="bordertyre">
                         <div style="width: 100%;">
+                        <div v-if="brandd.promotionId != 0 && brandd.promotionId != null && brandd.promotionId != 'null'" style="border-radius: 5px;margin-left: auto;margin-right: -15px;margin-top: -15px;background-color: #f16543;color: white;width: max-content;padding: 10px;font-weight: bold;">Sale</div>
                           <a v-on:click="buydetail (('/tyrebrand' + '/' + brandd.prodId + '/' + brandd.sku), ('http://119.63.90.135:2083/image?image_path=' + brandd.image), brandd.name, brandd.regularPrice, ('values' + index), brandd.type, brandd.sku, brandd)">
                             <img :src="'http://119.63.90.135:2083/image?image_path=' + brandd.image" width="100%" height="auto" alt="" loading="lazy">
                           </a>

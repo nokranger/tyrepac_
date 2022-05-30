@@ -7,9 +7,10 @@
         <b-container>
           <br>
           <b-row>
-            <b-col cols="6" sm="6" md="6" lg="4" xl="3" v-for="(item, index) in promotions" :key="index" style="margin-top: 5px;">
-              <div style="border-radius: 5px;border: thin solid #E0E0E0;text-align: left;width: 100%;height: 410px;">
-                <div style="width: 100%;;text-align: center;">
+            <b-col cols="6" sm="6" md="6" lg="4" xl="3" v-for="(item, index) in promotions" :key="index" style="margin-top: 25px;">
+              <div style="border-radius: 5px;border: thin solid #E0E0E0;text-align: left;width: 100%;height: 430px;">
+                <div style="width: 100%;text-align: center;">
+                <div v-if="item.promotionId != 0 && item.promotionId != null && item.promotionId != 'null'" style="border-radius: 5px;margin-left: auto;margin-right: -15px;margin-top: -15px;background-color: #f16543;color: white;width: max-content;padding: 10px;">Sale</div>
                   <a style="cursor: pointer;" v-on:click="buydetail (('/tyrebrand' + '/' + item.prodId + '/' + item.sku), ('http://119.63.90.135:2083/image?image_path=' + item.image), item.name, item.regularPrice, ('values' + index), item.type, item.sku, item)">
                     <img :src="'http://119.63.90.135:2083/image?image_path=' + item.image" style="width: 150px;height: 150px;margin: 5px;" alt="">
                   </a>
@@ -17,7 +18,7 @@
                 <div style="margin-left: 5px;color: #005099;font-weight: bold;height: 60px;">{{item.name}}</div>
                 <div style="margin-left: 5px;color: #005099;text-align: left;">฿{{ item.regularPrice}} ต่อเส้น</div>
                 <!-- <div style="border-top: thin solid #E0E0E0;margin-bottom: 4px;margin-left: 20px;margin-right: 20px;text-align: center;"></div> -->
-                <div style="\margin-bottom: 4px;margin-left: 20px;margin-right: 20px;">
+                <div style="margin-bottom: 4px;margin-left: 20px;margin-right: 20px;">
                   <br>
                   <div style="margin: 5px;width: 100%;">
                     <b-form-spinbutton :ref="'values' + index" id="demo-sb" :value="value2" min="4" max="100"></b-form-spinbutton>

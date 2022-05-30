@@ -22,7 +22,7 @@
             <div>
               <b-card
                 title="Toyo Tyres"
-                img-src="https://i.imgur.com/dFBbXVM.png"
+                img-src="https://i.imgur.com/HnVRyeA.png"
                 img-alt="Image"
                 img-top
                 tag="article"
@@ -38,7 +38,7 @@
             <div>
             <b-card
               title="Nitto Tyres"
-              img-src="https://i.imgur.com/9JpV8e2.png"
+              img-src="https://i.imgur.com/8eRfIGM.png"
               img-alt="Image"
               img-top
               tag="article"
@@ -54,7 +54,7 @@
             <div>
             <b-card
               title="Nankang Tyres"
-              img-src="https://i.imgur.com/yDA4cCy.png"
+              img-src="https://i.imgur.com/WMx7X6v.png"
               img-alt="Image"
               img-top
               tag="article"
@@ -68,13 +68,12 @@
       </b-row>
       <br>
       <b-row>
-        <!-- <b-col cols="2"></b-col> -->
         <b-col cols="4" sm="4" md="4" lg="4" xl="4">
           <a href="/shop?brand=1">
             <div>
             <b-card
               title="Bridgestone Tyres"
-              img-src="https://i.imgur.com/39bMB69.png"
+              img-src="https://i.imgur.com/V7YflQX.png"
               img-alt="Image"
               img-top
               tag="article"
@@ -90,7 +89,7 @@
             <div>
             <b-card
               title="Continental Tyres"
-              img-src="https://i.imgur.com/iBpm6uT.png"
+              img-src="https://i.imgur.com/SpcS77d.png"
               img-alt="Image"
               img-top
               tag="article"
@@ -106,7 +105,7 @@
             <div>
             <b-card
               title="Dunlop Tyres"
-              img-src="https://i.imgur.com/yvhHUsj.png"
+              img-src="https://i.imgur.com/9fDZ7WQ.png"
               img-alt="Image"
               img-top
               tag="article"
@@ -117,17 +116,15 @@
           </div>
           </a>
         </b-col>
-        <!-- <b-col cols="2"></b-col> -->
       </b-row>
       <br>
       <b-row>
-        <!-- <b-col cols="2"></b-col> -->
         <b-col cols="4" sm="4" md="4" lg="4" xl="4">
           <a href="/shop?brand=4">
             <div>
             <b-card
               title="Goodyear Tyres"
-              img-src="https://i.imgur.com/TgbxVn2.png"
+              img-src="https://i.imgur.com/soeny1R.png"
               img-alt="Image"
               img-top
               tag="article"
@@ -143,7 +140,7 @@
             <div>
             <b-card
               title="Michelin Tyres"
-              img-src="https://i.imgur.com/EByvNfm.png"
+              img-src="https://i.imgur.com/C9ClH5K.png"
               img-alt="Image"
               img-top
               tag="article"
@@ -159,7 +156,7 @@
             <div>
             <b-card
               title="Yokohama Tyres"
-              img-src="https://i.imgur.com/iiTZGZR.png"
+              img-src="https://i.imgur.com/bI5cNEQ.png"
               img-alt="Image"
               img-top
               tag="article"
@@ -170,7 +167,6 @@
           </div>
           </a>
         </b-col>
-        <b-col cols="2"></b-col>
       </b-row>
       <br>
     </b-container>

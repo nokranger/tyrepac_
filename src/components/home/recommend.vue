@@ -9,9 +9,10 @@
           <b-container>
           <br>
           <b-row>
-            <b-col cols="6" sm="6" md="4" lg="3" xl="2" v-for="(item, index) in promotions" :key="index" style="margin-top: 5px;">
-              <div style="border-radius: 5px;border: thin solid #E0E0E0;text-align: left;height: 410px;width: 100%;">
+            <b-col cols="6" sm="6" md="4" lg="3" xl="2" v-for="(item, index) in promotions" :key="index" style="margin-top: 25px;">
+              <div style="border-radius: 5px;border: thin solid #E0E0E0;text-align: left;height: 430px;width: 100%;">
                 <div style="width: 100%;text-align: center;">
+                <div v-if="item.promotionId != 0 && item.promotionId != null && item.promotionId != 'null'" style="border-radius: 5px;margin-left: auto;margin-right: -15px;margin-top: -15px;background-color: #f16543;color: white;width: max-content;padding: 10px;font-weight: bold;">Sale</div>
                   <a style="cursor: pointer;" v-on:click="buydetail (('/tyrebrand' + '/' + item.prodId + '/' + item.sku), ('http://119.63.90.135:2083/image?image_path=' + item.image), item.name, item.regularPrice, ('values' + index), item.type, item.sku, item)">
                     <img :src="'http://119.63.90.135:2083/image?image_path=' + item.image" style="width: 150px;height: 150px;margin: 5px;" alt="">
                   </a>
