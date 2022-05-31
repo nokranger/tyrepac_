@@ -2,6 +2,8 @@
   <div style="margin-top: 160px">
     <div>
       <b-container>
+        <br>
+        <br>
         <div style="border-radius: 5px;border: thin solid #E0E0E0;text-align: left;">
           <br>
           <div style="margin-left: 15px;font-weight: bold;">คุณมีสินค้า {{counts}} รายการในตระกร้า</div>
@@ -45,7 +47,7 @@
         <br>
         <b-row>
           <b-col>
-            <b-col>
+            <!-- <b-col>
               <div style="border-radius: 5px;border: thin solid #E0E0E0;text-align: left;">
                 <div style="margin: 15px;">
                   <div style="font-weight: bold;font-size: 30px;">คำนวนค่าจัดส่ง</div>
@@ -70,10 +72,8 @@
                   </div>
                 </div>
               </div>
-            </b-col>
+            </b-col> -->
             <b-col>
-              <br>
-              <br>
               <div style="border-radius: 5px;border: thin solid #E0E0E0;text-align: left;">
                 <div style="margin: 15px;">
                   <div style="font-weight: bold;font-size: 30px;">มีรหัสส่วนลดหรือไม่?</div>
