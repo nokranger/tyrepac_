@@ -39,45 +39,45 @@
               <br />
               <template>
                 <div v-if="statebrand == 1">
-                  <img :style="styles" :src="tyrebrand" alt="" width="500" height="500" v-on:mouseover="mousezoom()">
+                  <img :style="styles" :src="tyrebrand" alt="" width="345px" height="345px" v-on:mouseover="mousezoom()">
                 </div>
                 <div v-if="stateweight == 1">
-                  <img :style="styles" :src="tyreweight" alt="" width="500" height="500" v-on:mouseover="mousezoom()">
+                  <img :style="styles" :src="tyreweight" alt="" width="345px" height="345px" v-on:mouseover="mousezoom()">
                 </div>
                 <div v-if="stateinstallation == 1">
-                  <img :style="styles" :src="tyreinstallation" alt="" width="500" height="500" v-on:mouseover="mousezoom()">
+                  <img :style="styles" :src="tyreinstallation" alt="" width="345px" height="345px" v-on:mouseover="mousezoom()">
                 </div>
                 <div v-if="stateweight == 1">
-                  <img :style="styles" :src="tyreweight" alt="" width="500" height="500" v-on:mouseover="mousezoom()">
+                  <img :style="styles" :src="tyreweight" alt="" width="345px" height="345px" v-on:mouseover="mousezoom()">
                 </div>
                 <div v-if="statesize == 1">
-                  <img :style="styles" :src="tyresize" alt="" width="500" height="500" v-on:mouseover="mousezoom()">
+                  <img :style="styles" :src="tyresize" alt="" width="345px" height="345px" v-on:mouseover="mousezoom()">
                 </div>
                 <div v-if="statemade == 1">
-                  <img :style="styles" :src="tyremade" alt="" width="500" height="500" v-on:mouseover="mousezoom()">
+                  <img :style="styles" :src="tyremade" alt="" width="345px" height="345px" v-on:mouseover="mousezoom()">
                 </div>
                 <div v-if="stateserie == 1">
-                  <img :style="styles" :src="tyreserie" alt="" width="500" height="500" v-on:mouseover="mousezoom()">
+                  <img :style="styles" :src="tyreserie" alt="" width="345px" height="345px" v-on:mouseover="mousezoom()">
                 </div>
                 <div v-if="stateweek == 1">
-                  <img :style="styles" :src="tyreweek" alt="" width="500" height="500" v-on:mouseover="mousezoom()">
+                  <img :style="styles" :src="tyreweek" alt="" width="345px" height="345px" v-on:mouseover="mousezoom()">
                 </div>
                 <div v-if="statecode == 1">
-                  <img :style="styles" :src="tyrecode" alt="" width="500" height="500" v-on:mouseover="mousezoom()">
+                  <img :style="styles" :src="tyrecode" alt="" width="345px" height="345px" v-on:mouseover="mousezoom()">
                 </div>
                 <div v-if="stateyear == 1">
-                  <img :style="styles" :src="tyreyear" alt="" width="500" height="500" v-on:mouseover="mousezoom()">
+                  <img :style="styles" :src="tyreyear" alt="" width="345px" height="345px" v-on:mouseover="mousezoom()">
                 </div>
                 <div v-if="statetubless == 1">
-                  <img :style="styles" :src="tyretubless" alt="" width="500" height="500" v-on:mouseover="mousezoom()">
+                  <img :style="styles" :src="tyretubless" alt="" width="345px" height="345px" v-on:mouseover="mousezoom()">
                 </div>
                 <div v-if="statetype == 1">
-                  <img :style="styles" :src="tyretype" alt="" width="500" height="500" v-on:mouseover="mousezoom()">
+                  <img :style="styles" :src="tyretype" alt="" width="345px" height="345px" v-on:mouseover="mousezoom()">
                 </div>
-                <!-- <img style="position:absolute;z-index: 1;" :src="imgUrl" alt="" width="500" height="500"> -->
+                <!-- <img style="position:absolute;z-index: 1;" :src="imgUrl" alt="" width="345px" height="345px"> -->
                 <div v-if="statezoom == 1">
                   <vue-photo-zoom-pro :highUrl="imgUrl">
-                    <img style="z-index: 3" :src="imgUrl" alt="" width="500" height="500">
+                    <img style="z-index: 3" :src="imgUrl" alt="" width="345px" height="345px">
                   </vue-photo-zoom-pro>
                 </div>
               </template>

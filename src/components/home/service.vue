@@ -18,13 +18,13 @@
         style="
           background-color: white;
           opacity: 0.8;
-          width: 500px;
+          width: 300px;
           color: black;
           margin: 5px;
         "
       >
         <h1>บริการลูกค้า</h1>
-        <p style="font-size: 20px;">
+        <p style="font-size: 20px;width: 200px;">
           กรุณาติดต่อฝ่ายบริการลูกค้าของเราหากมีคำถามใด ๆ เกี่ยวกับการเลือกยาง
         </p>
         <h1><a href="tel:+66992839256" style="text-decoration:none;color: black;">099-283-9256</a></h1>

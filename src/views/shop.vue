@@ -21,28 +21,6 @@
                         v-on:change="filterwidth (selectedwidth)"
                       >
                     </b-form-select>
-                      <!-- <b-input list="width" placeholder="ทุกๆ ความกว้าง" v-model="width" v-on:change="filterwidth (width)"></b-input>
-                        <datalist id="width" >
-                          <option value="155"></option>
-                          <option value="165"></option>
-                          <option value="175"></option>
-                          <option value="185"></option>
-                          <option value="195"></option>
-                          <option value="205"></option>
-                          <option value="206"></option>
-                          <option value="215"></option>
-                          <option value="225"></option>
-                          <option value="235"></option>
-                          <option value="245"></option>
-                          <option value="255"></option>
-                          <option value="265"></option>
-                          <option value="275"></option>
-                          <option value="285"></option>
-                          <option value="295"></option>
-                          <option value="305"></option>
-                          <option value="315"></option>
-                          <option value="325"></option>
-                        </datalist> -->
                       <br />
                     </div>
                     <br>
@@ -58,22 +36,6 @@
                         v-on:change="filterheight (selectedserie)"
                       >
                     </b-form-select>
-                      <!-- <b-input list="height" placeholder="ทุกๆ ซีรี่ย์ยาง" v-model="height" v-on:change="filterheight (height)"></b-input>
-                      <datalist id="height">
-                        <option value="0"></option>
-                        <option value="25"></option>
-                        <option value="30"></option>
-                        <option value="35"></option>
-                        <option value="40"></option>
-                        <option value="45"></option>
-                        <option value="50"></option>
-                        <option value="55"></option>
-                        <option value="60"></option>
-                        <option value="65"></option>
-                        <option value="70"></option>
-                        <option value="75"></option>
-                        <option value="85"></option>
-                      </datalist> -->
                       <br />
                     </div>
                     <br>
@@ -89,20 +51,6 @@
                         v-on:change="filterdiameter (selecteddiameter)"
                       >
                     </b-form-select>
-                      <!-- <b-input list="diameter" placeholder="ทุกๆ ขนาดวงล้อ" v-model="diameter" v-on:change="filterdiameter (diameter)"></b-input>
-                      <datalist id="diameter">
-                        <option value="13"></option>
-                        <option value="14"></option>
-                        <option value="15"></option>
-                        <option value="16"></option>
-                        <option value="17"></option>
-                        <option value="18"></option>
-                        <option value="19"></option>
-                        <option value="20"></option>
-                        <option value="21"></option>
-                        <option value="22"></option>
-                        <option value="24"></option>
-                      </datalist> -->
                       <br />
                     </div>
                     <br>
@@ -118,17 +66,6 @@
                         v-on:change="filtertyre (selectedtyre)"
                       >
                     </b-form-select>
-                      <!-- <b-input list="tyre" placeholder="ทุกๆ รุ่นยาง" v-model="tyre" v-on:change="filtertyre (tyre)"></b-input>
-                      <datalist id="tyre" >
-                        <option value="ยาง SUV"></option>
-                        <option value="ยางขับขี่ทั่วไป"></option>
-                        <option value="ยางขับขี่นุ่ม เงียบ"></option>
-                        <option value="ยางประสิทธิภาพสูง"></option>
-                        <option value="ยางประหยัดเชื้อเพลิง"></option>
-                        <option value="ยางรถกระบะ"></option>
-                        <option value="ยางรถเอนกประสงค์"></option>
-                        <option value="ยางออฟโรด"></option>
-                      </datalist> -->
                       <br />
                     </div>
                     <div>
@@ -419,7 +356,8 @@ export default {
       pageItem: '',
       compares: [],
       showcompares: '',
-      iconcompare: 0
+      iconcompare: 0,
+      filtersTyre: ''
     }
   },
   metaInfo: {
@@ -439,21 +377,40 @@ export default {
     })
   },
   methods: {
+    async filterTyre () {
+      const filters = JSON.parse(localStorage.getItem('filter'))
+      console.log('post', filters.width)
+      if (JSON.parse(localStorage.getItem('filter')) === null) {
+        console.log('filterNull')
+      } else {
+        await axios.get(process.env.VUE_APP_API_URL + '/product').then(res => {
+          this.filtersTyre = res.data.data.products
+          console.log('filterTyre')
+          const filtersTyres = this.filtersTyre.filter((post, index) => {
+            // console.log('post', post)
+            return post.width === filters.width
+          })
+          this.filtersTyre = filtersTyres
+          console.log('filterTyrewidth', filtersTyres)
+        })
+        console.log('filterNOTNULL')
+      }
+    },
     async removeitem (name) {
-      console.log('remove', name)
+      // console.log('remove', name)
       this.showcompares = this.showcompares.filter((obj) => {
         return obj.name !== name
       })
-      console.log('remove: ', this.showcompares)
+      // console.log('remove: ', this.showcompares)
       localStorage.setItem('compare', JSON.stringify(this.showcompares))
       // location.reload()
       this.$bvModal.show('modal-1')
     },
     async compare (itemss) {
-      console.log('compare', itemss)
+      // console.log('compare', itemss)
       if (JSON.parse(localStorage.getItem('compare')) === null) {
         localStorage.setItem('compare', JSON.stringify(this.compares))
-        console.log('ว่าง')
+        // console.log('ว่าง')
         var team = []
         // localStorage.setItem('test', JSON.stringify(team))
         const teams = await JSON.parse(localStorage.getItem('compare'))
@@ -462,13 +419,13 @@ export default {
         await localStorage.setItem('compare', JSON.stringify(team))
         await teams.forEach((a) => {
           if (!this[a.name]) {
-            console.log('aname', a.name)
+            // console.log('aname', a.name)
             this[a.name] = { name: a.name, regularPrice: a.regularPrice, image: a.image, type: a.type, diameter: a.diameter, height: a.height, loadIndex: a.loadIndex, speedIndex: a.speedIndex, width: a.width }
             team.push(this[a.name])
           }
           this[a.name].qty += a.qty
         }, Object.create(null))
-        console.log('team', team)
+        // console.log('team', team)
         localStorage.setItem('compare', JSON.stringify(team))
         location.reload()
       } else {
@@ -476,24 +433,24 @@ export default {
         team = []
         // localStorage.setItem('test', JSON.stringify(team))
         const teams = await JSON.parse(localStorage.getItem('compare'))
-        console.log('teams', teams)
+        // console.log('teams', teams)
         await teams.push(itemss)
         await localStorage.setItem('compare', JSON.stringify(team))
         await teams.forEach((a) => {
           if (!this[a.name]) {
-            console.log('aname', a.name)
+            // console.log('aname', a.name)
             this[a.name] = { name: a.name, regularPrice: a.regularPrice, image: a.image, type: a.type, diameter: a.diameter, height: a.height, loadIndex: a.loadIndex, speedIndex: a.speedIndex, width: a.width }
             team.push(this[a.name])
           }
           this[a.name].qty += a.qty
         }, Object.create(null))
-        console.log('team', team)
+        // console.log('team', team)
         localStorage.setItem('compare', JSON.stringify(team))
         location.reload()
       }
     },
     showcompare () {
-      console.log('showcompare', JSON.parse(localStorage.getItem('compare')))
+      // console.log('showcompare', JSON.parse(localStorage.getItem('compare')))
       this.showcompares = JSON.parse(localStorage.getItem('compare'))
     },
     clearcompare () {
@@ -503,21 +460,21 @@ export default {
     },
     currency () {
       var x = document.querySelectorAll('.regularprice')
-      console.log('currency', x)
+      // console.log('currency', x)
       for (let i = 0, len = x.length; i < len; i++) {
         const num = Number(x[i].innerHTML).toLocaleString('en')
         x[i].innerHTML = num
       }
     },
     async onChangePage (pageOfitems) {
-      console.log('pagination', pageOfitems)
+      // console.log('pagination', pageOfitems)
       for (var i = 0; i < pageOfitems.length; i++) {
         pageOfitems[i].regularPrice = pageOfitems[i].regularPrice.toLocaleString('en')
       }
       this.brand = pageOfitems
     },
     async product () {
-      console.log('currency', document.querySelectorAll('currency'))
+      // console.log('currency', document.querySelectorAll('currency'))
       var configsearch = {
         method: 'post',
         url: process.env.VUE_APP_API_URL + '/productByFilter'
@@ -541,7 +498,7 @@ export default {
             this.pageItem = this.brand
           })
         } else if (split[0] === 'height') {
-          console.log('isheight')
+          // console.log('isheight')
           configsearch.data = {
             height: split[1]
           }
@@ -552,7 +509,7 @@ export default {
             this.pageItem = this.brand
           })
         } else if (split[0] === 'diameter') {
-          console.log('isdiameter')
+          // console.log('isdiameter')
           // console.log('isdiameter', configsearch)
           configsearch.data = {
             diameter: split[1]
@@ -666,6 +623,34 @@ export default {
       this.brand = brans.slice(0, value)
     },
     async filtertyre (value) {
+      const filters = JSON.parse(localStorage.getItem('filter'))
+      if (JSON.parse(localStorage.getItem('filter')) === null) {
+        console.log('filterNull')
+        const filter = {
+          width: '',
+          height: '',
+          diameter: '',
+          tyre: value,
+          price: {
+            min: '',
+            max: ''
+          }
+        }
+        localStorage.setItem('filter', JSON.stringify(filter))
+      } else {
+        console.log('filterNOTNULL', filters.width)
+        const filter = {
+          width: filters.width,
+          height: filters.height,
+          diameter: filters.diameter,
+          tyre: value,
+          price: {
+            min: filters.price.min,
+            max: filters.price.max
+          }
+        }
+        localStorage.setItem('filter', JSON.stringify(filter))
+      }
       let brands = []
       console.log('valuefilters', value)
       var split = location.href
@@ -685,14 +670,14 @@ export default {
       })
       if (split.length > 1) {
         split = split[1].split('=')
-        console.log('filtyre', split[0])
+        // console.log('filtyre', split[0])
         if (split[0] === 'brand') {
           brands = await this.brand.filter((post, index) => {
-            console.log('filtyre', split[0])
-            console.log('logwidth', post + split[1])
+            // console.log('filtyre', split[0])
+            // console.log('logwidth', post + split[1])
             return post.brandId === split[1]
           })
-          console.log('widthfilter', brands)
+          // console.log('widthfilter', brands)
           this.brand = brands
           this.pageItem = this.brand
         }
@@ -704,7 +689,7 @@ export default {
             type: value
           }
         }
-        console.log('valuefilters')
+        // console.log('valuefilters')
         await axios(config).then((res) => {
           console.log(res)
           this.brand = res.data.data.products
@@ -713,8 +698,37 @@ export default {
       }
     },
     async filterwidth (value) {
+      const filters = JSON.parse(localStorage.getItem('filter'))
+      if (JSON.parse(localStorage.getItem('filter')) === null) {
+        console.log('filterNull')
+        const filter = {
+          width: value,
+          height: '',
+          diameter: '',
+          tyre: '',
+          price: {
+            min: '',
+            max: ''
+          }
+        }
+        localStorage.setItem('filter', JSON.stringify(filter))
+      } else {
+        console.log('filterNOTNULL', filters.width)
+        const filter = {
+          width: value,
+          height: filters.height,
+          diameter: filters.diameter,
+          tyre: filters.tyre,
+          price: {
+            min: filters.price.min,
+            max: filters.price.max
+          }
+        }
+        localStorage.setItem('filter', JSON.stringify(filter))
+      }
+      this.filterTyre()
       let brands = []
-      console.log('valuefilters', value)
+      // console.log('valuefilters', value)
       var split = location.href
       split = split.split('?')
       var config = {
@@ -725,25 +739,23 @@ export default {
         width: value
       }
       await axios(config).then((res) => {
-        console.log(res)
+        // console.log(res)
         // const brandtest = res.data.data.products
         this.brand = res.data.data.products
         this.pageItem = this.brand
-        location.replace('/shop?width=' + value)
       })
       if (split.length > 1) {
         split = split[1].split('=')
         console.log('filtyre', split[0])
         if (split[0] === 'brand') {
           brands = await this.brand.filter((post, index) => {
-            console.log('filtyre', split[0])
-            console.log('logwidth', post + split[1])
+            // console.log('filtyre', split[0])
+            // console.log('logwidth', post + split[1])
             return post.brandId === split[1]
           })
-          console.log('widthfilter', brands)
+          // console.log('widthfilter', brands)
           this.brand = brands
           this.pageItem = this.brand
-          location.replace('/shop?width=' + value)
         }
       } else {
         config = {
@@ -753,16 +765,43 @@ export default {
             width: value
           }
         }
-        console.log('valuefilters')
+        // console.log('valuefilters')
         await axios(config).then((res) => {
-          console.log(res)
+          // console.log(res)
           this.brand = res.data.data.products
           this.pageItem = this.brand
-          location.replace('/shop?width=' + value)
         })
       }
     },
     async filterheight (value) {
+      const filters = JSON.parse(localStorage.getItem('filter'))
+      if (JSON.parse(localStorage.getItem('filter')) === null) {
+        console.log('filterNull')
+        const filter = {
+          width: '',
+          height: value,
+          diameter: '',
+          tyre: '',
+          price: {
+            min: '',
+            max: ''
+          }
+        }
+        localStorage.setItem('filter', JSON.stringify(filter))
+      } else {
+        console.log('filterNOTNULL', filters.width)
+        const filter = {
+          width: filters.width,
+          height: value,
+          diameter: filters.diameter,
+          tyre: filters.tyre,
+          price: {
+            min: filters.price.min,
+            max: filters.price.max
+          }
+        }
+        localStorage.setItem('filter', JSON.stringify(filter))
+      }
       let brands = []
       console.log('valuefilters', value)
       var split = location.href
@@ -779,7 +818,7 @@ export default {
         // const brandtest = res.data.data.products
         this.brand = res.data.data.products
         this.pageItem = this.brand
-        location.replace('/shop?height=' + value)
+        // location.replace('/shop?height=' + value)
       })
       if (split.length > 1) {
         split = split[1].split('=')
@@ -793,7 +832,7 @@ export default {
           console.log('heightfilter', brands)
           this.brand = brands
           this.pageItem = this.brand
-          location.replace('/shop?height=' + value)
+          // location.replace('/shop?height=' + value)
         }
       } else {
         config = {
@@ -808,11 +847,39 @@ export default {
           console.log(res)
           this.brand = res.data.data.products
           this.pageItem = this.brand
-          location.replace('/shop?height=' + value)
+          // location.replace('/shop?height=' + value)
         })
       }
     },
     async filterdiameter (value) {
+      const filters = JSON.parse(localStorage.getItem('filter'))
+      if (JSON.parse(localStorage.getItem('filter')) === null) {
+        console.log('filterNull')
+        const filter = {
+          width: '',
+          height: '',
+          diameter: value,
+          tyre: '',
+          price: {
+            min: '',
+            max: ''
+          }
+        }
+        localStorage.setItem('filter', JSON.stringify(filter))
+      } else {
+        console.log('filterNOTNULL', filters.width)
+        const filter = {
+          width: filters.width,
+          height: filters.height,
+          diameter: value,
+          tyre: filters.tyre,
+          price: {
+            min: filters.price.min,
+            max: filters.price.max
+          }
+        }
+        localStorage.setItem('filter', JSON.stringify(filter))
+      }
       let brands = []
       console.log('valuefilters', value)
       var split = location.href
@@ -829,7 +896,7 @@ export default {
         // const brandtest = res.data.data.products
         this.brand = res.data.data.products
         this.pageItem = this.brand
-        location.replace('/shop?diameter=' + value)
+        // location.replace('/shop?diameter=' + value)
       })
       if (split.length > 1) {
         split = split[1].split('=')
@@ -843,7 +910,7 @@ export default {
           console.log('diameterfilter', brands)
           this.brand = brands
           this.pageItem = this.brand
-          location.replace('/shop?diameter=' + value)
+          // location.replace('/shop?diameter=' + value)
         }
       } else {
         config = {
@@ -858,11 +925,39 @@ export default {
           console.log(res)
           this.brand = res.data.data.products
           this.pageItem = this.brand
-          location.replace('/shop?diameter=' + value)
+          // location.replace('/shop?diameter=' + value)
         })
       }
     },
     async filterprice (min, max) {
+      const filters = JSON.parse(localStorage.getItem('filter'))
+      if (JSON.parse(localStorage.getItem('filter')) === null) {
+        console.log('filterNull')
+        const filter = {
+          width: '',
+          height: '',
+          diameter: '',
+          tyre: '',
+          price: {
+            min: min,
+            max: max
+          }
+        }
+        localStorage.setItem('filter', JSON.stringify(filter))
+      } else {
+        console.log('filterNOTNULL', filters.width)
+        const filter = {
+          width: filters.width,
+          height: filters.height,
+          diameter: filters.diameter,
+          tyre: filters.tyre,
+          price: {
+            min: min,
+            max: max
+          }
+        }
+        localStorage.setItem('filter', JSON.stringify(filter))
+      }
       console.log('valuefilterswidth', min + max)
       let brands = []
       // console.log('valuefilters', value)

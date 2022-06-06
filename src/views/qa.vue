@@ -28,7 +28,6 @@
           <i class="fas fa-shopping-cart"></i>
         </div>
       </a>
-      <!-- <div style="display: inline-block; margin: 10px">รถเข็น</div> -->
       <br />
       <br />
     </div>
@@ -49,7 +48,6 @@
             <b-col>
               <div style="background-color: #005099; color: whitesmoke;width: 250px;height: 250px;box-shadow: 5px 10px 18px #888888;border-radius: 5px;">
                 <br>
-                <!-- <img src="" height="100" width="100" alt=""> -->
                 <div style="width: 100px;height: 100px;"></div>
                 <div style="font-weight: bold;font-size: 20px;">ยางรถยนต์</div>
                 <div>
@@ -88,8 +86,8 @@
           </b-row>
           <br />
           <b-row>
-            <b-col>
-              <div style="background-color: #282828; color: whitesmoke;height: 100px;box-shadow: 5px 10px 18px #888888;border-radius: 5px;text-align: left;">
+            <b-col cols="12" sm="12" md="6" lg="6" xl="6">
+              <div style="background-color: #282828; color: whitesmoke;width: 300px;height: auto;box-shadow: 5px 10px 18px #888888;border-radius: 5px;text-align: left;">
                 <div style="margin: 15px;">
                   <div style="font-weight: bold;font-size: 25px;">สอบถามข้อมูลทางอีเมล์</div>
                   <div>
@@ -101,8 +99,8 @@
                 </div>
               </div>
             </b-col>
-            <b-col>
-              <div style="background-color: #f9bd45; color: whitesmoke;height: 100px;box-shadow: 5px 10px 18px #888888;border-radius: 5px;text-align: left;">
+            <b-col cols="12" sm="12" md="6" lg="6" xl="6">
+              <div style="background-color: #f9bd45; color: whitesmoke;width: 300px;height: auto;box-shadow: 5px 10px 18px #888888;border-radius: 5px;text-align: left;">
                 <div style="margin: 15px;">
                   <div style="font-weight: bold;font-size: 25px;">โทรศัพท์</div>
                   <div>
@@ -134,8 +132,8 @@
           <div style="font-weight: bold;font-size: 20px;">ยางรถยนต์</div>
           <br>
           <b-row>
-            <b-col>
-              <b-col>
+            <b-col cols="12" sm="12" md="6" lg="6" xl="6">
+              <b-col cols="12" sm="12" md="6" lg="6" xl="6">
                 <div style="margin: 15px;text-align: left;">
                   <div style="font-weight: bold;font-size: 20px;">A. การเลือกยางรถยนต์</div>
                   <br>
@@ -146,7 +144,7 @@
                   </div>
                 </div>
               </b-col>
-              <b-col>
+              <b-col cols="12" sm="12" md="6" lg="6" xl="6">
                 <div style="margin: 15px;text-align: left;">
                   <div style="font-weight: bold;font-size: 20px;">2. ยางแบบไหนเหมาะกับรถของเรา?</div>
                   <div>
@@ -158,7 +156,7 @@
                 </div>
               </b-col>
             </b-col>
-            <b-col>
+            <b-col cols="12" sm="12" md="6" lg="6" xl="6">
               <div>
                 <img style="width: 100%;"
                   src="https://www.tyrepac.co.th/wp-content/uploads/2019/12/tyre-guide.jpg"
@@ -171,7 +169,7 @@
             <b-col>
               <b-col>
                 <br />
-                <div style="background-color: white;box-shadow: 5px 10px 18px #888888;border-radius: 5px;height: 850px;text-align: left;">
+                <div style="background-color: white;box-shadow: 5px 10px 18px #888888;border-radius: 5px;height: 870px;text-align: left;">
                   <br>
                   <div style="margin: 15px;">
                     <br />
@@ -198,6 +196,7 @@
                       <img
                         src="https://www.tyrepac.co.th/wp-content/uploads/2019/12/tyre-directional.jpg"
                         alt=""
+                        style="width: 100%;"
                       />
                     </div>
                   </div>
@@ -207,7 +206,7 @@
             <b-col>
               <b-col>
                 <br />
-                <div style="background-color: white;box-shadow: 5px 10px 18px #888888;border-radius: 5px;height: 850px;text-align: left;">
+                <div style="background-color: white;box-shadow: 5px 10px 18px #888888;border-radius: 5px;height: 870px;text-align: left;">
                   <br>
                   <div style="margin: 15px;">
                     <br />
@@ -235,6 +234,7 @@
                       <img
                         src="https://www.tyrepac.co.th/wp-content/uploads/2019/12/tyre-directional.jpg"
                         alt=""
+                        style="width: 100%;"
                       />
                     </div>
                   </div>
@@ -244,7 +244,7 @@
             <b-col>
               <b-col>
                 <br />
-                <div style="background-color: white;box-shadow: 5px 10px 18px #888888;border-radius: 5px;height: 850px;text-align: left;">
+                <div style="background-color: white;box-shadow: 5px 10px 18px #888888;border-radius: 5px;height: 870px;text-align: left;">
                   <br>
                   <div style="margin: 15px;">
                     <br />
@@ -275,6 +275,7 @@
                       <img
                         src="https://www.tyrepac.co.th/wp-content/uploads/2019/12/tyre-directional.jpg"
                         alt=""
+                        style="width: 100%;"
                       />
                     </div>
                   </div>
@@ -291,11 +292,11 @@
           </div>
           <b-row>
             <b-col>
-              <div style="background-color: white;box-shadow: 5px 10px 18px #888888;border-radius: 5px;height: 200px;text-align: left;">
+              <div style="background-color: white;box-shadow: 5px 10px 18px #888888;border-radius: 5px;height: max-content;text-align: left;">
                 <div style="margin: 15px;">
                   <br>
                   <div class="headers">1. สามารถเปลี่ยนยางเส้นเดียวได้หรือไม่ ?</div>
-                  <p>
+                  <p style="min-height: auto;">
                     สามารถเปลี่ยนได้แต่อย่างไรก็ตามเราไม่แนะนำให้เปลี่ยนยางที่แตกต่างกันทีละเส้น
                     ควรเปลี่ยนยางเป็นคู่เพื่อป้องกันการสึกหรอหรือความไม่สมดุลของยาง
                   </p>
@@ -303,7 +304,7 @@
               </div>
             </b-col>
             <b-col>
-              <div style="background-color: white;box-shadow: 5px 10px 18px #888888;border-radius: 5px;height: 200px;text-align: left;">
+              <div style="background-color: white;box-shadow: 5px 10px 18px #888888;border-radius: 5px;;height: max-content;text-align: left;">
                 <div style="margin: 15px;">
                   <br>
                   <div class="headers">2. ควรติดตั้งยางคู่ใหม่ที่ไหน?</div>
@@ -326,15 +327,16 @@
             <br>
             <div style="background-color: white;box-shadow: 5px 10px 18px #888888;border-radius: 5px;">
               <b-row>
-                <b-col>
+                <b-col cols="12" sm="12" md="6" lg="6" xl="6">
                   <div>
                     <img
                       src="https://www.tyrepac.co.th/wp-content/uploads/2019/12/basic_tyreinfo.png"
                       alt=""
+                      style="width: 100%; height: auto;"
                     />
                   </div>
                 </b-col>
-                <b-col>
+                <b-col cols="12" sm="12" md="6" lg="6" xl="6">
                   <br>
                   <br>
                   <div v-for="(details, index) in detail" :key="index">
@@ -348,7 +350,7 @@
           <br>
           <br>
           <b-row>
-            <b-col>
+            <b-col cols="12" sm="12" md="6" lg="6" xl="6">
               <div style="background-color: white;box-shadow: 5px 10px 18px #888888;border-radius: 5px;text-align: left;">
                 <div style="margin: 15px;">
                   <br>
@@ -357,12 +359,12 @@
                   </div>
                   <p>รหัสยางซึ่งขึ้นรูปอยู่กับแก้มยางโดยทั่วไป จะอธิบายด้วยค่าตัวเลขและตัวอักษร รหัสนี้ระบุขนาดของยางและข้อจำกัดที่สำคัญบางประการ เช่น ความสามารถในการรับน้ำหนักและความเร็วสูงสุด</p>
                   <div style="margin: 10px;">
-                    <img src="https://www.tyrepac.co.th/wp-content/uploads/2019/12/tech-tyresize.jpg" alt="">
+                    <img src="https://www.tyrepac.co.th/wp-content/uploads/2019/12/tech-tyresize.jpg" style="width: 100%;" alt="">
                   </div>
                 </div>
               </div>
             </b-col>
-            <b-col>
+            <b-col cols="12" sm="12" md="6" lg="6" xl="6">
               <div style="background-color: white;box-shadow: 5px 10px 18px #888888;border-radius: 5px;">
                 <div style="margin: 15px;text-align: left;">
                   <br>
@@ -415,7 +417,7 @@
               <br>
               <b-col>
                 <b-col>
-                  <div style="background-color: white;color: black;margin: 10px;margin-bottom: 20px;box-shadow: 5px 10px 18px #888888;border-radius: 5px;height: 200px;text-align: left;">
+                  <div style="background-color: white;color: black;margin: 10px;margin-bottom: 20px;box-shadow: 5px 10px 18px #888888;border-radius: 5px;height: 240px;text-align: left;">
                     <br>
                     <div class="headers" style="text-align: left;margin: 15px;">
                       1. ขั้นตอนการสั่งซื้อสินค้ามีอะไรบ้าง?
@@ -435,7 +437,7 @@
                         </li>
                       </ul>
                   </div>
-                  <div style="background-color: white;color: black;margin: 10px;box-shadow: 5px 10px 18px #888888;border-radius: 5px;height: 200px;text-align: left;">
+                  <div style="background-color: white;color: black;margin: 10px;box-shadow: 5px 10px 18px #888888;border-radius: 5px;height: 240px;text-align: left;">
                     <br>
                     <div style="margin: 15px;">
                       <div class="headers" style="text-align: left;margin: 15px;">
@@ -447,7 +449,7 @@
                 </b-col>
               </b-col>
               <b-col>
-                  <div style="background-color: white;color: black;margin: 10px;margin-bottom: 20px;box-shadow: 5px 10px 18px #888888;border-radius: 5px;height: 200px;text-align: left;">
+                  <div style="background-color: white;color: black;margin: 10px;margin-bottom: 20px;box-shadow: 5px 10px 18px #888888;border-radius: 5px;height: 240px;text-align: left;">
                     <br>
                     <div style="margin: 15px;">
                       <div class="headers" style="text-align: left;margin: 15px;">
@@ -456,7 +458,7 @@
                       <p>ติดต่อสายด่วนของเรา และเราให้คำแนะนำในการประมาณความพร้อมในการให้บริการยาง คุณสามารถส่งอีเมลถึงเราที่ info@tyrepac.co.th และเราจะติดต่อกลับคุณ</p>
                     </div>
                   </div>
-                  <div style="background-color: white;color: black;margin: 10px;box-shadow: 5px 10px 18px #888888;border-radius: 5px;height: 200px;text-align: left;">
+                  <div style="background-color: white;color: black;margin: 10px;box-shadow: 5px 10px 18px #888888;border-radius: 5px;height: 240px;text-align: left;">
                     <br>
                     <div style="margin: 15px;">
                       <div class="headers" style="text-align: left;margin: 15px;">

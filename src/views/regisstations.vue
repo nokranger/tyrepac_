@@ -3,16 +3,16 @@
     <div>
       <b-container>
         <b-row>
-          <b-col>
+          <b-col  cols="12" sm="12" md="6" lg="6" xl="6">
             <div>
               <img
-                style="width: 569px; height: 750px"
+                style="width: 100%; height: 750px"
                 src="https://i.imgur.com/yzulKjb.jpg"
                 alt=""
               />
             </div>
           </b-col>
-          <b-col>
+          <b-col  cols="12" sm="12" md="6" lg="6" xl="6">
             <div
               style="
                 border-radius: 5px;
