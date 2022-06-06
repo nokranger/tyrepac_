@@ -1,9 +1,11 @@
 <template>
   <div style="margin-top: 160px">
     <div>
+      <br>
+      <br>
       <b-container>
         <b-row>
-          <b-col>
+          <b-col cols="12" sm="12" md="6" lg="6" xl="6">
             <div id="top"
               style="
                 border-radius: 5px;
@@ -49,8 +51,7 @@
               </div>
             </div>
           </b-col>
-          <b-col cols="1"></b-col>
-          <b-col>
+          <b-col cols="12" sm="12" md="6" lg="6" xl="6">
             <div style="text-align: left;">
               <div>
                 <div style="font-weight: bold;">ติดต่อเรา</div>
