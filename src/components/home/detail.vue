@@ -14,7 +14,7 @@
               class="mb-2"
             >
               <b-card-text>
-                <div>
+                <div style="background-image: url('https://i.imgur.com/9LnFjUp.jpg');height: 300px;">
                   <h1>ผ่อน 0%</h1>
                   <h3 style="font-weight: bold;font-size: 18px;">นาน 10 เดือน</h3>
                   <!-- <img src="https://picsum.photos/600/300/?image=25" alt=""> -->
@@ -35,7 +35,7 @@
               class="mb-2"
             >
               <b-card-text>
-                <div>
+                <div  style="background-image: url('https://i.imgur.com/AzAkQqo.jpg');height: 300px;">
                   <h1>ชำระเงินออนไลน์</h1>
                   <p style="font-weight: bold;">ด้วยบัตรเครดิตหรือการโอนเงิน</p>
                   <!-- <img src="https://picsum.photos/600/300/?image=25" alt=""> -->
@@ -56,7 +56,7 @@
               class="mb-2"
             >
               <b-card-text>
-                <div>
+                <div  style="background-image: url('https://i.imgur.com/38GnpMy.jpg');height: 300px;">
                   <h1>ติดตั้งสะดวกที่ร้านบริการใกล้บ้านคุณ</h1>
                   <p>ค้นหาศูนย์บริการที่มกล้คุณ พร้อมบริการติดตั้งฟรี จากร้านที่เข้าร่วมรายการ</p>
                 </div>
@@ -75,7 +75,7 @@
               class="mb-2"
             >
               <b-card-text>
-                <div>
+                <div  style="background-image: url('https://i.imgur.com/1NlsZJc.jpg');height: 300px;">
                   <h1>แบรนด์ชั้นนำ</h1>
                   <p>เพียงกดค้นหาขนาดยางที่คุณต้องการ</p>
                 </div>

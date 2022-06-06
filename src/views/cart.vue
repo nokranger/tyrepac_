@@ -23,7 +23,7 @@
                   </template> -->
                   <template v-slot:cell(จำนวน)="data">
                     <div style="margin: 5px;text-align: left;">
-                      <b-form-spinbutton id="demo-sb" v-model="data.item.qty" min="4" max="100" v-on:change="updateitem ()"></b-form-spinbutton>
+                      <b-form-spinbutton id="demo-sb" v-model="data.item.qty" min="1" max="100" v-on:change="updateitem ()"></b-form-spinbutton>
                     </div>
                   </template>
                   <template v-slot:cell(ราคา)="data">

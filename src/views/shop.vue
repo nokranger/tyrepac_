@@ -206,7 +206,7 @@
                           <div class="regularprice3">  ต่อเส้น</div>
                         </div>
                         <div style="margin: 5px;">
-                          <b-form-spinbutton :ref="'values' + index" id="demo-sb" :value="value2" min="4" max="100"></b-form-spinbutton>
+                          <b-form-spinbutton :ref="'values' + index" id="demo-sb" :value="value2" min="1" max="100"></b-form-spinbutton>
                         </div>
                         <br>
                         <div style="margin: 5px;">
@@ -236,7 +236,7 @@
                             <i class="fas fa fa-times" style="display: inline-block;margin-left: 20px;font-size: 20px;cursor: pointer;color: #ee2456;" v-on:click="removeitem (showcompare.name)"></i>
                           </div>
                           <div style="margin-bottom: 5px;;width: 100%;">
-                            <b-form-spinbutton :ref="'values' + index" id="demo-sb" :value="value2" min="4" max="100"></b-form-spinbutton>
+                            <b-form-spinbutton :ref="'values' + index" id="demo-sb" :value="value2" min="1" max="100"></b-form-spinbutton>
                           </div>
                           <div style="border-radius: 5px;border: thin solid #E0E0E0;text-align: left;width: 100%;height: 420px;">
                             <div style="width: 100%;;text-align: center;">

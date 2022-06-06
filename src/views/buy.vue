@@ -304,7 +304,7 @@
                   </template> -->
                   <template v-slot:cell(จำนวน)="data">
                     <div style="margin: 5px;text-align: left;">
-                      <b-form-spinbutton id="demo-sb" v-model="data.item.qty" min="4" max="100"></b-form-spinbutton>
+                      <b-form-spinbutton id="demo-sb" v-model="data.item.qty" min="1" max="100" v-on:change="updateitem ()"></b-form-spinbutton>
                     </div>
                   </template>
                   <template v-slot:cell(มูลค่าสินค้า)="data">
@@ -372,9 +372,9 @@
                     <b-col></b-col>
                     <b-col></b-col>
                     <b-col>
-                      <div>
+                      <!-- <div>
                         <b-button variant="primary" v-on:click="updateitem ()">ปรับปรุงสินค้าในตระกร้า</b-button>
-                      </div>
+                      </div> -->
                     </b-col>
                   </b-row>
                   <br>

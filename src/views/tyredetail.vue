@@ -77,7 +77,7 @@
                     <br>
                     <!-- {{brand.sku}} -->
                     <div style="margin: 5px;">
-                      <b-form-spinbutton style="width: 30%;" id="demo-sb" v-model="value" min="4" max="100"></b-form-spinbutton>
+                      <b-form-spinbutton style="width: 30%;" id="demo-sb" v-model="value" min="1" max="100"></b-form-spinbutton>
                       <br>
                       <b-button variant="primary" v-on:click="buycart (value)">สั่งซื้อเลย</b-button>
                       <i class="fas fa-shopping-cart" style="display: inline-block;margin-left: 10px;font-size: 20px;cursor: pointer;color: #005099;" v-on:click="addtocart (value)"></i>
