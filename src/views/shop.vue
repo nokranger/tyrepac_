@@ -8,9 +8,20 @@
               <div>
                 <div class="bordermenu">
                   <div class="alignmenu">
+                    <br>
                     <div style="margin-left: 5px;">กรองตามความกว้าง</div>
+                    <br>
                     <div>
-                      <b-input list="width" placeholder="ทุกๆ ความกว้าง" v-model="width" v-on:change="filterwidth (width)"></b-input>
+                    <b-form-select
+                        style="width: 100%; font-size: 20px;color: gray;height: 35px;"
+                        v-model="selectedwidth"
+                        :options="optionswidth"
+                        name=""
+                        id=""
+                        v-on:change="filterwidth (selectedwidth)"
+                      >
+                    </b-form-select>
+                      <!-- <b-input list="width" placeholder="ทุกๆ ความกว้าง" v-model="width" v-on:change="filterwidth (width)"></b-input>
                         <datalist id="width" >
                           <option value="155"></option>
                           <option value="165"></option>
@@ -31,12 +42,23 @@
                           <option value="305"></option>
                           <option value="315"></option>
                           <option value="325"></option>
-                        </datalist>
+                        </datalist> -->
                       <br />
                     </div>
+                    <br>
                     <div style="margin-left: 5px;">กรองตามซีรี่ย์ยาง</div>
+                    <br>
                     <div>
-                      <b-input list="height" placeholder="ทุกๆ ซีรี่ย์ยาง" v-model="height" v-on:change="filterheight (height)"></b-input>
+                    <b-form-select
+                        style="width: 100%; font-size: 20px;color: gray;height: 35px;"
+                        v-model="selectedserie"
+                        :options="optionsserie"
+                        name=""
+                        id=""
+                        v-on:change="filterheight (selectedserie)"
+                      >
+                    </b-form-select>
+                      <!-- <b-input list="height" placeholder="ทุกๆ ซีรี่ย์ยาง" v-model="height" v-on:change="filterheight (height)"></b-input>
                       <datalist id="height">
                         <option value="0"></option>
                         <option value="25"></option>
@@ -51,12 +73,23 @@
                         <option value="70"></option>
                         <option value="75"></option>
                         <option value="85"></option>
-                      </datalist>
+                      </datalist> -->
                       <br />
                     </div>
+                    <br>
                     <div style="margin-left: 5px;">กรองตามขนาดวงล้อ</div>
+                    <br>
                     <div>
-                      <b-input list="diameter" placeholder="ทุกๆ ขนาดวงล้อ" v-model="diameter" v-on:change="filterdiameter (diameter)"></b-input>
+                    <b-form-select
+                        style="width: 100%; font-size: 20px;color: gray;height: 35px;"
+                        v-model="selecteddiameter"
+                        :options="optionsdiameter"
+                        name=""
+                        id=""
+                        v-on:change="filterdiameter (selecteddiameter)"
+                      >
+                    </b-form-select>
+                      <!-- <b-input list="diameter" placeholder="ทุกๆ ขนาดวงล้อ" v-model="diameter" v-on:change="filterdiameter (diameter)"></b-input>
                       <datalist id="diameter">
                         <option value="13"></option>
                         <option value="14"></option>
@@ -69,12 +102,23 @@
                         <option value="21"></option>
                         <option value="22"></option>
                         <option value="24"></option>
-                      </datalist>
+                      </datalist> -->
                       <br />
                     </div>
+                    <br>
                     <div style="margin-left: 5px;">กรองตามรูปแบบยาง</div>
+                    <br>
                     <div>
-                      <b-input list="tyre" placeholder="ทุกๆ รุ่นยาง" v-model="tyre" v-on:change="filtertyre (tyre)"></b-input>
+                    <b-form-select
+                        style="width: 100%; font-size: 20px;color: gray;height: 35px;"
+                        v-model="selectedtyre"
+                        :options="optionstyre"
+                        name=""
+                        id=""
+                        v-on:change="filtertyre (selectedtyre)"
+                      >
+                    </b-form-select>
+                      <!-- <b-input list="tyre" placeholder="ทุกๆ รุ่นยาง" v-model="tyre" v-on:change="filtertyre (tyre)"></b-input>
                       <datalist id="tyre" >
                         <option value="ยาง SUV"></option>
                         <option value="ยางขับขี่ทั่วไป"></option>
@@ -84,11 +128,12 @@
                         <option value="ยางรถกระบะ"></option>
                         <option value="ยางรถเอนกประสงค์"></option>
                         <option value="ยางออฟโรด"></option>
-                      </datalist>
+                      </datalist> -->
                       <br />
                     </div>
                     <div>
                       <div>
+                        <br>
                         <label style="margin-left: 5px;" for="range-2">กรองตามราคา</label>
                         <div class='range-slider' style="margin-top: -60px;width: 100%;">
                           <input type="range" min="2250" max="21100" step="1" v-model="sliderMin">
@@ -288,15 +333,76 @@ export default {
       selected1: null,
       selected2: null,
       selectedwidth: null,
+      selectedserie: null,
+      selecteddiameter: null,
+      selectedtyre: null,
       options: [
         { value: null, text: 'เรียงลำดับ' },
         { value: 'name', text: 'เรียงตาม ชื่อ' },
         { value: 'regularPrice', text: 'เรียงตาม ราคา' }
       ],
       optionswidth: [
-        { value: null, text: 'ความกว้าง' },
-        { value: null, text: 'ความกว้าง' },
-        { value: null, text: 'ความกว้าง' }
+        { value: null, text: '--ความกว้าง--' },
+        { value: '155', text: '155' },
+        { value: '165', text: '165' },
+        { value: '175', text: '175' },
+        { value: '185', text: '185' },
+        { value: '195', text: '195' },
+        { value: '205', text: '205' },
+        { value: '206', text: '206' },
+        { value: '215', text: '215' },
+        { value: '225', text: '225' },
+        { value: '235', text: '235' },
+        { value: '245', text: '245' },
+        { value: '255', text: '255' },
+        { value: '265', text: '265' },
+        { value: '275', text: '275' },
+        { value: '285', text: '285' },
+        { value: '295', text: '295' },
+        { value: '305', text: '305' },
+        { value: '315', text: '315' },
+        { value: '325', text: '325' }
+      ],
+      optionsserie: [
+        { value: null, text: '--ซีรี่ย์ยาง--' },
+        { value: '0', text: '0' },
+        { value: '25', text: '25' },
+        { value: '30', text: '30' },
+        { value: '35', text: '35' },
+        { value: '40', text: '40' },
+        { value: '45', text: '45' },
+        { value: '50', text: '50' },
+        { value: '55', text: '55' },
+        { value: '60', text: '60' },
+        { value: '65', text: '65' },
+        { value: '70', text: '70' },
+        { value: '75', text: '75' },
+        { value: '85', text: '85' }
+      ],
+      optionsdiameter: [
+        { value: null, text: '--ขนาดวงล้อ--' },
+        { value: '13', text: '13' },
+        { value: '14', text: '14' },
+        { value: '15', text: '15' },
+        { value: '16', text: '16' },
+        { value: '17', text: '17' },
+        { value: '18', text: '18' },
+        { value: '19', text: '19' },
+        { value: '20', text: '20' },
+        { value: '21', text: '21' },
+        { value: '22', text: '22' },
+        { value: '24', text: '24' }
+      ],
+      optionstyre: [
+        { value: null, text: '--รูปแบบยาง--' },
+        { value: 'ยาง SUV', text: 'ยาง SUV' },
+        { value: 'ยางขับขี่ทั่วไป', text: 'ยางขับขี่ทั่วไป' },
+        { value: 'ยางขับขี่นุ่ม เงียบ', text: 'ยางขับขี่นุ่ม เงียบ' },
+        { value: 'ยางประสิทธิภาพสูง', text: 'ยางประสิทธิภาพสูง' },
+        { value: 'ยางประหยัดเชื้อเพลิง', text: 'ยางประหยัดเชื้อเพลิง' },
+        { value: 'ยางรถกระบะ', text: 'ยางรถกระบะ' },
+        { value: 'ยางรถเอนกประสงค์', text: 'ยางรถเอนกประสงค์' },
+        { value: 'ยางออฟโรด', text: 'ยางออฟโรด' }
       ],
       tyre: '',
       filterss: '',
@@ -623,6 +729,7 @@ export default {
         // const brandtest = res.data.data.products
         this.brand = res.data.data.products
         this.pageItem = this.brand
+        location.replace('/shop?width=' + value)
       })
       if (split.length > 1) {
         split = split[1].split('=')
@@ -636,6 +743,7 @@ export default {
           console.log('widthfilter', brands)
           this.brand = brands
           this.pageItem = this.brand
+          location.replace('/shop?width=' + value)
         }
       } else {
         config = {
@@ -650,6 +758,7 @@ export default {
           console.log(res)
           this.brand = res.data.data.products
           this.pageItem = this.brand
+          location.replace('/shop?width=' + value)
         })
       }
     },
@@ -670,6 +779,7 @@ export default {
         // const brandtest = res.data.data.products
         this.brand = res.data.data.products
         this.pageItem = this.brand
+        location.replace('/shop?height=' + value)
       })
       if (split.length > 1) {
         split = split[1].split('=')
@@ -683,6 +793,7 @@ export default {
           console.log('heightfilter', brands)
           this.brand = brands
           this.pageItem = this.brand
+          location.replace('/shop?height=' + value)
         }
       } else {
         config = {
@@ -697,6 +808,7 @@ export default {
           console.log(res)
           this.brand = res.data.data.products
           this.pageItem = this.brand
+          location.replace('/shop?height=' + value)
         })
       }
     },
@@ -717,6 +829,7 @@ export default {
         // const brandtest = res.data.data.products
         this.brand = res.data.data.products
         this.pageItem = this.brand
+        location.replace('/shop?diameter=' + value)
       })
       if (split.length > 1) {
         split = split[1].split('=')
@@ -730,6 +843,7 @@ export default {
           console.log('diameterfilter', brands)
           this.brand = brands
           this.pageItem = this.brand
+          location.replace('/shop?diameter=' + value)
         }
       } else {
         config = {
@@ -744,6 +858,7 @@ export default {
           console.log(res)
           this.brand = res.data.data.products
           this.pageItem = this.brand
+          location.replace('/shop?diameter=' + value)
         })
       }
     },
