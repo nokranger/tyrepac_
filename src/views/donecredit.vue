@@ -15,7 +15,7 @@
             </div>
             <ul>
               <div>
-                <div style="display: inline-block;font-weight: bold;">วันที่: </div><li>{{dates}}</li>
+                <div style="display: inline-block;font-weight: bold;">วันที่: </div><li>{{dates | moment('DD/MM/YYYY')}}</li>
               </div>
               <div>
                 <div style="display: inline-block;font-weight: bold;">เลขที่คำสั่งซื้อ: </div><li>-</li>

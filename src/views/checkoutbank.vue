@@ -251,6 +251,8 @@ export default ({
           localStorage.removeItem('coupon')
           localStorage.setItem('user', JSON.stringify(this.data))
           location.replace('/donebank')
+        } else if (res.data.status.code === 2) {
+          console.log('ไม่พบคูปอง')
         }
       }).catch((err) => {
         console.log('resErr', err.response)
