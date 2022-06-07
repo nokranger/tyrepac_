@@ -26,7 +26,7 @@
         <br>
           <div>
             <img
-              style="width: 184.33px; height: auto; margin: 10px"
+              style="width: 184.33px; height: auto; margin-top: -30px"
               src="https://i.imgur.com/XC4tAlX.png"
               alt=""
             />
