@@ -369,7 +369,7 @@ export default {
         const filter = {
           width: filters.width,
           height: filters.height,
-          diameter: '',
+          diameter: filters.diameter,
           type: type,
           price: {
             min: filters.price.min,
