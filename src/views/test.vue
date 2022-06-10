@@ -202,6 +202,7 @@ export default {
         this.filterGet = await data.filter((post, index) => {
           return post.width === parseInt(filters.width)
         })
+        localStorage.setItem('data', JSON.stringify(this.filterGet))
       }
       if (filters.height === null || filters.height === '' || filters.height === 'null') {
       } else {
@@ -213,6 +214,7 @@ export default {
         this.filterGet = await data.filter((post, index) => {
           return post.height === parseInt(filters.height)
         })
+        localStorage.setItem('data', JSON.stringify(this.filterGet))
       }
       if (filters.diameter === null || filters.diameter === '' || filters.diameter === 'null') {
       } else {
@@ -224,17 +226,19 @@ export default {
         this.filterGet = await data.filter((post, index) => {
           return post.diameter === parseInt(filters.diameter)
         })
+        localStorage.setItem('data', JSON.stringify(this.filterGet))
       }
       if (filters.type === null || filters.type === '' || filters.type === 'null') {
       } else {
         console.log('NOTNULLFILLTERtype')
         const data = await JSON.parse(localStorage.getItem('data'))
         console.log('NOTNULLFILLTERtype2', data)
-        // const filters = await JSON.parse(localStorage.getItem('filter'))
-        // console.log('NOTNULLFILLTERtype3', filters)
-        // this.filterGet = await data.filter((post, index) => {
-        //   return post.type === filters.type
-        // })
+        const filters = await JSON.parse(localStorage.getItem('filter'))
+        console.log('NOTNULLFILLTERtype3', filters)
+        this.filterGet = await data.filter((post, index) => {
+          return post.type === filters.type
+        })
+        localStorage.setItem('data', JSON.stringify(this.filterGet))
       }
       // if (filters.type === null || filters.type === '' || filters.type === 'null') {
       // } else {
