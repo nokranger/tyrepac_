@@ -22,14 +22,40 @@
           <br />
         </div>
         <div>
-          กว้าง
+          ซีรี่ย์ยาง
           <b-form-select
             style="width: 100%; font-size: 20px; color: gray; height: 35px"
             v-model="selectedserie"
             :options="optionsserie"
             name=""
             id=""
-            v-on:change="filterserie(selectedserie)"
+            v-on:change="filtersheight(selectedserie)"
+          >
+          </b-form-select>
+          <br />
+        </div>
+        <div>
+          Diameter
+          <b-form-select
+            style="width: 100%; font-size: 20px; color: gray; height: 35px"
+            v-model="selecteddiameter"
+            :options="optionsdiameter"
+            name=""
+            id=""
+            v-on:change="filtersdiameter(selecteddiameter)"
+          >
+          </b-form-select>
+          <br />
+        </div>
+        <div>
+          type
+          <b-form-select
+            style="width: 100%; font-size: 20px; color: gray; height: 35px"
+            v-model="selectedtype"
+            :options="optionstype"
+            name=""
+            id=""
+            v-on:change="filterstype(selectedtype)"
           >
           </b-form-select>
           <br />
@@ -56,7 +82,7 @@ export default {
       selectedwidth: null,
       selectedserie: null,
       selecteddiameter: null,
-      selectedtyre: null,
+      selectedtype: null,
       optionswidth: [
         { value: null, text: '--ความกว้าง--' },
         { value: '155', text: '155' },
@@ -109,7 +135,7 @@ export default {
         { value: '22', text: '22' },
         { value: '24', text: '24' }
       ],
-      optionstyre: [
+      optionstype: [
         { value: null, text: '--รูปแบบยาง--' },
         { value: 'ยาง SUV', text: 'ยาง SUV' },
         { value: 'ยางขับขี่ทั่วไป', text: 'ยางขับขี่ทั่วไป' },
@@ -126,74 +152,244 @@ export default {
     localStorage.removeItem('filter')
   },
   methods: {
+    async filter (width, height, diameter, type, min, max) {
+      console.log('getvalueFilter', width, height, diameter, type)
+      if (width !== null || width !== '' || width !== 'null' || width !== undefined || width !== 'undefined') {
+        this.width = {
+          width: width
+        }
+        await axios.post(process.env.VUE_APP_API_URL + '/productByFilter', this.width).then(res => {
+          this.filterGet = res.data.data.products
+          console.log('getwidth')
+          localStorage.setItem('data', JSON.stringify(this.filterGet))
+        })
+      } else if (height !== null || height !== '' || height !== 'null' || height !== undefined || height !== 'undefined') {
+        this.height = {
+          height: height
+        }
+        await axios.post(process.env.VUE_APP_API_URL + '/productByFilter', this.height).then(res => {
+          this.filterGet = res.data.data.products
+          console.log('getheight')
+          localStorage.setItem('data', JSON.stringify(this.filterGet))
+        })
+      } else if (diameter !== null || diameter !== '' || diameter !== 'null' || diameter !== undefined || diameter !== 'undefined') {
+        this.diameter = {
+          diameter: diameter
+        }
+        await axios.post(process.env.VUE_APP_API_URL + '/productByFilter', this.diameter).then(res => {
+          this.filterGet = res.data.data.products
+          console.log('getdiameter')
+          localStorage.setItem('data', JSON.stringify(this.filterGet))
+        })
+      } else if (type !== null || type !== '' || type !== 'null' || type !== undefined || type !== 'undefined') {
+        this.type = {
+          type: type
+        }
+        await axios.post(process.env.VUE_APP_API_URL + '/productByFilter', this.type).then(res => {
+          this.filterGet = res.data.data.products
+          console.log('gettype')
+          localStorage.setItem('data', JSON.stringify(this.filterGet))
+        })
+      }
+      const filters = await JSON.parse(localStorage.getItem('filter'))
+      if (filters.width === null || filters.width === '' || filters.width === 'null') {
+      } else {
+        console.log('NOTNULLFILLTERWIDTH')
+        const data = await JSON.parse(localStorage.getItem('data'))
+        console.log('NOTNULLFILLTERWIDTH2', data)
+        const filters = await JSON.parse(localStorage.getItem('filter'))
+        console.log('NOTNULLFILLTERWIDTH3', filters)
+        this.filterGet = await data.filter((post, index) => {
+          return post.width === parseInt(filters.width)
+        })
+      }
+      if (filters.height === null || filters.height === '' || filters.height === 'null') {
+      } else {
+        console.log('NOTNULLFILLTERHEIGHT')
+        const data = await JSON.parse(localStorage.getItem('data'))
+        console.log('NOTNULLFILLTERHEIGHT2', data)
+        const filters = await JSON.parse(localStorage.getItem('filter'))
+        console.log('NOTNULLFILLTERHEIGHT3', filters)
+        this.filterGet = await data.filter((post, index) => {
+          return post.height === parseInt(filters.height)
+        })
+      }
+      if (filters.diameter === null || filters.diameter === '' || filters.diameter === 'null') {
+      } else {
+        console.log('NOTNULLFILLTERDIAMETER')
+        const data = await JSON.parse(localStorage.getItem('data'))
+        console.log('NOTNULLFILLTERDIAMETER2', data)
+        const filters = await JSON.parse(localStorage.getItem('filter'))
+        console.log('NOTNULLFILLTERDIAMETER3', filters)
+        this.filterGet = await data.filter((post, index) => {
+          return post.diameter === parseInt(filters.diameter)
+        })
+      }
+      if (filters.type === null || filters.type === '' || filters.type === 'null') {
+      } else {
+        console.log('NOTNULLFILLTERtype')
+        const data = await JSON.parse(localStorage.getItem('data'))
+        console.log('NOTNULLFILLTERtype2', data)
+        // const filters = await JSON.parse(localStorage.getItem('filter'))
+        // console.log('NOTNULLFILLTERtype3', filters)
+        // this.filterGet = await data.filter((post, index) => {
+        //   return post.type === filters.type
+        // })
+      }
+      // if (filters.type === null || filters.type === '' || filters.type === 'null') {
+      // } else {
+      //   console.log('NOTNULLFILLTERtype')
+      //   const data = await JSON.parse(localStorage.getItem('data'))
+      //   console.log('NOTNULLFILLTERtype2', data)
+      //   const filters = await JSON.parse(localStorage.getItem('filter'))
+      //   console.log('NOTNULLFILLTERtype3', filters)
+      //   this.filterGet = await data.filter((post, index) => {
+      //     return post.type === parseInt(filters.type)
+      //   })
+      // }
+    },
     async filterwidth (value) {
-      console.log('filterwidth')
-      console.log('filterwidth')
-      if (JSON.parse(localStorage.getItem('filter')) === null) {
+      const filters = JSON.parse(localStorage.getItem('filter'))
+      if (filters === null || filters === '' || filters === 'null') {
+        console.log('filterNullWidth')
         const filter = {
           width: value,
           height: '',
           diameter: '',
-          tyre: '',
+          type: '',
           price: {
             min: '',
             max: ''
           }
         }
         localStorage.setItem('filter', JSON.stringify(filter))
+        await this.filter(value, null, null, null, null, null)
       } else {
-        const filters = await JSON.parse(localStorage.getItem('filter'))
+        console.log('filterNotNullWidth')
         const filter = {
           width: value,
           height: filters.height,
           diameter: filters.diameter,
-          tyre: filters.tyre,
+          type: filters.type,
           price: {
             min: filters.price.min,
             max: filters.price.max
           }
         }
         localStorage.setItem('filter', JSON.stringify(filter))
-        if (value !== null) {
-          this.data = {
-            width: value
+        await this.filter(value, null, null, null, null, null)
+      }
+    },
+    async filtersheight (height) {
+      const filters = JSON.parse(localStorage.getItem('filter'))
+      if (filters === null || filters === '' || filters === 'null') {
+        console.log('filterNullWidth')
+        const filter = {
+          width: '',
+          height: height,
+          diameter: '',
+          type: '',
+          price: {
+            min: '',
+            max: ''
           }
-          await axios.post(process.env.VUE_APP_API_URL + '/productByFilter', this.data).then(res => {
-            console.log('Filtertyre: ', res.data.data.products)
-            const data = res.data.data.products
-            // this.filterGet = res.data.data.products
-            localStorage.setItem('data', JSON.stringify(data))
-          })
-          this.filterGet = await JSON.parse(localStorage.getItem('data'))
-          this.filterGet = await this.filterGet.filter((post, index) => {
-            return post.width === parseInt(value)
-          })
-          console.log('width', this.filterGet)
-        } else {
-          this.filterGet = await this.filterGet.filter((post, index) => {
-            return post.width
-          })
         }
-        if (filters.width !== null) {
-          this.filterGet = await this.filterGet.filter((post, index) => {
-            return post.height === parseInt(filters.width)
-          })
-        } else {
-          console.log('testdone')
-          this.filterGet = await this.filterGet.filter((post, index) => {
-            return post.height
-          })
+        localStorage.setItem('filter', JSON.stringify(filter))
+        await this.filter(null, height, null, null, null, null)
+      } else {
+        console.log('filterNotNullWidth')
+        const filter = {
+          width: filters.width,
+          height: height,
+          diameter: filters.diameter,
+          type: filters.type,
+          price: {
+            min: filters.price.min,
+            max: filters.price.max
+          }
         }
+        localStorage.setItem('filter', JSON.stringify(filter))
+        await this.filter(null, height, null, null, null, null)
+      }
+    },
+    async filtersdiameter (diameter) {
+      const filters = JSON.parse(localStorage.getItem('filter'))
+      if (filters === null || filters === '' || filters === 'null') {
+        console.log('filterNullWidth')
+        const filter = {
+          width: '',
+          height: '',
+          diameter: diameter,
+          type: '',
+          price: {
+            min: '',
+            max: ''
+          }
+        }
+        localStorage.setItem('filter', JSON.stringify(filter))
+        await this.filter(null, null, diameter, null, null, null)
+      } else {
+        console.log('filterNotNullWidth')
+        const filter = {
+          width: filters.width,
+          height: filters.height,
+          diameter: diameter,
+          type: filters.type,
+          price: {
+            min: filters.price.min,
+            max: filters.price.max
+          }
+        }
+        localStorage.setItem('filter', JSON.stringify(filter))
+        await this.filter(null, null, diameter, null, null, null)
+      }
+    },
+    async filterstype (type) {
+      const filters = JSON.parse(localStorage.getItem('filter'))
+      if (filters === null || filters === '' || filters === 'null') {
+        console.log('filterNullWidth')
+        const filter = {
+          width: '',
+          height: '',
+          diameter: '',
+          type: type,
+          price: {
+            min: '',
+            max: ''
+          }
+        }
+        localStorage.setItem('filter', JSON.stringify(filter))
+        await this.filter(null, null, null, type, null, null)
+      } else {
+        console.log('filterNotNullWidth')
+        const filter = {
+          width: filters.width,
+          height: filters.height,
+          diameter: '',
+          type: type,
+          price: {
+            min: filters.price.min,
+            max: filters.price.max
+          }
+        }
+        localStorage.setItem('filter', JSON.stringify(filter))
+        await this.filter(null, null, null, type, null, null)
       }
     },
     async filterserie (value) {
-      console.log('tyre')
+      const filters = await JSON.parse(localStorage.getItem('filter'))
+      console.log('type')
       this.data = {
         height: value
       }
-      if (value !== null) {
+      if (value === null) {
+        console.log('getProductV')
+        if (filters === null || filters === '' || filters === 'null') {
+          this.getProduct()
+        }
+      } else {
         await axios.post(process.env.VUE_APP_API_URL + '/productByFilter', this.data).then(res => {
-          console.log('Filtertyre: ', res)
+          console.log('Filtertype: ', res)
           this.filterGet = res.data.data.products
         })
       }
@@ -203,7 +399,7 @@ export default {
           width: '',
           height: value,
           diameter: '',
-          tyre: '',
+          type: '',
           price: {
             min: '',
             max: ''
@@ -217,7 +413,7 @@ export default {
           width: filters.width,
           height: value,
           diameter: filters.diameter,
-          tyre: filters.tyre,
+          type: filters.type,
           price: {
             min: filters.price.min,
             max: filters.price.max
@@ -229,8 +425,9 @@ export default {
             return post.width === parseInt(filters.width)
           })
         } else {
-          this.filterGet = await this.filterGet.filter((post, index) => {
-            return post.width
+          await axios.post(process.env.VUE_APP_API_URL + '/productByFilter', this.data).then(res => {
+            console.log('Filtertype: ', res)
+            this.filterGet = res.data.data.products
           })
         }
         if (value !== null) {
@@ -238,9 +435,8 @@ export default {
             return post.height === parseInt(value)
           })
         } else {
-          console.log('testdone')
-          this.filterGet = await this.filterGet.filter((post, index) => {
-            return post.height
+          await axios.post(process.env.VUE_APP_API_URL + '/productByFilter', this.data).then(res => {
+            this.filterGet = res.data.data.products
           })
         }
         console.log('filterh', this.filterGet)
