@@ -78,7 +78,7 @@
                         </div>
                         <div style="margin: 10px;">
                           <div style="display: inline-block;">
-                            <b-button variant="primary" v-on:click="filterprice(sliderMin, sliderMax)">กรอง</b-button>
+                            <b-button variant="primary" v-on:click="filterminmax(sliderMin, sliderMax)">กรอง</b-button>
                           </div>
                           <div style="margin-left: 5px;display: inline-block;font-size: 15px;" class="mt-2">ราคา ฿{{ (sliderMin).toLocaleString('en') }} - ฿{{ (sliderMax).toLocaleString('en') }}</div>
                         </div>
@@ -91,47 +91,47 @@
                 <div style="border-radius: 5px; border: thin solid #e0e0e0">
                   <div style="font-weight: bold;font-size: 20px;">ยางรถยนต์</div>
                   <div class="menutyre">
-                    <a href="/shop?brand=8">
+                    <a v-on:click="filterbrand(8)">
                       <img src="https://i.imgur.com/dFBbXVM.png" alt="" />
                     </a>
                   </div>
                   <div class="menutyre">
-                    <a href="/shop?brand=7">
+                    <a v-on:click="filterbrand(7)">
                       <img src="https://i.imgur.com/9JpV8e2.png" alt="" />
                     </a>
                   </div>
                   <div class="menutyre">
-                    <a href="/shop?brand=6">
+                    <a v-on:click="filterbrand(6)">
                       <img src="https://i.imgur.com/yDA4cCy.png" alt="" />
                     </a>
                   </div>
                   <div class="menutyre">
-                    <a href="/shop?brand=1">
+                    <a v-on:click="filterbrand(1)">
                       <img src="https://i.imgur.com/39bMB69.png" alt="" />
                     </a>
                   </div>
                   <div class="menutyre">
-                    <a href="/shop?brand=2">
+                    <a v-on:click="filterbrand(2)">
                       <img src="https://i.imgur.com/iBpm6uT.png" alt="" />
                     </a>
                   </div>
                   <div class="menutyre">
-                    <a href="/shop?brand=3">
+                    <a v-on:click="filterbrand(3)">
                       <img src="https://i.imgur.com/yvhHUsj.png" alt="" />
                     </a>
                   </div>
                   <div class="menutyre">
-                    <a href="/shop?brand=4">
+                    <a v-on:click="filterbrand(4)">
                       <img src="https://i.imgur.com/TgbxVn2.png" alt="" />
                     </a>
                   </div>
                   <div class="menutyre">
-                    <a href="/shop?brand=5">
+                    <a v-on:click="filterbrand(5)">
                       <img src="https://i.imgur.com/EByvNfm.png" alt="" />
                     </a>
                   </div>
                   <div class="menutyre">
-                    <a href="/shop?brand=9">
+                    <a v-on:click="filterbrand(9)">
                       <img src="https://i.imgur.com/iiTZGZR.png" alt="" />
                     </a>
                   </div>
@@ -155,17 +155,6 @@
                       </div>
                     </b-col>
                     <b-col>
-                      <!-- <div>
-                        <b-form-select
-                          style="width: 100%; font-size: 20px; margin: 5px;color: gray;height: 35px;"
-                          v-model="selected2"
-                          name=""
-                          id=""
-                          v-on:change="qtytyre(selected2)"
-                          :options="options2"
-                        >
-                        </b-form-select>
-                      </div> -->
                     </b-col>
                   </b-row>
                   <br>
@@ -334,13 +323,13 @@ export default {
       ],
       optionstype: [
         { value: null, text: '--รูปแบบยาง--' },
-        { value: 'ยาง SUV', text: 'ยาง SUV ประสิทธิภาพสูง' },
+        { value: 'ยาง SUV ประสิทธิภาพสูง', text: 'ยาง SUV ประสิทธิภาพสูง' },
         { value: 'ยางขับขี่ทั่วไป', text: 'ยางขับขี่ทั่วไป' },
         { value: 'ยางขับขี่นุ่ม เงียบ', text: 'ยางขับขี่นุ่ม เงียบ' },
         { value: 'ยางประสิทธิภาพสูง', text: 'ยางประสิทธิภาพสูง' },
         { value: 'ยางประหยัดเชื้อเพลิง', text: 'ยางประหยัดเชื้อเพลิง' },
         { value: 'ยางรถกระบะ', text: 'ยางรถกระบะ' },
-        { value: 'ยางรถเอนกประสงค์', text: 'ยางรถเอนกประสงค์/suv' },
+        { value: 'ยางรถเอนกประสงค์/SUV', text: 'ยางรถเอนกประสงค์/suv' },
         { value: 'ยางออฟโรด', text: 'ยางออฟโรด' }
       ],
       tyre: '',
@@ -369,6 +358,7 @@ export default {
   async mounted () {
     await this.product()
     await this.filter()
+    localStorage.removeItem('filter')
     // console.log('promotions')
     axios.get(process.env.VUE_APP_API_URL + '/product').then(res => {
       this.promotions = res.data.data.products
@@ -461,8 +451,8 @@ export default {
       // eslint-disable-next-line no-undef
       this.$bvModal.hide('modal-1')
     },
-    async filter (width, height, diameter, type, min, max) {
-      console.log('getvalueFilter', width, height, diameter, type)
+    async filter (width, height, diameter, type, min, max, brandId) {
+      console.log('getvalueFilter', width, height, diameter, type, min, max, brandId)
       if (width !== null || width !== '' || width !== 'null' || width !== undefined || width !== 'undefined') {
         this.width = {
           width: width
@@ -502,6 +492,25 @@ export default {
           this.pageItem = this.brand
           console.log('gettype')
           localStorage.setItem('data', JSON.stringify(this.brand))
+        })
+      } else if (min !== null || min !== '' || min !== 'null' || min !== undefined || min !== 'undefined') {
+        this.range = {
+          minPrice: min,
+          maxPrice: max
+        }
+        await axios.post(process.env.VUE_APP_API_URL + '/productByFilter', this.range).then(res => {
+          this.brand = res.data.data.products
+          this.pageItem = this.brand
+          console.log('gettype', this.brand)
+          localStorage.setItem('data', JSON.stringify(this.brand))
+        })
+      } else if (brandId !== null || brandId !== '' || brandId !== 'null' || brandId !== undefined || brandId !== 'undefined') {
+        await axios.get(process.env.VUE_APP_API_URL + '/product').then(res => {
+          this.brand = res.data.data.products
+          this.pageItem = this.brand
+          console.log('gettypebrandId', this.brand)
+          localStorage.setItem('data', JSON.stringify(this.brand))
+          this.pageItem = this.brand
         })
       }
       const filters = await JSON.parse(localStorage.getItem('filter'))
@@ -557,6 +566,32 @@ export default {
         localStorage.setItem('data', JSON.stringify(this.brand))
         this.pageItem = this.brand
       }
+      if (filters.price.min === null || filters.price.min === '' || filters.price.min === 'null') {
+      } else {
+        console.log('NOTNULLFILLTERminmax')
+        const data = await JSON.parse(localStorage.getItem('data'))
+        console.log('NOTNULLFILLTERminmax2', data)
+        const filters = await JSON.parse(localStorage.getItem('filter'))
+        console.log('NOTNULLFILLTERminmax3', filters)
+        this.brand = await data.filter((post, index) => {
+          return post.regularPrice <= filters.price.max && post.regularPrice >= filters.price.min
+        })
+        localStorage.setItem('data', JSON.stringify(this.brand))
+        this.pageItem = this.brand
+      }
+      if (filters.brandId === null || filters.brandId === '' || filters.brandId === 'null') {
+      } else {
+        console.log('NOTNULLFILLTERbrandid')
+        const data = await JSON.parse(localStorage.getItem('data'))
+        console.log('NOTNULLFILLTERbrandid2', data)
+        const filters = await JSON.parse(localStorage.getItem('filter'))
+        console.log('NOTNULLFILLTERbrandid3', filters)
+        this.brand = await data.filter((post, index) => {
+          return post.brandId === filters.brandId.toString()
+        })
+        localStorage.setItem('data', JSON.stringify(this.brand))
+        this.pageItem = this.brand
+      }
     },
     async filterwidth (value) {
       const filters = JSON.parse(localStorage.getItem('filter'))
@@ -570,10 +605,11 @@ export default {
           price: {
             min: '',
             max: ''
-          }
+          },
+          brandId: ''
         }
         localStorage.setItem('filter', JSON.stringify(filter))
-        await this.filter(value, null, null, null, null, null)
+        await this.filter(value, null, null, null, null, null, null)
       } else {
         console.log('filterNotNullWidth')
         const filter = {
@@ -584,10 +620,11 @@ export default {
           price: {
             min: filters.price.min,
             max: filters.price.max
-          }
+          },
+          brandId: filters.brandId
         }
         localStorage.setItem('filter', JSON.stringify(filter))
-        await this.filter(value, null, null, null, null, null)
+        await this.filter(value, null, null, null, null, null, null)
       }
     },
     async filtersheight (height) {
@@ -602,10 +639,11 @@ export default {
           price: {
             min: '',
             max: ''
-          }
+          },
+          brandId: ''
         }
         localStorage.setItem('filter', JSON.stringify(filter))
-        await this.filter(null, height, null, null, null, null)
+        await this.filter(null, height, null, null, null, null, null)
       } else {
         console.log('filterNotNullWidth')
         const filter = {
@@ -616,10 +654,11 @@ export default {
           price: {
             min: filters.price.min,
             max: filters.price.max
-          }
+          },
+          brandId: filters.brandId
         }
         localStorage.setItem('filter', JSON.stringify(filter))
-        await this.filter(null, height, null, null, null, null)
+        await this.filter(null, height, null, null, null, null, null)
       }
     },
     async filtersdiameter (diameter) {
@@ -634,10 +673,11 @@ export default {
           price: {
             min: '',
             max: ''
-          }
+          },
+          brandId: ''
         }
         localStorage.setItem('filter', JSON.stringify(filter))
-        await this.filter(null, null, diameter, null, null, null)
+        await this.filter(null, null, diameter, null, null, null, null)
       } else {
         console.log('filterNotNullWidth')
         const filter = {
@@ -648,10 +688,11 @@ export default {
           price: {
             min: filters.price.min,
             max: filters.price.max
-          }
+          },
+          brandId: filters.brandId
         }
         localStorage.setItem('filter', JSON.stringify(filter))
-        await this.filter(null, null, diameter, null, null, null)
+        await this.filter(null, null, diameter, null, null, null, null)
       }
     },
     async filterstype (type) {
@@ -666,10 +707,11 @@ export default {
           price: {
             min: '',
             max: ''
-          }
+          },
+          brandId: ''
         }
         localStorage.setItem('filter', JSON.stringify(filter))
-        await this.filter(null, null, null, type, null, null)
+        await this.filter(null, null, null, type, null, null, null)
       } else {
         console.log('filterNotNullWidth')
         const filter = {
@@ -680,10 +722,81 @@ export default {
           price: {
             min: filters.price.min,
             max: filters.price.max
-          }
+          },
+          brandId: filters.brandId
         }
         localStorage.setItem('filter', JSON.stringify(filter))
-        await this.filter(null, null, null, type, null, null)
+        await this.filter(null, null, null, type, null, null, null)
+      }
+    },
+    async filterminmax (min, max) {
+      console.log('minmax', min + max)
+      const filters = JSON.parse(localStorage.getItem('filter'))
+      if (filters === null || filters === '' || filters === 'null') {
+        console.log('filterNullWidth')
+        const filter = {
+          width: '',
+          height: '',
+          diameter: '',
+          type: '',
+          price: {
+            min: min,
+            max: max
+          },
+          brandId: ''
+        }
+        localStorage.setItem('filter', JSON.stringify(filter))
+        await this.filter(null, null, null, null, min, max, null)
+      } else {
+        console.log('filterNotNullWidth')
+        const filter = {
+          width: filters.width,
+          height: filters.height,
+          diameter: filters.diameter,
+          type: filters.type,
+          price: {
+            min: min,
+            max: max
+          },
+          brandId: filters.brandId
+        }
+        localStorage.setItem('filter', JSON.stringify(filter))
+        await this.filter(null, null, null, null, min, max, null)
+      }
+    },
+    async filterbrand (brandId) {
+      const filters = JSON.parse(localStorage.getItem('filter'))
+      if (filters === null || filters === '' || filters === 'null') {
+        console.log('filterNullWidth')
+        const filter = {
+          width: '',
+          height: '',
+          diameter: '',
+          type: '',
+          price: {
+            min: '',
+            max: ''
+          },
+          brandId: brandId
+        }
+        localStorage.setItem('filter', JSON.stringify(filter))
+        await this.filter(null, null, null, null, null, null, brandId)
+      } else {
+        console.log('filterNotNullWidth')
+        const filter = {
+          width: filters.width,
+          height: filters.height,
+          diameter: filters.diameter,
+          type: filters.type,
+          price: {
+            min: filters.price.min,
+            max: filters.price.max
+          },
+          brandId: brandId
+        }
+        console.log('filterNotNullBrandID', filter)
+        localStorage.setItem('filter', JSON.stringify(filter))
+        await this.filter(null, null, null, null, null, null, brandId)
       }
     },
     async onChangePage (pageOfitems) {
@@ -738,46 +851,38 @@ export default {
             this.pageItem = this.brand
           })
         } else if (split[0] === 'brand') {
-          console.log('brands')
-          var configbrands = {
+          console.log('brands', split[1])
+          await this.filterbrand(split[1])
+        }
+      } else {
+        const data = await JSON.parse(localStorage.getItem('data'))
+        if (data !== null || data !== '' || data !== 'null' || data !== undefined || data !== 'undefined') {
+          this.brand = data
+          this.pageItem = this.brand
+        } else {
+          console.log('nohaveroute')
+          var config = {
+            // headers: {
+            //   'Access-Control-Allow-Origin': '*',
+            //   'X-Requested-With': 'XMLHttpRequest'
+            // },
             method: 'get',
             url: process.env.VUE_APP_API_URL + '/product'
           }
-          axios(configbrands).then(res => {
-            let brands = res.data.data.products
-            brands = brands.filter((post, index) => {
-              // console.log('promotionsbrand', post.brandId)
-              return post.brandId === split[1]
-            })
-            // console.log('detailb', brands)
-            // console.log('detailr', res.data.data.products)
-            this.brand = brands
+          // console.log('all null')
+          axios(config).then(res => {
+            // console.log(res.data.data)
+            this.brand = res.data.data.products
             this.pageItem = this.brand
+            // console.log('brands', res.data.data.products)
+            const vvv = this.brand.find((post, index) => {
+              if (post.prodId === 'TY001') {
+                return true
+              }
+            })
+            console.log('asfaf', vvv)
           })
         }
-      } else {
-        console.log('nohaveroute')
-        var config = {
-          // headers: {
-          //   'Access-Control-Allow-Origin': '*',
-          //   'X-Requested-With': 'XMLHttpRequest'
-          // },
-          method: 'get',
-          url: process.env.VUE_APP_API_URL + '/product'
-        }
-        // console.log('all null')
-        axios(config).then(res => {
-          // console.log(res.data.data)
-          this.brand = res.data.data.products
-          this.pageItem = this.brand
-          // console.log('brands', res.data.data.products)
-          const vvv = this.brand.find((post, index) => {
-            if (post.prodId === 'TY001') {
-              return true
-            }
-          })
-          console.log('asfaf', vvv)
-        })
       }
     },
     sortprice (value) {

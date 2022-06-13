@@ -63,6 +63,9 @@
         <div>
           <b-button v-on:click="filterminmax(16000, 20000)">Click</b-button>
         </div>
+        <div>
+          <b-button v-on:click="filterbrand(1)">Click</b-button>
+        </div>
         <br>
         <br>
         <br>
@@ -140,13 +143,13 @@ export default {
       ],
       optionstype: [
         { value: null, text: '--รูปแบบยาง--' },
-        { value: 'ยาง SUV', text: 'ยาง SUV' },
+        { value: 'ยาง SUV ประสิทธิภาพสูง', text: 'ยาง SUV ประสิทธิภาพสูง' },
         { value: 'ยางขับขี่ทั่วไป', text: 'ยางขับขี่ทั่วไป' },
         { value: 'ยางขับขี่นุ่ม เงียบ', text: 'ยางขับขี่นุ่ม เงียบ' },
         { value: 'ยางประสิทธิภาพสูง', text: 'ยางประสิทธิภาพสูง' },
         { value: 'ยางประหยัดเชื้อเพลิง', text: 'ยางประหยัดเชื้อเพลิง' },
         { value: 'ยางรถกระบะ', text: 'ยางรถกระบะ' },
-        { value: 'ยางรถเอนกประสงค์', text: 'ยางรถเอนกประสงค์' },
+        { value: 'ยางรถเอนกประสงค์/SUV', text: 'ยางรถเอนกประสงค์/suv' },
         { value: 'ยางออฟโรด', text: 'ยางออฟโรด' }
       ]
     }
@@ -155,8 +158,8 @@ export default {
     localStorage.removeItem('filter')
   },
   methods: {
-    async filter (width, height, diameter, type, min, max) {
-      console.log('getvalueFilter', width, height, diameter, type, min, max)
+    async filter (width, height, diameter, type, min, max, brandId) {
+      console.log('getvalueFilter', width, height, diameter, type, min, max, brandId)
       if (width !== null || width !== '' || width !== 'null' || width !== undefined || width !== 'undefined') {
         this.width = {
           width: width
@@ -166,8 +169,7 @@ export default {
           console.log('getwidth')
           localStorage.setItem('data', JSON.stringify(this.brand))
         })
-      } else {}
-      if (height !== null || height !== '' || height !== 'null' || height !== undefined || height !== 'undefined') {
+      } else if (height !== null || height !== '' || height !== 'null' || height !== undefined || height !== 'undefined') {
         this.height = {
           height: height
         }
@@ -176,8 +178,7 @@ export default {
           console.log('getheight')
           localStorage.setItem('data', JSON.stringify(this.brand))
         })
-      } else {}
-      if (diameter !== null || diameter !== '' || diameter !== 'null' || diameter !== undefined || diameter !== 'undefined') {
+      } else if (diameter !== null || diameter !== '' || diameter !== 'null' || diameter !== undefined || diameter !== 'undefined') {
         this.diameter = {
           diameter: diameter
         }
@@ -186,8 +187,7 @@ export default {
           console.log('getdiameter')
           localStorage.setItem('data', JSON.stringify(this.brand))
         })
-      } else {}
-      if (type !== null || type !== '' || type !== 'null' || type !== undefined || type !== 'undefined') {
+      } else if (type !== null || type !== '' || type !== 'null' || type !== undefined || type !== 'undefined') {
         this.type = {
           type: type
         }
@@ -196,8 +196,7 @@ export default {
           console.log('gettype')
           localStorage.setItem('data', JSON.stringify(this.brand))
         })
-      } else {}
-      if (min !== null || min !== '' || min !== 'null' || min !== undefined || min !== 'undefined' || max !== null || max !== '' || max !== 'null' || max !== undefined || max !== 'undefined') {
+      } else if (min !== null || min !== '' || min !== 'null' || min !== undefined || min !== 'undefined') {
         this.range = {
           minPrice: min,
           maxPrice: max
@@ -205,6 +204,12 @@ export default {
         await axios.post(process.env.VUE_APP_API_URL + '/productByFilter', this.range).then(res => {
           this.brand = res.data.data.products
           console.log('gettype', this.brand)
+          localStorage.setItem('data', JSON.stringify(this.brand))
+        })
+      } else if (brandId !== null || brandId !== '' || brandId !== 'null' || brandId !== undefined || brandId !== 'undefined') {
+        await axios.get(process.env.VUE_APP_API_URL + '/product').then(res => {
+          this.brand = res.data.data.products
+          console.log('gettypebrandId', this.brand)
           localStorage.setItem('data', JSON.stringify(this.brand))
         })
       }
@@ -257,15 +262,27 @@ export default {
         })
         localStorage.setItem('data', JSON.stringify(this.brand))
       }
-      if (filters.min === null || filters.min === '' || filters.min === 'null' || filters.max === null || filters.max === '' || filters.max === 'null') {
+      if (filters.price.min === null || filters.price.min === '' || filters.price.min === 'null') {
       } else {
-        console.log('NOTNULLFILLTERtype')
+        console.log('NOTNULLFILLTERminmax')
         const data = await JSON.parse(localStorage.getItem('data'))
-        console.log('NOTNULLFILLTERtype2', data)
+        console.log('NOTNULLFILLTERminmax2', data)
         const filters = await JSON.parse(localStorage.getItem('filter'))
-        console.log('NOTNULLFILLTERtype3', filters)
+        console.log('NOTNULLFILLTERminmax3', filters)
         this.brand = await data.filter((post, index) => {
-          return post.regularPrice <= max && post.regularPrice >= min
+          return post.regularPrice <= filters.price.max && post.regularPrice >= filters.price.min
+        })
+        localStorage.setItem('data', JSON.stringify(this.brand))
+      }
+      if (filters.brandId === null || filters.brandId === '' || filters.brandId === 'null') {
+      } else {
+        console.log('NOTNULLFILLTERbrandid')
+        const data = await JSON.parse(localStorage.getItem('data'))
+        console.log('NOTNULLFILLTERbrandid2', data)
+        const filters = await JSON.parse(localStorage.getItem('filter'))
+        console.log('NOTNULLFILLTERbrandid3', filters)
+        this.brand = await data.filter((post, index) => {
+          return post.brandId === filters.brandId.toString()
         })
         localStorage.setItem('data', JSON.stringify(this.brand))
       }
@@ -282,10 +299,11 @@ export default {
           price: {
             min: '',
             max: ''
-          }
+          },
+          brandId: ''
         }
         localStorage.setItem('filter', JSON.stringify(filter))
-        await this.filter(value, null, null, null, null, null)
+        await this.filter(value, null, null, null, null, null, null)
       } else {
         console.log('filterNotNullWidth')
         const filter = {
@@ -296,10 +314,11 @@ export default {
           price: {
             min: filters.price.min,
             max: filters.price.max
-          }
+          },
+          brandId: filters.brandId
         }
         localStorage.setItem('filter', JSON.stringify(filter))
-        await this.filter(value, null, null, null, null, null)
+        await this.filter(value, null, null, null, null, null, null)
       }
     },
     async filtersheight (height) {
@@ -314,10 +333,11 @@ export default {
           price: {
             min: '',
             max: ''
-          }
+          },
+          brandId: ''
         }
         localStorage.setItem('filter', JSON.stringify(filter))
-        await this.filter(null, height, null, null, null, null)
+        await this.filter(null, height, null, null, null, null, null)
       } else {
         console.log('filterNotNullWidth')
         const filter = {
@@ -328,10 +348,11 @@ export default {
           price: {
             min: filters.price.min,
             max: filters.price.max
-          }
+          },
+          brandId: filters.brandId
         }
         localStorage.setItem('filter', JSON.stringify(filter))
-        await this.filter(null, height, null, null, null, null)
+        await this.filter(null, height, null, null, null, null, null)
       }
     },
     async filtersdiameter (diameter) {
@@ -346,10 +367,11 @@ export default {
           price: {
             min: '',
             max: ''
-          }
+          },
+          brandId: ''
         }
         localStorage.setItem('filter', JSON.stringify(filter))
-        await this.filter(null, null, diameter, null, null, null)
+        await this.filter(null, null, diameter, null, null, null, null)
       } else {
         console.log('filterNotNullWidth')
         const filter = {
@@ -360,10 +382,11 @@ export default {
           price: {
             min: filters.price.min,
             max: filters.price.max
-          }
+          },
+          brandId: filters.brandId
         }
         localStorage.setItem('filter', JSON.stringify(filter))
-        await this.filter(null, null, diameter, null, null, null)
+        await this.filter(null, null, diameter, null, null, null, null)
       }
     },
     async filterstype (type) {
@@ -378,10 +401,11 @@ export default {
           price: {
             min: '',
             max: ''
-          }
+          },
+          brandId: ''
         }
         localStorage.setItem('filter', JSON.stringify(filter))
-        await this.filter(null, null, null, type, null, null)
+        await this.filter(null, null, null, type, null, null, null)
       } else {
         console.log('filterNotNullWidth')
         const filter = {
@@ -392,10 +416,11 @@ export default {
           price: {
             min: filters.price.min,
             max: filters.price.max
-          }
+          },
+          brandId: filters.brandId
         }
         localStorage.setItem('filter', JSON.stringify(filter))
-        await this.filter(null, null, null, type, null, null)
+        await this.filter(null, null, null, type, null, null, null)
       }
     },
     async filterminmax (min, max) {
@@ -411,10 +436,11 @@ export default {
           price: {
             min: min,
             max: max
-          }
+          },
+          brandId: ''
         }
         localStorage.setItem('filter', JSON.stringify(filter))
-        await this.filter(null, null, null, null, min, max)
+        await this.filter(null, null, null, null, min, max, null)
       } else {
         console.log('filterNotNullWidth')
         const filter = {
@@ -425,10 +451,46 @@ export default {
           price: {
             min: min,
             max: max
-          }
+          },
+          brandId: filters.brandId
         }
         localStorage.setItem('filter', JSON.stringify(filter))
-        await this.filter(null, null, null, null, min, max)
+        await this.filter(null, null, null, null, min, max, null)
+      }
+    },
+    async filterbrand (brandId) {
+      const filters = JSON.parse(localStorage.getItem('filter'))
+      if (filters === null || filters === '' || filters === 'null') {
+        console.log('filterNullWidth')
+        const filter = {
+          width: '',
+          height: '',
+          diameter: '',
+          type: '',
+          price: {
+            min: '',
+            max: ''
+          },
+          brandId: brandId
+        }
+        localStorage.setItem('filter', JSON.stringify(filter))
+        await this.filter(null, null, null, null, null, null, brandId)
+      } else {
+        console.log('filterNotNullWidth')
+        const filter = {
+          width: filters.width,
+          height: filters.height,
+          diameter: filters.diameter,
+          type: filters.type,
+          price: {
+            min: filters.price.min,
+            max: filters.price.max
+          },
+          brandId: brandId
+        }
+        console.log('filterNotNullBrandID', filter)
+        localStorage.setItem('filter', JSON.stringify(filter))
+        await this.filter(null, null, null, null, null, null, brandId)
       }
     }
   }
