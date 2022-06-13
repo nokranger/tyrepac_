@@ -54,7 +54,7 @@
               <b-dropdown-item href="/shop?type=ยางประสิทธิภาพสูง">ยาง SUV ประสิทธิภาพสูง</b-dropdown-item>
               <b-dropdown-item href="/shop?type=ยางประหยัดเชื้อเพลิง">ยางประหยัดเชื้อเพลิง</b-dropdown-item>
               <b-dropdown-item href="/shop?type=ยางขับขี่นุ่ม เงียบ">ยางขับขี่นุ่ม เงียบ</b-dropdown-item>
-              <b-dropdown-item href="/shop?type=ยางรถเอนกประสงค์">ยางรถเอนกประสงค์ SUV</b-dropdown-item>
+              <b-dropdown-item href="/shop?type=ยางรถเอนกประสงค์">ยางรถเอนกประสงค์/SUV</b-dropdown-item>
               <b-dropdown-item href="/shop?type=ยางรถกระบะ">ยางรถกระบะ</b-dropdown-item>
               <b-dropdown-item href="/shop?type=ยางออฟโรด">ยางออฟโรด</b-dropdown-item>
             </b-nav-item-dropdown>
