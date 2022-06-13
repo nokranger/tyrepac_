@@ -7,31 +7,34 @@
         <p style="font-size: 25px; font-weight: bold;color: black;">ค้นหาตามขนาดยาง</p>
         <div>
           <b-form-select
-            style="width: 100%; font-size: 20px; margin: 5px;color: gray;height: 35px;"
-            v-model="selected1"
-            :options="options"
+            style="width: 100%; font-size: 20px;margin: 5px; color: gray; height: 35px;"
+            v-model="selectedwidth"
+            :options="optionswidth"
             name=""
             id=""
+            v-on:change="filterwidth(selectedwidth)"
           >
           </b-form-select>
         </div>
         <div>
           <b-form-select
-            style="width: 100%; font-size: 20px; margin: 5px;color: gray;height: 35px;"
-            v-model="selected2"
-            :options="options2"
+            style="width: 100%; font-size: 20px;margin: 5px; color: gray; height: 35px;"
+            v-model="selectedserie"
+            :options="optionsserie"
             name=""
             id=""
+            v-on:change="filtersheight(selectedserie)"
           >
           </b-form-select>
         </div>
         <div>
           <b-form-select
-            style="width: 100%; font-size: 20px; margin: 5px;color: gray;height: 35px;"
-            v-model="selected3"
-            :options="options3"
+            style="width: 100%; font-size: 20px;margin: 5px; color: gray; height: 35px;"
+            v-model="selecteddiameter"
+            :options="optionsdiameter"
             name=""
             id=""
+            v-on:change="filtersdiameter(selecteddiameter)"
           >
           </b-form-select>
         </div>
@@ -54,13 +57,18 @@
   </div>
 </template>
 <script>
+import axios from 'axios'
 export default {
   data () {
     return {
-      selected1: null,
-      selected2: null,
-      selected3: null,
-      options: [
+      products: '',
+      brand: '',
+      filterheight: '',
+      selectedwidth: null,
+      selectedserie: null,
+      selecteddiameter: null,
+      selectedtype: null,
+      optionswidth: [
         { value: null, text: '--ความกว้าง--' },
         { value: '155', text: '155' },
         { value: '165', text: '165' },
@@ -82,7 +90,7 @@ export default {
         { value: '315', text: '315' },
         { value: '325', text: '325' }
       ],
-      options2: [
+      optionsserie: [
         { value: null, text: '--ซีรี่ย์ยาง--' },
         { value: '0', text: '0' },
         { value: '25', text: '25' },
@@ -98,7 +106,7 @@ export default {
         { value: '75', text: '75' },
         { value: '85', text: '85' }
       ],
-      options3: [
+      optionsdiameter: [
         { value: null, text: '--ขนาดวงล้อ--' },
         { value: '13', text: '13' },
         { value: '14', text: '14' },
@@ -111,29 +119,242 @@ export default {
         { value: '21', text: '21' },
         { value: '22', text: '22' },
         { value: '24', text: '24' }
+      ],
+      optionstype: [
+        { value: null, text: '--รูปแบบยาง--' },
+        { value: 'ยาง SUV', text: 'ยาง SUV' },
+        { value: 'ยางขับขี่ทั่วไป', text: 'ยางขับขี่ทั่วไป' },
+        { value: 'ยางขับขี่นุ่ม เงียบ', text: 'ยางขับขี่นุ่ม เงียบ' },
+        { value: 'ยางประสิทธิภาพสูง', text: 'ยางประสิทธิภาพสูง' },
+        { value: 'ยางประหยัดเชื้อเพลิง', text: 'ยางประหยัดเชื้อเพลิง' },
+        { value: 'ยางรถกระบะ', text: 'ยางรถกระบะ' },
+        { value: 'ยางรถเอนกประสงค์', text: 'ยางรถเอนกประสงค์' },
+        { value: 'ยางออฟโรด', text: 'ยางออฟโรด' }
       ]
     }
   },
+  mounted () {
+    localStorage.removeItem('filter')
+  },
   methods: {
-    search (width, height, diameter) {
-      console.log('aaaa', width + height + diameter)
-      const search = {
-        width: width,
-        height: height,
-        diameter: diameter
+    search () {
+      location.replace('/shop')
+    },
+    async filter (width, height, diameter, type, min, max) {
+      console.log('getvalueFilter', width, height, diameter, type)
+      if (width !== null || width !== '' || width !== 'null' || width !== undefined || width !== 'undefined') {
+        this.width = {
+          width: width
+        }
+        await axios.post(process.env.VUE_APP_API_URL + '/productByFilter', this.width).then(res => {
+          this.brand = res.data.data.products
+          console.log('getwidth')
+          localStorage.setItem('data', JSON.stringify(this.brand))
+        })
+      } else if (height !== null || height !== '' || height !== 'null' || height !== undefined || height !== 'undefined') {
+        this.height = {
+          height: height
+        }
+        await axios.post(process.env.VUE_APP_API_URL + '/productByFilter', this.height).then(res => {
+          this.brand = res.data.data.products
+          console.log('getheight')
+          localStorage.setItem('data', JSON.stringify(this.brand))
+        })
+      } else if (diameter !== null || diameter !== '' || diameter !== 'null' || diameter !== undefined || diameter !== 'undefined') {
+        this.diameter = {
+          diameter: diameter
+        }
+        await axios.post(process.env.VUE_APP_API_URL + '/productByFilter', this.diameter).then(res => {
+          this.brand = res.data.data.products
+          console.log('getdiameter')
+          localStorage.setItem('data', JSON.stringify(this.brand))
+        })
+      } else if (type !== null || type !== '' || type !== 'null' || type !== undefined || type !== 'undefined') {
+        this.type = {
+          type: type
+        }
+        await axios.post(process.env.VUE_APP_API_URL + '/productByFilter', this.type).then(res => {
+          this.brand = res.data.data.products
+          console.log('gettype')
+          localStorage.setItem('data', JSON.stringify(this.brand))
+        })
       }
-      console.log(search)
-      // localStorage.setItem('filter', JSON.stringify(search))
-      // location.replace('/shop')
-      if (width !== null) {
-        console.log('width', width)
-        location.replace('/shop?width=' + width)
-      } else if (height !== null) {
-        console.log('height', height)
-        location.replace('/shop?height=' + height)
-      } else if (diameter !== null) {
-        console.log('diameter', diameter)
-        location.replace('/shop?diameter=' + diameter)
+      const filters = await JSON.parse(localStorage.getItem('filter'))
+      if (filters.width === null || filters.width === '' || filters.width === 'null') {
+      } else {
+        console.log('NOTNULLFILLTERWIDTH')
+        const data = await JSON.parse(localStorage.getItem('data'))
+        console.log('NOTNULLFILLTERWIDTH2', data)
+        const filters = await JSON.parse(localStorage.getItem('filter'))
+        console.log('NOTNULLFILLTERWIDTH3', filters)
+        this.brand = await data.filter((post, index) => {
+          return post.width === parseInt(filters.width)
+        })
+        localStorage.setItem('data', JSON.stringify(this.brand))
+      }
+      if (filters.height === null || filters.height === '' || filters.height === 'null') {
+      } else {
+        console.log('NOTNULLFILLTERHEIGHT')
+        const data = await JSON.parse(localStorage.getItem('data'))
+        console.log('NOTNULLFILLTERHEIGHT2', data)
+        const filters = await JSON.parse(localStorage.getItem('filter'))
+        console.log('NOTNULLFILLTERHEIGHT3', filters)
+        this.brand = await data.filter((post, index) => {
+          return post.height === parseInt(filters.height)
+        })
+        localStorage.setItem('data', JSON.stringify(this.brand))
+      }
+      if (filters.diameter === null || filters.diameter === '' || filters.diameter === 'null') {
+      } else {
+        console.log('NOTNULLFILLTERDIAMETER')
+        const data = await JSON.parse(localStorage.getItem('data'))
+        console.log('NOTNULLFILLTERDIAMETER2', data)
+        const filters = await JSON.parse(localStorage.getItem('filter'))
+        console.log('NOTNULLFILLTERDIAMETER3', filters)
+        this.brand = await data.filter((post, index) => {
+          return post.diameter === parseInt(filters.diameter)
+        })
+        localStorage.setItem('data', JSON.stringify(this.brand))
+      }
+      if (filters.type === null || filters.type === '' || filters.type === 'null') {
+      } else {
+        console.log('NOTNULLFILLTERtype')
+        const data = await JSON.parse(localStorage.getItem('data'))
+        console.log('NOTNULLFILLTERtype2', data)
+        const filters = await JSON.parse(localStorage.getItem('filter'))
+        console.log('NOTNULLFILLTERtype3', filters)
+        this.brand = await data.filter((post, index) => {
+          return post.type === filters.type
+        })
+        localStorage.setItem('data', JSON.stringify(this.brand))
+      }
+    },
+    async filterwidth (value) {
+      const filters = JSON.parse(localStorage.getItem('filter'))
+      if (filters === null || filters === '' || filters === 'null') {
+        console.log('filterNullWidth')
+        const filter = {
+          width: value,
+          height: '',
+          diameter: '',
+          type: '',
+          price: {
+            min: '',
+            max: ''
+          }
+        }
+        localStorage.setItem('filter', JSON.stringify(filter))
+        await this.filter(value, null, null, null, null, null)
+      } else {
+        console.log('filterNotNullWidth')
+        const filter = {
+          width: value,
+          height: filters.height,
+          diameter: filters.diameter,
+          type: filters.type,
+          price: {
+            min: filters.price.min,
+            max: filters.price.max
+          }
+        }
+        localStorage.setItem('filter', JSON.stringify(filter))
+        await this.filter(value, null, null, null, null, null)
+      }
+    },
+    async filtersheight (height) {
+      const filters = JSON.parse(localStorage.getItem('filter'))
+      if (filters === null || filters === '' || filters === 'null') {
+        console.log('filterNullWidth')
+        const filter = {
+          width: '',
+          height: height,
+          diameter: '',
+          type: '',
+          price: {
+            min: '',
+            max: ''
+          }
+        }
+        localStorage.setItem('filter', JSON.stringify(filter))
+        await this.filter(null, height, null, null, null, null)
+      } else {
+        console.log('filterNotNullWidth')
+        const filter = {
+          width: filters.width,
+          height: height,
+          diameter: filters.diameter,
+          type: filters.type,
+          price: {
+            min: filters.price.min,
+            max: filters.price.max
+          }
+        }
+        localStorage.setItem('filter', JSON.stringify(filter))
+        await this.filter(null, height, null, null, null, null)
+      }
+    },
+    async filtersdiameter (diameter) {
+      const filters = JSON.parse(localStorage.getItem('filter'))
+      if (filters === null || filters === '' || filters === 'null') {
+        console.log('filterNullWidth')
+        const filter = {
+          width: '',
+          height: '',
+          diameter: diameter,
+          type: '',
+          price: {
+            min: '',
+            max: ''
+          }
+        }
+        localStorage.setItem('filter', JSON.stringify(filter))
+        await this.filter(null, null, diameter, null, null, null)
+      } else {
+        console.log('filterNotNullWidth')
+        const filter = {
+          width: filters.width,
+          height: filters.height,
+          diameter: diameter,
+          type: filters.type,
+          price: {
+            min: filters.price.min,
+            max: filters.price.max
+          }
+        }
+        localStorage.setItem('filter', JSON.stringify(filter))
+        await this.filter(null, null, diameter, null, null, null)
+      }
+    },
+    async filterstype (type) {
+      const filters = JSON.parse(localStorage.getItem('filter'))
+      if (filters === null || filters === '' || filters === 'null') {
+        console.log('filterNullWidth')
+        const filter = {
+          width: '',
+          height: '',
+          diameter: '',
+          type: type,
+          price: {
+            min: '',
+            max: ''
+          }
+        }
+        localStorage.setItem('filter', JSON.stringify(filter))
+        await this.filter(null, null, null, type, null, null)
+      } else {
+        console.log('filterNotNullWidth')
+        const filter = {
+          width: filters.width,
+          height: filters.height,
+          diameter: filters.diameter,
+          type: type,
+          price: {
+            min: filters.price.min,
+            max: filters.price.max
+          }
+        }
+        localStorage.setItem('filter', JSON.stringify(filter))
+        await this.filter(null, null, null, type, null, null)
       }
     }
   }

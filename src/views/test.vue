@@ -63,7 +63,7 @@
         <br>
         <br>
         <br>
-        <div v-for="(filter, index) in filterGet" :Key="index">
+        <div v-for="(filter, index) in brand" :Key="index">
           {{index}} : => - {{filter.prodId}} - {{filter.name}}
         </div>
       </b-container>
@@ -77,7 +77,7 @@ export default {
   data () {
     return {
       products: '',
-      filterGet: '',
+      brand: '',
       filterheight: '',
       selectedwidth: null,
       selectedserie: null,
@@ -159,36 +159,36 @@ export default {
           width: width
         }
         await axios.post(process.env.VUE_APP_API_URL + '/productByFilter', this.width).then(res => {
-          this.filterGet = res.data.data.products
+          this.brand = res.data.data.products
           console.log('getwidth')
-          localStorage.setItem('data', JSON.stringify(this.filterGet))
+          localStorage.setItem('data', JSON.stringify(this.brand))
         })
       } else if (height !== null || height !== '' || height !== 'null' || height !== undefined || height !== 'undefined') {
         this.height = {
           height: height
         }
         await axios.post(process.env.VUE_APP_API_URL + '/productByFilter', this.height).then(res => {
-          this.filterGet = res.data.data.products
+          this.brand = res.data.data.products
           console.log('getheight')
-          localStorage.setItem('data', JSON.stringify(this.filterGet))
+          localStorage.setItem('data', JSON.stringify(this.brand))
         })
       } else if (diameter !== null || diameter !== '' || diameter !== 'null' || diameter !== undefined || diameter !== 'undefined') {
         this.diameter = {
           diameter: diameter
         }
         await axios.post(process.env.VUE_APP_API_URL + '/productByFilter', this.diameter).then(res => {
-          this.filterGet = res.data.data.products
+          this.brand = res.data.data.products
           console.log('getdiameter')
-          localStorage.setItem('data', JSON.stringify(this.filterGet))
+          localStorage.setItem('data', JSON.stringify(this.brand))
         })
       } else if (type !== null || type !== '' || type !== 'null' || type !== undefined || type !== 'undefined') {
         this.type = {
           type: type
         }
         await axios.post(process.env.VUE_APP_API_URL + '/productByFilter', this.type).then(res => {
-          this.filterGet = res.data.data.products
+          this.brand = res.data.data.products
           console.log('gettype')
-          localStorage.setItem('data', JSON.stringify(this.filterGet))
+          localStorage.setItem('data', JSON.stringify(this.brand))
         })
       }
       const filters = await JSON.parse(localStorage.getItem('filter'))
@@ -199,10 +199,10 @@ export default {
         console.log('NOTNULLFILLTERWIDTH2', data)
         const filters = await JSON.parse(localStorage.getItem('filter'))
         console.log('NOTNULLFILLTERWIDTH3', filters)
-        this.filterGet = await data.filter((post, index) => {
+        this.brand = await data.filter((post, index) => {
           return post.width === parseInt(filters.width)
         })
-        localStorage.setItem('data', JSON.stringify(this.filterGet))
+        localStorage.setItem('data', JSON.stringify(this.brand))
       }
       if (filters.height === null || filters.height === '' || filters.height === 'null') {
       } else {
@@ -211,10 +211,10 @@ export default {
         console.log('NOTNULLFILLTERHEIGHT2', data)
         const filters = await JSON.parse(localStorage.getItem('filter'))
         console.log('NOTNULLFILLTERHEIGHT3', filters)
-        this.filterGet = await data.filter((post, index) => {
+        this.brand = await data.filter((post, index) => {
           return post.height === parseInt(filters.height)
         })
-        localStorage.setItem('data', JSON.stringify(this.filterGet))
+        localStorage.setItem('data', JSON.stringify(this.brand))
       }
       if (filters.diameter === null || filters.diameter === '' || filters.diameter === 'null') {
       } else {
@@ -223,10 +223,10 @@ export default {
         console.log('NOTNULLFILLTERDIAMETER2', data)
         const filters = await JSON.parse(localStorage.getItem('filter'))
         console.log('NOTNULLFILLTERDIAMETER3', filters)
-        this.filterGet = await data.filter((post, index) => {
+        this.brand = await data.filter((post, index) => {
           return post.diameter === parseInt(filters.diameter)
         })
-        localStorage.setItem('data', JSON.stringify(this.filterGet))
+        localStorage.setItem('data', JSON.stringify(this.brand))
       }
       if (filters.type === null || filters.type === '' || filters.type === 'null') {
       } else {
@@ -235,22 +235,11 @@ export default {
         console.log('NOTNULLFILLTERtype2', data)
         const filters = await JSON.parse(localStorage.getItem('filter'))
         console.log('NOTNULLFILLTERtype3', filters)
-        this.filterGet = await data.filter((post, index) => {
+        this.brand = await data.filter((post, index) => {
           return post.type === filters.type
         })
-        localStorage.setItem('data', JSON.stringify(this.filterGet))
+        localStorage.setItem('data', JSON.stringify(this.brand))
       }
-      // if (filters.type === null || filters.type === '' || filters.type === 'null') {
-      // } else {
-      //   console.log('NOTNULLFILLTERtype')
-      //   const data = await JSON.parse(localStorage.getItem('data'))
-      //   console.log('NOTNULLFILLTERtype2', data)
-      //   const filters = await JSON.parse(localStorage.getItem('filter'))
-      //   console.log('NOTNULLFILLTERtype3', filters)
-      //   this.filterGet = await data.filter((post, index) => {
-      //     return post.type === parseInt(filters.type)
-      //   })
-      // }
     },
     async filterwidth (value) {
       const filters = JSON.parse(localStorage.getItem('filter'))
@@ -378,72 +367,6 @@ export default {
         }
         localStorage.setItem('filter', JSON.stringify(filter))
         await this.filter(null, null, null, type, null, null)
-      }
-    },
-    async filterserie (value) {
-      const filters = await JSON.parse(localStorage.getItem('filter'))
-      console.log('type')
-      this.data = {
-        height: value
-      }
-      if (value === null) {
-        console.log('getProductV')
-        if (filters === null || filters === '' || filters === 'null') {
-          this.getProduct()
-        }
-      } else {
-        await axios.post(process.env.VUE_APP_API_URL + '/productByFilter', this.data).then(res => {
-          console.log('Filtertype: ', res)
-          this.filterGet = res.data.data.products
-        })
-      }
-      if (JSON.parse(localStorage.getItem('filter')) === null) {
-        console.log('filterNull')
-        const filter = {
-          width: '',
-          height: value,
-          diameter: '',
-          type: '',
-          price: {
-            min: '',
-            max: ''
-          }
-        }
-        localStorage.setItem('filter', JSON.stringify(filter))
-      } else {
-        const filters = await JSON.parse(localStorage.getItem('filter'))
-        console.log('filterNOTNULL', filters.width)
-        const filter = {
-          width: filters.width,
-          height: value,
-          diameter: filters.diameter,
-          type: filters.type,
-          price: {
-            min: filters.price.min,
-            max: filters.price.max
-          }
-        }
-        localStorage.setItem('filter', JSON.stringify(filter))
-        if (filters.width !== null) {
-          this.filterGet = await this.filterGet.filter((post, index) => {
-            return post.width === parseInt(filters.width)
-          })
-        } else {
-          await axios.post(process.env.VUE_APP_API_URL + '/productByFilter', this.data).then(res => {
-            console.log('Filtertype: ', res)
-            this.filterGet = res.data.data.products
-          })
-        }
-        if (value !== null) {
-          this.filterGet = await this.filterGet.filter((post, index) => {
-            return post.height === parseInt(value)
-          })
-        } else {
-          await axios.post(process.env.VUE_APP_API_URL + '/productByFilter', this.data).then(res => {
-            this.filterGet = res.data.data.products
-          })
-        }
-        console.log('filterh', this.filterGet)
       }
     }
   }
