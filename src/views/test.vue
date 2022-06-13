@@ -60,6 +60,9 @@
           </b-form-select>
           <br />
         </div>
+        <div>
+          <b-button v-on:click="filterminmax(16000, 20000)">Click</b-button>
+        </div>
         <br>
         <br>
         <br>
@@ -153,7 +156,7 @@ export default {
   },
   methods: {
     async filter (width, height, diameter, type, min, max) {
-      console.log('getvalueFilter', width, height, diameter, type)
+      console.log('getvalueFilter', width, height, diameter, type, min, max)
       if (width !== null || width !== '' || width !== 'null' || width !== undefined || width !== 'undefined') {
         this.width = {
           width: width
@@ -163,7 +166,8 @@ export default {
           console.log('getwidth')
           localStorage.setItem('data', JSON.stringify(this.brand))
         })
-      } else if (height !== null || height !== '' || height !== 'null' || height !== undefined || height !== 'undefined') {
+      } else {}
+      if (height !== null || height !== '' || height !== 'null' || height !== undefined || height !== 'undefined') {
         this.height = {
           height: height
         }
@@ -172,7 +176,8 @@ export default {
           console.log('getheight')
           localStorage.setItem('data', JSON.stringify(this.brand))
         })
-      } else if (diameter !== null || diameter !== '' || diameter !== 'null' || diameter !== undefined || diameter !== 'undefined') {
+      } else {}
+      if (diameter !== null || diameter !== '' || diameter !== 'null' || diameter !== undefined || diameter !== 'undefined') {
         this.diameter = {
           diameter: diameter
         }
@@ -181,13 +186,25 @@ export default {
           console.log('getdiameter')
           localStorage.setItem('data', JSON.stringify(this.brand))
         })
-      } else if (type !== null || type !== '' || type !== 'null' || type !== undefined || type !== 'undefined') {
+      } else {}
+      if (type !== null || type !== '' || type !== 'null' || type !== undefined || type !== 'undefined') {
         this.type = {
           type: type
         }
         await axios.post(process.env.VUE_APP_API_URL + '/productByFilter', this.type).then(res => {
           this.brand = res.data.data.products
           console.log('gettype')
+          localStorage.setItem('data', JSON.stringify(this.brand))
+        })
+      } else {}
+      if (min !== null || min !== '' || min !== 'null' || min !== undefined || min !== 'undefined' || max !== null || max !== '' || max !== 'null' || max !== undefined || max !== 'undefined') {
+        this.range = {
+          minPrice: min,
+          maxPrice: max
+        }
+        await axios.post(process.env.VUE_APP_API_URL + '/productByFilter', this.range).then(res => {
+          this.brand = res.data.data.products
+          console.log('gettype', this.brand)
           localStorage.setItem('data', JSON.stringify(this.brand))
         })
       }
@@ -237,6 +254,18 @@ export default {
         console.log('NOTNULLFILLTERtype3', filters)
         this.brand = await data.filter((post, index) => {
           return post.type === filters.type
+        })
+        localStorage.setItem('data', JSON.stringify(this.brand))
+      }
+      if (filters.min === null || filters.min === '' || filters.min === 'null' || filters.max === null || filters.max === '' || filters.max === 'null') {
+      } else {
+        console.log('NOTNULLFILLTERtype')
+        const data = await JSON.parse(localStorage.getItem('data'))
+        console.log('NOTNULLFILLTERtype2', data)
+        const filters = await JSON.parse(localStorage.getItem('filter'))
+        console.log('NOTNULLFILLTERtype3', filters)
+        this.brand = await data.filter((post, index) => {
+          return post.regularPrice <= max && post.regularPrice >= min
         })
         localStorage.setItem('data', JSON.stringify(this.brand))
       }
@@ -367,6 +396,39 @@ export default {
         }
         localStorage.setItem('filter', JSON.stringify(filter))
         await this.filter(null, null, null, type, null, null)
+      }
+    },
+    async filterminmax (min, max) {
+      console.log('minmax', min + max)
+      const filters = JSON.parse(localStorage.getItem('filter'))
+      if (filters === null || filters === '' || filters === 'null') {
+        console.log('filterNullWidth')
+        const filter = {
+          width: '',
+          height: '',
+          diameter: '',
+          type: '',
+          price: {
+            min: min,
+            max: max
+          }
+        }
+        localStorage.setItem('filter', JSON.stringify(filter))
+        await this.filter(null, null, null, null, min, max)
+      } else {
+        console.log('filterNotNullWidth')
+        const filter = {
+          width: filters.width,
+          height: filters.height,
+          diameter: filters.diameter,
+          type: filters.type,
+          price: {
+            min: min,
+            max: max
+          }
+        }
+        localStorage.setItem('filter', JSON.stringify(filter))
+        await this.filter(null, null, null, null, min, max)
       }
     }
   }
