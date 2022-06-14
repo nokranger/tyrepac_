@@ -9,7 +9,12 @@
                 <div class="bordermenu">
                   <div class="alignmenu">
                     <br>
-                    <div style="margin-left: 5px;">กรองตามความกว้าง</div>
+                    <div style="margin-left: 5px;display: inline-block;">กรองตามความกว้าง</div>
+                    <div style="display: inline-block;">
+                      <a style="margin-left: 5px;color: #005099;" v-on:click="refreshfilter ()">ล้างตัวกรอง</a>
+                      <i class="fas fa fa-times" style="display: inline-block;margin-left: 10px;font-size: 20px;cursor: pointer;color: #ee2456;" v-on:click="refreshfilter ()"></i>
+                    </div>
+                    <br>
                     <br>
                     <div>
                     <b-form-select
@@ -370,6 +375,9 @@ export default {
     })
   },
   methods: {
+    refreshfilter () {
+      location.replace('/shop')
+    },
     async filterTyre () {
       const filters = JSON.parse(localStorage.getItem('filter'))
       console.log('post', filters.width)
