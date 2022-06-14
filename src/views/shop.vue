@@ -356,9 +356,9 @@ export default {
     titleTemplate: "%s - Tyrepac - Asia's First Tyre Portal"
   },
   async mounted () {
-    await this.product()
-    await this.filter()
     localStorage.removeItem('filter')
+    await this.product()
+    // await this.filter()
     // console.log('promotions')
     axios.get(process.env.VUE_APP_API_URL + '/product').then(res => {
       this.promotions = res.data.data.products
@@ -799,6 +799,17 @@ export default {
         await this.filter(null, null, null, null, null, null, brandId)
       }
     },
+    getQueryVariable (variable) {
+      var query = window.location.search.substring(1)
+      var vars = query.split('&')
+      for (var i = 0; i < vars.length; i++) {
+        var pair = vars[i].split('=')
+        if (pair[0] === variable) {
+          return pair[1]
+        }
+      }
+      return (false)
+    },
     async onChangePage (pageOfitems) {
       // console.log('pagination', pageOfitems)
       for (var i = 0; i < pageOfitems.length; i++) {
@@ -808,10 +819,6 @@ export default {
     },
     async product () {
       // console.log('currency', document.querySelectorAll('currency'))
-      var configsearch = {
-        method: 'post',
-        url: process.env.VUE_APP_API_URL + '/productByFilter'
-      }
       console.log(location.href)
       var split = await location.href
       split = await split.split('?')
@@ -819,17 +826,30 @@ export default {
         split = await split[1].split('=')
         // console.log('tyre', split[0])
         // console.log('value', split[1])
+        // console.log('splitURL', location.search.substring(1))
         if (split[0] === 'width') {
-          // console.log('iswidth')
-          configsearch.data = {
-            width: split[1]
+          var splitfilter = location.search.substring(1)
+          splitfilter = splitfilter.split('&')
+          console.log('splitURL1', splitfilter)
+          splitfilter[0] = splitfilter[0].split('=')
+          splitfilter[1] = splitfilter[1].split('=')
+          splitfilter[2] = splitfilter[2].split('=')
+          console.log('splitURL1')
+          if (splitfilter[0][1] !== null || splitfilter[0][1] !== '' || splitfilter[0][1] !== 'null') {
+            await this.filterwidth(splitfilter[0][1])
+          } else {
+            await this.filterwidth()
           }
-          axios(configsearch).then((res) => {
-            // console.log(res)
-            // console.log('valuefilters', res.data.data.products)
-            this.brand = res.data.data.products
-            this.pageItem = this.brand
-          })
+          if (splitfilter[1][1] !== null || splitfilter[1][1] !== '' || splitfilter[1][1] !== 'null') {
+            console.log('splitURL2')
+            await this.filtersheight(splitfilter[1][1])
+          }
+          if (splitfilter[2][1] !== null || splitfilter[2][1] !== '' || splitfilter[2][1] !== 'null') {
+            console.log('splitURL3')
+            await this.filtersdiameter(splitfilter[2][1])
+          }
+          // await this.filter(splitfilter[0][1], splitfilter[1][1], splitfilter[2][1], null, null, null)
+          console.log('splitWidth', splitfilter[0][0])
         } else if (split[0] === 'promotionId') {
           // console.log('istypess', decodeURIComponent(split[1]))
           // console.log('istype', configsearch)
@@ -855,34 +875,21 @@ export default {
           await this.filterbrand(split[1])
         }
       } else {
-        const data = await JSON.parse(localStorage.getItem('data'))
-        if (data !== null || data !== '' || data !== 'null' || data !== undefined || data !== 'undefined') {
-          this.brand = data
-          this.pageItem = this.brand
-        } else {
-          console.log('nohaveroute')
-          var config = {
-            // headers: {
-            //   'Access-Control-Allow-Origin': '*',
-            //   'X-Requested-With': 'XMLHttpRequest'
-            // },
-            method: 'get',
-            url: process.env.VUE_APP_API_URL + '/product'
-          }
-          // console.log('all null')
-          axios(config).then(res => {
-            // console.log(res.data.data)
-            this.brand = res.data.data.products
-            this.pageItem = this.brand
-            // console.log('brands', res.data.data.products)
-            const vvv = this.brand.find((post, index) => {
-              if (post.prodId === 'TY001') {
-                return true
-              }
-            })
-            console.log('asfaf', vvv)
-          })
+        console.log('nohaveroute')
+        var config = {
+          // headers: {
+          //   'Access-Control-Allow-Origin': '*',
+          //   'X-Requested-With': 'XMLHttpRequest'
+          // },
+          method: 'get',
+          url: process.env.VUE_APP_API_URL + '/product'
         }
+        // console.log('all null')
+        axios(config).then(res => {
+          // console.log(res.data.data)
+          this.brand = res.data.data.products
+          this.pageItem = this.brand
+        })
       }
     },
     sortprice (value) {
@@ -904,85 +911,6 @@ export default {
         this.brand = this.sortaa.sort()
         this.pageItem = this.brand
         // console.log('regu', this.sortaa)
-      }
-    },
-    async filterprice (min, max) {
-      const filters = JSON.parse(localStorage.getItem('filter'))
-      if (JSON.parse(localStorage.getItem('filter')) === null) {
-        console.log('filterNull')
-        const filter = {
-          width: '',
-          height: '',
-          diameter: '',
-          tyre: '',
-          price: {
-            min: min,
-            max: max
-          }
-        }
-        localStorage.setItem('filter', JSON.stringify(filter))
-      } else {
-        console.log('filterNOTNULL', filters.width)
-        const filter = {
-          width: filters.width,
-          height: filters.height,
-          diameter: filters.diameter,
-          tyre: filters.tyre,
-          price: {
-            min: min,
-            max: max
-          }
-        }
-        localStorage.setItem('filter', JSON.stringify(filter))
-      }
-      console.log('valuefilterswidth', min + max)
-      let brands = []
-      // console.log('valuefilters', value)
-      var split = location.href
-      split = split.split('?')
-      var config = {
-        method: 'post',
-        url: process.env.VUE_APP_API_URL + '/productByFilter'
-      }
-      config.data = {
-        minPrice: min,
-        maxPrice: max
-      }
-      console.log('pricecheck', config)
-      await axios(config).then((res) => {
-        console.log(res)
-        // const brandtest = res.data.data.products
-        this.brand = res.data.data.products
-        this.pageItem = this.brand
-      })
-      if (split.length > 1) {
-        split = split[1].split('=')
-        console.log('filtyre', split[0])
-        if (split[0] === 'brand') {
-          brands = await this.brand.filter((post, index) => {
-            // console.log('filtyre', split[0])
-            // console.log('logwidth', post + split[1])
-            return post.brandId === split[1]
-          })
-          console.log('widthfilter', brands)
-          this.brand = brands
-          this.pageItem = this.brand
-        }
-      } else {
-        config = {
-          method: 'post',
-          url: process.env.VUE_APP_API_URL + '/productByFilter',
-          data: {
-            minPrice: min,
-            maxPrice: max
-          }
-        }
-        console.log('valuefilters')
-        await axios(config).then((res) => {
-          console.log(res)
-          this.brand = res.data.data.products
-          this.pageItem = this.brand
-        })
       }
     },
     buydetail (url, img, name, price, value, type, sku, brand) {

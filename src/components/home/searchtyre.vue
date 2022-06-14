@@ -40,7 +40,7 @@
         </div>
         <br />
         <div style="text-align: left;margin-left: 20px;">
-          <b-button variant="light" style="border-radius: 1px;border: thin solid black;" v-on:click="search (selected1, selected2, selected3)">ค้นหา</b-button>
+          <b-button variant="light" style="border-radius: 1px;border: thin solid black;" v-on:click="search (selectedwidth, selectedserie, selecteddiameter)">ค้นหา</b-button>
         </div>
         <br />
         <b><a href="#" style="color: black;text-decoration: none;" v-b-modal.modal-tyre>ไม่แน่ใจวิธีอ่านขนาดยางของคุณ ? คลิกที่นี่</a></b>
@@ -137,8 +137,9 @@ export default {
     localStorage.removeItem('filter')
   },
   methods: {
-    search () {
-      location.replace('/shop')
+    search (w, h, d) {
+      console.log('WHD', w, h, d)
+      location.replace('/shop?width=' + w + '&height=' + h + '&diameter=' + d)
     },
     async filter (width, height, diameter, type, min, max) {
       console.log('getvalueFilter', width, height, diameter, type)
