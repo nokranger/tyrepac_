@@ -16,7 +16,7 @@ import bank from '../views/checkoutbank.vue'
 import shop from '../views/shop.vue'
 import donebank from '../views/donebank.vue'
 import donecredit from '../views/donecredit.vue'
-import test from '../views/test.vue'
+// import test from '../views/test.vue'
 
 Vue.use(VueRouter)
 
@@ -108,11 +108,6 @@ const routes = [
     path: '/donecredit',
     name: 'donecredit',
     component: donecredit
-  },
-  {
-    path: '/test',
-    name: 'test',
-    component: test
   }
 ]
 
