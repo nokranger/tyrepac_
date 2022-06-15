@@ -271,7 +271,7 @@ export default {
           //   status: 1,
           //   promotion: promotion[0]
           // }
-          console.log('couponssss', this.coupon.type)
+          console.log('couponssssKKK', promotion[0])
           if (this.coupon.type === 2) {
             console.log('type')
             this.coupons = {
@@ -305,7 +305,7 @@ export default {
             return post.name === this.couponId
           })
           this.coupon = promotion[0]
-          console.log('couponssss', this.coupon.type)
+          console.log('couponssssKKKK', promotion[0])
           if (this.coupon.type === 2) {
             console.log('type')
             this.coupons = {

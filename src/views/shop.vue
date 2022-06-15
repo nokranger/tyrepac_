@@ -10,7 +10,7 @@
                   <div class="alignmenu">
                     <br>
                     <div style="margin-left: 5px;display: inline-block;">กรองตามความกว้าง</div>
-                    <div v-if="statusFilter === 1" style="display: inline-block;">
+                    <div style="display: inline-block;">
                       <a style="margin-left: 5px;color: #005099;" v-on:click="refreshfilter ()">ล้างตัวกรอง</a>
                       <i class="fas fa fa-times" style="display: inline-block;margin-left: 10px;font-size: 20px;cursor: pointer;color: #ee2456;" v-on:click="refreshfilter ()"></i>
                     </div>
