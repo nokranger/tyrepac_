@@ -641,7 +641,7 @@ export default {
             status: 1,
             totalPrice: this.coupons.priceCoup,
             detailList: this.items,
-            couponId: this.coupons.promotion.name,
+            couponId: this.coupons.promotion.id,
             firstname: this.firstname,
             lastname: this.lastname,
             address: this.address,
