@@ -10,7 +10,7 @@
                   <div class="alignmenu">
                     <br>
                     <div style="margin-left: 5px;display: inline-block;">กรองตามความกว้าง</div>
-                    <div style="display: inline-block;">
+                    <div v-if="statusFilter === 1" style="display: inline-block;">
                       <a style="margin-left: 5px;color: #005099;" v-on:click="refreshfilter ()">ล้างตัวกรอง</a>
                       <i class="fas fa fa-times" style="display: inline-block;margin-left: 10px;font-size: 20px;cursor: pointer;color: #ee2456;" v-on:click="refreshfilter ()"></i>
                     </div>
@@ -353,7 +353,8 @@ export default {
       compares: [],
       showcompares: '',
       iconcompare: 0,
-      filtersTyre: ''
+      filtersTyre: '',
+      statusFilter: ''
     }
   },
   metaInfo: {
@@ -363,6 +364,14 @@ export default {
   async mounted () {
     localStorage.removeItem('filter')
     await this.product()
+    // const st = await JSON.parse(localStorage.getItem('filter'))
+    // console.log('filter', st)
+    // if (st === null || st === 'null' || st === '' || st === undefined) {
+    //   this.statusFilter = 0
+    // } else {
+    //   console.log('nofilter', st)
+    //   this.statusFilter = 1
+    // }
     // await this.filter()
     // console.log('promotions')
     axios.get(process.env.VUE_APP_API_URL + '/product').then(res => {
