@@ -145,6 +145,10 @@
         </div>
         <br>
         <br>
+        <b-modal id="modal-NC" hide-footer hide-header centered>
+          <p style="font-weight: bold;text-align: center;" class="my-4">ไม่มีคูปอง</p>
+          <b-button variant="primary" href="/checkout">แก้ไขข้อมูล</b-button>
+        </b-modal>
         <div style="text-align: right;">
           <div style="margin: 15px;">
             <!-- <div style="font-weight: bold; font-size: 25px">
@@ -239,6 +243,7 @@ export default ({
           location.replace('/donecredit')
         } else if (res.data.status.code === 2) {
           console.log('ไม่พบคูปอง')
+          this.$bvModal.show('modal-NC')
         }
       }).catch((err) => {
         console.log('resErr', err.response)

@@ -78,7 +78,7 @@
                 <div style="margin: 15px;">
                   <div style="font-weight: bold;font-size: 30px;">มีรหัสส่วนลดหรือไม่?</div>
                   <div>
-                    <div>1{{coupons}}</div>
+                    <!-- <div>1{{coupons}}</div> -->
                     <div v-if="coupons.status === 1" style="font-weight: bold;display: inline-block;">ออร์เดอร์นี้มีการใช้รหัสส่วนลด:&nbsp;&nbsp;&nbsp;</div><div style="font-weight: bold;display: inline-block;color: #005099;">{{coupons.promotion.name}}</div><i v-if="coupons.status === 1" class="fas fa fa-times" style="display: inline-block;margin-left: 10px;font-size: 20px;cursor: pointer;color: #ee2456;" v-on:click="cancleCoup ()"></i>
                     <br>
                     <b-input v-model="couponId" placeholder="รหัสส่วนลด"></b-input>

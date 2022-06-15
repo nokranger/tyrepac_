@@ -555,7 +555,7 @@ export default {
               status: 1,
               promotion: promotion[0],
               price: this.count,
-              priceCoup: this.count - (this.coupon.amount)
+              priceCoup: this.count * (1 - (this.coupon.amount / 100))
             }
             // this.count = this.count - this.coupon.amount
           } else if (this.coupon.type === 1) {
@@ -565,7 +565,7 @@ export default {
               status: 1,
               promotion: promotion[0],
               price: this.count,
-              priceCoup: this.count * (1 - (this.coupon.amount / 100))
+              priceCoup: this.count - (this.coupon.amount)
             }
           }
           localStorage.setItem('coupon', JSON.stringify(this.coupons))
@@ -590,7 +590,7 @@ export default {
               status: 1,
               promotion: promotion[0],
               price: this.count,
-              priceCoup: this.count - (this.coupon.amount)
+              priceCoup: this.count * (1 - (this.coupon.amount / 100))
             }
             // this.count = this.count - this.coupon.amount
           } else if (this.coupon.type === 1) {
@@ -600,7 +600,7 @@ export default {
               status: 1,
               promotion: promotion[0],
               price: this.count,
-              priceCoup: this.count * (1 - (this.coupon.amount / 100))
+              priceCoup: this.count - (this.coupon.amount)
             }
           }
           localStorage.setItem('coupon', JSON.stringify(this.coupons))

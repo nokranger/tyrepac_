@@ -160,6 +160,10 @@
         </div>
         <br>
         <br>
+        <b-modal id="modal-NC" hide-footer hide-header centered>
+          <p style="font-weight: bold;text-align: center;" class="my-4">ไม่มีคูปอง</p>
+          <b-button variant="primary" href="/checkout">แก้ไขข้อมูล</b-button>
+        </b-modal>
         <div style="border-radius: 5px;border: thin solid #e0e0e0;text-align: left;">
           <div style="margin: 15px;">
             <div style="font-weight: bold; font-size: 25px">
@@ -175,6 +179,7 @@
             </div>
           </div>
         </div>
+        <!-- <b-button v-on:click="test ()">Click</b-button> -->
       </b-container>
     </div>
   </div>
@@ -224,6 +229,9 @@ export default ({
     console.log('countcart', this.count)
   },
   methods: {
+    test () {
+      this.$bvModal.show('modal-NC')
+    },
     uploadImage () {
       console.log('test')
       this.imgs = this.$refs.file.files[0]
@@ -253,6 +261,7 @@ export default ({
           location.replace('/donebank')
         } else if (res.data.status.code === 2) {
           console.log('ไม่พบคูปอง')
+          this.$bvModal.show('modal-NC')
         }
       }).catch((err) => {
         console.log('resErr', err.response)
