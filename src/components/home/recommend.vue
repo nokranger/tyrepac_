@@ -12,8 +12,8 @@
             <b-col cols="6" sm="6" md="4" lg="3" xl="2" v-for="(item, index) in promotions" :key="index" style="margin-top: 25px;">
               <div style="border-radius: 5px;border: thin solid #E0E0E0;text-align: left;height: 470px;width: 100%;">
                 <div style="width: 100%;text-align: center;">
-                <div v-if="item.promotionId > 0 || item.recommend === 1" style="border-radius: 5px;margin-left: auto;margin-right: -15px;margin-top: -15px;background-color: #f16543;color: white;width: max-content;padding: 10px;font-weight: bold;">Promotion</div>
-                <div v-if="item.promotionId == 0 || item.promotionId == null" style="height: 28px;"></div>
+                <div v-if="item.promotionId > 0" style="border-radius: 5px;margin-left: auto;margin-right: -15px;margin-top: -15px;background-color: #f16543;color: white;width: max-content;padding: 10px;font-weight: bold;">Promotion</div>
+                <!-- <div v-if="item.promotionId === 0 || item.promotionId == null" style="height: 28px;"></div> -->
                   <a style="cursor: pointer;" v-on:click="buydetail (('/tyrebrand' + '/' + item.prodId + '/' + item.sku), ('http://119.63.90.135:2083/image?image_path=' + item.image), item.name, item.regularPrice, ('values' + index), item.type, item.sku, item)">
                     <img :src="'http://119.63.90.135:2083/image?image_path=' + item.image" style="width: 150px;height: 150px;margin: 5px;" alt="">
                   </a>
@@ -90,6 +90,8 @@ export default {
       apiURL: apiURL,
       items: [],
       promotions: [],
+      recommends: [],
+      ss: '',
       value2: 4,
       checkcart: [],
       checkcarts: [],
@@ -104,25 +106,19 @@ export default {
     const config = {
       method: 'get',
       url: process.env.VUE_APP_API_URL + '/product'
-      // headers: {
-      //   'Content-Type': 'application/json',
-      //   'Access-Control-Allow-Origin': '*',
-      //   'Access-Control-Allow-Methods': 'GET, POST',
-      //   'Access-Control-Allow-Headers': 'Content-Type'
-      // }
     }
     console.log('getproduct', config)
     axios(config).then(res => {
       console.log('getproduct', res)
       this.promotions = res.data.data.products
       const promotion = this.promotions.filter((post, index) => {
-        return post.recommend === 1
+        return post.recommend === 1 || post.promotionId > 0
       })
       for (var i = 0; i < promotion.length; i++) {
         promotion[i].regularPrice = promotion[i].regularPrice.toLocaleString('en')
       }
-      this.promotions = promotion.slice(0, 9)
-      // console.log('promotions', this.promotions)
+      console.log('promotions', promotion)
+      this.promotions = promotion.slice(0, 12)
     })
   },
   methods: {

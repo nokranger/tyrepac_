@@ -170,8 +170,8 @@
                       <div class="bordertyre">
                         <div style="width: 100%;">
                         <div v-if="brandd.promotionId > 0" class="SalesBanner">Promotion</div>
-                        <div v-if="brandd.recommend === 1" class="SalesBanner">Sale</div>
-                        <div v-if="brandd.promotionId == 0 || brandd.promotionId == null" class="NoBanner"></div>
+                        <!-- <div v-if="brandd.recommend === 1" class="SalesBanner">Sale</div> -->
+                        <div v-if="brandd.promotionId === 0 || brandd.promotionId === null" class="NoBanner"></div>
                           <a v-on:click="buydetail (('/tyrebrand' + '/' + brandd.prodId + '/' + brandd.sku), ('http://119.63.90.135:2083/image?image_path=' + brandd.image), brandd.name, brandd.regularPrice, ('values' + index), brandd.type, brandd.sku, brandd)">
                             <img v-if="brandd.image !== null || brandd.image !== ''" :src="'http://119.63.90.135:2083/image?image_path=' + brandd.image" width="100%" height="172.72" alt="" loading="lazy">
                             <img v-if="brandd.image === null || brandd.image === ''" :src="'https://i.imgur.com/hri10EH.png'" width="100%" height="172.72" alt="" loading="lazy">

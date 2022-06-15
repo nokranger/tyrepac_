@@ -10,8 +10,8 @@
             <b-col cols="6" sm="6" md="6" lg="4" xl="3" v-for="(item, index) in promotions" :key="index" style="margin-top: 25px;">
               <div style="border-radius: 5px;border: thin solid #E0E0E0;text-align: left;width: 100%;height: 470px;">
                 <div style="width: 100%;text-align: center;">
-                <div v-if="item.promotionId > 0 || item.recommend === 1" style="border-radius: 5px;margin-left: auto;margin-right: -15px;margin-top: -15px;background-color: #f16543;color: white;width: max-content;padding: 10px;">Promotion</div>
-                <div v-if="item.promotionId == 0 || item.promotionId == null" style="height: 28px;"></div>
+                <div v-if="item.promotionId > 0" style="border-radius: 5px;margin-left: auto;margin-right: -15px;margin-top: -15px;background-color: #f16543;color: white;width: max-content;padding: 10px;">Promotion</div>
+                <!-- <div v-if="item.promotionId == 0 || item.promotionId == null" style="height: 28px;"></div> -->
                   <a style="cursor: pointer;" v-on:click="buydetail (('/tyrebrand' + '/' + item.prodId + '/' + item.sku), ('http://119.63.90.135:2083/image?image_path=' + item.image), item.name, item.regularPrice, ('values' + index), item.type, item.sku, item)">
                     <img :src="'http://119.63.90.135:2083/image?image_path=' + item.image" style="width: 150px;height: 150px;margin: 5px;" alt="">
                     <!-- <img if  :src="'http://119.63.90.135:2083/image?image_path=' + item.image" style="width: 150px;height: 150px;margin: 5px;" alt=""> -->
@@ -99,12 +99,12 @@ export default {
     axios.get(process.env.VUE_APP_API_URL + '/product').then(res => {
       this.promotions = res.data.data.products
       const promotion = this.promotions.filter((post, index) => {
-        return post.recommend === 1
+        return post.recommend === 1 || post.promotionId > 0
       })
       for (var i = 0; i < promotion.length; i++) {
         promotion[i].regularPrice = promotion[i].regularPrice.toLocaleString('en')
       }
-      this.promotions = promotion.slice(0, 9)
+      this.promotions = promotion.slice(0, 8)
       // console.log('promotions', this.promotions)
     })
   },
