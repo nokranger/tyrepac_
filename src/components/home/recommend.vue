@@ -122,7 +122,7 @@ export default {
         promotion[i].regularPrice = promotion[i].regularPrice.toLocaleString('en')
       }
       console.log('promotions', promotion)
-      this.promotions = promotion.slice(0, 12)
+      this.promotions = promotion
     })
   },
   methods: {

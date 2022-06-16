@@ -105,7 +105,7 @@ export default {
       for (var i = 0; i < promotion.length; i++) {
         promotion[i].regularPrice = promotion[i].regularPrice.toLocaleString('en')
       }
-      this.promotions = promotion.slice(0, 12)
+      this.promotions = promotion
       // console.log('promotions', this.promotions)
     })
   },

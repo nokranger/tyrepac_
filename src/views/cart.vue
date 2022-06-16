@@ -179,6 +179,10 @@
                 <div style="text-align: right;">
                   <b-button variant="primary" href="/checkout">สั่งซื้อและชำระเงิน</b-button>
                 </div>
+                <b-modal id="modal-NC" hide-footer hide-header centered>
+                  <p style="font-weight: bold;text-align: center;" class="my-4">ไม่มีรหัสคูปองนี้หรือคูปองหมดอายุไปแล้วโปรดตรวจเช็คอีกครั้ง</p>
+                  <!-- <b-button variant="primary" href="/checkout">แก้ไขข้อมูล</b-button> -->
+                </b-modal>
               </div>
             </div>
           </b-col>
@@ -207,7 +211,8 @@ export default {
         promotion: {
           name: ''
         }
-      }
+      },
+      stateCoup: null
     }
   },
   metaInfo: {
@@ -259,14 +264,34 @@ export default {
       if (localStorage.getItem('coupon') === null) {
         console.log('nullofcode')
         console.log('coupon', this.couponId)
+        console.log('couponDATE', this.dates = new Date('2022-05-16 00:00:00'))
+        // var d = new Date()
+        this.dates = new Date().getTime()
+        console.log('DATE', this.dates)
         axios.get(process.env.VUE_APP_API_URL + '/coupon').then(res => {
           this.coupon = res.data.data
-          console.log('couponssss', this.coupon)
+          console.log('ALLcouponssss', this.coupon)
           const promotion = this.coupon.filter((post, index) => {
-            console.log('coupon', this.couponId)
-            return post.name === this.couponId
+            // console.log('coupon', this.couponId)
+            var endDate = new Date(post.endAt).getTime()
+            // if (endDate >= this.dates) {
+            //   console.log('moredate', post.endAt)
+            //   return false
+            // } else {
+            //   console.log('lessdate', post.endAt)
+            //   return post.name === this.couponId
+            // }
+            // console.log('coupDate', post.endAt)
+            return post.name === this.couponId && endDate > this.dates
           })
-          this.coupon = promotion[0]
+          console.log('coupPromotion', promotion[0])
+          if (promotion[0] === null || promotion[0] === 'null' || promotion[0] === '' || promotion[0] === undefined || promotion[0] === 'undefined') {
+            console.log('ไม่มีคูปอง')
+            this.stateCoup = null
+            this.$bvModal.show('modal-NC')
+          } else {
+            this.coupon = promotion[0]
+          }
           // this.coupon = {
           //   status: 1,
           //   promotion: promotion[0]
@@ -297,14 +322,22 @@ export default {
         console.log('test')
         this.coupons = JSON.parse(localStorage.getItem('coupon'))
         console.log('test', this.coupons)
+        this.dates = new Date().getTime()
         axios.get(process.env.VUE_APP_API_URL + '/coupon').then(res => {
           this.coupon = res.data.data
           console.log('couponssss', this.coupon)
           const promotion = this.coupon.filter((post, index) => {
             console.log('coupon', this.couponId)
-            return post.name === this.couponId
+            var endDate = new Date(post.endAt).getTime()
+            return post.name === this.couponId && endDate > this.dates
           })
-          this.coupon = promotion[0]
+          if (promotion[0] === null || promotion[0] === 'null' || promotion[0] === '' || promotion[0] === undefined || promotion[0] === 'undefined') {
+            console.log('ไม่มีคูปอง')
+            this.stateCoup = null
+            this.$bvModal.show('modal-NC')
+          } else {
+            this.coupon = promotion[0]
+          }
           console.log('couponssssKKKK', promotion[0])
           if (this.coupon.type === 2) {
             console.log('type')

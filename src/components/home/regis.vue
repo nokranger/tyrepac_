@@ -62,10 +62,6 @@ export default {
         this.data = {}
       })
     }
-  },
-  metaInfo: {
-    title: 'ติดต่อเรา',
-    titleTemplate: "%s - Tyrepac - Asia's First Tyre Portal"
   }
 }
 </script>

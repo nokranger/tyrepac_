@@ -11,7 +11,7 @@
           <img class="imgs" src="https://www.tyrepac.co.th/wp-content/uploads/2020/02/profile-High-performance-SUV-tyres.jpg" alt="" href="/shop">
           <div style="position: relative;margin-top: -100px;">
             <div style="margin-left: 15px;color: white;font-weight: bold;">ยาง SUV ประสิทธิภาพสูง</div>
-            <b-button variant="light" href="/shop?type=ยางประสิทธิภาพสูง">ดูยางทั้งหมด</b-button>
+            <b-button variant="light" href="/shop?type=ยาง SUV ประสิทธิภาพสูง">ดูยางทั้งหมด</b-button>
           </div>
         </div>
         </b-col>
@@ -65,7 +65,7 @@
           <img class="imgs" src="https://www.tyrepac.co.th/wp-content/uploads/2020/02/profile-All-purpose-SUV-tyres.jpg" alt="" href="/shop">
           <div style="position: relative;margin-top: -100px;">
             <div style="margin-left: 15px;color: white;font-weight: bold;">ยางรถเอนกประสงค์ SUV</div>
-            <b-button variant="light" href="/shop?type=ยางรถเอนกประสงค์">ดูยางทั้งหมด</b-button>
+            <b-button variant="light" href="/shop?type=ยางรถเอนกประสงค์/SUV">ดูยางทั้งหมด</b-button>
           </div>
         </div>
         </b-col>

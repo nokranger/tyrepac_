@@ -334,7 +334,7 @@ export default {
         { value: 'ยางประสิทธิภาพสูง', text: 'ยางประสิทธิภาพสูง' },
         { value: 'ยางประหยัดเชื้อเพลิง', text: 'ยางประหยัดเชื้อเพลิง' },
         { value: 'ยางรถกระบะ', text: 'ยางรถกระบะ' },
-        { value: 'ยางรถเอนกประสงค์/SUV', text: 'ยางรถเอนกประสงค์/suv' },
+        { value: 'ยางรถเอนกประสงค์/SUV', text: 'ยางรถเอนกประสงค์/SUV' },
         { value: 'ยางออฟโรด', text: 'ยางออฟโรด' }
       ],
       tyre: '',
@@ -890,6 +890,13 @@ export default {
         } else if (split[0] === 'brand') {
           console.log('brands', split[1])
           await this.filterbrand(split[1])
+        } else if (split[0] === 'type') {
+          // console.log('brands', split[1])
+          var splitfiltertype = location.search.substring(1)
+          console.log('type', decodeURIComponent(splitfiltertype))
+          splitfiltertype = decodeURIComponent(splitfiltertype).split('=')
+          console.log('type', splitfiltertype[1])
+          await this.filterstype(splitfiltertype[1])
         }
       } else {
         console.log('nohaveroute')
