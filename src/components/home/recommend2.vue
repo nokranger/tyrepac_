@@ -7,10 +7,11 @@
         <b-container>
           <br>
           <b-row>
-            <b-col cols="6" sm="6" md="6" lg="4" xl="3" v-for="(item, index) in promotions" :key="index" style="margin-top: 25px;">
+            <b-col cols="12" sm="6" md="6" lg="4" xl="3" v-for="(item, index) in promotions" :key="index" style="margin-top: 25px;">
               <div style="border-radius: 5px;border: thin solid #E0E0E0;text-align: left;width: 100%;height: 470px;">
                 <div style="width: 100%;text-align: center;">
                 <div v-if="item.promotionId > 0" style="border-radius: 5px;margin-left: auto;margin-right: -15px;margin-top: -15px;background-color: #f16543;color: white;width: max-content;padding: 10px;">Promotion</div>
+                <div v-else-if="item.recommend === 1" style="border-radius: 5px;margin-left: auto;margin-right: -15px;margin-top: -15px;background-color: #f16543;color: white;width: max-content;padding: 10px;font-weight: bold;">Recommend</div>
                 <div v-else-if="item.promotionId === 0 || item.promotionId === null || item.recommend === 0 || item.recommend === null" style="height: 28px;;padding: 10px;"></div>
                   <a style="cursor: pointer;" v-on:click="buydetail (('/tyrebrand' + '/' + item.prodId + '/' + item.sku), ('http://119.63.90.135:2083/image?image_path=' + item.image), item.name, item.regularPrice, ('values' + index), item.type, item.sku, item)">
                     <img :src="'http://119.63.90.135:2083/image?image_path=' + item.image" style="width: 150px;height: 150px;margin: 5px;" alt="">
@@ -18,7 +19,7 @@
                   </a>
                 </div>
                 <div style="margin-left: 5px;color: #005099;font-weight: bold;height: 60px;">{{item.name}}</div>
-                <div style="margin-left: 5px;color: #005099;text-align: left;">฿{{ item.regularPrice}} ต่อเส้น</div>
+                <div style="margin-left: 5px;padding: 10px;color: #005099;font-weight: normal;text-align: left;">฿{{ item.regularPrice}} ต่อเส้น</div>
                 <!-- <div style="border-top: thin solid #E0E0E0;margin-bottom: 4px;margin-left: 20px;margin-right: 20px;text-align: center;"></div> -->
                 <div style="margin-bottom: 4px;margin-left: 20px;margin-right: 20px;">
                   <br>
@@ -104,7 +105,7 @@ export default {
       for (var i = 0; i < promotion.length; i++) {
         promotion[i].regularPrice = promotion[i].regularPrice.toLocaleString('en')
       }
-      this.promotions = promotion.slice(0, 8)
+      this.promotions = promotion.slice(0, 12)
       // console.log('promotions', this.promotions)
     })
   },

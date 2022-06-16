@@ -240,7 +240,7 @@ export default ({
           localStorage.removeItem('info')
           localStorage.removeItem('coupon')
           localStorage.setItem('user', JSON.stringify(this.data))
-          location.replace('/donecredit')
+          // location.replace('/donecredit')
         } else if (res.data.status.code === 2) {
           console.log('ไม่พบคูปอง')
           this.$bvModal.show('modal-NC')

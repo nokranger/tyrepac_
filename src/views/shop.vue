@@ -165,7 +165,7 @@
                   <br>
                   <b-row>
                     <!-- {{brand}} -->
-                    <b-col cols="6" sm="4" md="4" lg="4" xl="3" v-for="(brandd, index) in brand" :key="index" style="margin-bottom: 25px;">
+                    <b-col cols="12" sm="6" md="4" lg="4" xl="3" v-for="(brandd, index) in brand" :key="index" style="margin-bottom: 25px;">
                       <!-- {{brandd.prodId}} -->
                       <div class="bordertyre">
                         <div style="width: 100%;">

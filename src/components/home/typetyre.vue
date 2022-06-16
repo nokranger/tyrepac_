@@ -6,7 +6,7 @@
       <br>
       <br>
       <b-row>
-        <b-col style="margin-bottom: 45px;" cols="6" sm="6" md="4" lg="4" xl="3">
+        <b-col style="margin-bottom: 45px;" cols="12" sm="6" md="4" lg="4" xl="3">
         <div class="pic">
           <img class="imgs" src="https://www.tyrepac.co.th/wp-content/uploads/2020/02/profile-High-performance-SUV-tyres.jpg" alt="" href="/shop">
           <div style="position: relative;margin-top: -100px;">
@@ -15,7 +15,7 @@
           </div>
         </div>
         </b-col>
-        <b-col style="margin-bottom: 45px;" cols="6" sm="6" md="4" lg="4" xl="3">
+        <b-col style="margin-bottom: 45px;" cols="12" sm="6" md="4" lg="4" xl="3">
         <div class="pic">
           <img class="imgs" src="https://www.tyrepac.co.th/wp-content/uploads/2020/02/profile-General-driving-tyres.jpg" alt="" href="/shop">
           <div style="position: relative;margin-top: -100px;">
@@ -24,7 +24,7 @@
           </div>
         </div>
         </b-col>
-        <b-col style="margin-bottom: 45px;" cols="6" sm="6" md="4" lg="4" xl="3">
+        <b-col style="margin-bottom: 45px;" cols="12" sm="6" md="4" lg="4" xl="3">
         <div class="pic">
           <img class="imgs" src="https://www.tyrepac.co.th/wp-content/uploads/2020/02/profile-Soft-quiet-driving-tyres.jpg" alt="" href="/shop">
           <div style="position: relative;margin-top: -100px;">
@@ -33,7 +33,7 @@
           </div>
         </div>
         </b-col>
-        <b-col style="margin-bottom: 45px;" cols="6" sm="6" md="4" lg="4" xl="3">
+        <b-col style="margin-bottom: 45px;" cols="12" sm="6" md="4" lg="4" xl="3">
         <div class="pic">
           <img class="imgs" src="https://www.tyrepac.co.th/wp-content/uploads/2020/02/profile-High-performance-tyres.jpg" alt="" href="/shop">
           <div style="position: relative;margin-top: -100px;">
@@ -42,7 +42,7 @@
           </div>
         </div>
         </b-col>
-        <b-col style="margin-bottom: 45px;" cols="6" sm="6" md="4" lg="4" xl="3">
+        <b-col style="margin-bottom: 45px;" cols="12" sm="6" md="4" lg="4" xl="3">
         <div class="pic">
           <img class="imgs" src="https://www.tyrepac.co.th/wp-content/uploads/2020/02/profile-Fuel-saving-tyres.jpg" alt="" href="/shop">
           <div style="position: relative;margin-top: -100px;">
@@ -51,7 +51,7 @@
           </div>
         </div>
         </b-col>
-        <b-col style="margin-bottom: 45px;" cols="6" sm="6" md="4" lg="4" xl="3">
+        <b-col style="margin-bottom: 45px;" cols="12" sm="6" md="4" lg="4" xl="3">
         <div class="pic">
           <img class="imgs" src="https://www.tyrepac.co.th/wp-content/uploads/2020/02/profile-Pickup-truck-tyres.jpg'" alt="" href="/shop">
           <div style="position: relative;margin-top: -100px;">
@@ -60,7 +60,7 @@
           </div>
         </div>
         </b-col>
-        <b-col style="margin-bottom: 45px;" cols="6" sm="6" md="4" lg="4" xl="3">
+        <b-col style="margin-bottom: 45px;" cols="12" sm="6" md="4" lg="4" xl="3">
         <div class="pic">
           <img class="imgs" src="https://www.tyrepac.co.th/wp-content/uploads/2020/02/profile-All-purpose-SUV-tyres.jpg" alt="" href="/shop">
           <div style="position: relative;margin-top: -100px;">
@@ -69,7 +69,7 @@
           </div>
         </div>
         </b-col>
-        <b-col style="margin-bottom: 45px;" cols="6" sm="6" md="4" lg="4" xl="3">
+        <b-col style="margin-bottom: 45px;" cols="12" sm="6" md="4" lg="4" xl="3">
         <div class="pic">
           <img class="imgs" src="https://www.tyrepac.co.th/wp-content/uploads/2020/02/profile-Off-road-tyres.jpg" alt="" href="/shop">
           <div style="position: relative;margin-top: -100px;">

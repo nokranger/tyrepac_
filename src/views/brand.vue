@@ -6,7 +6,7 @@
     </div>
     <b-container>
       <b-row>
-        <b-col cols="4" sm="4" md="4" lg="4" xl="4">
+        <b-col cols="12" sm="4" md="4" lg="4" xl="4">
           <a href="/shop?brand=8">
             <div>
               <b-card
@@ -22,7 +22,7 @@
             </div>
           </a>
         </b-col>
-        <b-col cols="4" sm="4" md="4" lg="4" xl="4">
+        <b-col cols="12" sm="4" md="4" lg="4" xl="4">
           <a href="/shop?brand=7">
             <div>
             <b-card
@@ -38,7 +38,7 @@
           </div>
           </a>
         </b-col>
-        <b-col cols="4" sm="4" md="4" lg="4" xl="4">
+        <b-col cols="12" sm="4" md="4" lg="4" xl="4">
           <a href="/shop?brand=6">
             <div>
             <b-card
@@ -57,7 +57,7 @@
       </b-row>
       <br>
       <b-row>
-        <b-col cols="4" sm="4" md="4" lg="4" xl="4">
+        <b-col cols="12" sm="4" md="4" lg="4" xl="4">
           <a href="/shop?brand=1">
             <div>
             <b-card
@@ -73,7 +73,7 @@
           </div>
           </a>
         </b-col>
-        <b-col cols="4" sm="4" md="4" lg="4" xl="4">
+        <b-col cols="12" sm="4" md="4" lg="4" xl="4">
           <a href="/shop?brand=2">
             <div>
             <b-card
@@ -89,7 +89,7 @@
           </div>
           </a>
         </b-col>
-        <b-col cols="4" sm="4" md="4" lg="4" xl="4">
+        <b-col cols="12" sm="4" md="4" lg="4" xl="4">
           <a href="/shop?brand=3">
             <div>
             <b-card
@@ -108,7 +108,7 @@
       </b-row>
       <br>
       <b-row>
-        <b-col cols="4" sm="4" md="4" lg="4" xl="4">
+        <b-col cols="12" sm="4" md="4" lg="4" xl="4">
           <a href="/shop?brand=4">
             <div>
             <b-card
@@ -124,7 +124,7 @@
           </div>
           </a>
         </b-col>
-        <b-col cols="4" sm="4" md="4" lg="4" xl="4">
+        <b-col cols="12" sm="4" md="4" lg="4" xl="4">
           <a href="/shop?brand=5">
             <div>
             <b-card
@@ -140,7 +140,7 @@
           </div>
           </a>
         </b-col>
-        <b-col cols="4" sm="4" md="4" lg="4" xl="4">
+        <b-col cols="12" sm="4" md="4" lg="4" xl="4">
           <a href="/shop?brand=9">
             <div>
             <b-card
