@@ -1,5 +1,5 @@
 <template>
-  <div v-if="languages === 'TH'" style="margin-top: 160px;">
+  <div style="margin-top: 160px;">
     <div
       style="
         color: #005099;
@@ -12,16 +12,16 @@
       <br />
       <br />
       <a href="#tyre">
-        <div style="display: inline-block; margin: 10px">ยางรถยนต์</div>
+        <div style="display: inline-block; margin: 10px">Tires</div>
       </a>
       <a href="#order">
-        <div style="display: inline-block; margin: 10px">การสั่งซื้อ</div>
+        <div style="display: inline-block; margin: 10px">Order</div>
       </a>
       <a href="#delivery">
-        <div style="display: inline-block; margin: 10px">การจัดส่ง</div>
+        <div style="display: inline-block; margin: 10px">Deliverys</div>
       </a>
       <a href="#aftersales">
-        <div style="display: inline-block; margin: 10px">บริการหลังการขาย</div>
+        <div style="display: inline-block; margin: 10px">After sales service</div>
       </a>
       <a href="/shop">
         <div style="display: inline-block; margin: 10px">
@@ -40,7 +40,7 @@
         />
       </div>
       <br>
-      <div style="font-weight: bold;font-size: 20px;">คำถามที่พบบ่อย</div>
+      <div style="font-weight: bold;font-size: 20px;">FAQ</div>
       <br>
       <div>
         <b-container>
@@ -49,9 +49,9 @@
               <div style="background-color: #005099; color: whitesmoke;width: 250px;height: 250px;box-shadow: 5px 10px 18px #888888;border-radius: 5px;">
                 <br>
                 <div style="width: 100px;height: 100px;"></div>
-                <div style="font-weight: bold;font-size: 20px;">ยางรถยนต์</div>
+                <div style="font-weight: bold;font-size: 20px;">Tires</div>
                 <div>
-                  การเลือกยางรถยนต์ การเปลี่ยนยาง ความรู้เบื้องต้นยางรถยนต์
+                   Choosing a tires .Changing a tires.Basic knowledge of automobile tires.
                 </div>
               </div>
             </b-col>
@@ -59,17 +59,17 @@
               <div style="background-color: #282828; color: whitesmoke;width: 250px;height: 250px;box-shadow: 5px 10px 18px #888888;border-radius: 5px;">
                 <br>
                 <img src="https://www.tyrepac.co.th/wp-content/uploads/2019/12/icon-order.png" height="100" width="100" alt="">
-                <div style="font-weight: bold;font-size: 20px;">การสั่งซื้อสินค้า</div>
-                <div>สั่งซื้อสินค้า ติดตามการสั่งซื้อ การชำระเงิน</div>
+                <div style="font-weight: bold;font-size: 20px;">Order</div>
+                <div> Order tires. Check Order tires. Payment Condition.</div>
               </div>
             </b-col>
             <b-col>
               <div style="background-color: #005099; color: whitesmoke;width: 250px;height: 250px;box-shadow: 5px 10px 18px #888888;border-radius: 5px;">
                 <br>
                 <div style="width: 100px;height: 100px;"></div>
-                <div style="font-weight: bold;font-size: 20px;">การจัดส่งสินค้าและติดตั้ง</div>
+                <div style="font-weight: bold;font-size: 20px;">Delivery & Free Install at Shop</div>
                 <div>
-                  การเปลี่ยนแปลงการจัดส่ง ระยะเวลาในการจัดส่ง การติดตั้ง
+                  Delivery change plan,time and installation
                 </div>
               </div>
             </b-col>
@@ -77,9 +77,9 @@
               <div style="background-color: #282828; color: whitesmoke;width: 250px;height: 250px;box-shadow: 5px 10px 18px #888888;border-radius: 5px;">
                 <br>
                 <img src="https://www.tyrepac.co.th/wp-content/uploads/2019/12/icon-support.png" width="100" height="100" alt="">
-                <div style="font-weight: bold;font-size: 25px;">บริการหลังการขาย</div>
+                <div style="font-weight: bold;font-size: 25px;">After sales service</div>
                 <div>
-                  การยกเลิกคำสั่งซื้อ นโยบายการคืนสินค้า การรับประกันสินค้า
+                  Order cancellation, Return Policy, Product Warranty
                 </div>
               </div>
             </b-col>
@@ -89,12 +89,12 @@
             <b-col cols="12" sm="12" md="6" lg="6" xl="6">
               <div style="background-color: #282828; color: whitesmoke;width: 300px;height: auto;box-shadow: 5px 10px 18px #888888;border-radius: 5px;text-align: left;">
                 <div style="margin: 15px;">
-                  <div style="font-weight: bold;font-size: 25px;">สอบถามข้อมูลทางอีเมล์</div>
+                  <div style="font-weight: bold;font-size: 25px;">Inquire by email</div>
                   <div>
                     info@tyrepac.co.th
                   </div>
                   <div>
-                    เราจะติดต่อคุณกลับโดยเร็วที่สุด
+                    We will get back to you as soon as possible.
                   </div>
                 </div>
               </div>
@@ -102,12 +102,12 @@
             <b-col cols="12" sm="12" md="6" lg="6" xl="6">
               <div style="background-color: #f9bd45; color: whitesmoke;width: 300px;height: auto;box-shadow: 5px 10px 18px #888888;border-radius: 5px;text-align: left;">
                 <div style="margin: 15px;">
-                  <div style="font-weight: bold;font-size: 25px;">โทรศัพท์</div>
+                  <div style="font-weight: bold;font-size: 25px;">Mobile</div>
                   <div>
                     091-889-5127
                   </div>
                   <div id="tyre">
-                    จันทร์-ศุกร์ 8:30 – 17:00
+                    Monday-Friday 8:30 – 17:00
                   </div>
                 </div>
               </div>
@@ -129,29 +129,25 @@
             <br />
             <br />
           </div>
-          <div style="font-weight: bold;font-size: 20px;">ยางรถยนต์</div>
+          <div style="font-weight: bold;font-size: 20px;">Tires</div>
           <br>
           <b-row>
             <b-col cols="12" sm="12" md="6" lg="6" xl="6">
               <b-col cols="12" sm="12" md="6" lg="6" xl="6">
                 <div style="margin: 15px;text-align: left;">
-                  <div style="font-weight: bold;font-size: 20px;">A. การเลือกยางรถยนต์</div>
+                  <div style="font-weight: bold;font-size: 20px;">A. Tires Selection</div>
                   <br>
-                  <div style="font-weight: bold;font-size: 20px;">1. ขนาดยางรถยนต์ของฉันคือเท่าใด ?</div>
+                  <div style="font-weight: bold;font-size: 20px;">1. What is the tires size of my car ?</div>
                   <div>
-                    สามารถอ่านขนาดของยางรถยนต์ได้ที่แก้มยางรถยนต์ของคุณ
-                    ซึ่งจะเป็นชุดหมายเลขเช่นนี้ 205/55R16
+                    The tires size can be read on the sidewall of your car. Which will be a series of numbers like this 205/55R16.
                   </div>
                 </div>
               </b-col>
               <b-col cols="12" sm="12" md="6" lg="6" xl="6">
                 <div style="margin: 15px;text-align: left;">
-                  <div style="font-weight: bold;font-size: 20px;">2. ยางแบบไหนเหมาะกับรถของเรา?</div>
+                  <div style="font-weight: bold;font-size: 20px;">2. Which tires is suitable for our car ?</div>
                   <div>
-                    สิ่งนี้จะขึ้นอยู่กับสไตล์การขับขี่และความชอบส่วนตัวของคุณ
-                    TYREPAC ได้จัดทำรายละเอียดเกี่ยวกับยางแต่ละตัวบนเว็บไซต์
-                    คุณสามารถอ่านรีวิวที่โพสต์โดยลูกค้าของเรา
-                    เพื่อเป็นแนวทางในการเลือกรูปแบบยางรถยนต์ที่เหมาะสมกับคุณ
+                    This will depend on your driving style and personal preferences. TYREPAC has provided details on each tire on its website. You can read reviews posted by our customers. To guide you in choosing the right tires model for you.
                   </div>
                 </div>
               </b-col>
@@ -169,28 +165,19 @@
             <b-col>
               <b-col>
                 <br />
-                <div style="background-color: white;box-shadow: 5px 10px 18px #888888;border-radius: 5px;height: 870px;text-align: left;">
+                <div style="background-color: white;box-shadow: 5px 10px 18px #888888;border-radius: 5px;height: 950px;text-align: left;">
                   <br>
                   <div style="margin: 15px;">
                     <br />
-                    <div class="headers" style="font-size: 30px;">Directional ดอกยางแบบทิศทางเดียว</div>
-                    <div class="headers">รายละเอียด</div>
+                    <div class="headers" style="font-size: 30px;">Directional Unidirectional Tread</div>
+                    <div class="headers">Details</div>
                     <p>
-                      ลวดลายดอกยางถูกออกแบบมาเพื่อหมุนไปในทิศทางเดียวเท่านั้น
-                      ด้วยเหตุผลนี้ยางจึงมีสัญลักษณ์ลูกศร แสดงอยู่ที่ขอบยาง
-                      เพื่อระบุทิศทางในการติดตั้งยาง
-                      ลายร่องด้านข้างทั้งสองข้างของยาง
-                      จะหันไปทางกึ่งกลางของยางทำให้เกิดรูปร่างตัววี (v)
-                      ร่องยางลักษณะนี้สามารถระบายน้ำได้อย่างมีประสิทธิภาพ
-                      ผ่านดอกยาง เพื่อให้ยางสามารถสัมผัสกับถนน
-                      และเพื่อเพิ่มการยึดเกาะถนนเปียก
-                      และยังสามารถต้านทานแรงดันน้ำได้แม้ในความเร็วสูง
+                      The tread pattern is designed to rotate in one direction only. For this reason, the tire has an arrow symbol. displayed on the edge of the tire to indicate the direction to install the tires grooves on both sides of the tire It faces towards the center of the tire, creating a V-shape (v). This type of groove can effectively drain water through the tread so the tire can touch the road. and to increase grip on wet roads And it can resist water pressure even at high speeds.
                     </p>
                     <br />
-                    <div class="headers">ข้อดี</div>
+                    <div class="headers">Strength</div>
                     <p>
-                      เหมาะกับรถยนต์สมรรถนะสูง
-                      จะให้ความเสถียรเมื่อขับขี่ด้วยความเร็วสูง
+                      Suitable for high performance vehicles It provides stability when driving at high speeds.
                     </p>
                     <div style="text-align: center;">
                       <img
@@ -206,29 +193,22 @@
             <b-col>
               <b-col>
                 <br />
-                <div style="background-color: white;box-shadow: 5px 10px 18px #888888;border-radius: 5px;height: 870px;text-align: left;">
+                <div style="background-color: white;box-shadow: 5px 10px 18px #888888;border-radius: 5px;height: 950px;text-align: left;">
                   <br>
                   <div style="margin: 15px;">
                     <br />
-                    <div class="headers" style="font-size: 30px;">Symmetrical Design ดอกยางแบบสมมาตร</div>
-                    <div class="headers">รายละเอียด</div>
+                    <div class="headers" style="font-size: 30px;">Symmetrical Design Symmetrical tread</div>
+                    <div class="headers">Details</div>
                     <p>
-                      เป็นรูปแบบดอกยางที่พบมากที่สุด
-                      สำหรับรถซีดานมาตรฐานและรถบรรทุกขนาดเล็ก
-                      ยางเหล่านี้มีบล็อกดอกยางแบบต่อเนื่องทั่วพื้นผิวทั้งหมดของยาง
-                      ลวดลายในแต่ละด้านของยางนั้นเหมือนกันทุกประการ
+                      It is the most common tread pattern. For standard sedans and light trucks These tires have a continuous tread block across the entire surface of the tire. The pattern on each side of the tire is exactly the same.
                     </p>
                     <br />
-                    <div class="headers">ข้อดี</div>
+                    <div class="headers">Strength</div>
                     <p>
-                      ดอกยางเป็นลายเล็ก ๆ และละเอียด
-                      ช่วยลดเสียงของยางและเสียงเมื่อสัมผัสกับถนน
-                      ทำให้เป็นยางที่ค่อนข้างเงียบ
+                      The tread pattern is small and detailed, reducing tires noise and noise when it comes into contact with the road. making it a relatively quiet tires.
                     </p>
                     <p>
-                      การสึกหรอและอายุการใช้งานที่ยาวนาน
-                      เนื่องจากสามารถสลับยางได้ทั้ง 4 เส้น
-                      เพื่อให้การสึกหรอเท่ากันในทุกๆ ด้าน
+                      Wear and long service life Because all 4 tires can be swapped for equal wear on all sides.
                     </p>
                     <div style="text-align: center;">
                       <img
@@ -244,32 +224,22 @@
             <b-col>
               <b-col>
                 <br />
-                <div style="background-color: white;box-shadow: 5px 10px 18px #888888;border-radius: 5px;height: 870px;text-align: left;">
+                <div style="background-color: white;box-shadow: 5px 10px 18px #888888;border-radius: 5px;height: 950px;text-align: left;">
                   <br>
                   <div style="margin: 15px;">
                     <br />
-                    <div class="headers" style="font-size: 30px;">Asymmetric Design ดอกยางแบบอสมมาตร</div>
-                    <div class="headers">รายละเอียด</div>
+                    <div class="headers" style="font-size: 30px;">Asymmetric Design Asymmetrical tread</div>
+                    <div class="headers">Details</div>
                     <p>
-                      ลักษณะลายดอกยางบนหน้ายางสองฝั่งไม่เหมือนกัน
-                      เพื่อช่วยเพิ่มประสิทธิภาพในการขับขี่ให้ดียิ่งขึ้น
-                      หน้ายางด้านในเหมาะสำหรับขับทางตรงและใช้ความเร็วสูง
-                      ในขณะที่หน้ายางด้านนอกมีหน้าที่ช่วยยึดเกาะถนนได้ดีเวลาเข้าโค้ง
-                      เหมาะกับการขับรถที่ใช้ความเร็วและต้องการเข้าโค้งที่ปลอดภัย
+                      The tread pattern on both sides of the tire is not the same. To help increase driving efficiency better The inner tread is suitable for driving straight and at high speeds. while the outer tread is responsible for helping to hold the road well when cornering suitable for driving at speed and wanting to take a safe curve.
                     </p>
                     <br />
-                    <div class="headers">ข้อดี</div>
+                    <div class="headers">Strength</div>
                     <p>
-                      เหมาะกับรถยนต์สมรรถนะสูง และรถยนต์ที่ใช้ความเร็ว
-                      เพื่อการทรงตัวที่ดีขณะเข้าโค้ง
+                      Suitable for high performance vehicles and speed cars for good stability while cornering.
                     </p>
                     <p>
-                      สามารถสลับยางได้ทั้ง 4 ล้อ
-                      เพื่อให้การสึกหรอเป็นไปอย่างสม่ำเสมอ และช่วยยืดอายุการใช้งาน
-                      โดยบนแก้มยางแบบ “อสมมาตร” จะมีคำว่า “inside” และ “outside”
-                      อยู่บนแก้มยาง เมื่อต้องสลับยาง
-                      ต้องดูให้แน่ใจว่าได้เอาด้านที่มีคำว่า “outside”
-                      ไว้ด้านนอกเสมอ
+                      Tires on all 4 wheels can be swapped for consistent wear. and help prolong the service life On the “asymmetrical” sidewall, the words “inside” and “outside” are printed on the sidewall. when to switch tires Make sure to always put the side with the word “outside” on the outside.
                     </p>
                     <div style="text-align: center;">
                       <img
@@ -295,10 +265,9 @@
               <div style="background-color: white;box-shadow: 5px 10px 18px #888888;border-radius: 5px;height: max-content;text-align: left;">
                 <div style="margin: 15px;">
                   <br>
-                  <div class="headers">1. สามารถเปลี่ยนยางเส้นเดียวได้หรือไม่ ?</div>
+                  <div class="headers">1. Can I change a single tire or not ?</div>
                   <p style="min-height: auto;">
-                    สามารถเปลี่ยนได้แต่อย่างไรก็ตามเราไม่แนะนำให้เปลี่ยนยางที่แตกต่างกันทีละเส้น
-                    ควรเปลี่ยนยางเป็นคู่เพื่อป้องกันการสึกหรอหรือความไม่สมดุลของยาง
+                    They are interchangeable, however we do not recommend replacing different tires one by one. Tires should be replaced in pairs to prevent tire wear or imbalance.
                   </p>
                 </div>
               </div>
@@ -307,10 +276,9 @@
               <div style="background-color: white;box-shadow: 5px 10px 18px #888888;border-radius: 5px;;height: max-content;text-align: left;">
                 <div style="margin: 15px;">
                   <br>
-                  <div class="headers">2. ควรติดตั้งยางคู่ใหม่ที่ไหน?</div>
+                  <div class="headers">2. Where should a new pair of tires be installed ?</div>
                   <p>
-                    ติดที่เพลาล้อหลัง
-                    การยึดเกาะถนนกับเพลาล้อหลังบนพื้นผิวที่เปียกนั้นเป็นสิ่งจำเป็นเพื่อป้องกันไม่ให้เกิดสภาวะการเลี้ยวเกินและสูญเสียการควบคุมรถโดยเฉพาะอย่างยิ่งในระหว่างการเบรคอย่างกะทันหัน
+                    Mounted on the rear axle Traction with the rear axle on wet surfaces is essential to prevent over-turning and loss of control, especially during sudden braking.
                   </p>
                 </div>
               </div>
@@ -319,10 +287,10 @@
           <br>
           <b-row>
             <br>
-            <div class="headers" style="margin: 15px;text-align: left;">C.ข้อมูลทางเทคนิค</div>
+            <div class="headers" style="margin: 15px;text-align: left;">C.Technical Data</div>
             <br>
             <br>
-            <div class="headers" style="margin: 15px;text-align: left;">1. ข้อมูลยางพื้นฐานที่ควรทราบ</div>
+            <div class="headers" style="margin: 15px;text-align: left;">1. Basic tire information you should know.</div>
             <br>
             <br>
             <div style="background-color: white;box-shadow: 5px 10px 18px #888888;border-radius: 5px;">
@@ -355,9 +323,9 @@
                 <div style="margin: 15px;">
                   <br>
                   <div class="headers">
-                    ขนาดยาง
+                    Tires Size
                   </div>
-                  <p>รหัสยางซึ่งขึ้นรูปอยู่กับแก้มยางโดยทั่วไป จะอธิบายด้วยค่าตัวเลขและตัวอักษร รหัสนี้ระบุขนาดของยางและข้อจำกัดที่สำคัญบางประการ เช่น ความสามารถในการรับน้ำหนักและความเร็วสูงสุด</p>
+                  <p>The tires code, which is molded to the sidewall in general. It is described with alphanumeric values. This code indicates tire sizes and some important limitations such as load capacity and maximum speed.</p>
                   <div style="margin: 10px;">
                     <img src="https://www.tyrepac.co.th/wp-content/uploads/2019/12/tech-tyresize.jpg" style="width: 100%;" alt="">
                   </div>
@@ -369,7 +337,7 @@
                 <div style="margin: 15px;text-align: left;">
                   <br>
                   <div class="headers">
-                    สัญลักษณ์ความเร็ว
+                    Speed Symbol
                   </div>
                   <p>An alphabet representing the maximum speed of this tyre.</p>
                 </div>
@@ -384,7 +352,7 @@
             <div style="background-color: white;box-shadow: 5px 10px 18px #888888;border-radius: 5px;">
               <div style="text-align: left;">
                 <br>
-                <div class="headers">ดัชนีการรับน้ำหนัก</div>
+                <div class="headers">Load Index</div>
                 <br>
                 <p >A numeric code that tells you the maximum load carrying ability of each tyre.</p>
               </div>
@@ -404,14 +372,14 @@
           </div>
           <br>
           <div class="headers">
-            การสั่ง
+            Order
           </div>
           <br>
           <br>
           <b-container>
             <b-row>
               <div class="headers" style="text-align: left;margin-left: 40px;">
-                  ก. การสั่งซื้อสินค้าของฉัน
+                  ก. Order
               </div>
               <br>
               <br>
@@ -420,20 +388,20 @@
                   <div style="background-color: white;color: black;margin: 10px;margin-bottom: 20px;box-shadow: 5px 10px 18px #888888;border-radius: 5px;height: 240px;text-align: left;">
                     <br>
                     <div class="headers" style="text-align: left;margin: 15px;">
-                      1. ขั้นตอนการสั่งซื้อสินค้ามีอะไรบ้าง?
+                      1. What is the order process ?
                       </div>
                       <ul style="text-align: left;">
                         <li>
-                          ค้นหาและเลือกยางที่ต้องการ
+                          Search and select the desired tires.
                         </li>
                         <li>
-                          เลือกสถานที่ติดตั้ง วัน และเวลา
+                          Select the installation location, date and time.
                         </li>
                         <li>
-                          การชำระเงินด้วยเงินสดหรือบัตรเครดิต
+                          Payment by cash or credit card.
                         </li>
                         <li>
-                          ติดตั้งยางตามกำหนด
+                          Install tires as scheduled.
                         </li>
                       </ul>
                   </div>
@@ -441,9 +409,9 @@
                     <br>
                     <div style="margin: 15px;">
                       <div class="headers" style="text-align: left;margin: 15px;">
-                        3. สามารถสั่งซื้อสินค้าผ่านทางโทรศัพท์ได้หรือไม่?
+                        3. Can I place an order over the phone ?
                       </div>
-                      <p>สามารถสั่งซื้อผ่านทางโทรศัพท์และ Line Add และ เพจเฟสบุ๊ค <a href="https://www.facebook.com/tyrepacthailand/" target="_blank" style="text-decoration:none;">Tyrepac Thailand</a> </p>
+                      <p>You can order via phone and Line Add and Facebook page Tyrepac Thailand.<a href="https://www.facebook.com/tyrepacthailand/" target="_blank" style="text-decoration:none;">Tyrepac Thailand</a> </p>
                     </div>
                   </div>
                 </b-col>
@@ -453,18 +421,18 @@
                     <br>
                     <div style="margin: 15px;">
                       <div class="headers" style="text-align: left;margin: 15px;">
-                        2. หากยางที่ฉันต้องการไม่มีในสต๊อก ฉันยังสามารถสั่งซื้อรุ่นนั้นได้หรือไม่?
+                        2. If the tires I want is not in stock Can I still order that model ?
                       </div>
-                      <p>ติดต่อสายด่วนของเรา และเราให้คำแนะนำในการประมาณความพร้อมในการให้บริการยาง คุณสามารถส่งอีเมลถึงเราที่ info@tyrepac.co.th และเราจะติดต่อกลับคุณ</p>
+                      <p>Contact our hotline and we give advice on how to estimate tire service availability. You can email us at info@tyrepac.co.th and we will contact you back.</p>
                     </div>
                   </div>
                   <div style="background-color: white;color: black;margin: 10px;box-shadow: 5px 10px 18px #888888;border-radius: 5px;height: 240px;text-align: left;">
                     <br>
                     <div style="margin: 15px;">
                       <div class="headers" style="text-align: left;margin: 15px;">
-                        4. สามารถขับรถไปยังสถานที่ติดตั้งโดยตรงดังที่แสดงไว้ได้หรือไม่?
+                        4. Is it possible to drive directly to the installation site as shown ?
                         </div>
-                        <p id="delivery">ไม่ ยางจะถูกส่งเมื่อได้รับการสั่งซื้อและการชำระเงินออนไลน์</p>
+                        <p id="delivery">No, tires will be delivered upon receipt of the order and payment online.</p>
                     </div>
                   </div>
               </b-col>
@@ -483,14 +451,14 @@
               </div>
               <div style="font-weight: bold;font-size: 25px;">
                 <div>
-                  การจัดส่งและติดตั้ง
+                  Delivery and installation
                 </div>
                 <div>
-                  การเปลี่ยนแปลงการจัดส่ง
+                  Delivery change
                 </div>
               </div>
               <br>
-              <div style="font-weight: bold;text-align: left;font-size: 25px;">การเปลี่ยนแปลงการจัดส่ง</div>
+              <div style="font-weight: bold;text-align: left;font-size: 25px;">Delivery Change</div>
               <br>
               <b-col>
                 <br>
@@ -498,10 +466,10 @@
                   <br>
                   <div style="margin: 15px;">
                     <div class="headers">
-                      1. ฉันสามารถเปลี่ยนแปลงคำสั่งซื้อหลังจากการชำระเงินแล้วได้หรือไม่
+                      1. Can I change my order after payment ?
                     </div>
                     <div>
-                      หากต้องการเปลี่ยนแปลงใดๆในการสั่งซื้อ คุณสามารถแจ้งได้ก่อนที่จะมีการจัดส่งสินค้า มิเช่นนั้นจะมีการคิดค่าขนส่ง กรุณาติดต่อสายด่วนบริการลูกค้าของเรา และเราจะดำเนินการตามคำขอของคุณ หรือเขียนอีเมลล์ส่งมาที่ info@tyrepac.co.th
+                      Any changes to the order You can inform us prior to delivery. Otherwise, freight will be charged. Please contact our customer service hotline. and we will process your request. or write an email to info@tyrepac.co.th.
                     </div>
                   </div>
                 </div>
@@ -510,10 +478,10 @@
                   <br>
                   <div style="margin: 15px;">
                     <div class="headers">
-                      3. ฉันสามารถเข้ารับการติดตั้งยางได้เร็วที่สุดเมื่อไหร่?
+                      3. ฉัWhen can I get my tires installed as soon as possible ?
                     </div>
                     <div>
-                      ทำการจัดส่งภายใน 3-5 วันทำการนับจากวันที่ทำการชำระเงิน หากต้องการติดตั้งแบบเร่งด่วน กรุณาแจ้งศูนย์บริการลูกค้าของเราเพื่อทำการนัดหมาย
+                      Ships within 3-5 business days from the date of payment. For urgent installation , please inform our Customer Service Center to make an appointment.
                     </div>
                   </div>
                 </div>
@@ -523,9 +491,9 @@
                 <div style="background-color: white;color: black;box-shadow: 5px 10px 18px #888888;border-radius: 5px;height: 200px;text-align: left;">
                   <br>
                   <div style="margin: 15px;">
-                    <div class="headers">2. ฉันสามารถเปลี่ยนศูนย์บริการติดตั้งและเวลาได้หรือไม่</div>
+                    <div class="headers">2. Can I change the installation service center and time ?</div>
                     <div>
-                      ได้ หากยางที่จัดเตรียมไว้ยังไม่ถูกส่ง มิเช่นนั้นจะมีการคิดค่าขนส่ง
+                      Yes, if the supplied tires have not been delivered. Otherwise, freight will be charged.
                     </div>
                   </div>
                 </div>
@@ -533,8 +501,8 @@
                 <div style="background-color: white;color: black;box-shadow: 5px 10px 18px #888888;border-radius: 5px;height: 200px;text-align: left;">
                   <br>
                   <div id="aftersales" style="margin: 15px;">
-                    <div class="headers">4. ฉันสามารถติดตั้งยางวันเดียวกับวันที่สั่งซื้อได้หรือไม่?</div>
-                    <div>วันติดตั้งจะนับจากวันที่คุณทำการสั่งซื้อ 3 วันทำการ หากต้องการติดตั้งแบบเร่งด่วน กรุณาติดต่อสายด่วนบริการลูกค้าเพื่อนัดหมาย</div>
+                    <div class="headers">4. Can I install the tires on the same day I ordered ?</div>
+                    <div>The installation date is 3 working days from the date you place your order. Please contact the Customer Service Hotline to make an appointment.</div>
                   </div>
                 </div>
               </b-col>
@@ -554,10 +522,10 @@
                   <br>
                   <div class="headers">
                     <div>
-                      บริการหลังการขาย
+                      After sales service
                     </div>
                     <div style="text-align: left;">
-                      การยกเลิกการสั่งซื้อ
+                      Order Cancellation
                     </div>
                   </div>
                 </div>
@@ -571,8 +539,8 @@
               <b-col>
                 <br>
                 <div>
-                  <div class="headers" style="text-align: left;">1. นโยบายการยกเลิกการสั่งซื้อของทางบริษัทเป็นอย่างไร?</div>
-                  <p>การยกเลิกล่วงหน้าก่อนการจัดส่งสามารถทำได้ จะมีการคิดค่าขนส่งสำหรับการยกเลิกหากมีการจัดส่งยางไปแล้ว กรุณาตรวจสอบข้อกำหนดและเงื่อนไขการขายของเรา</p>
+                  <div class="headers" style="text-align: left;">1. What is the company's order cancellation policy ?</div>
+                  <p>Pre-delivery cancellations are possible. A shipping fee will be charged for cancellations if the tires have already been delivered. Please check our terms and conditions of sale.</p>
                 </div>
               </b-col>
             </b-row>
@@ -584,7 +552,7 @@
             <br>
             <b-row>
               <b-col>
-                <div class="headers" style="text-align: left;">นโยบายการคืนสินค้า</div>
+                <div class="headers" style="text-align: left;">Return Policy</div>
               </b-col>
             </b-row>
             <br>
@@ -597,20 +565,20 @@
               <b-col>
                 <div style="text-align: left;">
                   <div class="headers">
-                    2. ฉันสามารถยกเลิกการสั่งซื้อสินค้าของฉันได้หรือไม่?
+                    2. Can I cancel my order ?
                   </div>
                   <p>
-                    คุณสามารถยกเลิกการสั่งซื้อได้ แต่จะมีการคิดค่าขนส่งสำหรับกรณีทีสินค้ามีการจัดส่งออกไปยังศูนย์รับบริการ
+                    You can cancel your order. But there will be a shipping fee if the product is shipped out to the service center.
                   </p>
                 </div>
               </b-col>
               <b-col>
                 <div style="text-align: left;">
                   <div class="headers">
-                    3. ฉันสามารถติดตั้งยางวันเดียวกับวันที่สั่งซื้อได้หรือไม่?
+                    3. Can I install the tires on the same day I ordered ?
                   </div>
                   <p>
-                    วันติดตั้งจะนับจากวันที่คุณทำการสั่งซื้อ 3 วันทำการ หากต้องการติดตั้งแบบเร่งด่วน กรุณาติดต่อสายด่วนบริการลูกค้าของเราเพื่อทำการนัดหมาย
+                     The installation date is 3 working days from the date you placed your order. Please contact our customer service hotline to make an appointment.
                   </p>
                 </div>
               </b-col>
@@ -623,7 +591,7 @@
             <br>
             <b-row>
               <b-col>
-                <div class="headers" style="text-align: left;">นโยบายการคืนสินค้า</div>
+                <div class="headers" style="text-align: left;">Return Policy</div>
               </b-col>
             </b-row>
             <br>
@@ -636,32 +604,32 @@
             <b-row>
               <b-col>
                 <div class="headers" style="text-align: left;">
-                  4. บริษัทมีการรับประกันสินค้าสำหรับยางที่จำหน่ายหรือไม่?
+                  4. Does the company have a product warranty for the tires it sells ?
                 </div>
                 <br>
                 <br>
                 <p>
-                  ยางรถยนต์ทุกเส้นที่ทางไทร์แพคขายมีการรับประกันสินค้าจากทางผู้ผลิตเป็นเวลา 4 ปี ซึ่งยางทุกเส้นถูกรับประกันว่าเป็นยางใหม่ ซึ่งมีข้อจำกัดการรับประกันทั่วไปบางอย่าง:
+                  Every tires that Tyrepac sells comes with a 4 years warranty from the manufacturer. All tires are guaranteed to be new. which has some general warranty limitations:
                 </p>
                 <ul>
-                  <li>ยางได้รับความเสียหายจากสิ่งกีดขวางบนถนน ไฟ อุบัติเหตุ การกัดกร่อน หรือภัยธรรมชาติอื่นๆ</li>
-                  <li>ยางที่ชำรุดสึกหรอ</li>
-                  <li>การใช้ยางผิด เช่น บนขอบถนน วิ่งบนวัตถุแปลกปลอม และหลุมบนพื้นถนน</li>
-                  <li>ยางที่ชำรุดจากการติดตั้งยางล้อรถที่ไม่เหมาะสมและการเติมลมยางที่มากเกินไป ขอบยางที่ไม่สมบูรณ์ ความประมาท การแก้ไข หรือการซ่อม</li>
-                  <li>การรับประกันสิ้นสุดเมื่อความลึกของหน้ายางอยู่ที่ 1.6 มิลลิเมตร</li>
-                  <li>ใช้ในกีฬาแข่งรถเร็ว หรือการใช้กรณีพิเศษ</li>
+                  <li>Tires are damaged by roadblocks, fire, accidents, corrosion or other natural disasters.</li>
+                  <li>Worn out tires</li>
+                  <li>Using the wrong tires, for example on a curb, running on a foreign object and holes in the road.</li>
+                  <li>Tires damaged by improper tire installation and overinflating. Incomplete rim, negligence, alteration or repair. </li>
+                  <li>The warranty expires when the tread depth is 1.6 mm.</li>
+                  <li>Used in fast racing sports or the use of special cases.</li>
                 </ul>
                 <div class="headers">
-                  เงื่อนไขการรับประกัน
+                  Warranty terms
                 </div>
                 <ul style="list-style-type: value;">
-                  <li>บริษัทรับประกันสินค้าจากความผิดพลาดในการผลิต 4 ปี หรือ 50,000 กม. (นับจากวันที่ออกใบเสร็จรับเงิน)</li>
-                  <li>บริษัทผู้ผลิตจะเป็นผู้ตรวจวิเคราะห์สินค้าที่มีการส่งเคลม</li>
-                  <li>ลูกค้าจะต้องซื้อสินค้าเพื่อใช้ระหว่างรอผลการตรวจสอบ โดยระยะเวลาในการตรวจสอบขึ้นอยู่กับทางบริษัทผู้ผลิต (ประมาณ 6-10 สัปดาห์)</li>
-                  <li>สินค้าที่ได้รับการพิจารณาว่าผิดพลาดจากการผลิต บริษัทฯ จะคืนเงินค่าสินค้าตามเปอร์เซ็นต์การใช้งานที่เหลือ</li>
-                  <li>การรับประกันสินค้าไม่ครอบคลุมถึง อุบัติเหตุ การบาดเจ็บ ความเสียหายต่างๆ ที่เกิดขึ้น</li>
-                  <li>ผลการพิจารณาสินค้าที่มีการส่งเคลมถือเป็นสิทธิ์ขาดของตัวแทนจำหน่าย/ผู้ผลิตสินค้า ยี่ห้อนั้นๆ</li>
-                  <li>กรุณาเก็บใบเสร็จหรือใบยืนยันคำสั่งซื้อ เพื่อใช้ประกอบในการเคลมสินค้า</li>
+                  <li>The company guarantees products against manufacturing defects for 4 years or 50,000 km (from the date of receipt).</li>
+                  <li>The manufacturer will analyze the product that has been submitted.</li>
+                  <li>The customer must purchase the product for use while awaiting the results of the inspection. The inspection period depends on the manufacturer (approximately 6-10 weeks).</li>
+                  <li>Products that are considered to be manufacturing faults will be refunded based on the remaining percentage of use.</li>
+                  <li>The product warranty does not cover accidents, injuries, and damages.</li>
+                  <li>The result of considering the product that has been submitted is the sole right of the dealer/manufacturer of that brand.</li>
+                  <li>Please keep the receipt or order confirmation to be used in the product claim.</li>
                 </ul>
                 <p>พึงตระหนักไว้ว่าการติดตั้งยางล้อรถที่ไม่เหมาะสมและการเติมลมยางที่มากเกินไปอาจก่อความเสียหายต่อยางและล้อได้และอาจทำให้ระเบิดก่อให้เกิดความเสียหายร้ายแรงถึงขั้นเสียชีวิต info@tyrepac.co.th</p>
               </b-col>
@@ -673,16 +641,9 @@
       </div>
     </div>
   </div>
-  <div v-else-if="languages === 'EN'">
-  <app-faq></app-faq>
-  </div>
 </template>
 <script>
-import faq from '../views/qa_en.vue'
 export default {
-  components: {
-    'app-faq': faq
-  },
   data () {
     return {
       detail: [{
@@ -792,24 +753,12 @@ export default {
         { รหัส: 117, กิโลกรัม: 1285 },
         { รหัส: 118, กิโลกรัม: 1320 },
         { รหัส: 119, กิโลกรัม: 1360 }
-      ],
-      languages: ''
+      ]
     }
   },
   metaInfo: {
     title: 'คำถามที่พบบ่อย',
     titleTemplate: "%s - Tyrepac - Asia's First Tyre Portal"
-  },
-  mounted () {
-    this.languages = JSON.parse(localStorage.getItem('languages'))
-    console.log('lang', this.languages)
-    if (this.languages === '' || this.languages === null || this.languages === 'null' || this.languages === undefined || this.languages === 'undefined') {
-      console.log('langNOTLANG')
-    } else if (this.languages === 'TH') {
-      console.log('langTH')
-    } else if (this.languages === 'EN') {
-      console.log('langEN')
-    }
   }
 }
 </script>

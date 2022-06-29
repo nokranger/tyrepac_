@@ -33,10 +33,31 @@
                 </datalist>
               </div> -->
             </b-col>
-            <b-col>
+            <b-col v-if="languages === 'TH'">
               <div>พื้นที่</div>
               <div>
                 <b-input list="area" type="search" v-model="filter" placeholder="พื้นที่"></b-input>
+              </div>
+              <div>
+                <datalist id="area" >
+                  <option v-for="(item, index) in items" :key="index" :value="item.address"></option>
+                </datalist>
+              </div>
+              <!-- <div>ประเภทร้านติดตั้ง</div>
+              <div>
+                <b-input list="type" type="search" v-model="filter" placeholder="ประเภทร้านติดตั้ง"></b-input>
+              </div>
+              <div>
+                <datalist id="type" >
+                  <option value="ร้านติดตั้งทั้งหมด"></option>
+                  <option value="ร้านติดตั้งฟรี"></option>
+                </datalist>
+              </div> -->
+            </b-col>
+            <b-col v-else-if="languages === 'EN'">
+              <div>Area</div>
+              <div>
+                <b-input list="area" type="search" v-model="filter" placeholder="Area"></b-input>
               </div>
               <div>
                 <datalist id="area" >
@@ -124,7 +145,8 @@ export default {
         note: '',
         type: 1
       },
-      status: 0
+      status: 0,
+      languages: ''
     }
   },
   metaInfo: {
@@ -132,13 +154,22 @@ export default {
     titleTemplate: "%s - Tyrepac - Asia's First Tyre Portal"
   },
   mounted () {
+    this.languages = JSON.parse(localStorage.getItem('languages'))
+    console.log('lang', this.languages)
+    if (this.languages === '' || this.languages === null || this.languages === 'null' || this.languages === undefined || this.languages === 'undefined') {
+      console.log('langNOTLANG')
+    } else if (this.languages === 'TH') {
+      console.log('langTH')
+    } else if (this.languages === 'EN') {
+      console.log('langEN')
+    }
     axios.get(process.env.VUE_APP_API_URL + '/installer').then((res) => {
       // this.testinstaller = res.data.data.installers
       this.installers = res.data.data.installers
       this.items = this.installers
       this.totalRows = this.items.length
       this.currentPage = 1
-      console.log('installer', this.testinstaller)
+      console.log('installer', this.installers)
     })
   },
   methods: {

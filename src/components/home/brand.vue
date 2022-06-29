@@ -1,6 +1,6 @@
 <template>
   <div style="background-color: #eaeaea">
-    <div style="margin-top: 10px">
+    <div v-if="languages === 'TH'" style="margin-top: 10px">
       <br />
       <h1>แบรนด์ยอดนิยม</h1>
       <p>ตั้งแต่ปี 2008 เรามีความตั้งใจ</p>
@@ -11,6 +11,21 @@
       <p>ระดับกลาง หรือระดับพรีเมียม</p>
       <p>คุณจะพบว่าที่ TYREPAC มีสินค้าที่หลากหลาย</p>
       <p>– จากผู้ผลิตยางรถยนต์ที่มีชื่อเสียงที่สุดในโลก –</p>
+      <br />
+      <br>
+      <br>
+    </div>
+    <div v-else-if="languages === 'EN'" style="margin-top: 10px">
+      <br />
+      <h1>Popular Brands</h1>
+      <p>Since 2008, We have the intention.</p>
+      <p>Makes buying tires online as easy as possible.</p>
+      <p>At the same time providing a variety of products.</p>
+      <p>As an option and the most worthwhile.</p>
+      <p>Whether it is an economical tires</p>
+      <p>Intermediate or Premium</p>
+      <p>You will find that TYREPAC has a wide range of products.</p>
+      <p>– From the most famous tire manufacturers in the world –</p>
       <br />
       <br>
       <br>
@@ -172,6 +187,26 @@
     </b-container>
   </div>
 </template>
+<script>
+export default {
+  data () {
+    return {
+      languages: ''
+    }
+  },
+  mounted () {
+    this.languages = JSON.parse(localStorage.getItem('languages'))
+    console.log('lang', this.languages)
+    if (this.languages === '' || this.languages === null || this.languages === 'null' || this.languages === undefined || this.languages === 'undefined') {
+      console.log('langNOTLANG')
+    } else if (this.languages === 'TH') {
+      console.log('langTH')
+    } else if (this.languages === 'EN') {
+      console.log('langEN')
+    }
+  }
+}
+</script>
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@700&display=swap');
 p {

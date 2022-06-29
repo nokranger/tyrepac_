@@ -1,5 +1,5 @@
 <template>
-  <div id="size">
+  <div v-if="languages === 'TH'" id="size">
     <div style="background-color: #f7b00d">
       <b-container>
         <br />
@@ -55,6 +55,62 @@
       </b-container>
     </div>
   </div>
+  <div v-else-if="languages === 'EN'" id="size">
+    <div style="background-color: #f7b00d">
+      <b-container>
+        <br />
+        <br>
+        <p style="font-size: 25px; font-weight: bold;color: black;">Search By Tires</p>
+        <div>
+          <b-form-select
+            style="width: 100%; font-size: 20px;margin: 5px; color: gray; height: 35px;"
+            v-model="selectedwidth"
+            :options="optionswidth"
+            name=""
+            id=""
+            v-on:change="filterwidth(selectedwidth)"
+          >
+          </b-form-select>
+        </div>
+        <div>
+          <b-form-select
+            style="width: 100%; font-size: 20px;margin: 5px; color: gray; height: 35px;"
+            v-model="selectedserie"
+            :options="optionsserie"
+            name=""
+            id=""
+            v-on:change="filtersheight(selectedserie)"
+          >
+          </b-form-select>
+        </div>
+        <div>
+          <b-form-select
+            style="width: 100%; font-size: 20px;margin: 5px; color: gray; height: 35px;"
+            v-model="selecteddiameter"
+            :options="optionsdiameter"
+            name=""
+            id=""
+            v-on:change="filtersdiameter(selecteddiameter)"
+          >
+          </b-form-select>
+        </div>
+        <br />
+        <div style="text-align: left;margin-left: 20px;">
+          <b-button variant="light" style="border-radius: 1px;border: thin solid black;" v-on:click="search (selectedwidth, selectedserie, selecteddiameter)">Search Tires</b-button>
+        </div>
+        <br />
+        <b><a href="#" style="color: black;text-decoration: none;" v-b-modal.modal-tyre>Tips and advice for your tyres? Click Here!</a></b>
+          <b-modal id="modal-tyre" size="xl" hide-footer hide-header>
+            <!-- <p style="text-align: center;" class="my-4">วิธีค้นหาขนาดยางของคุณ</p> -->
+            <img src="https://tyrepac.co.th/wp-content/uploads/2020/01/tyre-reading.jpg" alt="">
+          </b-modal>
+        <br>
+        <br>
+        <br>
+        <br>
+      </b-container>
+    </div>
+  </div>
 </template>
 <script>
 import axios from 'axios'
@@ -69,7 +125,7 @@ export default {
       selecteddiameter: null,
       selectedtype: null,
       optionswidth: [
-        { value: null, text: '--ความกว้าง--' },
+        { value: null, text: '--Width Tires--' },
         { value: '155', text: '155' },
         { value: '165', text: '165' },
         { value: '175', text: '175' },
@@ -91,7 +147,7 @@ export default {
         { value: '325', text: '325' }
       ],
       optionsserie: [
-        { value: null, text: '--ซีรี่ย์ยาง--' },
+        { value: null, text: '--Series Tires--' },
         { value: '0', text: '0' },
         { value: '25', text: '25' },
         { value: '30', text: '30' },
@@ -107,7 +163,7 @@ export default {
         { value: '85', text: '85' }
       ],
       optionsdiameter: [
-        { value: null, text: '--ขนาดวงล้อ--' },
+        { value: null, text: '--Wheel Size Tires--' },
         { value: '13', text: '13' },
         { value: '14', text: '14' },
         { value: '15', text: '15' },
@@ -130,11 +186,21 @@ export default {
         { value: 'ยางรถกระบะ', text: 'ยางรถกระบะ' },
         { value: 'ยางรถเอนกประสงค์/SUV', text: 'ยางรถเอนกประสงค์/suv' },
         { value: 'ยางออฟโรด', text: 'ยางออฟโรด' }
-      ]
+      ],
+      languages: ''
     }
   },
   mounted () {
     localStorage.removeItem('filter')
+    this.languages = JSON.parse(localStorage.getItem('languages'))
+    console.log('lang', this.languages)
+    if (this.languages === '' || this.languages === null || this.languages === 'null' || this.languages === undefined || this.languages === 'undefined') {
+      console.log('langNOTLANG')
+    } else if (this.languages === 'TH') {
+      console.log('langTH')
+    } else if (this.languages === 'EN') {
+      console.log('langEN')
+    }
   },
   methods: {
     search (w, h, d) {

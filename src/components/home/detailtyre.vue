@@ -1,5 +1,5 @@
 <template>
-  <div style='background-color: #333333;color: white;text-align: left;'>
+  <div v-if="languages === 'TH'" style='background-color: #333333;color: white;text-align: left;'>
     <div>
       <b-container>
         <b-row>
@@ -119,6 +119,126 @@
       </b-container>
     </div>
   </div>
+  <div v-else-if="languages === 'EN'" style='background-color: #333333;color: white;text-align: left;'>
+    <div>
+      <b-container>
+        <b-row>
+          <b-col cols="12" sm="12" md="12" lg="4" xl="4">
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <div>
+              <ul>
+                <div v-on:mouseover="mouseover (1)">
+                  <div style="display: inline-block;font-size: 22px;margin-right: 5px;background-color: #005199;border-radius: 50%;width: 30px;text-align: center;">1 </div><li>Tires Brand</li>
+                </div>
+                <div v-on:mouseover="mouseover (2)">
+                  <div style="display: inline-block;font-size: 22px;margin-right: 5px;background-color: #005199;border-radius: 50%;width: 30px;text-align: center;">2 </div><li>Max Weight and Pressure</li>
+                </div>
+                <div v-on:mouseover="mouseover (3)">
+                  <div style="display: inline-block;font-size: 22px;margin-right: 5px;background-color: #005199;border-radius: 50%;width: 30px;text-align: center;">3 </div><li>Installation Direction</li>
+                </div>
+                <div v-on:mouseover="mouseover (4)">
+                  <div style="display: inline-block;font-size: 22px;margin-right: 5px;background-color: #005199;border-radius: 50%;width: 30px;text-align: center;">4 </div><li>Gain more weight than usual</li>
+                </div>
+                <div v-on:mouseover="mouseover (5)">
+                  <div style="display: inline-block;font-size: 22px;margin-right: 5px;background-color: #005199;border-radius: 50%;width: 30px;text-align: center;">5 </div><li>Tires Size</li>
+                </div>
+                <div v-on:mouseover="mouseover (6)">
+                  <div style="display: inline-block;font-size: 22px;margin-right: 5px;background-color: #005199;border-radius: 50%;width: 30px;text-align: center;">6 </div><li>Country of Manufacture</li>
+                </div>
+              </ul>
+            </div>
+          </b-col>
+          <b-col cols="12" sm="12" md="12" lg="4" xl="4">
+            <div>
+              <br />
+              <h1 style="color: white;text-align: center;font-weight: bold;">Sidewall Information</h1>
+              <br />
+              <template>
+                <div v-if="statebrand == 1">
+                  <img :style="styles" :src="tyrebrand" alt="" width="345px" height="345px" v-on:mouseover="mousezoom()">
+                </div>
+                <div v-if="stateweight == 1">
+                  <img :style="styles" :src="tyreweight" alt="" width="345px" height="345px" v-on:mouseover="mousezoom()">
+                </div>
+                <div v-if="stateinstallation == 1">
+                  <img :style="styles" :src="tyreinstallation" alt="" width="345px" height="345px" v-on:mouseover="mousezoom()">
+                </div>
+                <div v-if="stateweight == 1">
+                  <img :style="styles" :src="tyreweight" alt="" width="345px" height="345px" v-on:mouseover="mousezoom()">
+                </div>
+                <div v-if="statesize == 1">
+                  <img :style="styles" :src="tyresize" alt="" width="345px" height="345px" v-on:mouseover="mousezoom()">
+                </div>
+                <div v-if="statemade == 1">
+                  <img :style="styles" :src="tyremade" alt="" width="345px" height="345px" v-on:mouseover="mousezoom()">
+                </div>
+                <div v-if="stateserie == 1">
+                  <img :style="styles" :src="tyreserie" alt="" width="345px" height="345px" v-on:mouseover="mousezoom()">
+                </div>
+                <div v-if="stateweek == 1">
+                  <img :style="styles" :src="tyreweek" alt="" width="345px" height="345px" v-on:mouseover="mousezoom()">
+                </div>
+                <div v-if="statecode == 1">
+                  <img :style="styles" :src="tyrecode" alt="" width="345px" height="345px" v-on:mouseover="mousezoom()">
+                </div>
+                <div v-if="stateyear == 1">
+                  <img :style="styles" :src="tyreyear" alt="" width="345px" height="345px" v-on:mouseover="mousezoom()">
+                </div>
+                <div v-if="statetubless == 1">
+                  <img :style="styles" :src="tyretubless" alt="" width="345px" height="345px" v-on:mouseover="mousezoom()">
+                </div>
+                <div v-if="statetype == 1">
+                  <img :style="styles" :src="tyretype" alt="" width="345px" height="345px" v-on:mouseover="mousezoom()">
+                </div>
+                <!-- <img style="position:absolute;z-index: 1;" :src="imgUrl" alt="" width="345px" height="345px"> -->
+                <div v-if="statezoom == 1">
+                  <vue-photo-zoom-pro :highUrl="imgUrl">
+                    <img style="z-index: 3" :src="imgUrl" alt="" width="345px" height="345px">
+                  </vue-photo-zoom-pro>
+                </div>
+              </template>
+            </div>
+          </b-col>
+          <b-col cols="12" sm="12" md="12" lg="4" xl="4">
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <div style="margin-left: 100px;">
+              <ul>
+                <div v-on:mouseover="mouseover (7)">
+                  <div style="display: inline-block;font-size: 22px;margin-right: 5px;background-color: #005199;border-radius: 50%;width: 30px;text-align: center;">7</div><li>Tires Model</li>
+                </div>
+                <div v-on:mouseover="mouseover (8)">
+                  <div style="display: inline-block;font-size: 22px;margin-right: 5px;background-color: #005199;border-radius: 50%;width: 30px;text-align: center;">8</div><li>Week of Tires</li>
+                </div>
+                <div v-on:mouseover="mouseover (9)">
+                  <div style="display: inline-block;font-size: 22px;margin-right: 5px;background-color: #005199;border-radius: 50%;width: 30px;text-align: center;">9</div><li>Manufacturer's Code</li>
+                </div>
+                <div v-on:mouseover="mouseover (10)">
+                  <div style="display: inline-block;font-size: 22px;margin-right: 5px;background-color: #005199;border-radius: 50%;width: 30px;text-align: center;">10</div><li>Year of Manufacture</li>
+                </div>
+                <div v-on:mouseover="mouseover (11)">
+                  <div style="display: inline-block;font-size: 22px;margin-right: 5px;background-color: #005199;border-radius: 50%;width: 30px;text-align: center;">11</div><li>Tubeless Tires</li>
+                </div>
+                <div v-on:mouseover="mouseover (12)">
+                  <div style="display: inline-block;font-size: 22px;margin-right: 5px;background-color: #005199;border-radius: 50%;width: 30px;text-align: center;">12</div><li>Type of Tires</li>
+                </div>
+              </ul>
+            </div>
+          </b-col>
+        </b-row>
+        <br>
+        <br>
+        <br>
+      </b-container>
+    </div>
+  </div>
 </template>
 <script>
 import VuePhotoZoomPro from 'vue-photo-zoom-pro'
@@ -161,10 +281,20 @@ export default {
       stateyear: 0,
       statetubless: 0,
       statetype: 0,
-      statezoom: 1
+      statezoom: 1,
+      languages: ''
     }
   },
   mounted () {
+    this.languages = JSON.parse(localStorage.getItem('languages'))
+    console.log('lang', this.languages)
+    if (this.languages === '' || this.languages === null || this.languages === 'null' || this.languages === undefined || this.languages === 'undefined') {
+      console.log('langNOTLANG')
+    } else if (this.languages === 'TH') {
+      console.log('langTH')
+    } else if (this.languages === 'EN') {
+      console.log('langEN')
+    }
   },
   methods: {
     mouseover (value) {
