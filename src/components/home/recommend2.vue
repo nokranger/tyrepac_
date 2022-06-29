@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="languages === 'TH'">
     <br>
     <div>
       <div style="font-weight: bold;font-size: 25px;text-align:">สินค้าแนะนำ</div>
@@ -78,6 +78,85 @@
     </div>
     <br>
   </div>
+  <div v-else-if="languages === 'EN'">
+    <br>
+    <div>
+      <div style="font-weight: bold;font-size: 25px;text-align:">Tires of Recommend and Promotion</div>
+      <div>
+        <b-container>
+          <br>
+          <b-row>
+            <b-col cols="12" sm="6" md="6" lg="4" xl="3" v-for="(item, index) in promotions" :key="index" style="margin-top: 25px;">
+              <div style="border-radius: 5px;border: thin solid #E0E0E0;text-align: left;width: 100%;height: 470px;">
+                <div style="width: 100%;text-align: center;">
+                <div v-if="item.promotionId > 0" style="border-radius: 5px;margin-left: auto;margin-right: -15px;margin-top: -15px;background-color: #f16543;color: white;width: max-content;padding: 10px;">Promotion</div>
+                <div v-else-if="item.recommend === 1" style="border-radius: 5px;margin-left: auto;margin-right: -15px;margin-top: -15px;background-color: #f16543;color: white;width: max-content;padding: 10px;font-weight: bold;">Recommend</div>
+                <div v-else-if="item.promotionId === 0 || item.promotionId === null || item.recommend === 0 || item.recommend === null" style="height: 28px;;padding: 10px;"></div>
+                  <a style="cursor: pointer;" v-on:click="buydetail (('/tyrebrand' + '/' + item.prodId + '/' + item.sku), ('http://119.63.90.135:2083/image?image_path=' + item.image), item.name, item.regularPrice, ('values' + index), item.type, item.sku, item)">
+                    <img :src="'http://119.63.90.135:2083/image?image_path=' + item.image" style="width: 150px;height: 150px;margin: 5px;" alt="">
+                    <!-- <img if  :src="'http://119.63.90.135:2083/image?image_path=' + item.image" style="width: 150px;height: 150px;margin: 5px;" alt=""> -->
+                  </a>
+                </div>
+                <div style="margin-left: 5px;color: #005099;font-weight: bold;height: 60px;">{{item.name}}</div>
+                <div style="margin-left: 5px;padding: 10px;color: #005099;font-weight: normal;text-align: left;">฿{{ item.regularPrice}}  / 1 Tire.</div>
+                <!-- <div style="border-top: thin solid #E0E0E0;margin-bottom: 4px;margin-left: 20px;margin-right: 20px;text-align: center;"></div> -->
+                <div style="margin-bottom: 4px;margin-left: 20px;margin-right: 20px;">
+                  <br>
+                  <div style="margin: 5px;width: 100%;">
+                    <b-form-spinbutton :ref="'values' + index" id="demo-sb" :value="value2" min="1" max="100"></b-form-spinbutton>
+                  </div>
+                  <br>
+                  <div style="margin: 5px;text-align: left;">
+                    <b-button variant="primary" v-on:click="buycart (('/tyrebrand' + '/' + item.prodId + '/' + item.sku), ('http://119.63.90.135:2083/image?image_path=' + item.image), item.prodId, item.name, item.regularPrice, ('values' + index), item.type, item.sku, item)">Order</b-button>
+                    <i class="fas fa-shopping-cart" style="display: inline-block;margin-left: 10px;font-size: 20px;cursor: pointer;color: #005099;" v-on:click="addtocart (('/tyrebrand' + '/' + item.prodId + '/' + item.sku), ('http://119.63.90.135:2083/image?image_path=' + item.image), item.prodId, item.name, item.regularPrice, ('values' + index), item.type, item.sku, item)"></i>
+                  </div>
+                  <div>
+                    <i class="fa-solid fa-plus" style="cursor: pointer;" @click="compare(item)"></i><a style="cursor: pointer;margin-left: 5px;color: #005099;"  @click="showcompare()" v-b-modal.modal-1>Tire details</a>
+                  </div>
+                </div>
+              </div>
+            </b-col>
+          </b-row>
+        </b-container>
+          <div>
+            <b-modal id="modal-1" size="xl" title="Compare list">
+              <div style="cursor: pointer;color: red;font-weight: bold;;" @click="clearcompare()">Clear compare list</div>
+              <br>
+              <div>
+                <b-row>
+                  <b-col cols="6" sm="6" md="6" lg="3" xl="3" v-for="(showcompare, index) in showcompares" :key="index">
+                    <div style="margin: 5px;text-align: left;">
+                      <b-button variant="primary" v-on:click="buycart (('/tyrebrand' + '/' + showcompare.prodId + '/' + showcompare.sku), ('http://119.63.90.135:2083/image?image_path=' + showcompare.image), showcompare.prodId, showcompare.name, showcompare.regularPrice, ('values' + index), showcompare.type, showcompare.sku, showcompare)">สั่งซื้อเลย</b-button>
+                      <i class="fas fa-shopping-cart" style="display: inline-block;margin-left: 20px;font-size: 20px;cursor: pointer;color: #005099;" v-on:click="addtocart (('/tyrebrand' + '/' + showcompare.prodId + '/' + showcompare.sku), ('http://119.63.90.135:2083/image?image_path=' + showcompare.image), showcompare.prodId, showcompare.name, showcompare.regularPrice, ('values' + index), showcompare.type, showcompare.sku, showcompare)"></i>
+                      <i class="fas fa fa-times" style="display: inline-block;margin-left: 20px;font-size: 20px;cursor: pointer;color: #ee2456;" v-on:click="removeitem (showcompare.name)"></i>
+                    </div>
+                    <div style="margin-bottom: 5px;;width: 100%;">
+                      <b-form-spinbutton :ref="'values' + index" id="demo-sb" :value="value2" min="1" max="100"></b-form-spinbutton>
+                    </div>
+                    <div style="border-radius: 5px;border: thin solid #E0E0E0;text-align: left;width: 100%;height: 420px;">
+                      <div style="width: 100%;;text-align: center;">
+                        <a style="cursor: pointer;" v-on:click="buydetail (('/tyrebrand' + '/' + showcompare.prodId + '/' + showcompare.sku), ('http://119.63.90.135:2083/image?image_path=' + showcompare.image), showcompare.name, showcompare.regularPrice, ('values' + index), showcompare.type, showcompare.sku, showcompare)">
+                          <img :src="'http://119.63.90.135:2083/image?image_path=' + showcompare.image" style="width: 150px;height: 150px;margin: 5px;" alt="">
+                        </a>
+                      </div>
+                      <div style="margin-left: 5px;color: #005099;font-weight: bold;height: 60px;">{{showcompare.name}}</div>
+                      <div style="margin-left: 5px;color: #005099;text-align: left;">Price: ฿{{ showcompare.regularPrice}} / 1 Tire.</div>
+                      <div style="margin-left: 5px;color: #005099;text-align: left;">Width: {{ showcompare.width}}</div>
+                      <div style="margin-left: 5px;color: #005099;text-align: left;">Diameter: {{ showcompare.diameter}}</div>
+                      <div style="margin-left: 5px;color: #005099;text-align: left;">Serie: {{ showcompare.height}}</div>
+                      <div style="margin-left: 5px;color: #005099;text-align: left;">Load Index: {{ showcompare.loadIndex}}</div>
+                      <div style="margin-left: 5px;color: #005099;text-align: left;">Speed Index: {{ showcompare.speedIndex}}</div>
+                      <div style="margin-left: 5px;color: #005099;text-align: left;">Type: {{ showcompare.type}}</div>
+                    </div>
+                  </b-col>
+                </b-row>
+              </div>
+            </b-modal>
+          </div>
+      </div>
+    </div>
+    <br>
+  </div>
 </template>
 <script>
 import axios from 'axios'
@@ -93,10 +172,21 @@ export default {
       checkcarts: [],
       checkcartz: [],
       compares: [],
-      showcompares: ''
+      showcompares: '',
+      languages: ''
     }
   },
   mounted () {
+    this.languages = JSON.parse(localStorage.getItem('languages'))
+    console.log('lang', this.languages)
+    if (this.languages === '' || this.languages === null || this.languages === 'null' || this.languages === undefined || this.languages === 'undefined') {
+      console.log('langNOTLANG')
+      this.languages = 'TH'
+    } else if (this.languages === 'TH') {
+      console.log('langTH')
+    } else if (this.languages === 'EN') {
+      console.log('langEN')
+    }
     axios.get(process.env.VUE_APP_API_URL + '/product').then(res => {
       this.promotions = res.data.data.products
       const promotion = this.promotions.filter((post, index) => {
