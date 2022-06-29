@@ -631,7 +631,7 @@
                   <li>The result of considering the product that has been submitted is the sole right of the dealer/manufacturer of that brand.</li>
                   <li>Please keep the receipt or order confirmation to be used in the product claim.</li>
                 </ul>
-                <p>พึงตระหนักไว้ว่าการติดตั้งยางล้อรถที่ไม่เหมาะสมและการเติมลมยางที่มากเกินไปอาจก่อความเสียหายต่อยางและล้อได้และอาจทำให้ระเบิดก่อให้เกิดความเสียหายร้ายแรงถึงขั้นเสียชีวิต info@tyrepac.co.th</p>
+                <p>Be aware that improper tire installation and over-inflating can damage tires and wheels and may cause explosions causing serious and fatal damage. info@tyrepac.co.th</p>
               </b-col>
             </b-row>
             <br>

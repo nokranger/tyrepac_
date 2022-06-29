@@ -1,5 +1,5 @@
 <template>
-  <div v-if="languages === 'TH'" style="margin-top: 160px">
+  <div style="margin-top: 160px">
     <div>
       <b-container>
         <div
@@ -11,7 +11,7 @@
         >
           <div style="margin: 15px">
             <div style="font-weight: bold; font-size: 25px">
-              รายละเอียดสั่งซื้อยาง
+              Tires order details
             </div>
             <br />
             <div style="text-align: left">
@@ -21,7 +21,7 @@
                 :items="items"
                 :fields="fields"
               >
-                <template v-slot:cell(สินค้า)="data">
+                <template v-slot:cell(Product)="data">
                   <div>
                     <img style="width:150px;" :src="data.item.img " alt="">
                   </div>
@@ -32,7 +32,7 @@
                 <!-- <template v-slot:cell(จำนวน)="data">
                   <div>{{ data.item.qty }}</div>
                 </template> -->
-                <template v-slot:cell(มูลค่าสินค้า)="data">
+                <template v-slot:cell(Value)="data">
                   <div>{{ (data.item.price * data.item.qty).toLocaleString('en') }}</div>
                 </template>
               </b-table>
@@ -44,7 +44,7 @@
                     <b-col></b-col>
                     <b-col>
                       <div style="color: black;font-weight: bold;">
-                        รวม
+                        Total
                       </div>
                     </b-col>
                     <b-col>{{(count).toLocaleString('en')}}</b-col>
@@ -55,10 +55,10 @@
                     <b-col></b-col>
                     <b-col>
                        <div style="color: black;font-weight: bold;">
-                        การจัดส่ง
+                        Delivery
                       </div>
                     </b-col>
-                    <b-col>จัดส่งฟรี</b-col>
+                    <b-col>Free shipping</b-col>
                   </b-row>
                   <br>
                   <b-row>
@@ -66,10 +66,10 @@
                     <b-col></b-col>
                     <b-col>
                        <div style="color: black;font-weight: bold;">
-                        วิธีการชำระเงิน
+                        Payment method
                       </div>
                     </b-col>
-                    <b-col>บัตรเครดิตวีซ่า / มาสเตอร์การ์ด</b-col>
+                    <b-col>Bank transfer</b-col>
                   </b-row>
                   <br>
                   <b-row>
@@ -77,7 +77,7 @@
                     <b-col></b-col>
                     <b-col>
                       <div style="color: black;font-weight: bold;">
-                        รวมทั้งหมด (ใช้รหัสส่วนลด)
+                        Total (use discount code)
                       </div>
                     </b-col>
                     <b-col>
@@ -101,91 +101,99 @@
           "
         >
           <div style="margin: 15px">
-            <!-- {{info}} -->
             <div style="text-align: right;">
-              <b-button variant="primary" href="/checkout">แก้ไขข้อมูล</b-button>
+              <b-button variant="primary" href="/checkout">Edit</b-button>
             </div>
             <div style="font-weight: bold; font-size: 25px">
               <!-- ขอบคุณค่ะ ได้รับรายการสั่งซื้อของคุณเรียบร้อยแล้ว -->
             </div>
             <ul>
               <div>
-                <div style="display: inline-block;font-weight: bold;">วันที่: </div><li>{{dates | moment('DD/MM/YYYY')}}</li>
+                <div style="display: inline-block;font-weight: bold;">Date: </div><li>{{dates | moment('DD/MM/YYYY')}}</li>
+              </div>
+              <!-- <div>
+                <div style="display: inline-block;font-weight: bold;">เลขที่คำสั่งซื้อ: </div><li>Test101</li>
+              </div> -->
+              <div>
+                <div style="display: inline-block;font-weight: bold;">Total: </div><li>฿{{(count).toLocaleString('en')}}</li>
               </div>
               <div>
-                <!-- <div style="display: inline-block;font-weight: bold;">เลขที่คำสั่งซื้อ: </div><li>-</li> -->
+                <div style="display: inline-block;font-weight: bold;">Payment method: </div><li>Bank transfer</li>
               </div>
               <div>
-                <div style="display: inline-block;font-weight: bold;">รวมทั้งหมด: </div><li>฿{{(count).toLocaleString('en')}}</li>
+                <div style="display: inline-block;font-weight: bold;">Name: </div><li>{{info.firstname}}</li>
               </div>
               <div>
-                <div style="display: inline-block;font-weight: bold;">วิธีการชำระเงิน: </div><li>บัตรเครดิต วีซ่า / มาสเตอร์การ์ด</li>
+                <div style="display: inline-block;font-weight: bold;">Last Name: </div><li>{{info.lastname}}</li>
               </div>
               <div>
-                <div style="display: inline-block;font-weight: bold;">ชื่อ: </div><li>{{info.firstname}}</li>
+                <div style="display: inline-block;font-weight: bold;">Address: </div><li>{{info.address.address + ' ' +  info.address.district + ' ' + info.address.province + ' ' + info.address.zipcode}}</li>
               </div>
               <div>
-                <div style="display: inline-block;font-weight: bold;">นามสกุล: </div><li>{{info.lastname}}</li>
+                <div style="display: inline-block;font-weight: bold;">Telephone: </div><li>{{info.phoneNo}}</li>
               </div>
               <div>
-                <div style="display: inline-block;font-weight: bold;">ที่อยุ่: </div><li>{{info.address.address + ' ' +  info.address.district + ' ' + info.address.province + ' ' + info.address.zipcode}}</li>
-              </div>
-              <div>
-                <div style="display: inline-block;font-weight: bold;">โทรศัพท์: </div><li>{{info.phoneNo}}</li>
-              </div>
-              <div>
-                <div style="display: inline-block;font-weight: bold;">อีเมล: </div><li>{{info.email}}</li>
+                <div style="display: inline-block;font-weight: bold;">Email: </div><li>{{info.email}}</li>
               </div>
             </ul>
             <div>
-              Please send a check to store name, store street, store town, store
-              state / country, store postcode
+              Make your payment directly to our bank account. Please use your order code as a reference. Your order will not be sent until the funds are cleared in our account.
+            </div>
+          </div>
+          <div style="text-align: center;">
+            <div>
+              <div style="font-weight: bold; font-size: 25px">
+                Scan QR CODE to pay
+              </div>
+            </div>
+            <div>
+              <img style="width: 300px;" src="https://i.imgur.com/YGIND7b.png" alt="">
+            </div>
+            <div style="font-weight: bold; font-size: 25px;text-align: left;">
+              <div style="margin-left: 10px;">Bank account information</div>
+              <ul>
+                <li>Bank: Bangkok Bank</li>
+                <li>Account number: 222-453485-5</li>
+              </ul>
             </div>
           </div>
         </div>
         <br>
         <br>
         <b-modal id="modal-NC" hide-footer hide-header centered>
-          <p style="font-weight: bold;text-align: center;" class="my-4">ไม่มีคูปอง</p>
-          <b-button variant="primary" href="/checkout">แก้ไขข้อมูล</b-button>
+          <p style="font-weight: bold;text-align: center;" class="my-4">No coupon</p>
+          <b-button variant="primary" href="/checkout">Edit</b-button>
         </b-modal>
-        <div style="text-align: right;">
+        <div style="border-radius: 5px;border: thin solid #e0e0e0;text-align: left;">
           <div style="margin: 15px;">
-            <!-- <div style="font-weight: bold; font-size: 25px">
-              ใบเสร็จรับเงิน
-            </div> -->
+            <div style="font-weight: bold; font-size: 25px">
+              Receipt
+            </div>
             <div v-if="previewImage != null">
               <img style="width:400px;height:700px" :src="previewImage">
             </div>
             <div>
-              <!-- <input ref="file" type="file" name="avatar" id="avatar" accept="image/jpeg, image/png" v-on:change="uploadImage">
-              <label for="avatar"><label style="color:red;font-size:25px;">*</label>Choose a file</label> -->
-              <b-button style="margin-left: 15px;" variant="primary" v-on:click="checkout ()">ยืนยัน</b-button>
+              <input ref="file" type="file" name="avatar" id="avatar" accept="image/jpeg, image/png" v-on:change="uploadImage">
+              <label for="avatar"><label style="color:red;font-size:25px;">*</label>Choose a file</label>
+              <b-button style="margin-left: 15px;" variant="primary" v-on:click="checkout ()">Confirm</b-button>
             </div>
           </div>
         </div>
+        <!-- <b-button v-on:click="test ()">Click</b-button> -->
       </b-container>
     </div>
   </div>
-  <div v-else-if="languages === 'EN'">
-    <app-credit></app-credit>
-  </div>
 </template>
 <script>
-import apiURL from '../assets/js/connect'
 import axios from 'axios'
-import checkoutcreditEn from '../views/checkoutcredit_en.vue'
 export default ({
-  components: {
-    'app-credit': checkoutcreditEn
-  },
   data () {
     return {
-      apiURL: apiURL,
       imgs: '',
       previewImage: null,
       items: [],
-      fields: ['สินค้า', ' ', 'มูลค่าสินค้า'],
+      fields: ['Product', ' ', 'Value'],
+      cart: [],
       count: 0,
       dates: '',
       data: {},
@@ -200,8 +208,7 @@ export default ({
       totalPrice: 0.0,
       firstname: '',
       lastname: '',
-      info: '',
-      languages: ''
+      info: ''
     }
   },
   metaInfo: {
@@ -210,16 +217,6 @@ export default ({
   },
   mounted () {
     this.dates = new Date()
-    this.languages = JSON.parse(localStorage.getItem('languages'))
-    console.log('lang', this.languages)
-    if (this.languages === '' || this.languages === null || this.languages === 'null' || this.languages === undefined || this.languages === 'undefined') {
-      console.log('langNOTLANG')
-      this.languages = 'TH'
-    } else if (this.languages === 'TH') {
-      console.log('langTH')
-    } else if (this.languages === 'EN') {
-      console.log('langEN')
-    }
     // this.dates = this.dates.toLocaleDateString()
     console.log(JSON.parse(localStorage.getItem('cart')))
     this.cart = JSON.parse(localStorage.getItem('checkout'))
@@ -232,6 +229,9 @@ export default ({
     console.log('countcart', this.count)
   },
   methods: {
+    test () {
+      this.$bvModal.show('modal-NC')
+    },
     uploadImage () {
       console.log('test')
       this.imgs = this.$refs.file.files[0]
@@ -258,7 +258,7 @@ export default ({
           localStorage.removeItem('info')
           localStorage.removeItem('coupon')
           localStorage.setItem('user', JSON.stringify(this.data))
-          location.replace('/donecredit')
+          location.replace('/donebank')
         } else if (res.data.status.code === 2) {
           console.log('ไม่พบคูปอง')
           this.$bvModal.show('modal-NC')

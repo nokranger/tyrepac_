@@ -1,5 +1,5 @@
 <template>
-  <div style="margin-top: 160px">
+  <div v-if="languages === 'TH'" style="margin-top: 160px">
     <div>
       <b-container>
         <div
@@ -43,7 +43,6 @@
               </div>
             </ul>
             <div>
-              <!-- ชำระเงินของคุณโดยตรงไปยังบันชีธนาคารของเรา โปรดใช้รหัสคำสั่งซื้อของคุณเป็นข้อมูลอ้างอิง คำสั่งซื้อของคุณจะไม่ถูกส่งจนกว่าเงินจะเคลียร์ในบันชีของเรา -->
             </div>
           </div>
         </div>
@@ -54,10 +53,17 @@
       </b-container>
     </div>
   </div>
+  <div v-else-if="languages === 'EN'">
+    <app-credit></app-credit>
+  </div>
 </template>
 <script>
 import axios from 'axios'
+import donecredit from './donecredit_en.vue'
 export default ({
+  components: {
+    'app-credit': donecredit
+  },
   data () {
     return {
       imgs: '',
@@ -79,7 +85,8 @@ export default ({
       totalPrice: 0.0,
       firstname: '',
       lastname: '',
-      info: ''
+      info: '',
+      languages: ''
     }
   },
   metaInfo: {
@@ -89,6 +96,16 @@ export default ({
   mounted () {
     this.dates = new Date()
     this.dates = this.dates.toLocaleDateString()
+    this.languages = JSON.parse(localStorage.getItem('languages'))
+    console.log('lang', this.languages)
+    if (this.languages === '' || this.languages === null || this.languages === 'null' || this.languages === undefined || this.languages === 'undefined') {
+      console.log('langNOTLANG')
+      this.languages = 'TH'
+    } else if (this.languages === 'TH') {
+      console.log('langTH')
+    } else if (this.languages === 'EN') {
+      console.log('langEN')
+    }
     // console.log(JSON.parse(localStorage.getItem('cart')))
     // this.cart = JSON.parse(localStorage.getItem('checkout'))
     this.info = JSON.parse(localStorage.getItem('user'))

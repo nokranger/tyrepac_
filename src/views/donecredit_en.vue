@@ -1,5 +1,5 @@
 <template>
-  <div v-if="languages === 'TH'" style="margin-top: 160px">
+  <div style="margin-top: 160px">
     <div>
       <b-container>
         <div
@@ -15,31 +15,31 @@
             </div>
             <ul>
               <div>
-                <div style="display: inline-block;font-weight: bold;">วันที่: </div><li>{{dates | moment('DD/MM/YYYY')}}</li>
+                <div style="display: inline-block;font-weight: bold;">Date: </div><li>{{dates | moment('DD/MM/YYYY')}}</li>
               </div>
               <div>
-                <div style="display: inline-block;font-weight: bold;">เลขที่คำสั่งซื้อ: </div><li>-</li>
+                <div style="display: inline-block;font-weight: bold;">Order number: </div><li>-</li>
               </div>
               <div>
-                <div style="display: inline-block;font-weight: bold;">รวมทั้งหมด: </div><li>฿{{(count).toLocaleString('en')}}</li>
+                <div style="display: inline-block;font-weight: bold;">Total: </div><li>฿{{(count).toLocaleString('en')}}</li>
               </div>
               <div>
-                <div style="display: inline-block;font-weight: bold;">วิธีการชำระเงิน: </div><li>โอนเงินผ่านธนาคาร</li>
+                <div style="display: inline-block;font-weight: bold;">Payment method: </div><li>Credit Card Visa / MasterCard</li>
               </div>
               <div>
-                <div style="display: inline-block;font-weight: bold;">ชื่อ: </div><li>{{info.firstname}}</li>
+                <div style="display: inline-block;font-weight: bold;">Name: </div><li>{{info.firstname}}</li>
               </div>
               <div>
-                <div style="display: inline-block;font-weight: bold;">นามสกุล: </div><li>{{info.lastname}}</li>
+                <div style="display: inline-block;font-weight: bold;">Last Name: </div><li>{{info.lastname}}</li>
               </div>
               <div>
-                <div style="display: inline-block;font-weight: bold;">ที่อยุ่: </div><li>{{info.address.address + ' ' +  info.address.district + ' ' + info.address.province + ' ' + info.address.zipcode}}</li>
+                <div style="display: inline-block;font-weight: bold;">Address: </div><li>{{info.address.address + ' ' +  info.address.district + ' ' + info.address.province + ' ' + info.address.zipcode}}</li>
               </div>
               <div>
-                <div style="display: inline-block;font-weight: bold;">โทรศัพท์: </div><li>{{info.phoneNo}}</li>
+                <div style="display: inline-block;font-weight: bold;">Telephone: </div><li>{{info.phoneNo}}</li>
               </div>
               <div>
-                <div style="display: inline-block;font-weight: bold;">อีเมล: </div><li>{{info.email}}</li>
+                <div style="display: inline-block;font-weight: bold;">Email: </div><li>{{info.email}}</li>
               </div>
             </ul>
             <div>
@@ -53,17 +53,10 @@
       </b-container>
     </div>
   </div>
-  <div v-else-if="languages === 'EN'">
-    <app-bank></app-bank>
-  </div>
 </template>
 <script>
 import axios from 'axios'
-import donebank from './donebank_en.vue'
 export default ({
-  components: {
-    'app-bank': donebank
-  },
   data () {
     return {
       imgs: '',
@@ -85,8 +78,7 @@ export default ({
       totalPrice: 0.0,
       firstname: '',
       lastname: '',
-      info: '',
-      languages: ''
+      info: ''
     }
   },
   metaInfo: {
@@ -96,16 +88,6 @@ export default ({
   mounted () {
     this.dates = new Date()
     this.dates = this.dates.toLocaleDateString()
-    this.languages = JSON.parse(localStorage.getItem('languages'))
-    console.log('lang', this.languages)
-    if (this.languages === '' || this.languages === null || this.languages === 'null' || this.languages === undefined || this.languages === 'undefined') {
-      console.log('langNOTLANG')
-      this.languages = 'TH'
-    } else if (this.languages === 'TH') {
-      console.log('langTH')
-    } else if (this.languages === 'EN') {
-      console.log('langEN')
-    }
     // console.log(JSON.parse(localStorage.getItem('cart')))
     // this.cart = JSON.parse(localStorage.getItem('checkout'))
     this.info = JSON.parse(localStorage.getItem('user'))
@@ -132,13 +114,6 @@ export default ({
       }
     },
     checkout () {
-      this.testsss = {
-        customerId: 'C001',
-        paymentId: 1,
-        status: 1,
-        totalPrice: this.count,
-        orderDetails: this.items
-      }
       console.log('data', this.testsss)
       // localStorage.setItem('checkout', localStorage.getItem('cart'))
       axios.post(process.env.VUE_APP_API_URL + '/order', this.testsss).then((res) => {

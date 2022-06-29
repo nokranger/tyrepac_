@@ -1,5 +1,5 @@
 <template>
-  <div style="margin-top: 160px">
+  <div v-if="languages === 'TH'" style="margin-top: 160px">
     <div>
       <b-container>
         <div
@@ -183,10 +183,17 @@
       </b-container>
     </div>
   </div>
+  <div v-else-if="languages === 'EN'">
+    <app-bank></app-bank>
+  </div>
 </template>
 <script>
 import axios from 'axios'
+import checkoutbankEn from './checkoutbank_en.vue'
 export default ({
+  components: {
+    'app-bank': checkoutbankEn
+  },
   data () {
     return {
       imgs: '',
@@ -208,7 +215,8 @@ export default ({
       totalPrice: 0.0,
       firstname: '',
       lastname: '',
-      info: ''
+      info: '',
+      languages: ''
     }
   },
   metaInfo: {
@@ -217,6 +225,16 @@ export default ({
   },
   mounted () {
     this.dates = new Date()
+    this.languages = JSON.parse(localStorage.getItem('languages'))
+    console.log('lang', this.languages)
+    if (this.languages === '' || this.languages === null || this.languages === 'null' || this.languages === undefined || this.languages === 'undefined') {
+      console.log('langNOTLANG')
+      this.languages = 'TH'
+    } else if (this.languages === 'TH') {
+      console.log('langTH')
+    } else if (this.languages === 'EN') {
+      console.log('langEN')
+    }
     // this.dates = this.dates.toLocaleDateString()
     console.log(JSON.parse(localStorage.getItem('cart')))
     this.cart = JSON.parse(localStorage.getItem('checkout'))

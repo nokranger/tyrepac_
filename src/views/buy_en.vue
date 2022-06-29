@@ -1,19 +1,19 @@
 <template>
-  <div v-if="languages === 'TH'" style="margin-top: 160px">
+  <div style="margin-top: 160px">
     <div style="border-radius: 5px;border: thin solid #E0E0E0;text-align: left;">
       <b-container>
         <b-row>
           <br>
           <div style="margin: 15px;">
-            <div style="font-weight: bold;font-size: 30px;">รูปแบบการจัดส่งสินค้า</div>
+            <div style="font-weight: bold;font-size: 30px;">Shipping form</div>
           </div>
           <b-col>
             <div style="border-radius: 5px;border: thin solid #E0E0E0;margin: 5px;">
               <br>
-              <div style="margin: 15px;">ซื้อยาง 4 เส้น ติดตั้งฟรีกับร้านที่ร่วมรายการ</div>
+              <div style="margin: 15px;">Buy 4 tires, free installation at participating stores.</div>
               <br>
               <div style="margin: 15px;">
-                <b-button variant="primary" v-on:click="installer ()">เลือกร้านติดตั้ง</b-button>
+                <b-button variant="primary" v-on:click="installer ()">Choose an installation shop</b-button>
                 <br>
                 <br>
               </div>
@@ -22,10 +22,10 @@
           <b-col>
             <div style="border-radius: 5px;border: thin solid #E0E0E0;margin: 5px;">
               <br>
-              <div id="information" style="margin: 15px;">การเลือกตัวเลือกนี้จะส่งไปยังที่อยู่สำหรับการเรียกเก็บเงินและการจัดส่งของคุณด้านล่าง</div>
+              <div id="information" style="margin: 15px;">Selecting this option will send it to your billing and shipping address below.</div>
               <br>
               <div style="margin: 15px;">
-                <b-button variant="primary" href="#more">กำหนดสถานที่ส่ง</b-button>
+                <b-button variant="primary" href="#more">Set delivery location</b-button>
                 <br>
                 <br>
               </div>
@@ -41,16 +41,16 @@
           <b-container>
               <div style="text-align: left;">
                 <b-table ref="table" striped hover :items="itemin" :fields="fieldin" :per-page="perpage" :current-page="currentPage">
-                  <template v-slot:cell(ชื่อร้าน)="data">
+                  <template v-slot:cell(Name)="data">
                     <div>{{data.item.name}}</div>
                   </template>
-                  <template v-slot:cell(ที่อยู่)="data">
+                  <template v-slot:cell(Address)="data">
                     <div>{{data.item.address}}</div>
                   </template>
                   <!-- <template v-slot:cell(เวลาทำการ)="data">
                     <div>{{data.item.hours}}</div>
                   </template> -->
-                  <template v-slot:cell(โทรศัพท์)="data">
+                  <template v-slot:cell(Telephone)="data">
                     <div>{{data.item.phoneNo}}</div>
                   </template>
                   <!-- <template v-slot:cell(ประเภท)="data">
@@ -82,24 +82,24 @@
               <div style="margin: 15px;">
                 <br>
                 <div v-if="statusin === 1">
-                  <div style="font-weight: bold;font-size: 30px;">ศูนย์การติดตั้งที่เลือก</div>
+                  <div style="font-weight: bold;font-size: 30px;">Selected installation</div>
                   <br>
                   <div>
-                    <div>ศูนย์การติดตั้งที่เลือก (ต้องระบุ)</div>
+                    <div>Selected installation (Required)</div>
                     <div>
                       <b-textarea v-model="ins"></b-textarea>
                       <br>
                     </div>
                   </div>
                   <div>
-                    <div>เลือกวันที่ติดตั้ง (ต้องระบุ)</div>
+                    <div>เลือกวันที่ติดตั้ง (Required)</div>
                     <div>
                       <b-form-datepicker v-model="date" :min="dates" class="mb-2"></b-form-datepicker>
                       <br>
                     </div>
                   </div>
                   <div>
-                    <div>เลือกเวลาการติดตั้ง (optional)</div>
+                    <div>select installation date (optional)</div>
                     <div>
                       <div>
                         <b-form-timepicker v-model="valuetime" locale="en"></b-form-timepicker>
@@ -107,128 +107,127 @@
                       </div>
                       <br>
                     </div>
-                    <div> <label for="" style="color: #ee2456;">*</label> หากมีวันมีการเปลี่ยนแปลงทีมงานจะติดต่อกลับ</div>
+                    <div> <label for="" style="color: #ee2456;">*</label> If there is a change in date, the team will contact you back.</div>
                   </div>
                 </div>
-                <div style="font-weight: bold;font-size: 30px;">ข้อมูลรถยนต์ในการขอรับประกันยาง</div>
+                <div style="font-weight: bold;font-size: 30px;">Vehicle information for applying for a tire warranty</div>
                 <br>
                   <div v-if="information == 1" style="color: red;font-weight: bold;">
-                    ** กรุณากรอกข้อมูลให้ครบถ้วน
+                    ** Please fill out the information completely.
                   </div>
                 <br>
                 <div>
                   <div>
-                    <div>ยี่ห้อรถยนต์ <div style="color: red;display: inline-block;font-weight: bold;">*</div></div>
+                    <div>Car brand <div style="color: red;display: inline-block;font-weight: bold;">*</div></div>
                     <div>
-                      <b-input placeholder="ยี่ห้อรถยนต์"></b-input>
+                      <b-input placeholder="Car brand"></b-input>
                       <br>
                     </div>
                   </div>
                   <div>
-                    <div>รุ่นรถยนต์ <div style="color: red;display: inline-block;font-weight: bold;">*</div></div>
+                    <div>Car model <div style="color: red;display: inline-block;font-weight: bold;">*</div></div>
                     <div>
-                      <b-input placeholder="รุ่นรถยนต์" v-model="warranty.carModel"></b-input>
+                      <b-input placeholder="Car model" v-model="warranty.carModel"></b-input>
                       <br>
                     </div>
                   </div>
                   <div>
-                    <div>หมายเลขทะเบียนรถ <div style="color: red;display: inline-block;font-weight: bold;">*</div></div>
+                    <div>Vehicle registration number <div style="color: red;display: inline-block;font-weight: bold;">*</div></div>
                     <div>
-                      <b-input placeholder="หมายเลขทะเบียนรถ" v-model="warranty.carNo"></b-input>
+                      <b-input placeholder="Vehicle registration number" v-model="warranty.carNo"></b-input>
                       <br>
                     </div>
                   </div>
                 </div>
-                <div style="font-weight: bold;font-size: 30px;">
-                  ใบกำกับภาษี
+                <div style="font-weight: bold;font-size: 30px;">Tax invoice
                 </div>
                 <br>
                 <br>
                 <div>
-                  <div style="font-weight: bold;font-size: 30px;">* กรุณาตรวจสอบข้อมูลให้ถูกต้อง ไม่สามารถแก้ไขเปลี่ยนแปลงและขอย้อนหลังได้</div>
+                  <div style="font-weight: bold;font-size: 30px;">* Please verify that the information is correct. Can't modify and request retrospectively</div>
                   <br>
                   <div>
-                    <b-form-radio v-model="selectedtax" name="some-radios" value="false">ไม่ต้องการ</b-form-radio>
-                    <b-form-radio v-model="selectedtax" name="some-radios" value="true">ต้องการ</b-form-radio>
+                    <b-form-radio v-model="selectedtax" name="some-radios" value="false">No</b-form-radio>
+                    <b-form-radio v-model="selectedtax" name="some-radios" value="true">Yes</b-form-radio>
                   </div>
                 </div>
                 <div>
                   <br>
-                  <div style="font-weight: bold;font-size: 30px;">ใบเสร็จ</div>
+                  <div style="font-weight: bold;font-size: 30px;">Invoice</div>
                   <br>
                   <div v-if="information == 1" style="color: red;font-weight: bold;">
-                    ** กรุณากรอกข้อมูลให้ครบถ้วน
+                    ** Please fill out the information completely.
                   </div>
                   <br>
                   <div>
                     <div>
-                      ชื่อ <div style="color: red;display: inline-block;font-weight: bold;">*</div>
+                      Name <div style="color: red;display: inline-block;font-weight: bold;">*</div>
                     </div>
                     <div>
-                      <b-input type="text" id="fname" name="fname" autocomplete="on" v-model="firstname" placeholder="ชื่อ"></b-input>
+                      <b-input type="text" id="fname" name="fname" autocomplete="on" v-model="firstname" placeholder="Name"></b-input>
                       <br>
                     </div>
                   </div>
                   <div>
                     <div>
-                      นามสกุล <div style="color: red;display: inline-block;font-weight: bold;">*</div>
+                      Last Name <div style="color: red;display: inline-block;font-weight: bold;">*</div>
                     </div>
                     <div>
-                      <b-input type="text" id="lname" name="lname" autocomplete="on"  v-model="lastname" placeholder="นามสกุล"></b-input>
+                      <b-input type="text" id="lname" name="lname" autocomplete="on"  v-model="lastname" placeholder="Last Name"></b-input>
                       <br>
                     </div>
                   </div>
                   <div>
                     <div>
-                      ที่อยู่ <div style="color: red;display: inline-block;font-weight: bold;">*</div>
+                      Address <div style="color: red;display: inline-block;font-weight: bold;">*</div>
                     </div>
                     <div>
-                      <b-input type="text" id="address" name="address" autocomplete="on" v-model="address.address" placeholder="ที่อยู่"></b-input>
+                      <b-input type="text" id="address" name="address" autocomplete="on" v-model="address.address" placeholder="Address"></b-input>
                       <br>
                     </div>
                   </div>
                   <div>
                     <div>
-                      อำเภอ <div style="color: red;display: inline-block;font-weight: bold;">*</div>
+                      District <div style="color: red;display: inline-block;font-weight: bold;">*</div>
                     </div>
                     <div>
-                      <b-input type="text" id="address" name="address" autocomplete="on" v-model="address.district" placeholder="อำเภอ"></b-input>
+                      <b-input type="text" id="address" name="address" autocomplete="on" v-model="address.district" placeholder="District"></b-input>
                       <br>
                     </div>
                   </div>
                   <div>
                     <div>
-                      จังหวัด <div style="color: red;display: inline-block;font-weight: bold;">*</div>
+                      Province <div style="color: red;display: inline-block;font-weight: bold;">*</div>
                     </div>
                     <div>
-                      <b-input type="text" id="address" name="address" autocomplete="on" v-model="address.province" placeholder="จังหวัด"></b-input>
+                      <b-input type="text" id="address" name="address" autocomplete="on" v-model="address.province" placeholder="Province"></b-input>
                       <br>
                     </div>
                   </div>
                   <div>
                     <div>
-                      รหัสไปรษณีย์ <div style="color: red;display: inline-block;font-weight: bold;">*</div>
+                      Zip code <div style="color: red;display: inline-block;font-weight: bold;">*</div>
                     </div>
                     <div>
-                      <b-input type="text" id="zipcode" name="zipcode" autocomplete="on" v-model="address.zipcode" placeholder="รหัสไปรษณีย์"></b-input>
+                      <b-input type="text" id="zipcode" name="zipcode" autocomplete="on" v-model="address.zipcode" placeholder="Zip Code"></b-input>
                       <br>
                     </div>
                   </div>
                   <div>
                     <div>
-                      โทรศัพท์ <div style="color: red;display: inline-block;font-weight: bold;">*</div>
+                      Telephone <div style="color: red;display: inline-block;font-weight: bold;">*</div>
                     </div>
                     <div>
-                      <b-input type="text" id="phone" name="phone" autocomplete="on" v-model="phoneNo" placeholder="โทรศัพท์"></b-input>
+                      <b-input type="text" id="phone" name="phone" autocomplete="on" v-model="phoneNo" placeholder="Telephone"></b-input>
                       <br>
                     </div>
                   </div>
                   <div>
                     <div>
-                      อีเมลแอดเดรส <div style="color: red;display: inline-block;font-weight: bold;">*</div>
+                      Email <div style="color: red;display: inline-block;font-weight: bold;">*</div>
                     </div>
                     <div>
-                      <b-input type="email" id="email" name="email" autocomplete="on" v-model="email" placeholder="อีเมลแอดเดรส"></b-input>
+                      <b-input type="email" id="email" name="email" autocomplete="on" v-model="email" placeholder="Email"></b-input>
                       <br>
                     </div>
                   </div>
@@ -240,7 +239,7 @@
                       value="true"
                       unchecked-value="false"
                     >
-                      กรุณาตรวจสอบรายการคำสั่งซื้อของคุณ ทางเราขอสงวนสิทธิ์หากชำระเงินแล้วไม่รับเปลี่ยนหรือคืน *
+                    Please check your order list. We reserve the right to not accept exchanges or refunds after payment has been made. *
                     </b-form-checkbox>
                     <br>
                     <br>
@@ -253,15 +252,14 @@
             <div id="more" style="border-radius: 5px;border: thin solid #E0E0E0;margin: 5px;">
               <div style="margin: 15px;">
                 <br>
-                <div style="font-weight: bold;font-size: 30px;">
-                  ข้อมูลเพิ่มเติม
+                <div style="font-weight: bold;font-size: 30px;">More information
                 </div>
                 <br>
                 <div>
                   <div>
-                    บันทึกเพิ่มเติม (ต้องระบุ)
+                    Additional notes (Required)
                   </div>
-                  <b-textarea placeholder="หมายเหตุต่างๆ เช่น รายละเอียดการจัดส่ง"></b-textarea>
+                  <b-textarea placeholder="Notes such as delivery details"></b-textarea>
                   <br>
                   <br>
                 </div>
@@ -275,22 +273,22 @@
           <div style="border-radius: 5px;border: thin solid #E0E0E0;margin: 5px;">
             <div>
               <br>
-            <div style="font-weight: bold;font-size: 30px;">รายการสั่งซื้อของคุณ</div>
-              <div >ใส่รหัสส่วนลดที่นี่? <a href="#" v-b-modal.modal-1 style="text-decoration: none;">คลิกที่นี่ เพื่อใส่รหัสส่วนลด.</a></div>
-              <div v-if="coupons.status === 1" style="font-weight: bold;display: inline-block;">ออร์เดอร์นี้มีการใช้รหัสส่วนลด:&nbsp;&nbsp;&nbsp;</div><div style="font-weight: bold;display: inline-block;color: red;">{{coupons.promotion.name}}</div>
+            <div style="font-weight: bold;font-size: 30px;">Your order list</div>
+              <div >Enter a discount code here? <a href="#" v-b-modal.modal-1 style="text-decoration: none;">Click here to enter the discount code.</a></div>
+              <div v-if="coupons.status === 1" style="font-weight: bold;display: inline-block;">This order has a discount code.:&nbsp;&nbsp;&nbsp;</div><div style="font-weight: bold;display: inline-block;color: red;">{{coupons.promotion.name}}</div>
               <b-modal id="modal-1" hide-footer hide-header>
-                <p class="my-4">มีรหัสส่วนลดหรือไม่?</p>
+                <p class="my-4">Is there a discount code?</p>
                 <div>
-                  <b-input v-model="couponId" placeholder="รหัสส่วนลด"></b-input>
+                  <b-input v-model="couponId" placeholder="discount code"></b-input>
                 </div>
                 <br>
                 <div>
-                  <b-button variant="primary" v-on:click="usecoupon()">ใช้รหัสส่วนลด</b-button>
+                  <b-button variant="primary" v-on:click="usecoupon()">Use discount code</b-button>
                 </div>
               </b-modal>
               <div style="margin: 5px;text-align: left;">
                 <b-table ref="table" hover :items="items" :fields="fields">
-                  <template v-slot:cell(สินค้า)="data">
+                  <template v-slot:cell(Product)="data">
                     <div style="color: #005099;font-weight: bold;display:inline-block;">
                       <img style="width: 150px;" :src="data.item.img" alt="">
                     </div>
@@ -302,12 +300,12 @@
                   <!-- <template v-slot:cell(จำนวน)="data">
                     <div>{{data.item.qty}}</div>
                   </template> -->
-                  <template v-slot:cell(จำนวน)="data">
+                  <template v-slot:cell(Amount)="data">
                     <div style="margin: 5px;text-align: left;">
                       <b-form-spinbutton id="demo-sb" v-model="data.item.qty" min="1" max="100" v-on:change="updateitem ()"></b-form-spinbutton>
                     </div>
                   </template>
-                  <template v-slot:cell(มูลค่าสินค้า)="data">
+                  <template v-slot:cell(Value)="data">
                     <div>฿{{(data.item.price * data.item.qty).toLocaleString('en')}}</div>
                   </template>
                   <template v-slot:cell()="data">
@@ -322,7 +320,7 @@
                     <b-col></b-col>
                     <b-col>
                       <div style="color: black;font-weight: bold;">
-                        มูลค่าสินค้า
+                        Value
                       </div>
                     </b-col>
                     <b-col>฿{{(count).toLocaleString('en')}}</b-col>
@@ -332,11 +330,10 @@
                     <b-col></b-col>
                     <b-col></b-col>
                     <b-col>
-                       <div style="color: black;font-weight: bold;">
-                        การจัดส่ง
+                       <div style="color: black;font-weight: bold;">Delivery
                       </div>
                     </b-col>
-                    <b-col>จัดส่งฟรี</b-col>
+                    <b-col>Free shipping</b-col>
                   </b-row>
                   <br>
                   <b-row>
@@ -344,7 +341,7 @@
                     <b-col></b-col>
                     <b-col>
                       <div style="color: black;font-weight: bold;">
-                        รวมทั้งหมด
+                        Total
                       </div>
                     </b-col>
                     <b-col>
@@ -357,8 +354,7 @@
                     <b-col></b-col>
                     <b-col></b-col>
                     <b-col>
-                      <div style="color: black;font-weight: bold;">
-                        รวมทั้งหมด (ใช้รหัสส่วนลด)
+                      <div style="color: black;font-weight: bold;">Total (use discount code)
                       </div>
                     </b-col>
                     <b-col>
@@ -384,32 +380,30 @@
                 <br>
                 <div style="margin: 15px;">
                   <div>
-                    <b-form-radio v-model="selectedp" name="some-radios" value="1">โอนเงินผ่านธนาคาร</b-form-radio>
+                    <b-form-radio v-model="selectedp" name="some-radios" value="1">Bank transfer</b-form-radio>
                     <br>
-                    <div style="margin: 15px;">
-                      ชำระเงินของคุณโดยตรงไปยังบัญชีธนาคารของเรา โปรดใช้รหัสคำสั่งซื้อของคุณเป็นข้อมูลอ้างอิงการชำระเงิน คำสั่งซื้อของคุณจะไม่ถูกส่งจนกว่าเงินจะเคลียร์ในบัญชีของเรา
+                    <div style="margin: 15px;">Make your payments directly to our bank account. Please use your order ID as a payment reference. Your order will not be sent until the funds are cleared in our account.
                     </div>
                     <br>
                     <br>
                     <br>
-                    <b-form-radio v-model="selectedp" name="some-radios" value="2">บัตรเครดิต วีซ่า / มาสเตอร์การ์ด</b-form-radio>
+                    <b-form-radio v-model="selectedp" name="some-radios" value="2">Credit Card Visa / MasterCard</b-form-radio>
                     <!-- {{selected}} -->
                     <br>
-                    <div style="margin-left: 5px;">
-                      ข้อมูลของคุณจะถูกใช้ในกระบวนการสั่งซื้อ เพื่อสร้างประสบการณ์ของคุณผ่านเว็บไซต์ ศึกษานโยบายส่วนตัว นโยบายความเป็นส่วนตัว.
+                    <div style="margin-left: 5px;">Your information will be used in the ordering process. to create your experience through the website study privacy policy Privacy Policy.
                     </div>
                     <div v-if="selectedp == '1'" style="text-align: right;">
-                      <b-button variant="primary" v-on:click="memberbank ()">สั่งซื้อ</b-button>
+                      <b-button variant="primary" v-on:click="memberbank ()">Order</b-button>
                     </div>
                     <div v-if="selectedp == '2'" style="text-align: right;">
-                      <b-button variant="primary" v-on:click="membercredit ()">สั่งซื้อ</b-button>
+                      <b-button variant="primary" v-on:click="membercredit ()">Order</b-button>
                     </div>
                     <b-modal id="modal-NC" hide-footer hide-header centered>
-                      <p style="font-weight: bold;text-align: center;" class="my-4">ไม่มีรหัสคูปองนี้หรือคูปองหมดอายุไปแล้วโปรดตรวจเช็คอีกครั้ง</p>
+                      <p style="font-weight: bold;text-align: center;" class="my-4">This coupon code does not exist or the coupon has expired, please check again.</p>
                       <!-- <b-button variant="primary" href="/checkout">แก้ไขข้อมูล</b-button> -->
                     </b-modal>
                     <b-modal id="modal-NC2" hide-footer hide-header centered>
-                      <p style="font-weight: bold;text-align: center;" class="my-4">รหัสคูปองนี้หมดอายุไปแล้วโปรดตรวจเช็คอีกครั้ง</p>
+                      <p style="font-weight: bold;text-align: center;" class="my-4">This coupon code has expired, please check again.</p>
                       <!-- <b-button variant="primary" href="/checkout">แก้ไขข้อมูล</b-button> -->
                     </b-modal>
                     <br>
@@ -423,19 +417,12 @@
       </b-container>
     </div>
   </div>
-  <div v-else-if="languages === 'EN'">
-  <app-buy></app-buy>
-  </div>
 </template>
 <script>
 // import installer from '../assets/installer.json'
 import apiURL from '../assets/js/connect'
 import axios from 'axios'
-import buyEn from '../views/buy_en.vue'
 export default {
-  components: {
-    'app-buy': buyEn
-  },
   data () {
     return {
       apiURL: apiURL,
@@ -448,13 +435,13 @@ export default {
       statuss: '',
       selectedp: '',
       items: [],
-      fields: ['สินค้า', 'จำนวน', 'มูลค่าสินค้า', ' '],
+      fields: ['Product', 'Amount', 'Value', ' '],
       pay: '',
       cart: [],
       check: [],
       statusin: 0,
       itemin: '',
-      fieldin: ['ชื่อร้าน', 'ที่อยู่', 'โทรศัพท์', 'state'],
+      fieldin: ['Name', 'Address', 'Telephone', 'state'],
       perpage: 10,
       currentPage: 1,
       totalRows: 1,
@@ -497,8 +484,7 @@ export default {
       email: '',
       autoinfo: '',
       information: 0,
-      remark: null,
-      languages: ''
+      remark: null
     }
   },
   metaInfo: {
@@ -506,16 +492,6 @@ export default {
     titleTemplate: "%s - Tyrepac - Asia's First Tyre Portal"
   },
   mounted () {
-    this.languages = JSON.parse(localStorage.getItem('languages'))
-    console.log('lang', this.languages)
-    if (this.languages === '' || this.languages === null || this.languages === 'null' || this.languages === undefined || this.languages === 'undefined') {
-      console.log('langNOTLANG')
-      this.languages = 'TH'
-    } else if (this.languages === 'TH') {
-      console.log('langTH')
-    } else if (this.languages === 'EN') {
-      console.log('langEN')
-    }
     if (localStorage.getItem('coupon') === null) {
       console.log('nullcoup')
     } else {
