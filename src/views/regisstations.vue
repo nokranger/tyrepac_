@@ -81,7 +81,7 @@
             <div>
               <img
                 style="width: 100%; height: 750px"
-                src="https://i.imgur.com/yzulKjb.jpg"
+                src="https://i.imgur.com/R6sPSSO.png"
                 alt=""
               />
             </div>
