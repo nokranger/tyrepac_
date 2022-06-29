@@ -4,8 +4,11 @@
         <!-- <div>
           {{promotions}}
         </div> -->
-        <div style="font-weight: bold;font-size: 30px;">
+        <div v-if="languages === 'TH'" style="font-weight: bold;font-size: 30px;">
           โปรโมชั่น
+        </div>
+        <div v-else-if="languages === 'EN'" style="font-weight: bold;font-size: 30px;">
+          Promotions
         </div>
         <br>
         <br>
@@ -41,10 +44,21 @@ import axios from 'axios'
 export default {
   data () {
     return {
-      promotions: ''
+      promotions: '',
+      languages: ''
     }
   },
   mounted () {
+    this.languages = JSON.parse(localStorage.getItem('languages'))
+    console.log('lang', this.languages)
+    if (this.languages === '' || this.languages === null || this.languages === 'null' || this.languages === undefined || this.languages === 'undefined') {
+      console.log('langNOTLANG')
+      this.languages = 'TH'
+    } else if (this.languages === 'TH') {
+      console.log('langTH')
+    } else if (this.languages === 'EN') {
+      console.log('langEN')
+    }
     axios.get(process.env.VUE_APP_API_URL + '/promotion').then(res => {
       this.promotions = res.data.data
       console.log('promotions', this.promotions)

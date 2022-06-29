@@ -1,5 +1,5 @@
 <template>
-  <div style="margin-top: 160px">
+  <div v-if="languages === 'TH'" style="margin-top: 160px">
     <div>
       <b-container>
         <br>
@@ -194,6 +194,175 @@
       </b-container>
     </div>
   </div>
+  <div v-else-if="languages === 'EN'" style="margin-top: 160px">
+    <div>
+      <b-container>
+        <br>
+        <br>
+        <div style="border-radius: 5px;border: thin solid #E0E0E0;text-align: left;">
+          <br>
+          <div style="margin-left: 15px;font-weight: bold;">You Have  {{counts}} products in your cart.</div>
+          <br>
+          <!-- <div>{{cart}}</div> -->
+              <div style="margin: 5px;">
+              <!-- <div>{{items}}</div> -->
+                <b-table ref="table" hover :items="items" :fields="fieldss">
+                  <template v-slot:cell(Product)="data">
+                    <div style="color: #005099;font-weight: bold;display:inline-block;">
+                      <img style="width: 150px;" :src="data.item.img" alt="">
+                    </div>
+                    <div style="color: #005099;font-weight: bold;display:inline-block;margin-left: 15px;">{{data.item.name}}</div>
+                  </template>
+                  <!-- <template v-slot:cell()="data">
+                    <div style="color: #005099;font-weight: bold;">{{data.item.name}}</div>
+                  </template> -->
+                  <template v-slot:cell(Amount)="data">
+                    <div style="margin: 5px;text-align: left;">
+                      <b-form-spinbutton id="demo-sb" v-model="data.item.qty" min="1" max="100" v-on:change="updateitem ()"></b-form-spinbutton>
+                    </div>
+                  </template>
+                  <template v-slot:cell(Price)="data">
+                    <div>
+                      <div>฿{{(data.item.price).toLocaleString('en')}}</div>
+                    </div>
+                  </template>
+                  <template v-slot:cell(Value)="data">
+                    <div>฿{{(data.item.price * data.item.qty).toLocaleString('en')}}</div>
+                  </template>
+                  <template v-slot:cell()="data">
+                    <i class="fas fa fa-times" style="display: inline-block;margin-left: 10px;font-size: 20px;cursor: pointer;color: #ee2456;" v-on:click="removeitem (data.item.name)"></i>
+                  </template>
+                  <!-- <template v-slot:cell(ปรับปรุงสินค้า)="data">
+                    <b-button v-on:click="updateitem(data.item.name, data.item.value, data)">ปรับปรุงสินค้า</b-button>
+                  </template> -->
+                </b-table>
+              </div>
+        </div>
+        <br>
+        <br>
+        <b-row>
+          <b-col>
+            <b-col>
+              <div style="border-radius: 5px;border: thin solid #E0E0E0;text-align: left;">
+                <div style="margin: 15px;">
+                  <div style="font-weight: bold;font-size: 30px;">Is there a discount code?</div>
+                  <div>
+                    <!-- <div>1{{coupons}}</div> -->
+                    <div v-if="coupons.status === 1" style="font-weight: bold;display: inline-block;">ออร์เดอร์นี้มีการใช้รหัสส่วนลด:&nbsp;&nbsp;&nbsp;</div><div style="font-weight: bold;display: inline-block;color: #005099;">{{coupons.promotion.name}}</div><i v-if="coupons.status === 1" class="fas fa fa-times" style="display: inline-block;margin-left: 10px;font-size: 20px;cursor: pointer;color: #ee2456;" v-on:click="cancleCoup ()"></i>
+                    <br>
+                    <b-input v-model="couponId" placeholder="รหัสส่วนลด"></b-input>
+                    <br>
+                  </div>
+                  <div>
+                    <b-button variant="primary" v-on:click="usecoupon()">Use discount code</b-button>
+                  </div>
+                </div>
+              </div>
+            </b-col>
+          </b-col>
+          <b-col>
+            <div style="border-radius: 5px;border: thin solid #E0E0E0;text-align: left;">
+              <div style="margin: 15px;">
+                <div style="font-weight: bold;font-size: 30px;">Total</div>
+              <div style="text-align: left;">
+                <b-container>
+                  <b-row>
+                    <b-col>
+                      <div style="color: black;font-weight: bold;">
+                        Value
+                      </div>
+                    </b-col>
+                    <b-col></b-col>
+                    <b-col></b-col>
+                    <b-col>฿{{(count).toLocaleString('en')}}</b-col>
+                  </b-row>
+                  <br>
+                  <b-row>
+                    <b-col>
+                       <div style="color: black;font-weight: bold;">
+                       Delivery
+                      </div>
+                    </b-col>
+                    <b-col></b-col>
+                    <b-col></b-col>
+                    <b-col>
+                      <div>Free shipping</div>
+                      <!-- <div>จัดส่งไปที่ กรุงเทพมหานคร</div> -->
+                    </b-col>
+                  </b-row>
+                  <br>
+                  <b-row>
+                    <b-col>
+                      <div style="color: black;font-weight: bold;">
+                        Total
+                      </div>
+                    </b-col>
+                    <b-col></b-col>
+                    <b-col></b-col>
+                    <b-col>
+                      <div style="color: #005099;">
+                        ฿{{(count).toLocaleString('en')}}
+                      </div>
+                    </b-col>
+                  </b-row>
+                  <!-- <div>{{coupons}}</div> -->
+                  <b-row v-if="coupons.status === 1">
+                    <b-col>
+                      <div style="color: black;font-weight: bold;">
+                        Discount
+                      </div>
+                    </b-col>
+                    <b-col></b-col>
+                    <b-col></b-col>
+                    <b-col>
+                      <div v-if="coupons.promotion.type === 1" style="color: red;">
+                        ฿{{(coupons.promotion.amount).toLocaleString('en')}} <div style="color: #005099;display: inline-block;">Bath</div>
+                      </div>
+                      <div v-if="coupons.promotion.type === 2" style="color: red;">
+                        ฿{{(coupons.promotion.amount).toLocaleString('en')}} <div style="color: #005099;display: inline-block;">%</div>
+                      </div>
+                    </b-col>
+                  </b-row>
+                  <b-row v-if="coupons.status === 1">
+                    <b-col>
+                      <div style="color: black;font-weight: bold;">
+                        Total (Use discount code)
+                      </div>
+                    </b-col>
+                    <b-col></b-col>
+                    <b-col></b-col>
+                    <b-col>
+                      <div style="color: red;">
+                        ฿{{(coupons.priceCoup).toLocaleString('en')}}
+                      </div>
+                    </b-col>
+                  </b-row>
+                  <br>
+                </b-container>
+              </div>
+                <!-- <div style="text-align: right;">
+                  <b-button variant="primary" v-on:click="updateitem ()">ปรับปรุงสินค้าในตระกร้า</b-button>
+                  <br>
+                  <br>
+                </div> -->
+                <div style="text-align: right;">
+                  <b-button variant="primary" href="/checkout">Order and Payment</b-button>
+                </div>
+                <b-modal id="modal-NC" hide-footer hide-header centered>
+                  <p style="font-weight: bold;text-align: center;" class="my-4">This coupon code does not exist, please check again.</p>
+                  <!-- <b-button variant="primary" href="/checkout">แก้ไขข้อมูล</b-button> -->
+                </b-modal>
+                <b-modal id="modal-NC2" hide-footer hide-header centered>
+                  <p style="font-weight: bold;text-align: center;" class="my-4">This coupon code has expired, please check again.</p>
+                  <!-- <b-button variant="primary" href="/checkout">แก้ไขข้อมูล</b-button> -->
+                </b-modal>
+              </div>
+            </div>
+          </b-col>
+        </b-row>
+      </b-container>
+    </div>
+  </div>
 </template>
 <script>
 import axios from 'axios'
@@ -202,6 +371,7 @@ export default {
     return {
       items: [],
       fields: ['สินค้า', 'จำนวน', 'ราคา', 'มูลค่าสินค้า', ' '],
+      fieldss: ['Product', 'Amount', 'Price', 'Value', ' '],
       value: 4,
       cart: [],
       sortaa: '',
@@ -216,7 +386,8 @@ export default {
           name: ''
         }
       },
-      stateCoup: null
+      stateCoup: null,
+      languages: ''
     }
   },
   metaInfo: {
@@ -224,6 +395,16 @@ export default {
     titleTemplate: "%s - Tyrepac - Asia's First Tyre Portal"
   },
   async mounted () {
+    this.languages = JSON.parse(localStorage.getItem('languages'))
+    console.log('lang', this.languages)
+    if (this.languages === '' || this.languages === null || this.languages === 'null' || this.languages === undefined || this.languages === 'undefined') {
+      console.log('langNOTLANG')
+      this.languages = 'TH'
+    } else if (this.languages === 'TH') {
+      console.log('langTH')
+    } else if (this.languages === 'EN') {
+      console.log('langEN')
+    }
     if (localStorage.getItem('coupon') === null) {
       console.log('nullcoup')
     } else {

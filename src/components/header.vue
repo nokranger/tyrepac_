@@ -280,6 +280,7 @@ export default {
     this.languages = JSON.parse(localStorage.getItem('languages'))
     console.log('lang', this.languages)
     if (this.languages === '' || this.languages === null || this.languages === 'null' || this.languages === undefined || this.languages === 'undefined') {
+      this.languages = 'TH'
       console.log('langNOTLANG')
     } else if (this.languages === 'TH') {
       console.log('langTH')

@@ -107,7 +107,7 @@
                 <div style="margin-left: 5px;color: #005099;font-weight: bold;height: 90px;">{{item.name}}</div>
                 <div style="margin-left: 5px;color: #005099;display: inline-block">฿</div>
                 <div style="margin-left: 5px;margin-right: 5px;color: #005099;display: inline-block;">{{item.regularPrice}}</div>
-                <div style="color: #005099;display: inline-block;"> Line</div>
+                <div style="color: #005099;display: inline-block;"> / 1 Tire.</div>
                 <!-- <div style="border-top: thin solid #E0E0E0;margin-bottom: 4px;margin-left: 20px;margin-right: 20px;text-align: center;"></div> -->
                 <div style="margin-bottom: 4px;margin-left: 20px;margin-right: 20px;">
                   <br>
@@ -150,7 +150,7 @@
                         </a>
                       </div>
                       <div style="margin-left: 5px;color: #005099;font-weight: bold;height: 60px;">{{showcompare.name}}</div>
-                      <div style="margin-left: 5px;color: #005099;text-align: left;">Price: ฿{{ showcompare.regularPrice}} Line</div>
+                      <div style="margin-left: 5px;color: #005099;text-align: left;">Price: ฿{{ showcompare.regularPrice}} / 1 Tire.</div>
                       <div style="margin-left: 5px;color: #005099;text-align: left;">Width: {{ showcompare.width}}</div>
                       <div style="margin-left: 5px;color: #005099;text-align: left;">Diameter: {{ showcompare.diameter}}</div>
                       <div style="margin-left: 5px;color: #005099;text-align: left;">Serie: {{ showcompare.height}}</div>
@@ -194,6 +194,7 @@ export default {
     console.log('lang', this.languages)
     if (this.languages === '' || this.languages === null || this.languages === 'null' || this.languages === undefined || this.languages === 'undefined') {
       console.log('langNOTLANG')
+      this.languages = 'TH'
     } else if (this.languages === 'TH') {
       console.log('langTH')
     } else if (this.languages === 'EN') {

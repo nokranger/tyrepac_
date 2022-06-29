@@ -1,5 +1,5 @@
 <template>
-  <div v-if="languages === 'TH'" style="margin-top: 160px">
+  <div style="margin-top: 160px">
     <div>
       <b-container>
         <br>
@@ -9,9 +9,9 @@
                 <div class="bordermenu">
                   <div class="alignmenu">
                     <br>
-                    <div style="margin-left: 5px;display: inline-block;">กรองตามความกว้าง</div>
+                    <div style="margin-left: 5px;display: inline-block;">Filter by Width</div>
                     <div style="display: inline-block;">
-                      <a style="margin-left: 5px;color: #005099;" v-on:click="refreshfilter ()">ล้างตัวกรอง</a>
+                      <a style="margin-left: 5px;color: #005099;" v-on:click="refreshfilter ()">Clear Filter</a>
                       <i class="fas fa fa-times" style="display: inline-block;margin-left: 10px;font-size: 20px;cursor: pointer;color: #ee2456;" v-on:click="refreshfilter ()"></i>
                     </div>
                     <br>
@@ -29,7 +29,7 @@
                       <br />
                     </div>
                     <br>
-                    <div style="margin-left: 5px;">กรองตามซีรี่ย์ยาง</div>
+                    <div style="margin-left: 5px;">Filter by Series</div>
                     <br>
                     <div>
                     <b-form-select
@@ -44,7 +44,7 @@
                       <br />
                     </div>
                     <br>
-                    <div style="margin-left: 5px;">กรองตามขนาดวงล้อ</div>
+                    <div style="margin-left: 5px;">Filter by Wheel</div>
                     <br>
                     <div>
                     <b-form-select
@@ -59,7 +59,7 @@
                       <br />
                     </div>
                     <br>
-                    <div style="margin-left: 5px;">กรองตามรูปแบบยาง</div>
+                    <div style="margin-left: 5px;">Filter by List</div>
                     <br>
                     <div>
                     <b-form-select
@@ -76,16 +76,16 @@
                     <div>
                       <div>
                         <br>
-                        <label style="margin-left: 5px;" for="range-2">กรองตามราคา</label>
+                        <label style="margin-left: 5px;" for="range-2">Filter by Price</label>
                         <div class='range-slider' style="margin-top: -60px;width: 100%;">
                           <input type="range" min="2250" max="21100" step="1" v-model="sliderMin">
                           <input type="range" min="2250" max="21100" step="1" v-model="sliderMax">
                         </div>
                         <div style="margin: 10px;">
                           <div style="display: inline-block;">
-                            <b-button variant="primary" v-on:click="filterminmax(sliderMin, sliderMax)">กรอง</b-button>
+                            <b-button variant="primary" v-on:click="filterminmax(sliderMin, sliderMax)">Filter</b-button>
                           </div>
-                          <div style="margin-left: 5px;display: inline-block;font-size: 15px;" class="mt-2">ราคา ฿{{ (sliderMin).toLocaleString('en') }} - ฿{{ (sliderMax).toLocaleString('en') }}</div>
+                          <div style="margin-left: 5px;display: inline-block;font-size: 15px;" class="mt-2">Price ฿{{ (sliderMin).toLocaleString('en') }} - ฿{{ (sliderMax).toLocaleString('en') }}</div>
                         </div>
                         <br />
                       </div>
@@ -94,7 +94,7 @@
                 </div>
                 <br />
                 <div style="border-radius: 5px; border: thin solid #e0e0e0">
-                  <div style="font-weight: bold;font-size: 20px;">ยางรถยนต์</div>
+                  <div style="font-weight: bold;font-size: 20px;">Tire</div>
                   <div class="menutyre">
                     <a v-on:click="filterbrand(8)">
                       <img src="https://i.imgur.com/dFBbXVM.png" alt="" />
@@ -181,18 +181,18 @@
                         <div>
                           <div class="regularprice2">฿</div>
                           <div class="regularprice">{{ brandd.regularPrice }}</div>
-                          <div class="regularprice3">  ต่อเส้น</div>
+                          <div class="regularprice3">  / 1 Tire.</div>
                         </div>
                         <div style="margin: 5px;">
                           <b-form-spinbutton :ref="'values' + index" id="demo-sb" :value="value2" min="1" max="100"></b-form-spinbutton>
                         </div>
                         <br>
                         <div style="margin: 5px;">
-                          <b-button variant="primary" v-on:click="buycart (('/tyrebrand' + '/' + brandd.prodId + '/' + brandd.sku), ('http://119.63.90.135:2083/image?image_path=' + brandd.image), brandd.prodId, brandd.name, brandd.regularPrice, ('values' + index), brandd.type, brandd.sku, brandd)">สั่งซื้อเลย</b-button>
+                          <b-button variant="primary" v-on:click="buycart (('/tyrebrand' + '/' + brandd.prodId + '/' + brandd.sku), ('http://119.63.90.135:2083/image?image_path=' + brandd.image), brandd.prodId, brandd.name, brandd.regularPrice, ('values' + index), brandd.type, brandd.sku, brandd)">Order</b-button>
                           <i class="fas fa-shopping-cart icontyre" v-on:click="addtocart (('/tyrebrand' + '/' + brandd.prodId + '/' + brandd.sku), ('http://119.63.90.135:2083/image?image_path=' + brandd.image), brandd.prodId, brandd.name, brandd.regularPrice, ('values' + index), brandd.type, brandd.sku, brandd)"></i>
                         </div>
                         <div>
-                          <i class="fa-solid fa-plus" style="cursor: pointer;margin-left: 5px;" @click="compare(brandd)"></i><a style="cursor: pointer;margin-left: 5px;color: #005099;font-weight: bold;"  @click="showcompare()" v-b-modal.modal-1>ข้อมูลสินค้า</a>
+                          <i class="fa-solid fa-plus" style="cursor: pointer;margin-left: 5px;" @click="compare(brandd)"></i><a style="cursor: pointer;margin-left: 5px;color: #005099;font-weight: bold;"  @click="showcompare()" v-b-modal.modal-1>Details of Product</a>
                         </div>
                       </div>
                     </b-col>
@@ -209,7 +209,7 @@
                       <b-row>
                         <b-col cols="6" sm="6" md="6" lg="4" xl="3" v-for="(showcompare, index) in showcompares" :key="index">
                           <div style="margin: 5px;text-align: left;">
-                            <b-button variant="primary" v-on:click="buycart (('/tyrebrand' + '/' + showcompare.prodId + '/' + showcompare.sku), ('http://119.63.90.135:2083/image?image_path=' + showcompare.image), showcompare.prodId, showcompare.name, showcompare.regularPrice, ('values' + index), showcompare.type, showcompare.sku, showcompare)">สั่งซื้อเลย</b-button>
+                            <b-button variant="primary" v-on:click="buycart (('/tyrebrand' + '/' + showcompare.prodId + '/' + showcompare.sku), ('http://119.63.90.135:2083/image?image_path=' + showcompare.image), showcompare.prodId, showcompare.name, showcompare.regularPrice, ('values' + index), showcompare.type, showcompare.sku, showcompare)">Order</b-button>
                             <i class="fas fa-shopping-cart" style="display: inline-block;margin-left: 10px;font-size: 20px;cursor: pointer;color: #005099;" v-on:click="addtocart (('/tyrebrand' + '/' + showcompare.prodId + '/' + showcompare.sku), ('http://119.63.90.135:2083/image?image_path=' + showcompare.image), showcompare.prodId, showcompare.name, showcompare.regularPrice, ('values' + index), showcompare.type, showcompare.sku, showcompare)"></i>
                             <i class="fas fa fa-times" style="display: inline-block;margin-left: 20px;font-size: 20px;cursor: pointer;color: #ee2456;" v-on:click="removeitem (showcompare.name)"></i>
                           </div>
@@ -223,13 +223,13 @@
                               </a>
                             </div>
                             <div style="margin-left: 5px;color: #005099;font-weight: bold;height: 60px;">{{showcompare.name}}</div>
-                            <div style="margin-left: 5px;color: #005099;text-align: left;">ราคา: ฿{{ showcompare.regularPrice}} ต่อเส้น</div>
-                            <div style="margin-left: 5px;color: #005099;text-align: left;">ความกว้าง: {{ showcompare.width}}</div>
-                            <div style="margin-left: 5px;color: #005099;text-align: left;">ซีรี่ย์ยาง: {{ showcompare.diameter}}</div>
-                            <div style="margin-left: 5px;color: #005099;text-align: left;">ขนาดวงล้อ: {{ showcompare.height}}</div>
+                            <div style="margin-left: 5px;color: #005099;text-align: left;">Price: ฿{{ showcompare.regularPrice}} / 1 Tire.</div>
+                            <div style="margin-left: 5px;color: #005099;text-align: left;">Width: {{ showcompare.width}}</div>
+                            <div style="margin-left: 5px;color: #005099;text-align: left;">Diameter: {{ showcompare.diameter}}</div>
+                            <div style="margin-left: 5px;color: #005099;text-align: left;">Serie: {{ showcompare.height}}</div>
                             <div style="margin-left: 5px;color: #005099;text-align: left;">Load Index: {{ showcompare.loadIndex}}</div>
                             <div style="margin-left: 5px;color: #005099;text-align: left;">Speed Index: {{ showcompare.speedIndex}}</div>
-                            <div style="margin-left: 5px;color: #005099;text-align: left;">สินค้า รุ่นยาง: {{ showcompare.type}}</div>
+                            <div style="margin-left: 5px;color: #005099;text-align: left;">Type: {{ showcompare.type}}</div>
                           </div>
                         </b-col>
                       </b-row>
@@ -243,20 +243,16 @@
       </b-container>
     </div>
   </div>
-  <div v-else-if="languages === 'EN'">
-  <app-shop></app-shop>
-  </div>
 </template>
 <script>
 // import menu from '../components/brand/menu.vue'
 import apiURL from '../assets/js/connect.js'
 import axios from 'axios'
-import shopEn from '../views/shop_en.vue'
 // import LazyText from 'vue-lazyload-text-dev/src/components/lazy-text'
 export default {
   components: {
     // LazyText
-    'app-shop': shopEn
+    // 'app-recommend': recommend
   },
   data () {
     return {
@@ -274,12 +270,12 @@ export default {
       selecteddiameter: null,
       selectedtype: null,
       options: [
-        { value: null, text: 'เรียงลำดับ' },
-        { value: 'name', text: 'เรียงตาม ชื่อ' },
-        { value: 'regularPrice', text: 'เรียงตาม ราคา' }
+        { value: null, text: 'Sorting By.' },
+        { value: 'name', text: 'Sorting By Name.' },
+        { value: 'regularPrice', text: 'Sorting By Price.' }
       ],
       optionswidth: [
-        { value: null, text: '--ความกว้าง--' },
+        { value: null, text: '--Width of Tire--' },
         { value: '155', text: '155' },
         { value: '165', text: '165' },
         { value: '175', text: '175' },
@@ -301,7 +297,7 @@ export default {
         { value: '325', text: '325' }
       ],
       optionsserie: [
-        { value: null, text: '--ซีรี่ย์ยาง--' },
+        { value: null, text: '--Series of Tire--' },
         { value: '0', text: '0' },
         { value: '25', text: '25' },
         { value: '30', text: '30' },
@@ -317,7 +313,7 @@ export default {
         { value: '85', text: '85' }
       ],
       optionsdiameter: [
-        { value: null, text: '--ขนาดวงล้อ--' },
+        { value: null, text: '--Wheel Size--' },
         { value: '13', text: '13' },
         { value: '14', text: '14' },
         { value: '15', text: '15' },
@@ -331,15 +327,15 @@ export default {
         { value: '24', text: '24' }
       ],
       optionstype: [
-        { value: null, text: '--รูปแบบยาง--' },
-        { value: 'ยาง SUV ประสิทธิภาพสูง', text: 'ยาง SUV ประสิทธิภาพสูง' },
-        { value: 'ยางขับขี่ทั่วไป', text: 'ยางขับขี่ทั่วไป' },
-        { value: 'ยางขับขี่นุ่ม เงียบ', text: 'ยางขับขี่นุ่ม เงียบ' },
-        { value: 'ยางประสิทธิภาพสูง', text: 'ยางประสิทธิภาพสูง' },
-        { value: 'ยางประหยัดเชื้อเพลิง', text: 'ยางประหยัดเชื้อเพลิง' },
-        { value: 'ยางรถกระบะ', text: 'ยางรถกระบะ' },
-        { value: 'ยางรถเอนกประสงค์/SUV', text: 'ยางรถเอนกประสงค์/SUV' },
-        { value: 'ยางออฟโรด', text: 'ยางออฟโรด' }
+        { value: null, text: '--List Tires--' },
+        { value: 'ยาง SUV ประสิทธิภาพสูง', text: 'High-performance SUV Tires' },
+        { value: 'ยางขับขี่ทั่วไป', text: 'General Driving Tire' },
+        { value: 'ยางขับขี่นุ่ม เงียบ', text: 'Softest and Quietest Tires' },
+        { value: 'ยางประสิทธิภาพสูง', text: 'High Performance Tires' },
+        { value: 'ยางประหยัดเชื้อเพลิง', text: 'Fuel Economy Tires' },
+        { value: 'ยางรถกระบะ', text: 'Pickup Truck Tires' },
+        { value: 'ยางรถเอนกประสงค์/SUV', text: 'Universal Tires / SUV' },
+        { value: 'ยางออฟโรด', text: 'Off Road Tires' }
       ],
       tyre: '',
       filterss: '',
@@ -358,8 +354,7 @@ export default {
       showcompares: '',
       iconcompare: 0,
       filtersTyre: '',
-      statusFilter: '',
-      languages: ''
+      statusFilter: ''
     }
   },
   metaInfo: {
@@ -368,16 +363,6 @@ export default {
   },
   async mounted () {
     localStorage.removeItem('filter')
-    this.languages = JSON.parse(localStorage.getItem('languages'))
-    console.log('lang', this.languages)
-    if (this.languages === '' || this.languages === null || this.languages === 'null' || this.languages === undefined || this.languages === 'undefined') {
-      console.log('langNOTLANG')
-      this.languages = 'TH'
-    } else if (this.languages === 'TH') {
-      console.log('langTH')
-    } else if (this.languages === 'EN') {
-      console.log('langEN')
-    }
     await this.product()
     // const st = await JSON.parse(localStorage.getItem('filter'))
     // console.log('filter', st)

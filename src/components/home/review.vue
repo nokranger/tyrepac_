@@ -42,6 +42,7 @@ export default {
     console.log('lang', this.languages)
     if (this.languages === '' || this.languages === null || this.languages === 'null' || this.languages === undefined || this.languages === 'undefined') {
       console.log('langNOTLANG')
+      this.languages = 'TH'
     } else if (this.languages === 'TH') {
       console.log('langTH')
     } else if (this.languages === 'EN') {
