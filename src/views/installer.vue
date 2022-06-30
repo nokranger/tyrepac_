@@ -83,7 +83,7 @@
           <br>
           <br>
         </b-container>
-        <div>
+        <div v-if="languages === 'TH'">
           <b-container>
               <div style="text-align: left;">
                 <b-table ref="table" striped hover :items="items" :fields="fields" :filter="filter" :filter-included-fields="filterOn" :per-page="perpage" :current-page="currentPage">
@@ -97,6 +97,37 @@
                     <div>{{data.item.hours}}</div>
                   </template>
                   <template v-slot:cell(โทรศัพท์)="data">
+                    <div>{{data.item.phoneNo}}</div>
+                  </template>
+                  <template v-slot:cell(ประเภท)="data">
+                    <div>{{data.item.category}}</div>
+                  </template>
+                </b-table>
+              </div>
+              <b-pagination
+              v-model="currentPage"
+              :total-rows="totalRows"
+              :per-page="perpage"
+              align="fill"
+              size="sm"
+              class="my-0"
+            ></b-pagination>
+          </b-container>
+        </div>
+        <div v-else-if="languages === 'EN'">
+          <b-container>
+              <div style="text-align: left;">
+                <b-table ref="table" striped hover :items="items" :fields="fieldss" :filter="filter" :filter-included-fields="filterOn" :per-page="perpage" :current-page="currentPage">
+                  <template v-slot:cell(Name_of_Store_Service_Installation)="data">
+                    <div>{{data.item.name}}</div>
+                  </template>
+                  <template v-slot:cell(Address)="data">
+                    <div>{{data.item.address}}</div>
+                  </template>
+                  <template v-slot:cell(เวลาทำการ)="data">
+                    <div>{{data.item.hours}}</div>
+                  </template>
+                  <template v-slot:cell(Telephone)="data">
                     <div>{{data.item.phoneNo}}</div>
                   </template>
                   <template v-slot:cell(ประเภท)="data">
@@ -128,6 +159,7 @@ export default {
       items: '',
       // items: installer,
       fields: ['ชื่อร้าน', 'ที่อยู่', 'โทรศัพท์'],
+      fieldss: ['Name_of_Store_Service_Installation', 'Address', 'Telephone'],
       // fields: ['ชื่อร้าน', 'ที่อยู่', 'เวลาทำการ', 'โทรศัพท์', 'ประเภท'],
       filter: null,
       filterOn: [],

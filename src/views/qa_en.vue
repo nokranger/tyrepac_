@@ -379,7 +379,7 @@
           <b-container>
             <b-row>
               <div class="headers" style="text-align: left;margin-left: 40px;">
-                  ก. Order
+                  A. Order
               </div>
               <br>
               <br>

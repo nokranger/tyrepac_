@@ -66,7 +66,7 @@ export default {
   },
   mounted () {
     window.addEventListener('scroll', this.scrollFunction)
-    if (JSON.parse(localStorage.getItem('cookie')) === true) {
+    if (JSON.parse(sessionStorage.getItem('cookie')) === true) {
       console.log('truecookie')
       this.cookiewebs = 1
     } else {
@@ -76,8 +76,8 @@ export default {
   methods: {
     cookieweb () {
       console.log('cookie')
-      localStorage.setItem('cookie', true)
-      if (JSON.parse(localStorage.getItem('cookie')) === true) {
+      sessionStorage.setItem('cookie', true)
+      if (JSON.parse(sessionStorage.getItem('cookie')) === true) {
         console.log('truecookie')
         this.cookiewebs = 1
       } else {
