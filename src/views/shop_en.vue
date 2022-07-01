@@ -852,18 +852,34 @@ export default {
           splitfilter[1] = splitfilter[1].split('=')
           splitfilter[2] = splitfilter[2].split('=')
           console.log('splitURL1')
-          if (splitfilter[0][1] !== null || splitfilter[0][1] !== '' || splitfilter[0][1] !== 'null') {
+          if (splitfilter[0][1] !== null || splitfilter[0][1] !== '' || splitfilter[0][1] !== 'null' || splitfilter[1][1] !== null || splitfilter[1][1] !== '' || splitfilter[1][1] !== 'null' || splitfilter[2][1] !== null || splitfilter[2][1] !== '' || splitfilter[2][1] !== 'null') {
+            const filter = {
+              width: splitfilter[0][1],
+              height: splitfilter[1][1],
+              diameter: splitfilter[2][1],
+              type: null,
+              price: {
+                min: null,
+                max: null
+              },
+              brandId: null
+            }
+            localStorage.setItem('filter', JSON.stringify(filter))
             await this.filterwidth(splitfilter[0][1])
           } else {
+            const filter = {
+              width: null,
+              height: null,
+              diameter: null,
+              type: null,
+              price: {
+                min: null,
+                max: null
+              },
+              brandId: null
+            }
+            localStorage.setItem('filter', JSON.stringify(filter))
             await this.filterwidth()
-          }
-          if (splitfilter[1][1] !== null || splitfilter[1][1] !== '' || splitfilter[1][1] !== 'null') {
-            console.log('splitURL2')
-            await this.filtersheight(splitfilter[1][1])
-          }
-          if (splitfilter[2][1] !== null || splitfilter[2][1] !== '' || splitfilter[2][1] !== 'null') {
-            console.log('splitURL3')
-            await this.filtersdiameter(splitfilter[2][1])
           }
           // await this.filter(splitfilter[0][1], splitfilter[1][1], splitfilter[2][1], null, null, null)
           console.log('splitWidth', splitfilter[0][0])

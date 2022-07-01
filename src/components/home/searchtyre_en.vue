@@ -125,7 +125,7 @@ export default {
       selecteddiameter: null,
       selectedtype: null,
       optionswidth: [
-        { value: null, text: '--ความกว้าง--' },
+        { value: null, text: '--Width Tires--' },
         { value: '155', text: '155' },
         { value: '165', text: '165' },
         { value: '175', text: '175' },
@@ -147,7 +147,7 @@ export default {
         { value: '325', text: '325' }
       ],
       optionsserie: [
-        { value: null, text: '--ซีรี่ย์ยาง--' },
+        { value: null, text: '--Series Tires--' },
         { value: '0', text: '0' },
         { value: '25', text: '25' },
         { value: '30', text: '30' },
@@ -163,7 +163,7 @@ export default {
         { value: '85', text: '85' }
       ],
       optionsdiameter: [
-        { value: null, text: '--ขนาดวงล้อ--' },
+        { value: null, text: '--Wheel Size Tires--' },
         { value: '13', text: '13' },
         { value: '14', text: '14' },
         { value: '15', text: '15' },

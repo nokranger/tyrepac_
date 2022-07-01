@@ -21,6 +21,31 @@
       </div> -->
     </div>
     <div v-else-if="cookiewebs === 0">
+    <div v-if="languages === 'TH'">
+      <div class="cookie-consent-banner">
+        <div class="cookie-consent-banner__inner">
+          <div class="cookie-consent-banner__copy">
+            <div class="cookie-consent-banner__header">เว็บไซต์นี้มีการใช้งานคุกกี้</div>
+            <div class="cookie-consent-banner__description">
+              เราใช้คุกกี้เพื่อนำเสนอคอนเทนต์ และโฆษณาที่ท่านอาจสนใจ   เพื่อให้ท่านได้รับประสบการณ์ที่ดี
+              บนบริการของเราหากท่านใช้บริการเว็บไซต์ของเราต่อไป    โดยไม่ได้ปรับการตั้งค่าใดๆ เราเข้าใจว่า
+              ท่านยินยอมที่จะรับคุกกี้บนเว็บไซต์ของเรา คลิกเพื่อดูข้อเพิ่มเติมเกี่ยวกับการใช้คุกกี้ของเรา   และ
+              วิธีการเปลี่ยนแปลงการตั้งค่า
+            </div>
+          </div>
+
+          <div class="cookie-consent-banner__actions">
+            <a style="cursor: pointer;" class="cookie-consent-banner__cta" v-on:click="cookieweb ()">
+              ยอมรับ
+            </a>
+            <!-- <a href="#" class="cookie-consent-banner__cta cookie-consent-banner__cta--secondary">
+              Decline
+            </a> -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <div v-else-if="languages === 'EN'">
       <div class="cookie-consent-banner">
         <div class="cookie-consent-banner__inner">
           <div class="cookie-consent-banner__copy">
@@ -38,6 +63,7 @@
           </div>
         </div>
       </div>
+    </div>
     </div>
     <app-header id="header"></app-header>
     <router-view/>
@@ -61,7 +87,8 @@ export default {
   },
   data () {
     return {
-      cookiewebs: 0
+      cookiewebs: 0,
+      languages: ''
     }
   },
   mounted () {
@@ -71,6 +98,16 @@ export default {
       this.cookiewebs = 1
     } else {
       this.cookiewebs = 0
+    }
+    this.languages = JSON.parse(localStorage.getItem('languages'))
+    console.log('lang', this.languages)
+    if (this.languages === '' || this.languages === null || this.languages === 'null' || this.languages === undefined || this.languages === 'undefined') {
+      console.log('langNOTLANG')
+      this.languages = 'TH'
+    } else if (this.languages === 'TH') {
+      console.log('langTH')
+    } else if (this.languages === 'EN') {
+      console.log('langEN')
     }
   },
   methods: {

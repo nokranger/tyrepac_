@@ -2,7 +2,12 @@
   <div style="margin-top: 160px">
     <div style="height: auto; text-align: center">
       <app-toppic></app-toppic>
-      <app-searchtyre></app-searchtyre>
+      <div v-if="languages === 'TH'">
+        <app-searchtyre></app-searchtyre>
+      </div>
+      <div v-else-if="languages === 'EN'">
+        <app-searchtyreen></app-searchtyreen>
+      </div>
       <app-detail></app-detail>
       <app-type></app-type>
       <app-recommend></app-recommend>
@@ -18,6 +23,7 @@
 import axios from 'axios'
 import toppic from '../components/home/toppic.vue'
 import searchtyre from '../components/home/searchtyre.vue'
+import searchtyreEn from '../components/home/searchtyre_en.vue'
 import detail from '../components/home/detail.vue'
 import brand from '../components/home/brand.vue'
 import detailtyre from '../components/home/detailtyre.vue'
@@ -30,6 +36,7 @@ export default {
   components: {
     'app-toppic': toppic,
     'app-searchtyre': searchtyre,
+    'app-searchtyreen': searchtyreEn,
     'app-detail': detail,
     'app-brand': brand,
     'app-detailtyre': detailtyre,
@@ -41,6 +48,7 @@ export default {
   },
   data () {
     return {
+      languages: ''
     }
   },
   metaInfo: {
@@ -48,6 +56,16 @@ export default {
     titleTemplate: "%s - Tyrepac - Asia's First Tyre Portal"
   },
   mounted () {
+    this.languages = JSON.parse(localStorage.getItem('languages'))
+    console.log('lang', this.languages)
+    if (this.languages === '' || this.languages === null || this.languages === 'null' || this.languages === undefined || this.languages === 'undefined') {
+      console.log('langNOTLANG')
+      this.languages = 'TH'
+    } else if (this.languages === 'TH') {
+      console.log('langTH')
+    } else if (this.languages === 'EN') {
+      console.log('langEN')
+    }
     var config = {
       // headers: {
       //   'Access-Control-Allow-Origin': '*'
