@@ -46,7 +46,7 @@
         <b><a href="#" style="color: black;text-decoration: none;" v-b-modal.modal-tyre>ไม่แน่ใจวิธีอ่านขนาดยางของคุณ ? คลิกที่นี่</a></b>
           <b-modal id="modal-tyre" size="xl" hide-footer hide-header>
             <p style="text-align: center;" class="my-4">วิธีค้นหาขนาดยางของคุณ</p>
-            <img src="https://tyrepac.co.th/wp-content/uploads/2020/01/tyre-reading.jpg" alt="">
+            <img src="https://i.imgur.com/hAZSU9R.jpg" alt="">
           </b-modal>
         <br>
         <br>
@@ -102,7 +102,7 @@
         <b><a href="#" style="color: black;text-decoration: none;" v-b-modal.modal-tyre>Tips and advice for your tyres? Click Here!</a></b>
           <b-modal id="modal-tyre" size="xl" hide-footer hide-header>
             <!-- <p style="text-align: center;" class="my-4">วิธีค้นหาขนาดยางของคุณ</p> -->
-            <img src="https://tyrepac.co.th/wp-content/uploads/2020/01/tyre-reading.jpg" alt="">
+            <img src="https://i.imgur.com/hAZSU9R.jpg" alt="">
           </b-modal>
         <br>
         <br>

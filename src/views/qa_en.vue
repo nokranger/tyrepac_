@@ -35,7 +35,7 @@
       <br />
       <div>
         <img
-          src="https://tyrepac.co.th/wp-content/uploads/2019/12/icon-3lines.png"
+          src="https://imgur.com/VFtb9dp.png"
           alt=""
         />
       </div>
@@ -58,7 +58,7 @@
             <b-col>
               <div style="background-color: #282828; color: whitesmoke;width: 250px;height: 250px;box-shadow: 5px 10px 18px #888888;border-radius: 5px;">
                 <br>
-                <img src="https://www.tyrepac.co.th/wp-content/uploads/2019/12/icon-order.png" height="100" width="100" alt="">
+                <img src="https://imgur.com/wrUKMG7.png" height="100" width="100" alt="">
                 <div style="font-weight: bold;font-size: 20px;">Order</div>
                 <div> Order tires. Check Order tires. Payment Condition.</div>
               </div>
@@ -76,7 +76,7 @@
             <b-col>
               <div style="background-color: #282828; color: whitesmoke;width: 250px;height: 250px;box-shadow: 5px 10px 18px #888888;border-radius: 5px;">
                 <br>
-                <img src="https://www.tyrepac.co.th/wp-content/uploads/2019/12/icon-support.png" width="100" height="100" alt="">
+                <img src="https://imgur.com/TKjSttB.png" width="100" height="100" alt="">
                 <div style="font-weight: bold;font-size: 25px;">After sales service</div>
                 <div>
                   Order cancellation, Return Policy, Product Warranty
@@ -123,7 +123,7 @@
             <br />
             <br />
             <img
-              src="https://tyrepac.co.th/wp-content/uploads/2019/12/icon-3lines.png"
+              src="https://imgur.com/VFtb9dp.png"
               alt=""
             />
             <br />
@@ -133,7 +133,7 @@
           <br>
           <b-row>
             <b-col cols="12" sm="12" md="6" lg="6" xl="6">
-              <b-col cols="12" sm="12" md="6" lg="6" xl="6">
+              <b-col>
                 <div style="margin: 15px;text-align: left;">
                   <div style="font-weight: bold;font-size: 20px;">A. Tires Selection</div>
                   <br>
@@ -155,14 +155,14 @@
             <b-col cols="12" sm="12" md="6" lg="6" xl="6">
               <div>
                 <img style="width: 100%;"
-                  src="https://www.tyrepac.co.th/wp-content/uploads/2019/12/tyre-guide.jpg"
+                  src="https://imgur.com/iKtb37f.jpg"
                   alt=""
                 />
               </div>
             </b-col>
           </b-row>
           <b-row>
-            <b-col>
+            <b-col cols="12" sm="12" md="12" lg="4" xl="4">
               <b-col>
                 <br />
                 <div style="background-color: white;box-shadow: 5px 10px 18px #888888;border-radius: 5px;height: 950px;text-align: left;">
@@ -181,7 +181,7 @@
                     </p>
                     <div style="text-align: center;">
                       <img
-                        src="https://www.tyrepac.co.th/wp-content/uploads/2019/12/tyre-directional.jpg"
+                        src="https://imgur.com/qAwrzLm.jpg"
                         alt=""
                         style="width: 100%;"
                       />
@@ -190,7 +190,7 @@
                 </div>
               </b-col>
             </b-col>
-            <b-col>
+            <b-col cols="12" sm="12" md="12" lg="4" xl="4">
               <b-col>
                 <br />
                 <div style="background-color: white;box-shadow: 5px 10px 18px #888888;border-radius: 5px;height: 950px;text-align: left;">
@@ -212,7 +212,7 @@
                     </p>
                     <div style="text-align: center;">
                       <img
-                        src="https://www.tyrepac.co.th/wp-content/uploads/2019/12/tyre-directional.jpg"
+                        src="https://imgur.com/qAwrzLm.jpg"
                         alt=""
                         style="width: 100%;"
                       />
@@ -221,7 +221,7 @@
                 </div>
               </b-col>
             </b-col>
-            <b-col>
+            <b-col cols="12" sm="12" md="12" lg="4" xl="4">
               <b-col>
                 <br />
                 <div style="background-color: white;box-shadow: 5px 10px 18px #888888;border-radius: 5px;height: 950px;text-align: left;">
@@ -243,7 +243,7 @@
                     </p>
                     <div style="text-align: center;">
                       <img
-                        src="https://www.tyrepac.co.th/wp-content/uploads/2019/12/tyre-directional.jpg"
+                        src="https://imgur.com/qAwrzLm.jpg"
                         alt=""
                         style="width: 100%;"
                       />
@@ -255,13 +255,13 @@
           </b-row>
           <div>
             <br>
-            <div class="headers" style="margin: 15px;text-align: left;">
+            <div class="headers" style="text-align: left;">
               B.MIXED TYRE
             </div>
             <br>
           </div>
           <b-row>
-            <b-col>
+            <b-col cols="12" sm="6" md="6" lg="6" xl="6">
               <div style="background-color: white;box-shadow: 5px 10px 18px #888888;border-radius: 5px;height: max-content;text-align: left;">
                 <div style="margin: 15px;">
                   <br>
@@ -272,7 +272,7 @@
                 </div>
               </div>
             </b-col>
-            <b-col>
+            <b-col cols="12" sm="6" md="6" lg="6" xl="6">
               <div style="background-color: white;box-shadow: 5px 10px 18px #888888;border-radius: 5px;;height: max-content;text-align: left;">
                 <div style="margin: 15px;">
                   <br>
@@ -286,34 +286,36 @@
           </b-row>
           <br>
           <b-row>
-            <br>
-            <div class="headers" style="margin: 15px;text-align: left;">C.Technical Data</div>
-            <br>
-            <br>
-            <div class="headers" style="margin: 15px;text-align: left;">1. Basic tire information you should know.</div>
-            <br>
-            <br>
-            <div style="background-color: white;box-shadow: 5px 10px 18px #888888;border-radius: 5px;">
-              <b-row>
-                <b-col cols="12" sm="12" md="6" lg="6" xl="6">
-                  <div>
-                    <img
-                      src="https://www.tyrepac.co.th/wp-content/uploads/2019/12/basic_tyreinfo.png"
-                      alt=""
-                      style="width: 100%; height: auto;"
-                    />
-                  </div>
-                </b-col>
-                <b-col cols="12" sm="12" md="6" lg="6" xl="6">
-                  <br>
-                  <br>
-                  <div v-for="(details, index) in detail" :key="index">
-                    <div style="text-align: left;font-size: 15px;">{{index + 1}}. {{details.name}}</div>
-                  </div>
-                  <div>**(C & U regulations stipulate all tyres used in the UK must carry an E number)</div>
-                </b-col>
-              </b-row>
-            </div>
+            <b-col>
+              <br>
+              <div class="headers" style="text-align: left;">C.Technical Data</div>
+              <br>
+              <br>
+              <div class="headers" style="text-align: left;">1. Basic tire information you should know.</div>
+              <br>
+              <br>
+              <div style="background-color: white;box-shadow: 5px 10px 18px #888888;border-radius: 5px;">
+                <b-row>
+                  <b-col cols="12" sm="12" md="6" lg="6" xl="6">
+                    <div>
+                      <img
+                        src="https://imgur.com/LTl5KwY.png"
+                        alt=""
+                        style="width: 100%; height: auto;"
+                      />
+                    </div>
+                  </b-col>
+                  <b-col cols="12" sm="12" md="6" lg="6" xl="6">
+                    <br>
+                    <br>
+                    <div v-for="(details, index) in detail" :key="index">
+                      <div style="text-align: left;font-size: 15px;">{{index + 1}}. {{details.name}}</div>
+                    </div>
+                    <div>**(C & U regulations stipulate all tyres used in the UK must carry an E number)</div>
+                  </b-col>
+                </b-row>
+              </div>
+            </b-col>
           </b-row>
           <br>
           <br>
@@ -327,7 +329,7 @@
                   </div>
                   <p>The tires code, which is molded to the sidewall in general. It is described with alphanumeric values. This code indicates tire sizes and some important limitations such as load capacity and maximum speed.</p>
                   <div style="margin: 10px;">
-                    <img src="https://www.tyrepac.co.th/wp-content/uploads/2019/12/tech-tyresize.jpg" style="width: 100%;" alt="">
+                    <img src="https://imgur.com/lvI41dP.jpg" style="width: 100%;" alt="">
                   </div>
                 </div>
               </div>
@@ -349,17 +351,19 @@
           </b-row>
           <br>
           <b-row>
-            <div style="background-color: white;box-shadow: 5px 10px 18px #888888;border-radius: 5px;">
-              <div style="text-align: left;">
-                <br>
-                <div class="headers">Load Index</div>
-                <br>
-                <p >A numeric code that tells you the maximum load carrying ability of each tyre.</p>
+            <b-col>
+              <div style="background-color: white;box-shadow: 5px 10px 18px #888888;border-radius: 5px;">
+                <div style="text-align: left;">
+                  <br>
+                  <div class="headers">Load Index</div>
+                  <br>
+                  <p >A numeric code that tells you the maximum load carrying ability of each tyre.</p>
+                </div>
+                <div style="margin: 10px;">
+                  <b-table sticky-header striped hover :items="items2"></b-table>
+                </div>
               </div>
-              <div style="margin: 10px;">
-                <b-table sticky-header striped hover :items="items2"></b-table>
-              </div>
-            </div>
+            </b-col>
           </b-row>
           <br id="order">
         </b-container>
@@ -368,7 +372,7 @@
             <br>
             <br>
             <br>
-            <img src="https://tyrepac.co.th/wp-content/uploads/2019/12/small-icon-white.png" alt="">
+            <img src="https://imgur.com/uqq2gBk.png" alt="">
           </div>
           <br>
           <div class="headers">
@@ -378,13 +382,12 @@
           <br>
           <b-container>
             <b-row>
-              <div class="headers" style="text-align: left;margin-left: 40px;">
+              <div class="headers" style="text-align: left;">
                   A. Order
               </div>
               <br>
               <br>
-              <b-col>
-                <b-col>
+              <b-col cols="12" sm="12" md="6" lg="6" xl="6">
                   <div style="background-color: white;color: black;margin: 10px;margin-bottom: 20px;box-shadow: 5px 10px 18px #888888;border-radius: 5px;height: 240px;text-align: left;">
                     <br>
                     <div class="headers" style="text-align: left;margin: 15px;">
@@ -415,8 +418,7 @@
                     </div>
                   </div>
                 </b-col>
-              </b-col>
-              <b-col>
+              <b-col cols="12" sm="12" md="6" lg="6" xl="6">
                   <div style="background-color: white;color: black;margin: 10px;margin-bottom: 20px;box-shadow: 5px 10px 18px #888888;border-radius: 5px;height: 240px;text-align: left;">
                     <br>
                     <div style="margin: 15px;">
@@ -445,7 +447,7 @@
             <b-row>
               <div>
                 <br>
-                <img src="https://tyrepac.co.th/wp-content/uploads/2019/12/icon-3lines.png" alt="">
+                <img src="https://imgur.com/VFtb9dp.png" alt="">
                 <br>
                 <br>
               </div>
@@ -460,9 +462,9 @@
               <br>
               <div style="font-weight: bold;text-align: left;font-size: 25px;">Delivery Change</div>
               <br>
-              <b-col>
+              <b-col cols="12" sm="12" md="12" lg="6" xl="6">
                 <br>
-                <div style="background-color: white;color: black;box-shadow: 5px 10px 18px #888888;border-radius: 5px;height: 200px;text-align: left;">
+                <div style="background-color: white;color: black;box-shadow: 5px 10px 18px #888888;border-radius: 5px;height: 240px;text-align: left;">
                   <br>
                   <div style="margin: 15px;">
                     <div class="headers">
@@ -474,7 +476,7 @@
                   </div>
                 </div>
                 <br>
-                <div style="background-color: white;color: black;box-shadow: 5px 10px 18px #888888;border-radius: 5px;height: 200px;text-align: left;">
+                <div style="background-color: white;color: black;box-shadow: 5px 10px 18px #888888;border-radius: 5px;height: 240px;text-align: left;">
                   <br>
                   <div style="margin: 15px;">
                     <div class="headers">
@@ -486,9 +488,9 @@
                   </div>
                 </div>
               </b-col>
-              <b-col>
+              <b-col cols="12" sm="12" md="12" lg="6" xl="6">
                 <br>
-                <div style="background-color: white;color: black;box-shadow: 5px 10px 18px #888888;border-radius: 5px;height: 200px;text-align: left;">
+                <div style="background-color: white;color: black;box-shadow: 5px 10px 18px #888888;border-radius: 5px;height: 240px;text-align: left;">
                   <br>
                   <div style="margin: 15px;">
                     <div class="headers">2. Can I change the installation service center and time ?</div>
@@ -498,7 +500,7 @@
                   </div>
                 </div>
                 <br>
-                <div style="background-color: white;color: black;box-shadow: 5px 10px 18px #888888;border-radius: 5px;height: 200px;text-align: left;">
+                <div style="background-color: white;color: black;box-shadow: 5px 10px 18px #888888;border-radius: 5px;height: 240px;text-align: left;">
                   <br>
                   <div id="aftersales" style="margin: 15px;">
                     <div class="headers">4. Can I install the tires on the same day I ordered ?</div>
@@ -517,7 +519,7 @@
                 <div>
                   <div>
                     <br>
-                    <img src="https://tyrepac.co.th/wp-content/uploads/2019/12/icon-3lines.png" alt="">
+                    <img src="https://imgur.com/VFtb9dp.png" alt="">
                   </div>
                   <br>
                   <div class="headers">
@@ -551,14 +553,14 @@
           <b-container>
             <br>
             <b-row>
-              <b-col>
+              <b-col >
                 <div class="headers" style="text-align: left;">Return Policy</div>
               </b-col>
             </b-row>
             <br>
           </b-container>
         </div>
-        <div style="background-color: #f7f7f7;color: black;box-shadow: 5px 10px 18px #888888;border-radius: 5px;height: 150px;">
+        <div style="background-color: #f7f7f7;color: black;box-shadow: 5px 10px 18px #888888;border-radius: 5px;height: max-content;">
           <b-container>
             <br>
             <b-row>

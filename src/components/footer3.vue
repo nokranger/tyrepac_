@@ -18,7 +18,7 @@
           <b-col>
             <div style="color: white;text-align: left;">
               <div>
-                <img src="https://www.tyrepac.co.th/wp-content/uploads/2019/10/tyrepac-logoX2.png" style="width: 150px;" alt="">
+                <img src="https://i.imgur.com/XC4tAlX.png" style="width: 150px;" alt="">
                 <br>
                 <br>
               </div>
@@ -91,7 +91,7 @@
           <b-col>
             <div style="color: white;text-align: left;">
               <div>
-                <img src="https://www.tyrepac.co.th/wp-content/uploads/2019/10/tyrepac-logoX2.png" style="width: 150px;" alt="">
+                <img src="https://i.imgur.com/XC4tAlX.png" style="width: 150px;" alt="">
                 <br>
                 <br>
               </div>
