@@ -10,11 +10,17 @@ import vuePhotoZoomPro from 'vue-photo-zoom-pro'
 import 'vue-photo-zoom-pro/dist/style/vue-photo-zoom-pro.css'
 import VueMeta from 'vue-meta'
 import JwPagination from 'jw-vue-pagination'
+import VueAnalytic from 'vue-analytics'
 // import axios from 'axios'
 
 import { faHatWizard } from '@fortawesome/free-solid-svg-icons'
 
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+
+Vue.use(VueAnalytic, {
+  id: 'UA-6923893-40',
+  router
+})
 
 Vue.config.productionTip = false
 Vue.use(BootstrapVue)

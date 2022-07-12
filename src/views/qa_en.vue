@@ -104,7 +104,10 @@
                 <div style="margin: 15px;">
                   <div style="font-weight: bold;font-size: 25px;">Mobile</div>
                   <div>
-                    091-889-5127
+                    099-283-9256
+                  </div>
+                  <div>
+                    082-477-1520
                   </div>
                   <div id="tyre">
                     Monday-Friday 8:30 – 17:00
@@ -425,7 +428,7 @@
                       <div class="headers" style="text-align: left;margin: 15px;">
                         2. If the tires I want is not in stock Can I still order that model ?
                       </div>
-                      <p>Contact our hotline and we give advice on how to estimate tire service availability. You can email us at info@tyrepac.co.th and we will contact you back.</p>
+                      <p>Contact our hotline and we give advice on how to estimate tire service availability. You can contact us at 099-283-9256, 082-477-1520</p>
                     </div>
                   </div>
                   <div style="background-color: white;color: black;margin: 10px;box-shadow: 5px 10px 18px #888888;border-radius: 5px;height: 240px;text-align: left;">
@@ -480,7 +483,7 @@
                   <br>
                   <div style="margin: 15px;">
                     <div class="headers">
-                      3. ฉัWhen can I get my tires installed as soon as possible ?
+                      3. When can I get my tires installed as soon as possible ?
                     </div>
                     <div>
                       Ships within 3-5 business days from the date of payment. For urgent installation , please inform our Customer Service Center to make an appointment.

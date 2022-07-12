@@ -22,7 +22,8 @@
                 <br>
                 <br>
               </div>
-              <div>สายด่วน : 099-283-9256</div>
+              <div>สายด่วน : <a href="tel:+66992839256" style="text-decoration:none;color: white;">099-283-9256</a></div>
+              <div>สายด่วน : <a href="tel:+66824771520" style="text-decoration:none;color: white;">082-477-1520</a></div>
               <br>
               <div>
                 ที่อยู่ : บริษัท ออโต้ พาร์ท ออนไลน์ (ประเทศไทย) จำกัด 594
@@ -95,7 +96,8 @@
                 <br>
                 <br>
               </div>
-              <div>Hotline : 099-283-9256</div>
+              <h1><a href="tel:+66992839256" style="text-decoration:none;color: black;">099-283-9256</a></h1>
+              <h1><a href="tel:+66824771520" style="text-decoration:none;color: black;">082-477-1520</a></h1>
               <br>
               <div>
                 Address:

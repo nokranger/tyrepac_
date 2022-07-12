@@ -104,7 +104,10 @@
                 <div style="margin: 15px;">
                   <div style="font-weight: bold;font-size: 25px;">โทรศัพท์</div>
                   <div>
-                    091-889-5127
+                    099-283-9256
+                  </div>
+                  <div>
+                    082-477-1520
                   </div>
                   <div id="tyre">
                     จันทร์-ศุกร์ 8:30 – 17:00
@@ -457,7 +460,7 @@
                       <div class="headers" style="text-align: left;margin: 15px;">
                         2. หากยางที่ฉันต้องการไม่มีในสต๊อก ฉันยังสามารถสั่งซื้อรุ่นนั้นได้หรือไม่?
                       </div>
-                      <p>ติดต่อสายด่วนของเรา และเราให้คำแนะนำในการประมาณความพร้อมในการให้บริการยาง คุณสามารถส่งอีเมลถึงเราที่ info@tyrepac.co.th และเราจะติดต่อกลับคุณ</p>
+                      <p>ติดต่อสายด่วนของเรา และเราให้คำแนะนำในการประมาณความพร้อมในการให้บริการยาง คุณสามารถติดต่อถึงเราที่เบอร์ 099-283-9256, 082-477-1520</p>
                     </div>
                   </div>
                   <div style="background-color: white;color: black;margin: 10px;box-shadow: 5px 10px 18px #888888;border-radius: 5px;height: 240px;text-align: left;">

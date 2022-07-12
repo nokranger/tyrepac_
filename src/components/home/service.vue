@@ -29,6 +29,7 @@
           กรุณาติดต่อฝ่ายบริการลูกค้าของเราหากมีคำถามใด ๆ เกี่ยวกับการเลือกยาง
         </p>
         <h1><a href="tel:+66992839256" style="text-decoration:none;color: black;">099-283-9256</a></h1>
+        <h1><a href="tel:+66824771520" style="text-decoration:none;color: black;">082-477-1520</a></h1>
         <h1 style="font-size: 20px;">เวลาทำการคอลเซนเตอร์</h1>
         <p style="font-size: 20px;">วันจันทร์ – ศุกร์ 08.30 น. – 17.00 น.</p>
       </div>
@@ -65,7 +66,8 @@
           Please contact our customer service
           with any questions regarding tires selection.
         </p>
-        <h1><a href="tel:+66992839256" style="text-decoration:none;color: black;">Mobile: 099-283-9256</a></h1>
+        <h1><a href="tel:+66992839256" style="text-decoration:none;color: black;">099-283-9256</a></h1>
+        <h1><a href="tel:+66824771520" style="text-decoration:none;color: black;">082-477-1520</a></h1>
         <h1 style="font-size: 20px;">Call Center Business Hours</h1>
         <p style="font-size: 20px;">Monday - Friday 08:30 a.m. - 5:00 p.m.</p>
       </div>

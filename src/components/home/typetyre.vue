@@ -28,7 +28,7 @@
         <div class="pic">
           <img class="imgs" src="https://imgur.com/ZRQzYAa.jpg" alt="" href="/shop">
           <div style="position: relative;margin-top: -100px;">
-            <div style="margin-left: 15px;color: white;font-weight: bold;">ยางยางขับขี่นุ่ม เงียบ</div>
+            <div style="margin-left: 15px;color: white;font-weight: bold;">ยางขับขี่นุ่ม เงียบ</div>
             <b-button variant="light" href="/shop?type=ยางขับขี่นุ่ม เงียบ">ดูยางทั้งหมด</b-button>
           </div>
         </div>
