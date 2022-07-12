@@ -96,8 +96,8 @@
                 <br>
                 <br>
               </div>
-              <h1><a href="tel:+66992839256" style="text-decoration:none;color: black;">099-283-9256</a></h1>
-              <h1><a href="tel:+66824771520" style="text-decoration:none;color: black;">082-477-1520</a></h1>
+              <div>Hotline : <a href="tel:+66992839256" style="text-decoration:none;color: white;">099-283-9256</a></div>
+              <div>Hotline : <a href="tel:+66824771520" style="text-decoration:none;color: white;">082-477-1520</a></div>
               <br>
               <div>
                 Address:

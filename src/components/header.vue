@@ -64,7 +64,7 @@
                 >ศูนย์บริการติดตั้ง</b
               ></b-nav-item
             >
-            <b-nav-item href="/qa"
+            <b-nav-item href="/faq"
               ><b class="installer" style="margin-left: 15px;"
                 >คำถามที่พบบ่อย</b
               ></b-nav-item
@@ -194,7 +194,7 @@
                 >Installation service </b
               ></b-nav-item
             >
-            <b-nav-item href="/qa"
+            <b-nav-item href="/faq"
               ><b class="installer" style="margin-left: 15px;"
                 >FAQ</b
               ></b-nav-item
