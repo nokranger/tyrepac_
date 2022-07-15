@@ -1,24 +1,6 @@
 <template>
   <div id="app">
-    <!-- <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div> -->
     <div v-if="cookiewebs === 1">
-      <!-- <div class="cookie-consent-banner">
-        <div class="cookie-consent-banner__inner">
-          <div class="cookie-consent-banner__copy">
-            <div class="cookie-consent-banner__header">This website uses cookies and third party services</div>
-            <div class="cookie-consent-banner__description">We use cookies to improve your experience on our website, to personalise content and ads, to provide social media features and to analyse our traffic. We share information about your use of our website with our social media, advertising and analytics partners, who may combine it with other information that you have provided to them or that they have collected from your use of their services. Please click [Accept All Cookies] if you agree with the use of all of our cookies.</div>
-          </div>
-
-          <div class="cookie-consent-banner__actions">
-            <a style="cursor: pointer;" class="cookie-consent-banner__cta" v-on:click="cookieweb ()">
-              Accept All Cookies
-            </a>
-          </div>
-        </div>
-      </div> -->
     </div>
     <div v-else-if="cookiewebs === 0">
     <div v-if="languages === 'TH'">
@@ -37,9 +19,6 @@
             <a style="cursor: pointer;" class="cookie-consent-banner__cta" v-on:click="cookieweb ()">
               ยอมรับ
             </a>
-            <!-- <a href="#" class="cookie-consent-banner__cta cookie-consent-banner__cta--secondary">
-              Decline
-            </a> -->
           </div>
         </div>
       </div>
@@ -56,9 +35,6 @@
             <a style="cursor: pointer;" class="cookie-consent-banner__cta" v-on:click="cookieweb ()">
               Accept All Cookies
             </a>
-            <!-- <a href="#" class="cookie-consent-banner__cta cookie-consent-banner__cta--secondary">
-              Decline
-            </a> -->
           </div>
         </div>
       </div>
@@ -66,9 +42,6 @@
     </div>
     <app-header id="header"></app-header>
     <router-view/>
-    <!-- <back-to-top bottom="50px" right="50px">
-      <button href="#header" type="button" class="btn btn-info btn-to-top"><i class="fa fa-chevron-up"></i></button>
-    </back-to-top> -->
     <button @click="backtotop()" id="mybtn"><i class="fa fa-chevron-up"></i></button>
     <app-footer3></app-footer3>
     <app-footer2></app-footer2>
