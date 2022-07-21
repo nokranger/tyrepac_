@@ -50,23 +50,23 @@ export default {
   },
   mounted () {
     this.languages = JSON.parse(localStorage.getItem('languages'))
-    console.log('lang', this.languages)
+    // console.log('lang', this.languages)
     if (this.languages === '' || this.languages === null || this.languages === 'null' || this.languages === undefined || this.languages === 'undefined') {
-      console.log('langNOTLANG')
+      // console.log('langNOTLANG')
       this.languages = 'TH'
     } else if (this.languages === 'TH') {
-      console.log('langTH')
+      // console.log('langTH')
     } else if (this.languages === 'EN') {
-      console.log('langEN')
+      // console.log('langEN')
     }
     axios.get(process.env.VUE_APP_API_URL + '/promotion').then(res => {
       this.promotions = res.data.data
-      console.log('promotions', this.promotions)
+      // console.log('promotions', this.promotions)
       const promotion = this.promotions.filter((post, index) => {
         return post.isActive === 1
       })
       this.promotions = promotion
-      console.log('promotionsssss', this.promotions)
+      // console.log('promotionsssss', this.promotions)
     })
   },
   metaInfo: {

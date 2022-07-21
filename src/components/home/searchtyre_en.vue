@@ -193,30 +193,30 @@ export default {
   mounted () {
     localStorage.removeItem('filter')
     this.languages = JSON.parse(localStorage.getItem('languages'))
-    console.log('lang', this.languages)
+    // // console.log('lang', this.languages)
     if (this.languages === '' || this.languages === null || this.languages === 'null' || this.languages === undefined || this.languages === 'undefined') {
-      console.log('langNOTLANG')
+      // // console.log('langNOTLANG')
       this.languages = 'TH'
     } else if (this.languages === 'TH') {
-      console.log('langTH')
+      // // console.log('langTH')
     } else if (this.languages === 'EN') {
-      console.log('langEN')
+      // // console.log('langEN')
     }
   },
   methods: {
     search (w, h, d) {
-      console.log('WHD', w, h, d)
+      // // console.log('WHD', w, h, d)
       location.replace('/shop?width=' + w + '&height=' + h + '&diameter=' + d)
     },
     async filter (width, height, diameter, type, min, max) {
-      console.log('getvalueFilter', width, height, diameter, type)
+      // // console.log('getvalueFilter', width, height, diameter, type)
       if (width !== null || width !== '' || width !== 'null' || width !== undefined || width !== 'undefined') {
         this.width = {
           width: width
         }
         await axios.post(process.env.VUE_APP_API_URL + '/productByFilter', this.width).then(res => {
           this.brand = res.data.data.products
-          console.log('getwidth')
+          // // console.log('getwidth')
           localStorage.setItem('data', JSON.stringify(this.brand))
         })
       } else if (height !== null || height !== '' || height !== 'null' || height !== undefined || height !== 'undefined') {
@@ -225,7 +225,7 @@ export default {
         }
         await axios.post(process.env.VUE_APP_API_URL + '/productByFilter', this.height).then(res => {
           this.brand = res.data.data.products
-          console.log('getheight')
+          // // console.log('getheight')
           localStorage.setItem('data', JSON.stringify(this.brand))
         })
       } else if (diameter !== null || diameter !== '' || diameter !== 'null' || diameter !== undefined || diameter !== 'undefined') {
@@ -234,7 +234,7 @@ export default {
         }
         await axios.post(process.env.VUE_APP_API_URL + '/productByFilter', this.diameter).then(res => {
           this.brand = res.data.data.products
-          console.log('getdiameter')
+          // // console.log('getdiameter')
           localStorage.setItem('data', JSON.stringify(this.brand))
         })
       } else if (type !== null || type !== '' || type !== 'null' || type !== undefined || type !== 'undefined') {
@@ -243,18 +243,18 @@ export default {
         }
         await axios.post(process.env.VUE_APP_API_URL + '/productByFilter', this.type).then(res => {
           this.brand = res.data.data.products
-          console.log('gettype')
+          // // console.log('gettype')
           localStorage.setItem('data', JSON.stringify(this.brand))
         })
       }
       const filters = await JSON.parse(localStorage.getItem('filter'))
       if (filters.width === null || filters.width === '' || filters.width === 'null') {
       } else {
-        console.log('NOTNULLFILLTERWIDTH')
+        // // console.log('NOTNULLFILLTERWIDTH')
         const data = await JSON.parse(localStorage.getItem('data'))
-        console.log('NOTNULLFILLTERWIDTH2', data)
+        // // console.log('NOTNULLFILLTERWIDTH2', data)
         const filters = await JSON.parse(localStorage.getItem('filter'))
-        console.log('NOTNULLFILLTERWIDTH3', filters)
+        // // console.log('NOTNULLFILLTERWIDTH3', filters)
         this.brand = await data.filter((post, index) => {
           return post.width === parseInt(filters.width)
         })
@@ -262,11 +262,11 @@ export default {
       }
       if (filters.height === null || filters.height === '' || filters.height === 'null') {
       } else {
-        console.log('NOTNULLFILLTERHEIGHT')
+        // // console.log('NOTNULLFILLTERHEIGHT')
         const data = await JSON.parse(localStorage.getItem('data'))
-        console.log('NOTNULLFILLTERHEIGHT2', data)
+        // // console.log('NOTNULLFILLTERHEIGHT2', data)
         const filters = await JSON.parse(localStorage.getItem('filter'))
-        console.log('NOTNULLFILLTERHEIGHT3', filters)
+        // // console.log('NOTNULLFILLTERHEIGHT3', filters)
         this.brand = await data.filter((post, index) => {
           return post.height === parseInt(filters.height)
         })
@@ -274,11 +274,11 @@ export default {
       }
       if (filters.diameter === null || filters.diameter === '' || filters.diameter === 'null') {
       } else {
-        console.log('NOTNULLFILLTERDIAMETER')
+        // // console.log('NOTNULLFILLTERDIAMETER')
         const data = await JSON.parse(localStorage.getItem('data'))
-        console.log('NOTNULLFILLTERDIAMETER2', data)
+        // // console.log('NOTNULLFILLTERDIAMETER2', data)
         const filters = await JSON.parse(localStorage.getItem('filter'))
-        console.log('NOTNULLFILLTERDIAMETER3', filters)
+        // // console.log('NOTNULLFILLTERDIAMETER3', filters)
         this.brand = await data.filter((post, index) => {
           return post.diameter === parseInt(filters.diameter)
         })
@@ -286,11 +286,11 @@ export default {
       }
       if (filters.type === null || filters.type === '' || filters.type === 'null') {
       } else {
-        console.log('NOTNULLFILLTERtype')
+        // // console.log('NOTNULLFILLTERtype')
         const data = await JSON.parse(localStorage.getItem('data'))
-        console.log('NOTNULLFILLTERtype2', data)
+        // // console.log('NOTNULLFILLTERtype2', data)
         const filters = await JSON.parse(localStorage.getItem('filter'))
-        console.log('NOTNULLFILLTERtype3', filters)
+        // // console.log('NOTNULLFILLTERtype3', filters)
         this.brand = await data.filter((post, index) => {
           return post.type === filters.type
         })
@@ -300,7 +300,7 @@ export default {
     async filterwidth (value) {
       const filters = JSON.parse(localStorage.getItem('filter'))
       if (filters === null || filters === '' || filters === 'null') {
-        console.log('filterNullWidth')
+        // // console.log('filterNullWidth')
         const filter = {
           width: value,
           height: '',
@@ -314,7 +314,7 @@ export default {
         localStorage.setItem('filter', JSON.stringify(filter))
         await this.filter(value, null, null, null, null, null)
       } else {
-        console.log('filterNotNullWidth')
+        // // console.log('filterNotNullWidth')
         const filter = {
           width: value,
           height: filters.height,
@@ -332,7 +332,7 @@ export default {
     async filtersheight (height) {
       const filters = JSON.parse(localStorage.getItem('filter'))
       if (filters === null || filters === '' || filters === 'null') {
-        console.log('filterNullWidth')
+        // // console.log('filterNullWidth')
         const filter = {
           width: '',
           height: height,
@@ -346,7 +346,7 @@ export default {
         localStorage.setItem('filter', JSON.stringify(filter))
         await this.filter(null, height, null, null, null, null)
       } else {
-        console.log('filterNotNullWidth')
+        // // console.log('filterNotNullWidth')
         const filter = {
           width: filters.width,
           height: height,
@@ -364,7 +364,7 @@ export default {
     async filtersdiameter (diameter) {
       const filters = JSON.parse(localStorage.getItem('filter'))
       if (filters === null || filters === '' || filters === 'null') {
-        console.log('filterNullWidth')
+        // // console.log('filterNullWidth')
         const filter = {
           width: '',
           height: '',
@@ -378,7 +378,7 @@ export default {
         localStorage.setItem('filter', JSON.stringify(filter))
         await this.filter(null, null, diameter, null, null, null)
       } else {
-        console.log('filterNotNullWidth')
+        // // console.log('filterNotNullWidth')
         const filter = {
           width: filters.width,
           height: filters.height,
@@ -396,7 +396,7 @@ export default {
     async filterstype (type) {
       const filters = JSON.parse(localStorage.getItem('filter'))
       if (filters === null || filters === '' || filters === 'null') {
-        console.log('filterNullWidth')
+        // // console.log('filterNullWidth')
         const filter = {
           width: '',
           height: '',
@@ -410,7 +410,7 @@ export default {
         localStorage.setItem('filter', JSON.stringify(filter))
         await this.filter(null, null, null, type, null, null)
       } else {
-        console.log('filterNotNullWidth')
+        // // console.log('filterNotNullWidth')
         const filter = {
           width: filters.width,
           height: filters.height,

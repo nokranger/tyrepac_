@@ -180,14 +180,14 @@ export default {
   },
   mounted () {
     this.languages = JSON.parse(localStorage.getItem('languages'))
-    console.log('lang', this.languages)
+    // console.log('lang', this.languages)
     if (this.languages === '' || this.languages === null || this.languages === 'null' || this.languages === undefined || this.languages === 'undefined') {
-      console.log('langNOTLANG')
+      // console.log('langNOTLANG')
       this.languages = 'TH'
     } else if (this.languages === 'TH') {
-      console.log('langTH')
+      // console.log('langTH')
     } else if (this.languages === 'EN') {
-      console.log('langEN')
+      // console.log('langEN')
     }
   },
   methods: {
@@ -206,15 +206,15 @@ export default {
           satStatus: true
         }
       }
-      console.log('datain', '/installer/create')
+      // console.log('datain', '/installer/create')
       axios.post(process.env.VUE_APP_API_URL + '/installer/create', this.data).then((res) => {
-        console.log(res)
+        // console.log(res)
       })
     },
     sendContact () {
-      console.log('contact', this.data)
+      // console.log('contact', this.data)
       axios.post(process.env.VUE_APP_API_URL + '/contact', this.data).then(res => {
-        console.log('done')
+        // console.log('done')
         this.status = 1
         location.replace('#top')
         this.data = {}

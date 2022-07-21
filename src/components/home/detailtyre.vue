@@ -287,19 +287,19 @@ export default {
   },
   mounted () {
     this.languages = JSON.parse(localStorage.getItem('languages'))
-    console.log('lang', this.languages)
+    // // console.log('lang', this.languages)
     if (this.languages === '' || this.languages === null || this.languages === 'null' || this.languages === undefined || this.languages === 'undefined') {
-      console.log('langNOTLANG')
+      // // console.log('langNOTLANG')
       this.languages = 'TH'
     } else if (this.languages === 'TH') {
-      console.log('langTH')
+      // // console.log('langTH')
     } else if (this.languages === 'EN') {
-      console.log('langEN')
+      // // console.log('langEN')
     }
   },
   methods: {
     mouseover (value) {
-      // console.log('mouseovers', value)
+      // // console.log('mouseovers', value)
       if (value === 1) {
         this.statebrand = 1
         this.tyrebrand = 'https://i.imgur.com/cEocsB6.png'
@@ -343,7 +343,7 @@ export default {
       }
     },
     mousezoom () {
-      console.log('zoom')
+      // // console.log('zoom')
       this.statebrand = 0
       this.stateweight = 0
       this.stateinstallation = 0

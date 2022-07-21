@@ -278,34 +278,34 @@ export default {
   },
   async mounted () {
     this.languages = JSON.parse(localStorage.getItem('languages'))
-    console.log('lang', this.languages)
+    // // console.log('lang', this.languages)
     if (this.languages === '' || this.languages === null || this.languages === 'null' || this.languages === undefined || this.languages === 'undefined') {
       this.languages = 'TH'
-      console.log('langNOTLANG')
+      // // console.log('langNOTLANG')
     } else if (this.languages === 'TH') {
-      console.log('langTH')
+      // // console.log('langTH')
     } else if (this.languages === 'EN') {
-      console.log('langEN')
+      // // console.log('langEN')
     }
     this.cart = JSON.parse(localStorage.getItem('cart'))
     // for (var j = 0; j < this.cart.length; j++) {
     //   this.cart[j].regularPrice = this.cart[j].regularPrice.toLocaleString('en')
     // }
-    console.log('cart', this.cart)
+    // // console.log('cart', this.cart)
     if (localStorage.getItem('cart') === null) {
-      console.log('show status')
+      // // console.log('show status')
       this.statuss = 0
       // this.cart = JSON.parse(localStorage.getItem('cart'))
     } else {
-      console.log('show status')
+      // // console.log('show status')
       this.statuss = 1
       this.cart = JSON.parse(localStorage.getItem('cart'))
       for (var i = 0; i < this.cart.length; i++) {
         this.count += this.cart[i].qty
         // this.cart[i].price = this.cart[i].price.toLocaleString('en')
-        console.log('countcart', this.count)
+        // // console.log('countcart', this.count)
       }
-      console.log('countcart', this.count)
+      // // console.log('countcart', this.count)
     }
   },
   methods: {
@@ -313,7 +313,7 @@ export default {
       this.languages = select
       localStorage.setItem('languages', JSON.stringify(this.languages))
       this.languages = localStorage.getItem('languages')
-      console.log('lang', this.languages)
+      // // console.log('lang', this.languages)
       location.reload()
     },
     onOver () {

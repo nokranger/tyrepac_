@@ -365,22 +365,22 @@ export default {
     localStorage.removeItem('filter')
     await this.product()
     // const st = await JSON.parse(localStorage.getItem('filter'))
-    // console.log('filter', st)
+    // // console.log('filter', st)
     // if (st === null || st === 'null' || st === '' || st === undefined) {
     //   this.statusFilter = 0
     // } else {
-    //   console.log('nofilter', st)
+    //   // console.log('nofilter', st)
     //   this.statusFilter = 1
     // }
     // await this.filter()
-    // console.log('promotions')
+    // // console.log('promotions')
     axios.get(process.env.VUE_APP_API_URL + '/product').then(res => {
       this.promotions = res.data.data.products
       const promotion = this.promotions.filter((post, index) => {
         return post.status === 1
       })
       this.promotions = promotion
-      // console.log('promotionsssss', this.promotions)
+      // // console.log('promotionsssss', this.promotions)
     })
   },
   methods: {
@@ -389,58 +389,39 @@ export default {
     },
     async filterTyre () {
       const filters = JSON.parse(localStorage.getItem('filter'))
-      console.log('post', filters.width)
+      // console.log('post', filters.width)
       if (JSON.parse(localStorage.getItem('filter')) === null) {
-        console.log('filterNull')
+        // console.log('filterNull')
       } else {
         await axios.get(process.env.VUE_APP_API_URL + '/product').then(res => {
           this.filtersTyre = res.data.data.products
-          console.log('filterTyre')
+          // console.log('filterTyre')
           const filtersTyres = this.filtersTyre.filter((post, index) => {
-            // console.log('post', post)
+            // // console.log('post', post)
             return post.width === filters.width
           })
           this.filtersTyre = filtersTyres
-          console.log('filterTyrewidth', filtersTyres)
+          // console.log('filterTyrewidth', filtersTyres)
         })
-        console.log('filterNOTNULL')
+        // console.log('filterNOTNULL')
       }
     },
     async removeitem (name) {
-      // console.log('remove', name)
+      // // console.log('remove', name)
       this.showcompares = this.showcompares.filter((obj) => {
         return obj.name !== name
       })
-      // console.log('remove: ', this.showcompares)
+      // // console.log('remove: ', this.showcompares)
       localStorage.setItem('compare', JSON.stringify(this.showcompares))
       // location.reload()
       this.$bvModal.show('modal-1')
     },
     async compare (itemss) {
-      // console.log('compare', itemss)
+      // // console.log('compare', itemss)
       if (JSON.parse(localStorage.getItem('compare')) === null) {
         localStorage.setItem('compare', JSON.stringify(this.compares))
-        // console.log('ว่าง')
+        // // console.log('ว่าง')
         var team = []
-        // localStorage.setItem('test', JSON.stringify(team))
-        const teams = await JSON.parse(localStorage.getItem('compare'))
-        console.log('teams', teams)
-        await teams.push(itemss)
-        await localStorage.setItem('compare', JSON.stringify(team))
-        await teams.forEach((a) => {
-          if (!this[a.name]) {
-            // console.log('aname', a.name)
-            this[a.name] = { name: a.name, regularPrice: a.regularPrice, image: a.image, type: a.type, diameter: a.diameter, height: a.height, loadIndex: a.loadIndex, speedIndex: a.speedIndex, width: a.width }
-            team.push(this[a.name])
-          }
-          this[a.name].qty += a.qty
-        }, Object.create(null))
-        // console.log('team', team)
-        localStorage.setItem('compare', JSON.stringify(team))
-        location.reload()
-      } else {
-        console.log('ไม่ว่าง')
-        team = []
         // localStorage.setItem('test', JSON.stringify(team))
         const teams = await JSON.parse(localStorage.getItem('compare'))
         // console.log('teams', teams)
@@ -448,19 +429,38 @@ export default {
         await localStorage.setItem('compare', JSON.stringify(team))
         await teams.forEach((a) => {
           if (!this[a.name]) {
-            // console.log('aname', a.name)
+            // // console.log('aname', a.name)
             this[a.name] = { name: a.name, regularPrice: a.regularPrice, image: a.image, type: a.type, diameter: a.diameter, height: a.height, loadIndex: a.loadIndex, speedIndex: a.speedIndex, width: a.width }
             team.push(this[a.name])
           }
           this[a.name].qty += a.qty
         }, Object.create(null))
-        // console.log('team', team)
+        // // console.log('team', team)
+        localStorage.setItem('compare', JSON.stringify(team))
+        location.reload()
+      } else {
+        // console.log('ไม่ว่าง')
+        team = []
+        // localStorage.setItem('test', JSON.stringify(team))
+        const teams = await JSON.parse(localStorage.getItem('compare'))
+        // // console.log('teams', teams)
+        await teams.push(itemss)
+        await localStorage.setItem('compare', JSON.stringify(team))
+        await teams.forEach((a) => {
+          if (!this[a.name]) {
+            // // console.log('aname', a.name)
+            this[a.name] = { name: a.name, regularPrice: a.regularPrice, image: a.image, type: a.type, diameter: a.diameter, height: a.height, loadIndex: a.loadIndex, speedIndex: a.speedIndex, width: a.width }
+            team.push(this[a.name])
+          }
+          this[a.name].qty += a.qty
+        }, Object.create(null))
+        // // console.log('team', team)
         localStorage.setItem('compare', JSON.stringify(team))
         location.reload()
       }
     },
     showcompare () {
-      // console.log('showcompare', JSON.parse(localStorage.getItem('compare')))
+      // // console.log('showcompare', JSON.parse(localStorage.getItem('compare')))
       this.showcompares = JSON.parse(localStorage.getItem('compare'))
     },
     clearcompare () {
@@ -469,7 +469,7 @@ export default {
       this.$bvModal.hide('modal-1')
     },
     async filter (width, height, diameter, type, min, max, brandId) {
-      console.log('getvalueFilter', width, height, diameter, type, min, max, brandId)
+      // console.log('getvalueFilter', width, height, diameter, type, min, max, brandId)
       if (width !== null || width !== '' || width !== 'null' || width !== undefined || width !== 'undefined') {
         this.width = {
           width: width
@@ -477,7 +477,7 @@ export default {
         await axios.post(process.env.VUE_APP_API_URL + '/productByFilter', this.width).then(res => {
           this.brand = res.data.data.products
           this.pageItem = this.brand
-          console.log('getwidth')
+          // console.log('getwidth')
           localStorage.setItem('data', JSON.stringify(this.brand))
         })
       } else if (height !== null || height !== '' || height !== 'null' || height !== undefined || height !== 'undefined') {
@@ -487,7 +487,7 @@ export default {
         await axios.post(process.env.VUE_APP_API_URL + '/productByFilter', this.height).then(res => {
           this.brand = res.data.data.products
           this.pageItem = this.brand
-          console.log('getheight')
+          // console.log('getheight')
           localStorage.setItem('data', JSON.stringify(this.brand))
         })
       } else if (diameter !== null || diameter !== '' || diameter !== 'null' || diameter !== undefined || diameter !== 'undefined') {
@@ -497,7 +497,7 @@ export default {
         await axios.post(process.env.VUE_APP_API_URL + '/productByFilter', this.diameter).then(res => {
           this.brand = res.data.data.products
           this.pageItem = this.brand
-          console.log('getdiameter')
+          // console.log('getdiameter')
           localStorage.setItem('data', JSON.stringify(this.brand))
         })
       } else if (type !== null || type !== '' || type !== 'null' || type !== undefined || type !== 'undefined') {
@@ -507,7 +507,7 @@ export default {
         await axios.post(process.env.VUE_APP_API_URL + '/productByFilter', this.type).then(res => {
           this.brand = res.data.data.products
           this.pageItem = this.brand
-          console.log('gettype')
+          // console.log('gettype')
           localStorage.setItem('data', JSON.stringify(this.brand))
         })
       } else if (min !== null || min !== '' || min !== 'null' || min !== undefined || min !== 'undefined') {
@@ -518,14 +518,14 @@ export default {
         await axios.post(process.env.VUE_APP_API_URL + '/productByFilter', this.range).then(res => {
           this.brand = res.data.data.products
           this.pageItem = this.brand
-          console.log('gettype', this.brand)
+          // console.log('gettype', this.brand)
           localStorage.setItem('data', JSON.stringify(this.brand))
         })
       } else if (brandId !== null || brandId !== '' || brandId !== 'null' || brandId !== undefined || brandId !== 'undefined') {
         await axios.get(process.env.VUE_APP_API_URL + '/product').then(res => {
           this.brand = res.data.data.products
           this.pageItem = this.brand
-          console.log('gettypebrandId', this.brand)
+          // console.log('gettypebrandId', this.brand)
           localStorage.setItem('data', JSON.stringify(this.brand))
           this.pageItem = this.brand
         })
@@ -533,11 +533,11 @@ export default {
       const filters = await JSON.parse(localStorage.getItem('filter'))
       if (filters.width === null || filters.width === '' || filters.width === 'null') {
       } else {
-        console.log('NOTNULLFILLTERWIDTH')
+        // console.log('NOTNULLFILLTERWIDTH')
         const data = await JSON.parse(localStorage.getItem('data'))
-        console.log('NOTNULLFILLTERWIDTH2', data)
+        // console.log('NOTNULLFILLTERWIDTH2', data)
         const filters = await JSON.parse(localStorage.getItem('filter'))
-        console.log('NOTNULLFILLTERWIDTH3', filters)
+        // console.log('NOTNULLFILLTERWIDTH3', filters)
         this.brand = await data.filter((post, index) => {
           return post.width === parseInt(filters.width)
         })
@@ -546,11 +546,11 @@ export default {
       }
       if (filters.height === null || filters.height === '' || filters.height === 'null') {
       } else {
-        console.log('NOTNULLFILLTERHEIGHT')
+        // console.log('NOTNULLFILLTERHEIGHT')
         const data = await JSON.parse(localStorage.getItem('data'))
-        console.log('NOTNULLFILLTERHEIGHT2', data)
+        // console.log('NOTNULLFILLTERHEIGHT2', data)
         const filters = await JSON.parse(localStorage.getItem('filter'))
-        console.log('NOTNULLFILLTERHEIGHT3', filters)
+        // console.log('NOTNULLFILLTERHEIGHT3', filters)
         this.brand = await data.filter((post, index) => {
           return post.height === parseInt(filters.height)
         })
@@ -559,11 +559,11 @@ export default {
       }
       if (filters.diameter === null || filters.diameter === '' || filters.diameter === 'null') {
       } else {
-        console.log('NOTNULLFILLTERDIAMETER')
+        // console.log('NOTNULLFILLTERDIAMETER')
         const data = await JSON.parse(localStorage.getItem('data'))
-        console.log('NOTNULLFILLTERDIAMETER2', data)
+        // console.log('NOTNULLFILLTERDIAMETER2', data)
         const filters = await JSON.parse(localStorage.getItem('filter'))
-        console.log('NOTNULLFILLTERDIAMETER3', filters)
+        // console.log('NOTNULLFILLTERDIAMETER3', filters)
         this.brand = await data.filter((post, index) => {
           return post.diameter === parseInt(filters.diameter)
         })
@@ -572,11 +572,11 @@ export default {
       }
       if (filters.type === null || filters.type === '' || filters.type === 'null') {
       } else {
-        console.log('NOTNULLFILLTERtype')
+        // console.log('NOTNULLFILLTERtype')
         const data = await JSON.parse(localStorage.getItem('data'))
-        console.log('NOTNULLFILLTERtype2', data)
+        // console.log('NOTNULLFILLTERtype2', data)
         const filters = await JSON.parse(localStorage.getItem('filter'))
-        console.log('NOTNULLFILLTERtype3', filters)
+        // console.log('NOTNULLFILLTERtype3', filters)
         this.brand = await data.filter((post, index) => {
           return post.type === filters.type
         })
@@ -585,11 +585,11 @@ export default {
       }
       if (filters.price.min === null || filters.price.min === '' || filters.price.min === 'null') {
       } else {
-        console.log('NOTNULLFILLTERminmax')
+        // console.log('NOTNULLFILLTERminmax')
         const data = await JSON.parse(localStorage.getItem('data'))
-        console.log('NOTNULLFILLTERminmax2', data)
+        // console.log('NOTNULLFILLTERminmax2', data)
         const filters = await JSON.parse(localStorage.getItem('filter'))
-        console.log('NOTNULLFILLTERminmax3', filters)
+        // console.log('NOTNULLFILLTERminmax3', filters)
         this.brand = await data.filter((post, index) => {
           return post.regularPrice <= filters.price.max && post.regularPrice >= filters.price.min
         })
@@ -598,11 +598,11 @@ export default {
       }
       if (filters.brandId === null || filters.brandId === '' || filters.brandId === 'null') {
       } else {
-        console.log('NOTNULLFILLTERbrandid')
+        // console.log('NOTNULLFILLTERbrandid')
         const data = await JSON.parse(localStorage.getItem('data'))
-        console.log('NOTNULLFILLTERbrandid2', data)
+        // console.log('NOTNULLFILLTERbrandid2', data)
         const filters = await JSON.parse(localStorage.getItem('filter'))
-        console.log('NOTNULLFILLTERbrandid3', filters)
+        // console.log('NOTNULLFILLTERbrandid3', filters)
         this.brand = await data.filter((post, index) => {
           return post.brandId === filters.brandId.toString()
         })
@@ -613,7 +613,7 @@ export default {
     async filterwidth (value) {
       const filters = JSON.parse(localStorage.getItem('filter'))
       if (filters === null || filters === '' || filters === 'null') {
-        console.log('filterNullWidth')
+        // console.log('filterNullWidth')
         const filter = {
           width: value,
           height: '',
@@ -628,7 +628,7 @@ export default {
         localStorage.setItem('filter', JSON.stringify(filter))
         await this.filter(value, null, null, null, null, null, null)
       } else {
-        console.log('filterNotNullWidth')
+        // console.log('filterNotNullWidth')
         const filter = {
           width: value,
           height: filters.height,
@@ -647,7 +647,7 @@ export default {
     async filtersheight (height) {
       const filters = JSON.parse(localStorage.getItem('filter'))
       if (filters === null || filters === '' || filters === 'null') {
-        console.log('filterNullWidth')
+        // console.log('filterNullWidth')
         const filter = {
           width: '',
           height: height,
@@ -662,7 +662,7 @@ export default {
         localStorage.setItem('filter', JSON.stringify(filter))
         await this.filter(null, height, null, null, null, null, null)
       } else {
-        console.log('filterNotNullWidth')
+        // console.log('filterNotNullWidth')
         const filter = {
           width: filters.width,
           height: height,
@@ -681,7 +681,7 @@ export default {
     async filtersdiameter (diameter) {
       const filters = JSON.parse(localStorage.getItem('filter'))
       if (filters === null || filters === '' || filters === 'null') {
-        console.log('filterNullWidth')
+        // console.log('filterNullWidth')
         const filter = {
           width: '',
           height: '',
@@ -696,7 +696,7 @@ export default {
         localStorage.setItem('filter', JSON.stringify(filter))
         await this.filter(null, null, diameter, null, null, null, null)
       } else {
-        console.log('filterNotNullWidth')
+        // console.log('filterNotNullWidth')
         const filter = {
           width: filters.width,
           height: filters.height,
@@ -715,7 +715,7 @@ export default {
     async filterstype (type) {
       const filters = JSON.parse(localStorage.getItem('filter'))
       if (filters === null || filters === '' || filters === 'null') {
-        console.log('filterNullWidth')
+        // console.log('filterNullWidth')
         const filter = {
           width: '',
           height: '',
@@ -730,7 +730,7 @@ export default {
         localStorage.setItem('filter', JSON.stringify(filter))
         await this.filter(null, null, null, type, null, null, null)
       } else {
-        console.log('filterNotNullWidth')
+        // console.log('filterNotNullWidth')
         const filter = {
           width: filters.width,
           height: filters.height,
@@ -747,10 +747,10 @@ export default {
       }
     },
     async filterminmax (min, max) {
-      console.log('minmax', min + max)
+      // console.log('minmax', min + max)
       const filters = JSON.parse(localStorage.getItem('filter'))
       if (filters === null || filters === '' || filters === 'null') {
-        console.log('filterNullWidth')
+        // console.log('filterNullWidth')
         const filter = {
           width: '',
           height: '',
@@ -765,7 +765,7 @@ export default {
         localStorage.setItem('filter', JSON.stringify(filter))
         await this.filter(null, null, null, null, min, max, null)
       } else {
-        console.log('filterNotNullWidth')
+        // console.log('filterNotNullWidth')
         const filter = {
           width: filters.width,
           height: filters.height,
@@ -784,7 +784,7 @@ export default {
     async filterbrand (brandId) {
       const filters = JSON.parse(localStorage.getItem('filter'))
       if (filters === null || filters === '' || filters === 'null') {
-        console.log('filterNullWidth')
+        // console.log('filterNullWidth')
         const filter = {
           width: '',
           height: '',
@@ -799,7 +799,7 @@ export default {
         localStorage.setItem('filter', JSON.stringify(filter))
         await this.filter(null, null, null, null, null, null, brandId)
       } else {
-        console.log('filterNotNullWidth')
+        // console.log('filterNotNullWidth')
         const filter = {
           width: filters.width,
           height: filters.height,
@@ -811,7 +811,7 @@ export default {
           },
           brandId: brandId
         }
-        console.log('filterNotNullBrandID', filter)
+        // console.log('filterNotNullBrandID', filter)
         localStorage.setItem('filter', JSON.stringify(filter))
         await this.filter(null, null, null, null, null, null, brandId)
       }
@@ -828,30 +828,30 @@ export default {
       return (false)
     },
     async onChangePage (pageOfitems) {
-      // console.log('pagination', pageOfitems)
+      // // console.log('pagination', pageOfitems)
       for (var i = 0; i < pageOfitems.length; i++) {
         pageOfitems[i].regularPrice = pageOfitems[i].regularPrice.toLocaleString('en')
       }
       this.brand = pageOfitems
     },
     async product () {
-      // console.log('currency', document.querySelectorAll('currency'))
-      console.log(location.href)
+      // // console.log('currency', document.querySelectorAll('currency'))
+      // console.log(location.href)
       var split = await location.href
       split = await split.split('?')
       if (split.length > 1) {
         split = await split[1].split('=')
-        // console.log('tyre', split[0])
-        // console.log('value', split[1])
-        // console.log('splitURL', location.search.substring(1))
+        // // console.log('tyre', split[0])
+        // // console.log('value', split[1])
+        // // console.log('splitURL', location.search.substring(1))
         if (split[0] === 'width') {
           var splitfilter = location.search.substring(1)
           splitfilter = splitfilter.split('&')
-          console.log('splitURL1', splitfilter)
+          // console.log('splitURL1', splitfilter)
           splitfilter[0] = splitfilter[0].split('=')
           splitfilter[1] = splitfilter[1].split('=')
           splitfilter[2] = splitfilter[2].split('=')
-          console.log('splitURL1')
+          // console.log('splitURL1')
           if (splitfilter[0][1] !== null || splitfilter[0][1] !== '' || splitfilter[0][1] !== 'null' || splitfilter[1][1] !== null || splitfilter[1][1] !== '' || splitfilter[1][1] !== 'null' || splitfilter[2][1] !== null || splitfilter[2][1] !== '' || splitfilter[2][1] !== 'null') {
             const filter = {
               width: splitfilter[0][1],
@@ -882,40 +882,40 @@ export default {
             await this.filterwidth()
           }
           // await this.filter(splitfilter[0][1], splitfilter[1][1], splitfilter[2][1], null, null, null)
-          console.log('splitWidth', splitfilter[0][0])
+          // console.log('splitWidth', splitfilter[0][0])
         } else if (split[0] === 'promotionId') {
-          // console.log('istypess', decodeURIComponent(split[1]))
-          // console.log('istype', configsearch)
-          // console.log('promotions', split[1])
+          // // console.log('istypess', decodeURIComponent(split[1]))
+          // // console.log('istype', configsearch)
+          // // console.log('promotions', split[1])
           var configpromotion = {
             method: 'get',
             url: process.env.VUE_APP_API_URL + '/product'
           }
           axios(configpromotion).then(res => {
             let brands = res.data.data.products
-            // console.log('promotions', split[1])
+            // // console.log('promotions', split[1])
             brands = brands.filter((post, index) => {
-              // console.log('promotions', post.promotionId)
+              // // console.log('promotions', post.promotionId)
               return post.promotionId === parseInt(split[1])
             })
-            // console.log('detailb', brands)
-            // console.log('detailr', res.data.data.products)
+            // // console.log('detailb', brands)
+            // // console.log('detailr', res.data.data.products)
             this.brand = brands
             this.pageItem = this.brand
           })
         } else if (split[0] === 'brand') {
-          console.log('brands', split[1])
+          // console.log('brands', split[1])
           await this.filterbrand(split[1])
         } else if (split[0] === 'type') {
-          // console.log('brands', split[1])
+          // // console.log('brands', split[1])
           var splitfiltertype = location.search.substring(1)
-          console.log('type', decodeURIComponent(splitfiltertype))
+          // console.log('type', decodeURIComponent(splitfiltertype))
           splitfiltertype = decodeURIComponent(splitfiltertype).split('=')
-          console.log('type', splitfiltertype[1])
+          // console.log('type', splitfiltertype[1])
           await this.filterstype(splitfiltertype[1])
         }
       } else {
-        console.log('nohaveroute')
+        // console.log('nohaveroute')
         var config = {
           // headers: {
           //   'Access-Control-Allow-Origin': '*',
@@ -924,37 +924,37 @@ export default {
           method: 'get',
           url: process.env.VUE_APP_API_URL + '/product'
         }
-        // console.log('all null')
+        // // console.log('all null')
         axios(config).then(res => {
-          // console.log(res.data.data)
+          // // console.log(res.data.data)
           this.brand = res.data.data.products
           this.pageItem = this.brand
         })
       }
     },
     sortprice (value) {
-      console.log('value', this.brand)
+      // console.log('value', this.brand)
       this.sortaa = this.brand
       if (value.toString() === 'regularPrice') {
         this.sortaa.sort((a, b) => {
-          // console.log('regupricess', a.regularPrice + '====' + b.regularPrice)
+          // // console.log('regupricess', a.regularPrice + '====' + b.regularPrice)
           return Number(a.regularPrice.replace(/[^0-9.]+/g, '')) - Number(b.regularPrice.replace(/[^0-9.]+/g, ''))
         })
         this.brand = this.sortaa
         this.pageItem = this.brand
-        // console.log('regu', this.sortaa)
+        // // console.log('regu', this.sortaa)
       } else if (value.toString() === 'name') {
         // this.sortaa.sort((a, b) => {
-        //   // console.log('regupricesssname', this.sortaa)
+        //   // // console.log('regupricesssname', this.sortaa)
         //   return a.sku > b.sku ? 1 : b.sku > a.sku ? -1 : 0
         // })
         this.brand = this.sortaa.sort()
         this.pageItem = this.brand
-        // console.log('regu', this.sortaa)
+        // // console.log('regu', this.sortaa)
       }
     },
     buydetail (url, img, name, price, value, type, sku, brand) {
-      console.log('buy', url + '-' + img + '-' + name + '-' + price + '-' + this.$refs[value][0].localValue)
+      // console.log('buy', url + '-' + img + '-' + name + '-' + price + '-' + this.$refs[value][0].localValue)
       const cart = {
         url: url,
         img: img,
@@ -971,11 +971,11 @@ export default {
     async buycart (url, img, id, name, price, value, type, sku, brand) {
       if (JSON.parse(localStorage.getItem('cart')) === null) {
         localStorage.setItem('cart', JSON.stringify(this.checkcart))
-        console.log('ว่าง')
+        // console.log('ว่าง')
         var team = []
         // localStorage.setItem('test', JSON.stringify(team))
         const teams = await JSON.parse(localStorage.getItem('cart'))
-        console.log('teams', teams)
+        // console.log('teams', teams)
         await teams.push({
           url: url,
           img: img,
@@ -990,23 +990,23 @@ export default {
         await localStorage.setItem('cart', JSON.stringify(team))
         await teams.forEach((a) => {
           if (!this[a.name]) {
-            console.log('aname', a.name)
+            // console.log('aname', a.name)
             this[a.name] = { name: a.name, qty: 0, price: a.price, img: a.img, type: a.type, sku: a.sku, productId: a.productId }
             team.push(this[a.name])
           }
           this[a.name].qty += a.qty
         }, Object.create(null))
-        console.log('team', team)
+        // console.log('team', team)
         localStorage.setItem('test', JSON.stringify(team))
         localStorage.setItem('cart', JSON.stringify(team))
         location.replace('/cart')
         // location.reload()
       } else {
-        console.log('ไม่ว่าง')
+        // console.log('ไม่ว่าง')
         team = []
         // localStorage.setItem('test', JSON.stringify(team))
         const teams = await JSON.parse(localStorage.getItem('cart'))
-        console.log('teams', teams)
+        // console.log('teams', teams)
         await teams.push({
           url: url,
           img: img,
@@ -1021,13 +1021,13 @@ export default {
         await localStorage.setItem('cart', JSON.stringify(team))
         await teams.forEach((a) => {
           if (!this[a.name]) {
-            console.log('aname', a.name)
+            // console.log('aname', a.name)
             this[a.name] = { name: a.name, qty: 0, price: a.price, img: a.img, type: a.type, sku: a.sku, productId: a.productId }
             team.push(this[a.name])
           }
           this[a.name].qty += a.qty
         }, Object.create(null))
-        console.log('team', team)
+        // console.log('team', team)
         localStorage.setItem('test', JSON.stringify(team))
         localStorage.setItem('cart', JSON.stringify(team))
         location.replace('/cart')
@@ -1037,11 +1037,11 @@ export default {
     async addtocart (url, img, id, name, price, value, type, sku, brand) {
       if (JSON.parse(localStorage.getItem('cart')) === null) {
         localStorage.setItem('cart', JSON.stringify(this.checkcart))
-        console.log('ว่าง', id)
+        // console.log('ว่าง', id)
         var team = []
         // localStorage.setItem('test', JSON.stringify(team))
         const teams = await JSON.parse(localStorage.getItem('cart'))
-        // console.log('teams', teams)
+        // // console.log('teams', teams)
         await teams.push({
           url: url,
           img: img,
@@ -1053,27 +1053,27 @@ export default {
           sku: sku,
           brand: brand
         })
-        console.log('teams', teams)
+        // console.log('teams', teams)
         await localStorage.setItem('cart', JSON.stringify(team))
         await teams.forEach((a) => {
           if (!this[a.name]) {
-            console.log('aname', a.name)
+            // console.log('aname', a.name)
             this[a.name] = { name: a.name, qty: 0, price: a.price, img: a.img, type: a.type, sku: a.sku, productId: a.productId }
             team.push(this[a.name])
           }
           this[a.name].qty += a.qty
         }, Object.create(null))
-        console.log('team', team)
+        // console.log('team', team)
         localStorage.setItem('test', JSON.stringify(team))
         localStorage.setItem('cart', JSON.stringify(team))
         // location.replace('/checkout')
         location.reload()
       } else {
-        console.log('ว่าง', id)
+        // console.log('ว่าง', id)
         team = []
         // localStorage.setItem('test', JSON.stringify(team))
         const teams = await JSON.parse(localStorage.getItem('cart'))
-        // console.log('teams', teams)
+        // // console.log('teams', teams)
         await teams.push({
           url: url,
           img: img,
@@ -1085,17 +1085,17 @@ export default {
           sku: sku,
           brand: brand
         })
-        console.log('teams', teams)
+        // console.log('teams', teams)
         await localStorage.setItem('cart', JSON.stringify(team))
         await teams.forEach((a) => {
           if (!this[a.name]) {
-            console.log('aname', a.name)
+            // console.log('aname', a.name)
             this[a.name] = { name: a.name, qty: 0, price: a.price, img: a.img, type: a.type, sku: a.sku, productId: a.productId }
             team.push(this[a.name])
           }
           this[a.name].qty += a.qty
         }, Object.create(null))
-        console.log('team', team)
+        // console.log('team', team)
         localStorage.setItem('test', JSON.stringify(team))
         localStorage.setItem('cart', JSON.stringify(team))
         // location.replace('/checkout')

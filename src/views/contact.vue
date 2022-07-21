@@ -199,16 +199,16 @@ export default {
   },
   mounted () {
     this.languages = JSON.parse(localStorage.getItem('languages'))
-    console.log('lang', this.languages)
+    // console.log('lang', this.languages)
     if (this.languages === '' || this.languages === null || this.languages === 'null' || this.languages === undefined || this.languages === 'undefined') {
-      console.log('langNOTLANG')
+      // console.log('langNOTLANG')
       this.languages = 'TH'
     } else if (this.languages === 'TH') {
-      console.log('langTH')
+      // console.log('langTH')
     } else if (this.languages === 'EN') {
-      console.log('langEN')
+      // console.log('langEN')
     }
-    console.log('product')
+    // console.log('product')
     var config = {
       // headers: {
       //   'Access-Control-Allow-Origin': '*',
@@ -218,10 +218,10 @@ export default {
       url: process.env.VUE_APP_API_URL + '/product'
     }
     axios(config).then(res => {
-      console.log('product', res)
+      // console.log('product', res)
     })
     var x = document.querySelectorAll('.currency')
-    console.log('currency', x)
+    // console.log('currency', x)
     for (let i = 0, len = x.length; i < len; i++) {
       const num = Number(x[i].innerHTML).toLocaleString('en')
       x[i].innerHTML = num
@@ -230,9 +230,9 @@ export default {
   },
   methods: {
     sendContact () {
-      console.log('contact', this.data)
+      // console.log('contact', this.data)
       axios.post(process.env.VUE_APP_API_URL + '/contact', this.data).then(res => {
-        console.log('done')
+        // console.log('done')
         this.status = 1
         location.replace('#top')
         this.data = {}

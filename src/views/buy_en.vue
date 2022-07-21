@@ -493,17 +493,17 @@ export default {
   },
   mounted () {
     if (localStorage.getItem('coupon') === null) {
-      console.log('nullcoup')
+      // // console.log('nullcoup')
     } else {
-      console.log('notnullcoup')
+      // // console.log('notnullcoup')
       this.coupons = JSON.parse(localStorage.getItem('coupon'))
     }
     if (localStorage.getItem('info') === null) {
-      console.log('null of info')
+      // // console.log('null of info')
     } else {
-      console.log('not null of info')
+      // // console.log('not null of info')
       this.autoinfo = JSON.parse(localStorage.getItem('info'))
-      console.log('not null of info', this.autoinfo)
+      // // console.log('not null of info', this.autoinfo)
       this.address = this.autoinfo.address
       this.firstname = this.autoinfo.firstname
       this.lastname = this.autoinfo.lastname
@@ -513,42 +513,42 @@ export default {
     }
     this.dates = new Date(Date.now() + (24 * 60 * 60 * 1000))
     // this.dates = this.dates.toLocaleDateString()
-    console.log('date', this.dates.toLocaleDateString())
+    // // console.log('date', this.dates.toLocaleDateString())
     axios.get(process.env.VUE_APP_API_URL + '/installer').then((res) => {
       // this.testinstaller = res.data.data.installers
       this.installers = res.data.data.installers
       this.itemin = this.installers
       this.totalRows = this.itemin.length
       this.currentPage = 1
-      // console.log('installer', this.itemin)
+      // // console.log('installer', this.itemin)
     })
-    console.log(JSON.parse(localStorage.getItem('cart')))
+    // // console.log(JSON.parse(localStorage.getItem('cart')))
     this.cart = JSON.parse(localStorage.getItem('cart'))
     this.totalRows = this.itemin.length
     this.currentPage = 1
     this.items = this.cart
     for (var i = 0; i < this.cart.length; i++) {
       this.count += (this.cart[i].qty * this.cart[i].price)
-      console.log('countcart', this.count)
+      // // console.log('countcart', this.count)
     }
-    console.log('countcart', this.count)
+    // // console.log('countcart', this.count)
   },
   methods: {
     usecoupon () {
       if (localStorage.getItem('coupon') === null) {
-        console.log('nullofcode')
-        console.log('coupon', this.couponId)
+        // // console.log('nullofcode')
+        // // console.log('coupon', this.couponId)
         this.dates = new Date().getTime()
         axios.get(process.env.VUE_APP_API_URL + '/coupon').then(res => {
           this.coupon = res.data.data
-          console.log('couponssss', this.coupon)
+          // // console.log('couponssss', this.coupon)
           let promotion = this.coupon.filter((post, index) => {
-            console.log('coupon', this.couponId)
+            // // console.log('coupon', this.couponId)
             // var endDate = new Date(post.endAt).getTime()
             return post.name === this.couponId
           })
           if (promotion[0] === null || promotion[0] === 'null' || promotion[0] === '' || promotion[0] === undefined || promotion[0] === 'undefined') {
-            console.log('ไม่มีคูปอง')
+            // // console.log('ไม่มีคูปอง')
             this.stateCoup = null
             this.$bvModal.show('modal-NC')
           } else {
@@ -556,12 +556,12 @@ export default {
             this.dates = new Date().getTime()
             promotion = promotion.filter((post, index) => {
               var endDate = new Date(post.endAt).getTime()
-              console.log('ไม่มีคูปอง')
+              // // console.log('ไม่มีคูปอง')
               return endDate > this.dates
             })
-            console.log('coupDate', promotion)
+            // console.log('coupDate', promotion)
             if (promotion[0] === null || promotion[0] === 'null' || promotion[0] === '' || promotion[0] === undefined || promotion[0] === 'undefined') {
-              console.log('หมดอายุ')
+              // // console.log('หมดอายุ')
               this.stateCoup = null
               this.$bvModal.show('modal-NC2')
             } else {
@@ -572,9 +572,9 @@ export default {
           //   status: 1,
           //   promotion: promotion[0]
           // }
-          console.log('couponssss', this.coupon.type)
+          // // console.log('couponssss', this.coupon.type)
           if (this.coupon.type === 2) {
-            console.log('type')
+            // // console.log('type')
             this.coupons = {
               status: 1,
               promotion: promotion[0],
@@ -583,7 +583,7 @@ export default {
             }
             // this.count = this.count - this.coupon.amount
           } else if (this.coupon.type === 1) {
-            console.log('amout', (1 - (this.coupon.amount / 100)))
+            // // console.log('amout', (1 - (this.coupon.amount / 100)))
             // this.count = this.count * (1 - (this.coupon.amount / 100))
             this.coupons = {
               status: 1,
@@ -596,20 +596,20 @@ export default {
           this.$bvModal.hide('modal-1')
         })
       } else {
-        console.log('test')
+        // // console.log('test')
         this.coupons = JSON.parse(localStorage.getItem('coupon'))
-        console.log('test', this.coupons)
+        // // console.log('test', this.coupons)
         this.dates = new Date().getTime()
         axios.get(process.env.VUE_APP_API_URL + '/coupon').then(res => {
           this.coupon = res.data.data
-          console.log('couponssss', this.coupon)
+          // // console.log('couponssss', this.coupon)
           let promotion = this.coupon.filter((post, index) => {
-            console.log('coupon', this.couponId)
+            // // console.log('coupon', this.couponId)
             // var endDate = new Date(post.endAt).getTime()
             return post.name === this.couponId
           })
           if (promotion[0] === null || promotion[0] === 'null' || promotion[0] === '' || promotion[0] === undefined || promotion[0] === 'undefined') {
-            console.log('ไม่มีคูปอง')
+            // // console.log('ไม่มีคูปอง')
             this.stateCoup = null
             this.$bvModal.show('modal-NC')
           } else {
@@ -617,21 +617,21 @@ export default {
             this.dates = new Date().getTime()
             promotion = promotion.filter((post, index) => {
               var endDate = new Date(post.endAt).getTime()
-              console.log('ไม่มีคูปอง')
+              // // console.log('ไม่มีคูปอง')
               return endDate > this.dates
             })
-            console.log('coupDate', promotion)
+            // console.log('coupDate', promotion)
             if (promotion[0] === null || promotion[0] === 'null' || promotion[0] === '' || promotion[0] === undefined || promotion[0] === 'undefined') {
-              console.log('หมดอายุ')
+              // // console.log('หมดอายุ')
               this.stateCoup = null
               this.$bvModal.show('modal-NC2')
             } else {
               this.coupon = promotion[0]
             }
           }
-          console.log('couponssss', this.coupon.type)
+          // console.log('couponssss', this.coupon.type)
           if (this.coupon.type === 2) {
-            console.log('type')
+            // // console.log('type')
             this.coupons = {
               status: 1,
               promotion: promotion[0],
@@ -640,7 +640,7 @@ export default {
             }
             // this.count = this.count - this.coupon.amount
           } else if (this.coupon.type === 1) {
-            console.log('amout', (1 - (this.coupon.amount / 100)))
+            // // console.log('amout', (1 - (this.coupon.amount / 100)))
             // this.count = this.count * (1 - (this.coupon.amount / 100))
             this.coupons = {
               status: 1,
@@ -655,15 +655,15 @@ export default {
       }
     },
     async updateitem () {
-      console.log('aa', this.items)
+      // // console.log('aa', this.items)
       localStorage.setItem('cart', JSON.stringify(this.items))
       this.items = JSON.parse(localStorage.getItem('cart'))
-      console.log('sum', this.count)
+      // // console.log('sum', this.count)
       location.reload()
     },
     membercredit () {
       if (this.firstname === '' || this.lastname === '' || this.address.district === '' || this.address.province === '' || this.address.address === '' || this.address.zipCode === '' || this.phoneNo === '' || this.email === '') {
-        console.log('null')
+        // // console.log('null')
         location.replace('#information')
         this.information = 1
       } else {
@@ -679,7 +679,7 @@ export default {
           this.warranty.carBrand = false
           this.remark = false
         }
-        console.log('warranty', this.warranty)
+        // // console.log('warranty', this.warranty)
         if (this.coupons.status === 1) {
           this.data = {
             customerId: 'C001',
@@ -740,17 +740,17 @@ export default {
           totalPrice: this.count,
           detailList: this.items
         }
-        console.log('data', this.data)
-        console.log('datainfo', this.datainfo)
+        // // console.log('data', this.data)
+        // // console.log('datainfo', this.datainfo)
         localStorage.setItem('checkout', localStorage.getItem('cart'))
         localStorage.setItem('info', JSON.stringify(this.data))
-        console.log('id', this.data.shipment)
+        // // console.log('id', this.data.shipment)
         location.replace('/checkcredit')
       }
     },
     memberbank () {
       if (this.firstname === '' || this.lastname === '' || this.address.district === '' || this.address.province === '' || this.address.address === '' || this.address.zipCode === '' || this.phoneNo === '' || this.email === '') {
-        console.log('null')
+        // // console.log('null')
         location.replace('#information')
         this.information = 1
       } else {
@@ -766,7 +766,7 @@ export default {
           this.warranty.carBrand = false
           this.remark = false
         }
-        console.log('warranty', this.warranty)
+        // // console.log('warranty', this.warranty)
         if (this.coupons.status === 1) {
           this.data = {
             customerId: 'C001',
@@ -827,19 +827,19 @@ export default {
           totalPrice: this.count,
           detailList: this.items
         }
-        console.log('data', this.data)
-        console.log('datainfo', this.datainfo)
+        // // console.log('data', this.data)
+        // // console.log('datainfo', this.datainfo)
         localStorage.setItem('checkout', localStorage.getItem('cart'))
         localStorage.setItem('info', JSON.stringify(this.data))
         location.replace('/checkbank')
       }
     },
     removeitem (name) {
-      console.log('remove', name)
+      // // console.log('remove', name)
       this.items = this.items.filter((obj) => {
         return obj.name !== name
       })
-      console.log('remove: ', this.items)
+      // // console.log('remove: ', this.items)
       localStorage.setItem('test', JSON.stringify(this.items))
       localStorage.setItem('cart', JSON.stringify(this.items))
       location.reload()
@@ -855,7 +855,7 @@ export default {
       //   zipcode: '',
       //   type: true
       // }
-      console.log('status1')
+      // // console.log('status1')
     },
     chooseinstaller (value, add, province, id, district, zipCode, type) {
       this.shipment = {
@@ -873,10 +873,10 @@ export default {
       this.shipment.province = province
       this.shipment.zipcode = zipCode
       this.shipment.type = type
-      // console.log('choose', this.shipment.installerId)
+      // // console.log('choose', this.shipment.installerId)
       this.ins = value + ' ' + add
       if (province === 'กรุงเทพมหานคร' || province === 'ปทุมธานี' || province === 'นครปฐม' || province === 'นนทบุรี' || province === 'สมุทรปราการ' || province === 'สมุทรสาคร') {
-        console.log('ปทุมกรุงเทพ')
+        // // console.log('ปทุมกรุงเทพ')
         this.dates = new Date(Date.now() + (24 * 60 * 60 * 1000))
       } else {
         this.dates = new Date(Date.now() + (3 * (24 * 60 * 60 * 1000)))

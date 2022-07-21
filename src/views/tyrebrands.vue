@@ -114,7 +114,7 @@ export default {
     }
   },
   mounted () {
-    // console.log('brands', this.$route.params.name)
+    // // console.log('brands', this.$route.params.name)
     // this.brands = this.$route.params.name
     // if (this.brands === 'nitto') {
     //   this.brand = this.nitto

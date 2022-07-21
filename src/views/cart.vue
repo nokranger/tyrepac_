@@ -396,82 +396,82 @@ export default {
   },
   async mounted () {
     this.languages = JSON.parse(localStorage.getItem('languages'))
-    console.log('lang', this.languages)
+    // // console.log('lang', this.languages)
     if (this.languages === '' || this.languages === null || this.languages === 'null' || this.languages === undefined || this.languages === 'undefined') {
-      console.log('langNOTLANG')
+      // // console.log('langNOTLANG')
       this.languages = 'TH'
     } else if (this.languages === 'TH') {
-      console.log('langTH')
+      // // console.log('langTH')
     } else if (this.languages === 'EN') {
-      console.log('langEN')
+      // // console.log('langEN')
     }
     if (localStorage.getItem('coupon') === null) {
-      console.log('nullcoup')
+      // // console.log('nullcoup')
     } else {
-      console.log('notnullcoup')
+      // // console.log('notnullcoup')
       this.coupons = JSON.parse(localStorage.getItem('coupon'))
     }
     if (localStorage.getItem('cart') === null) {
-      console.log('show status')
+      // // console.log('show status')
       this.statuss = 0
       // this.cart = JSON.parse(localStorage.getItem('cart'))
     } else {
-      console.log('show status')
+      // // console.log('show status')
       this.statuss = 1
       this.cart = JSON.parse(localStorage.getItem('cart'))
       for (var i = 0; i < this.cart.length; i++) {
         this.counts += this.cart[i].qty
         // this.cart[i].price = this.cart[i].price.toLocaleString('en')
-        console.log('countcart', this.counts)
+        // // console.log('countcart', this.counts)
       }
-      console.log('countcart', this.counts)
+      // // console.log('countcart', this.counts)
     }
-    console.log(JSON.parse(localStorage.getItem('cart')))
+    // // console.log(JSON.parse(localStorage.getItem('cart')))
     this.cart = JSON.parse(localStorage.getItem('cart'))
     // this.items = this.cart
-    // console.log('countcart', this.cart[1].price)
+    // // console.log('countcart', this.cart[1].price)
     // for (var j = 0; j < this.cart.length; j++) {
     //   this.cart[j].price = this.cart[j].price.toLocaleString('en')
-    //   console.log('countcart', this.count)
+    //   // console.log('countcart', this.count)
     // }
     this.items = this.cart
     this.sortaa = this.items
     for (var c in this.items) {
-      console.log(c)
-      console.log('count', this.items[c].price)
+      // // console.log(c)
+      // // console.log('count', this.items[c].price)
       this.count = this.count + (this.items[c].price * this.items[c].qty)
     }
     // this.count = this.count.toLocaleString('en')
-    console.log('sum', this.count)
+    // console.log('sum', this.count)
   },
   methods: {
     usecoupon () {
       if (localStorage.getItem('coupon') === null) {
-        console.log('nullofcode')
-        console.log('coupon', this.couponId)
-        console.log('couponDATE', this.dates = new Date('2022-05-16 00:00:00'))
+        // // console.log('nullofcode')
+        // // console.log('coupon', this.couponId)
+        // // console.log('couponDATE', this.dates = new Date('2022-05-16 00:00:00'))
         // var d = new Date()
         this.dates = new Date().getTime()
-        console.log('DATE', this.dates)
+        // // console.log('DATE', this.dates)
         axios.get(process.env.VUE_APP_API_URL + '/coupon').then(res => {
           this.coupon = res.data.data
-          console.log('ALLcouponssss', this.coupon)
+          // // console.log('ALLcouponssss', this.coupon)
           let promotion = this.coupon.filter((post, index) => {
-            // console.log('coupon', this.couponId)
+            // // console.log('coupon', this.couponId)
             // var endDate = new Date(post.endAt).getTime()
             // if (endDate >= this.dates) {
-            //   console.log('moredate', post.endAt)
+            //   // console.log('moredate', post.endAt)
             //   return false
             // } else {
-            //   console.log('lessdate', post.endAt)
+            //   // console.log('lessdate', post.endAt)
             //   return post.name === this.couponId
             // }
-            // console.log('coupDate', post.endAt)
+            // // console.log('coupDate', post.endAt)
             return post.name === this.couponId
           })
-          console.log('coupPromotion', promotion[0])
+          // // console.log('coupPromotion', promotion[0])
           if (promotion[0] === null || promotion[0] === 'null' || promotion[0] === '' || promotion[0] === undefined || promotion[0] === 'undefined') {
-            console.log('ไม่มีคูปอง')
+            // // console.log('ไม่มีคูปอง')
             this.stateCoup = null
             this.$bvModal.show('modal-NC')
           } else {
@@ -479,12 +479,12 @@ export default {
             this.dates = new Date().getTime()
             promotion = promotion.filter((post, index) => {
               var endDate = new Date(post.endAt).getTime()
-              console.log('ไม่มีคูปอง')
+              // // console.log('ไม่มีคูปอง')
               return endDate > this.dates
             })
-            console.log('coupDate', promotion)
+            // // console.log('coupDate', promotion)
             if (promotion[0] === null || promotion[0] === 'null' || promotion[0] === '' || promotion[0] === undefined || promotion[0] === 'undefined') {
-              console.log('หมดอายุ')
+              // // console.log('หมดอายุ')
               this.stateCoup = null
               this.$bvModal.show('modal-NC2')
             } else {
@@ -495,9 +495,9 @@ export default {
           //   status: 1,
           //   promotion: promotion[0]
           // }
-          console.log('couponssssKKK', promotion[0])
+          // // console.log('couponssssKKK', promotion[0])
           if (this.coupon.type === 2) {
-            console.log('type')
+            // // console.log('type')
             this.coupons = {
               status: 1,
               promotion: promotion[0],
@@ -506,7 +506,7 @@ export default {
             }
             // this.count = this.count - this.coupon.amount
           } else if (this.coupon.type === 1) {
-            console.log('amout', (1 - (this.coupon.amount / 100)))
+            // // console.log('amout', (1 - (this.coupon.amount / 100)))
             // this.count = this.count * (1 - (this.coupon.amount / 100))
             this.coupons = {
               status: 1,
@@ -518,20 +518,20 @@ export default {
           localStorage.setItem('coupon', JSON.stringify(this.coupons))
         })
       } else {
-        console.log('test')
+        // // console.log('test')
         this.coupons = JSON.parse(localStorage.getItem('coupon'))
-        console.log('test', this.coupons)
+        // // console.log('test', this.coupons)
         this.dates = new Date().getTime()
         axios.get(process.env.VUE_APP_API_URL + '/coupon').then(res => {
           this.coupon = res.data.data
-          console.log('couponssss', this.coupon)
+          // // console.log('couponssss', this.coupon)
           let promotion = this.coupon.filter((post, index) => {
-            console.log('coupon', this.couponId)
+            // // console.log('coupon', this.couponId)
             // var endDate = new Date(post.endAt).getTime()
             return post.name === this.couponId
           })
           if (promotion[0] === null || promotion[0] === 'null' || promotion[0] === '' || promotion[0] === undefined || promotion[0] === 'undefined') {
-            console.log('ไม่มีคูปอง')
+            // // console.log('ไม่มีคูปอง')
             this.stateCoup = null
             this.$bvModal.show('modal-NC')
           } else {
@@ -539,21 +539,21 @@ export default {
             this.dates = new Date().getTime()
             promotion = promotion.filter((post, index) => {
               var endDate = new Date(post.endAt).getTime()
-              console.log('ไม่มีคูปอง')
+              // // console.log('ไม่มีคูปอง')
               return endDate > this.dates
             })
-            console.log('coupDate', promotion)
+            // // console.log('coupDate', promotion)
             if (promotion[0] === null || promotion[0] === 'null' || promotion[0] === '' || promotion[0] === undefined || promotion[0] === 'undefined') {
-              console.log('หมดอายุ')
+              // // console.log('หมดอายุ')
               this.stateCoup = null
               this.$bvModal.show('modal-NC2')
             } else {
               this.coupon = promotion[0]
             }
           }
-          console.log('couponssssKKKK', promotion[0])
+          // // console.log('couponssssKKKK', promotion[0])
           if (this.coupon.type === 2) {
-            console.log('type')
+            // // console.log('type')
             this.coupons = {
               status: 1,
               promotion: promotion[0],
@@ -562,7 +562,7 @@ export default {
             }
             // this.count = this.count - this.coupon.amount
           } else if (this.coupon.type === 1) {
-            console.log('amout', (1 - (this.coupon.amount / 100)))
+            // // console.log('amout', (1 - (this.coupon.amount / 100)))
             // this.count = this.count * (1 - (this.coupon.amount / 100))
             this.coupons = {
               status: 1,
@@ -576,19 +576,19 @@ export default {
       }
     },
     async updateitem () {
-      console.log('aa', this.items)
+      // // console.log('aa', this.items)
       localStorage.setItem('cart', JSON.stringify(this.items))
       this.items = JSON.parse(localStorage.getItem('cart'))
-      console.log('sum', this.count)
+      // // console.log('sum', this.count)
       localStorage.removeItem('coupon')
       location.reload()
     },
     removeitem (name) {
-      console.log('remove', name)
+      // // console.log('remove', name)
       this.items = this.items.filter((obj) => {
         return obj.name !== name
       })
-      console.log('remove: ', this.items)
+      // // console.log('remove: ', this.items)
       localStorage.setItem('test', JSON.stringify(this.items))
       localStorage.setItem('cart', JSON.stringify(this.items))
       localStorage.removeItem('coupon')

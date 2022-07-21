@@ -57,14 +57,14 @@ export default {
   },
   mounted () {
     this.languages = JSON.parse(localStorage.getItem('languages'))
-    console.log('lang', this.languages)
+    // console.log('lang', this.languages)
     if (this.languages === '' || this.languages === null || this.languages === 'null' || this.languages === undefined || this.languages === 'undefined') {
-      console.log('langNOTLANG')
+      // console.log('langNOTLANG')
       this.languages = 'TH'
     } else if (this.languages === 'TH') {
-      console.log('langTH')
+      // console.log('langTH')
     } else if (this.languages === 'EN') {
-      console.log('langEN')
+      // console.log('langEN')
     }
     var config = {
       // headers: {
@@ -73,17 +73,17 @@ export default {
       method: 'get',
       url: process.env.VUE_APP_API_URL + '/product'
     }
-    // console.log('all null')
+    // // console.log('all null')
     axios(config).then(res => {
-      // console.log(res.data.data)
+      // // console.log(res.data.data)
       this.brand = res.data.data.products
-      // console.log('brands', res.data.data.products)
+      // // console.log('brands', res.data.data.products)
       // const vvv = this.brand.find((post, index) => {
       //   if (post.prodId === 'TY001') {
       //     return true
       //   }
       // })
-      // console.log('asfaf', vvv)
+      // // console.log('asfaf', vvv)
     })
   }
 }

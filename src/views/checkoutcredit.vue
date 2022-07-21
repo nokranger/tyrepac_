@@ -211,31 +211,31 @@ export default ({
   mounted () {
     this.dates = new Date()
     this.languages = JSON.parse(localStorage.getItem('languages'))
-    console.log('lang', this.languages)
+    // console.log('lang', this.languages)
     if (this.languages === '' || this.languages === null || this.languages === 'null' || this.languages === undefined || this.languages === 'undefined') {
-      console.log('langNOTLANG')
+      // console.log('langNOTLANG')
       this.languages = 'TH'
     } else if (this.languages === 'TH') {
-      console.log('langTH')
+      // console.log('langTH')
     } else if (this.languages === 'EN') {
-      console.log('langEN')
+      // console.log('langEN')
     }
     // this.dates = this.dates.toLocaleDateString()
-    console.log(JSON.parse(localStorage.getItem('cart')))
+    // console.log(JSON.parse(localStorage.getItem('cart')))
     this.cart = JSON.parse(localStorage.getItem('checkout'))
     this.info = JSON.parse(localStorage.getItem('info'))
     this.items = this.cart
     for (var i = 0; i < this.cart.length; i++) {
       this.count += (this.cart[i].qty * this.cart[i].price)
-      console.log('countcart', this.count)
+      // console.log('countcart', this.count)
     }
-    console.log('countcart', this.count)
+    // console.log('countcart', this.count)
   },
   methods: {
     uploadImage () {
-      console.log('test')
+      // console.log('test')
       this.imgs = this.$refs.file.files[0]
-      console.log(this.$refs.file.files[0])
+      // console.log(this.$refs.file.files[0])
       const reader = new FileReader()
       reader.readAsDataURL(this.imgs)
       reader.onload = e => {
@@ -243,13 +243,13 @@ export default ({
       }
     },
     async checkout () {
-      console.log(JSON.parse(localStorage.getItem('info')))
+      // console.log(JSON.parse(localStorage.getItem('info')))
       this.data = await JSON.parse(localStorage.getItem('info'))
-      console.log('data', this.data)
+      // console.log('data', this.data)
       // localStorage.setItem('checkout', localStorage.getItem('cart'))
       await axios.post(process.env.VUE_APP_API_URL + '/order', this.data).then((res) => {
-        console.log('response', res.data.status.code)
-        console.log('response', res)
+        // console.log('response', res.data.status.code)
+        // console.log('response', res)
         if (res.data.status.code === 0) {
           // localStorage.setItem('info', JSON.stringify(this.data))
           localStorage.removeItem('cart')
@@ -260,7 +260,7 @@ export default ({
           localStorage.setItem('user', JSON.stringify(this.data))
           location.replace('/donecredit')
         } else if (res.data.status.code === 2) {
-          console.log('ไม่พบคูปอง')
+          // console.log('ไม่พบคูปอง')
           this.$bvModal.show('modal-NC')
         }
       }).catch((err) => {

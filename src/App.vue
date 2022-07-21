@@ -66,35 +66,35 @@ export default {
   mounted () {
     window.addEventListener('scroll', this.scrollFunction)
     if (JSON.parse(sessionStorage.getItem('cookie')) === true) {
-      console.log('truecookie')
+      // // console.log('truecookie')
       this.cookiewebs = 1
     } else {
       this.cookiewebs = 0
     }
     this.languages = JSON.parse(localStorage.getItem('languages'))
-    console.log('lang', this.languages)
+    // // console.log('lang', this.languages)
     if (this.languages === '' || this.languages === null || this.languages === 'null' || this.languages === undefined || this.languages === 'undefined') {
-      console.log('langNOTLANG')
+      // // console.log('langNOTLANG')
       this.languages = 'TH'
     } else if (this.languages === 'TH') {
-      console.log('langTH')
+      // // console.log('langTH')
     } else if (this.languages === 'EN') {
-      console.log('langEN')
+      // // console.log('langEN')
     }
   },
   methods: {
     cookieweb () {
-      console.log('cookie')
+      // // console.log('cookie')
       sessionStorage.setItem('cookie', true)
       if (JSON.parse(sessionStorage.getItem('cookie')) === true) {
-        console.log('truecookie')
+        // // console.log('truecookie')
         this.cookiewebs = 1
       } else {
         this.cookiewebs = 0
       }
     },
     scrollFunction () {
-      console.log('scroll')
+      // // console.log('scroll')
       var mybutton = document.getElementById('mybtn')
       if (document.body.scrollTop > 40 || document.documentElement.scrollTop > 40) {
         mybutton.style.display = 'block'
@@ -103,7 +103,7 @@ export default {
       }
     },
     backtotop () {
-      console.log('backtotop')
+      // // console.log('backtotop')
       document.body.scrollTop = 0
       document.documentElement.scrollTop = 0
     }
