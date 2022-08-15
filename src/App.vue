@@ -64,6 +64,15 @@ export default {
     }
   },
   mounted () {
+    // location.replace('http://www.tyrepac.co.th/')
+    console.log('https', window.location.protocol)
+    var http = window.location.protocol
+    if (http === 'https:') {
+      console.log('true')
+      location.replace('http://tyrepac.co.th/')
+    } else {
+      console.log('false')
+    }
     window.addEventListener('scroll', this.scrollFunction)
     if (JSON.parse(sessionStorage.getItem('cookie')) === true) {
       // // console.log('truecookie')
